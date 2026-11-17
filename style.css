@@ -1775,3 +1775,31 @@ img {
         gap: 0.75rem;
     }
 }
+
+
+/* ── SEÇÃO DOCUMENTAÇÃO (wiki + infográfico) ── */
+.docs-section {
+    scroll-margin-top: 110px;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.docs-grid .pub-card {
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+    .docs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 680px) {
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+}
