@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de identificação e barcode · Wiki do ATPBR</title>
+    <meta name="description" content="Sistema de identificação e barcode: como a plataforma identifica pacientes, amostras e ensaios.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Sistema de identificação e barcode</nav>
+            <h1>Sistema de identificação e barcode</h1>
+            <p class="wk-meta">Capítulo 9 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>Vários campos descritos no <a href="dicionario-de-dados.html">Dicionário de dados</a>, como o acrônimo do projeto, o centro coletor, os códigos de paciente e de amostra e o tipo de ômica, não servem apenas para descrever os dados: eles se combinam para formar o <strong>barcode</strong>, o identificador único de cada paciente, amostra e ensaio. O usuário não digita o barcode; a plataforma o gera automaticamente a partir desses campos.</p>
+<p>O ATPBR utiliza um sistema padronizado de identificação para garantir a rastreabilidade de participantes, amostras biológicas, experimentos e dados gerados ao longo de todo o ciclo de vida de um projeto ou estudo. Esse sistema é baseado em barcodes estruturados, que funcionam como identificadores únicos e persistentes dentro da plataforma.</p>
+<p>Inspirado no <a target="_blank" rel="noopener" href="https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/">barcode do The Cancer Genome Atlas (TCGA)</a>, o sistema de identificação do ATPBR foi adaptado para atender às necessidades específicas da pesquisa oncológica brasileira, incorporando requisitos de governança, desidentificação, integração multiômica e gestão de biobancos.</p>
+<p>O barcode constitui o principal mecanismo de ligação entre o material biológico armazenado no Banco Nacional de Tumores (BNT), os metadados registrados na plataforma e os arquivos gerados durante os processos analíticos. Dessa forma, uma mesma identificação acompanha a amostra desde sua coleta até a produção de resultados moleculares e sua disponibilização para pesquisa.</p>
+<h3 id="principios-do-sistema-de-identificacao">Princípios do Sistema de Identificação<a class="wk-anchor" href="#principios-do-sistema-de-identificacao" aria-label="Link para esta seção">#</a></h3>
+<p>O sistema de barcodes do ATPBR foi desenvolvido com base em quatro princípios fundamentais:</p>
+<p><strong>Identificação Única</strong></p>
+<p>Cada participante, amostra e ensaio recebe uma combinação única de códigos, eliminando ambiguidades e permitindo a identificação inequívoca dos objetos registrados na plataforma.</p>
+<p><strong>Rastreabilidade</strong></p>
+<p>Todos os dados produzidos no ATPBR podem ser vinculados à sua origem biológica e experimental. O sistema permite reconstruir o histórico completo de uma amostra, desde sua coleta, armazenamento e processamento até a geração dos arquivos ômicos associados.</p>
+<p><strong>Desidentificação</strong></p>
+<p>Os identificadores não contêm informações pessoais ou dados que permitam a identificação direta dos participantes, e a correspondência entre os códigos e as pessoas fica guardada apenas na instituição de origem. Como o barcode liga, de propósito, todos os registros de um mesmo participante, os dados são <strong>pseudonimizados</strong>, e não anônimos: por isso, continuam protegidos como dados pessoais sensíveis (veja <a href="governanca-de-dados.html">Governança de dados</a>).</p>
+<p><strong>Interoperabilidade</strong></p>
+<p>A estrutura dos barcodes foi projetada para facilitar a integração entre os diferentes módulos do ATPBR e promover compatibilidade com padrões amplamente utilizados em repositórios e plataformas de dados biomédicos.</p>
+<h3 id="material-biologico-e-objetos-digitais">Material Biológico e Objetos Digitais<a class="wk-anchor" href="#material-biologico-e-objetos-digitais" aria-label="Link para esta seção">#</a></h3>
+<p>O mesmo barcode é utilizado para conectar diferentes componentes da infraestrutura do ATPBR.</p>
+<p>No ambiente físico, ele identifica materiais armazenados no Banco Nacional de Tumores, incluindo tecidos, sangue, plasma e outras amostras biológicas.</p>
+<p>No ambiente digital, o identificador é utilizado para associar:</p>
+<ul>
+<li>Metadados clínicos.</li>
+<li>Informações experimentais.</li>
+<li>Arquivos FASTQ.</li>
+<li>Arquivos processados.</li>
+<li>Resultados analíticos.</li>
+<li>Registros de processamento e proveniência.</li>
+</ul>
+<p>Essa estratégia garante consistência entre as diferentes camadas da plataforma e permite rastrear a origem de qualquer dado disponível no ATPBR.</p>
+<h3 id="estrutura-do-barcode">Estrutura do Barcode<a class="wk-anchor" href="#estrutura-do-barcode" aria-label="Link para esta seção">#</a></h3>
+<p>O identificador do ATPBR <strong>não é um código único</strong>: ele é construído de forma <strong>incremental e aninhada</strong>, acompanhando a hierarquia do <a href="modelo-de-dados.html">Modelo de dados</a> (<strong>Paciente → Amostra → Ensaio</strong>). Cada nível reaproveita integralmente o barcode do nível anterior e acrescenta os seus próprios campos.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Nível</th>
+<th style="text-align:left">O que é identificado</th>
+<th style="text-align:left">Composição</th>
+<th style="text-align:left">Exemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Paciente</strong></td>
+<td style="text-align:left">o participante do estudo</td>
+<td style="text-align:left"><code>PROJETO-CÂNCER-CENTRO-PARTICIPANTE</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Amostra</strong></td>
+<td style="text-align:left">o material biológico coletado</td>
+<td style="text-align:left"><code>‹barcode do paciente›-AMOSTRA-TIPO</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234-5678-01AB</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Ensaio</strong></td>
+<td style="text-align:left">o experimento ômico sobre a amostra</td>
+<td style="text-align:left"><code>‹barcode da amostra›-ENSAIO</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234-5678-01AB-G0101</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Por isso, o barcode &quot;completo&quot; de <strong>sete campos</strong> só existe no nível de <strong>ensaio</strong>: ele é o resultado de empilhar os três níveis. Lido da esquerda para a direita, separado por hífens (<code>-</code>), a estrutura completa é:</p>
+<p><code>PROJETO-CÂNCER-CENTRO-PARTICIPANTE-AMOSTRA-TIPO-ENSAIO</code></p>
+<p>Exemplo:</p>
+<p><code>ATPBR-56-001-1234-5678-01AB-G0101</code></p>
+<p>Cada componente do identificador é descrito nas seções seguintes.</p>
+<h3 id="interpretacao-do-barcode">Interpretação do Barcode<a class="wk-anchor" href="#interpretacao-do-barcode" aria-label="Link para esta seção">#</a></h3>
+<p>Cada segmento do barcode ATPBR possui um significado específico e representa uma informação associada ao projeto, participante, amostra ou ensaio experimental.</p>
+<p>Considerando o exemplo:</p>
+<p><code>ATPBR-56-001-1234-5678-01AB-G0101</code></p>
+<p>A interpretação é a seguinte:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Campo</th>
+<th style="text-align:left">Valor</th>
+<th style="text-align:left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Projeto</td>
+<td style="text-align:left">ATPBR</td>
+<td style="text-align:left">Atlas Tumoral da População Brasileira</td>
+</tr>
+<tr>
+<td style="text-align:left">Câncer (CID-10)</td>
+<td style="text-align:left">56</td>
+<td style="text-align:left">Neoplasia maligna do ovário (C56)</td>
+</tr>
+<tr>
+<td style="text-align:left">Centro Participante</td>
+<td style="text-align:left">001</td>
+<td style="text-align:left">Instituto Nacional de Câncer (INCA)</td>
+</tr>
+<tr>
+<td style="text-align:left">Participante</td>
+<td style="text-align:left">1234</td>
+<td style="text-align:left">Código do participante</td>
+</tr>
+<tr>
+<td style="text-align:left">Amostra</td>
+<td style="text-align:left">5678</td>
+<td style="text-align:left">Identificador da amostra biológica</td>
+</tr>
+<tr>
+<td style="text-align:left">Tipo de Amostra</td>
+<td style="text-align:left">01AB</td>
+<td style="text-align:left">Tecido tumoral maligno congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">Ensaio</td>
+<td style="text-align:left">G0101</td>
+<td style="text-align:left">Sequenciamento de genoma completo (WGS), corrida 01, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<p>Portanto, o barcode acima identifica uma amostra de tecido tumoral maligno congelado proveniente de uma paciente com câncer de ovário, coletada no INCA no contexto do projeto ATPBR e submetida a um ensaio de sequenciamento de genoma completo.</p>
+<h3 id="significado-dos-codigos">Significado dos Códigos<a class="wk-anchor" href="#significado-dos-codigos" aria-label="Link para esta seção">#</a></h3>
+<ul>
+<li><strong>Código do Projeto</strong></li>
+</ul>
+<p>É o <strong>acrônimo do projeto</strong>, definido pelo usuário no cadastro do Projeto. Deve ter de <strong>5 a 7 letras maiúsculas</strong> e é único na plataforma: cada projeto tem o seu.</p>
+<p>Exemplo:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Projeto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ATPBR</td>
+<td style="text-align:left">Atlas Tumoral da População Brasileira</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Código do Câncer (CID-10)</strong></li>
+</ul>
+<p>Identifica o diagnóstico oncológico do participante pela <strong>categoria da Classificação Internacional de Doenças (CID-10)</strong>, representada pelos 2 dígitos do código, sem a letra &quot;C&quot;. Por exemplo, a categoria C56 (neoplasia maligna do ovário) entra no barcode como <code>56</code>.</p>
+<blockquote>
+<p><strong>Como esse código é definido:</strong> o usuário <strong>não digita</strong> o código. No <strong>cadastro do Paciente</strong>, ele informa o tipo de câncer (classificação OncoTree, entre os tipos do tecido definido no Estudo), o subtipo, quando conhecido, e o órgão de origem do tumor. A partir dessas respostas, a plataforma calcula automaticamente a categoria CID-10 correspondente, e é esse valor que entra no barcode. Nas neoplasias hematológicas (leucemias, linfomas, mieloma), a categoria é definida pelo subtipo, independentemente do órgão.</p>
+</blockquote>
+<p>Exemplos de códigos:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Categoria CID-10</th>
+<th style="text-align:left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">C15</td>
+<td style="text-align:left">Esôfago</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">C16</td>
+<td style="text-align:left">Estômago</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">C18</td>
+<td style="text-align:left">Cólon</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">C20</td>
+<td style="text-align:left">Reto</td>
+</tr>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left">C34</td>
+<td style="text-align:left">Brônquios e pulmão</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left">C43</td>
+<td style="text-align:left">Melanoma</td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left">C44</td>
+<td style="text-align:left">Outras neoplasias de pele</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">C50</td>
+<td style="text-align:left">Mama</td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left">C53</td>
+<td style="text-align:left">Colo do útero</td>
+</tr>
+<tr>
+<td style="text-align:left">56</td>
+<td style="text-align:left">C56</td>
+<td style="text-align:left">Ovário</td>
+</tr>
+<tr>
+<td style="text-align:left">61</td>
+<td style="text-align:left">C61</td>
+<td style="text-align:left">Próstata</td>
+</tr>
+<tr>
+<td style="text-align:left">91</td>
+<td style="text-align:left">C91</td>
+<td style="text-align:left">Leucemia linfoide</td>
+</tr>
+<tr>
+<td style="text-align:left">92</td>
+<td style="text-align:left">C92</td>
+<td style="text-align:left">Leucemia mieloide</td>
+</tr>
+<tr>
+<td style="text-align:left">99</td>
+<td style="text-align:left">(não se aplica)</td>
+<td style="text-align:left">Neoplasia não maligna (benigna, in situ ou de comportamento incerto)</td>
+</tr>
+</tbody>
+</table></div>
+<p>São aceitas as categorias de neoplasias malignas da CID-10 (C00 a C97), além do código <code>99</code> para neoplasias não malignas. A lista completa está disponível na planilha de metadados. Os códigos são estáveis: os já em uso nunca são alterados.</p>
+<ul>
+<li><strong>Código do Centro Participante</strong></li>
+</ul>
+<p>Identifica o <strong>centro coletor</strong>, a instituição responsável pela coleta ou submissão da amostra. Cada centro recebe um código de <strong>3 dígitos</strong>.</p>
+<p><strong>Como o centro entra no sistema:</strong></p>
+<ol>
+<li>A instituição é <strong>cadastrada pelo usuário na criação do Projeto</strong>, junto com o seu identificador <strong>ROR</strong>.</li>
+<li>A partir daí, ela passa a aparecer no <strong>vocabulário controlado &quot;Collector Center&quot;</strong> e fica disponível para seleção <strong>no cadastro de um paciente</strong>.</li>
+<li>O código gravado no barcode é o da instituição selecionada nesse vocabulário.</li>
+</ol>
+<p><strong>Os códigos são globais e permanentes:</strong></p>
+<ul>
+<li>Cada instituição tem <strong>um único código fixo em toda a plataforma</strong>, identificada de forma única pelo seu <strong>ROR id</strong>, de modo que o mesmo centro real sempre resolve para o mesmo código.</li>
+<li>Um <strong>novo código só é gerado quando a instituição ainda não foi selecionada na plataforma antes</strong>; centros já utilizados reaproveitam o código existente.</li>
+<li>Os códigos <strong>nunca são reutilizados nem removidos</strong>, para que os barcodes de amostras já cadastradas permaneçam válidos.</li>
+</ul>
+<p>Centros pré-definidos:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Instituição</th>
+<th style="text-align:left">ROR id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">Instituto Nacional de Câncer (INCA)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/055n68305">055n68305</a></td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">Instituto do Câncer do Estado de São Paulo (ICESP)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/005vqqr19">005vqqr19</a></td>
+</tr>
+<tr>
+<td style="text-align:left">003</td>
+<td style="text-align:left">Instituto do Câncer do Ceará (ICC)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/01pg9bv14">01pg9bv14</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>Novos centros recebem o próximo código sequencial disponível, na ordem em que são utilizados pela primeira vez.</p>
+<ul>
+<li><strong>Código do Participante</strong></li>
+</ul>
+<p>Código de <strong>4 dígitos</strong> que identifica o participante. É <strong>definido pelo centro coletor</strong> e informado no campo patient_id do cadastro do paciente.</p>
+<p>Exemplo:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1234</td>
+<td style="text-align:left">Código do participante</td>
+</tr>
+</tbody>
+</table></div>
+<p>O código não deve ter qualquer relação com dados pessoais do participante: não use, por exemplo, o número do prontuário nem partes da data de nascimento.</p>
+<ul>
+<li><strong>Código da Amostra</strong></li>
+</ul>
+<p>Código de <strong>4 dígitos</strong> que identifica a amostra biológica vinculada a um participante. Também é <strong>definido pelo centro coletor</strong> e informado no campo sample_id do cadastro da amostra.</p>
+<p>Exemplo:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5678</td>
+<td style="text-align:left">Amostra biológica específica</td>
+</tr>
+</tbody>
+</table></div>
+<p>Um mesmo participante pode possuir múltiplas amostras. A plataforma não aceita dois registros com o mesmo barcode e avisa quando detecta um possível cadastro em duplicidade.</p>
+<ul>
+<li><strong>Código do Tipo de Amostra</strong></li>
+</ul>
+<p>O campo Tipo de Amostra é composto por quatro caracteres e descreve simultaneamente o material biológico, o status patológico e a forma de preservação da amostra.</p>
+<p>Estrutura:</p>
+<p><code>TTSP</code></p>
+<p>Onde:</p>
+<ul>
+<li><strong>TT</strong> = Tipo de material (2 dígitos)</li>
+<li><strong>S</strong> = Status da amostra (1 letra)</li>
+<li><strong>P</strong> = Preservação da amostra (1 letra)</li>
+</ul>
+<p>Por exemplo, <code>01AB</code> corresponde a:</p>
+<ul>
+<li><strong>01</strong> = Tecido (<em>Tissue</em>)</li>
+<li><strong>A</strong> = Tumoral maligno (<em>Malignant Tumor</em>)</li>
+<li><strong>B</strong> = Congelado (<em>Frozen</em>)</li>
+</ul>
+<p>Resultado: <strong>Tecido tumoral maligno congelado</strong>.</p>
+<blockquote>
+<p><strong>Idioma dos valores:</strong> na plataforma, os rótulos destes vocabulários aparecem <strong>em inglês</strong>, para manter a conformidade entre todos os projetos. As tabelas abaixo trazem o rótulo oficial (EN) e a tradução em português (PT). O que entra no barcode é sempre o <strong>código</strong> (a coluna da esquerda), não o texto.</p>
+</blockquote>
+<p><strong>Códigos de Tipo de Material</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Sample Type (EN)</th>
+<th style="text-align:left">Tipo de Material (PT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">Tissue</td>
+<td style="text-align:left">Tecido</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Blood</td>
+<td style="text-align:left">Sangue</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Plasma</td>
+<td style="text-align:left">Plasma</td>
+</tr>
+<tr>
+<td style="text-align:left">04</td>
+<td style="text-align:left">Serum</td>
+<td style="text-align:left">Soro</td>
+</tr>
+<tr>
+<td style="text-align:left">05</td>
+<td style="text-align:left">Bone Marrow</td>
+<td style="text-align:left">Medula Óssea</td>
+</tr>
+<tr>
+<td style="text-align:left">06</td>
+<td style="text-align:left">Peritoneal Fluid</td>
+<td style="text-align:left">Líquido Peritoneal</td>
+</tr>
+<tr>
+<td style="text-align:left">07</td>
+<td style="text-align:left">Synovial Fluid</td>
+<td style="text-align:left">Líquido Sinovial</td>
+</tr>
+<tr>
+<td style="text-align:left">08</td>
+<td style="text-align:left">Pericardial Fluid</td>
+<td style="text-align:left">Líquido Pericárdico</td>
+</tr>
+<tr>
+<td style="text-align:left">09</td>
+<td style="text-align:left">Cerebrospinal Fluid</td>
+<td style="text-align:left">Líquido Cefalorraquidiano</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">Bronchial Lavage</td>
+<td style="text-align:left">Lavado Brônquico</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">Urine</td>
+<td style="text-align:left">Urina</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">Saliva</td>
+<td style="text-align:left">Saliva</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">Sputum</td>
+<td style="text-align:left">Escarro</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">Feces</td>
+<td style="text-align:left">Fezes</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">Skin</td>
+<td style="text-align:left">Pele</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left">Cells</td>
+<td style="text-align:left">Células</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">Breast Secretion</td>
+<td style="text-align:left">Secreção Mamária</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left">Pleural Fluid</td>
+<td style="text-align:left">Líquido Pleural</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">Extracellular Vesicles</td>
+<td style="text-align:left">Vesículas Extracelulares / Exossomos</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left">Aspiration Biopsy</td>
+<td style="text-align:left">Biópsia Aspirativa</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left">Buffy Coat</td>
+<td style="text-align:left">Camada Leucoplaquetária (Buffy Coat)</td>
+</tr>
+</tbody>
+</table></div>
+<p>O código 11 não é utilizado.</p>
+<p><strong>Códigos de Status da Amostra</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Sample Status (EN)</th>
+<th style="text-align:left">Status da Amostra (PT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">Malignant Tumor</td>
+<td style="text-align:left">Tumoral Maligno</td>
+</tr>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">Benign Tumor</td>
+<td style="text-align:left">Tumoral Benigno</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Lesion</td>
+<td style="text-align:left">Lesão</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Metastasis</td>
+<td style="text-align:left">Metástase</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">Normal - Adjacent</td>
+<td style="text-align:left">Normal Adjacente</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Normal - Distant</td>
+<td style="text-align:left">Normal Distante</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Lymph Node - Metastatic</td>
+<td style="text-align:left">Linfonodo Metastático</td>
+</tr>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:left">Lymph Node - Reactive</td>
+<td style="text-align:left">Linfonodo Reacional</td>
+</tr>
+<tr>
+<td style="text-align:left">I</td>
+<td style="text-align:left">Inflammation</td>
+<td style="text-align:left">Inflamação</td>
+</tr>
+<tr>
+<td style="text-align:left">J</td>
+<td style="text-align:left">Cell Line</td>
+<td style="text-align:left">Linhagem Celular</td>
+</tr>
+<tr>
+<td style="text-align:left">K</td>
+<td style="text-align:left">Normal Non Tumoral</td>
+<td style="text-align:left">Normal Não Tumoral</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Códigos de Preservação da Amostra</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Sample Preservation (EN)</th>
+<th style="text-align:left">Preservação da Amostra (PT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">Fresh</td>
+<td style="text-align:left">Fresco</td>
+</tr>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">Frozen</td>
+<td style="text-align:left">Congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">FFPE (Formalin-Fixed, Paraffin-Embedded)</td>
+<td style="text-align:left">FFPE (fixado em formalina e incluído em parafina)</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Paraformaldehyde (PFA)</td>
+<td style="text-align:left">Paraformaldeído (PFA)</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">RNAlater</td>
+<td style="text-align:left">RNAlater</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Culture Medium</td>
+<td style="text-align:left">Meio de Cultura</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Saline Buffer</td>
+<td style="text-align:left">Tampão Salino</td>
+</tr>
+<tr>
+<td style="text-align:left">L</td>
+<td style="text-align:left">Saline Solution</td>
+<td style="text-align:left">Solução Salina</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Anticoagulantes:</strong> o aditivo do tubo de coleta (por exemplo, EDTA ou citrato) é informado em um campo próprio, collection_tube_additive, que é opcional e <strong>não entra no barcode</strong>.</p>
+</blockquote>
+<p><strong>Exemplos de Interpretação</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01AB</td>
+<td style="text-align:left">Tecido tumoral maligno congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">01AC</td>
+<td style="text-align:left">Tecido tumoral maligno preservado em FFPE</td>
+</tr>
+<tr>
+<td style="text-align:left">01EB</td>
+<td style="text-align:left">Tecido normal adjacente congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">02KB</td>
+<td style="text-align:left">Sangue normal não tumoral congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">22KB</td>
+<td style="text-align:left">Buffy coat normal não tumoral congelado</td>
+</tr>
+<tr>
+<td style="text-align:left">17JF</td>
+<td style="text-align:left">Linhagem celular mantida em meio de cultura</td>
+</tr>
+<tr>
+<td style="text-align:left">20AB</td>
+<td style="text-align:left">Vesículas extracelulares tumorais malignas congeladas</td>
+</tr>
+</tbody>
+</table></div>
+<p>A combinação desses códigos permite descrever de forma compacta e padronizada as principais características biológicas e operacionais de cada amostra, mantendo a rastreabilidade ao longo de todo o fluxo de trabalho do ATPBR.</p>
+<ul>
+<li><strong>Código do Ensaio</strong></li>
+</ul>
+<p>O campo <strong>Ensaio</strong> identifica a modalidade ômica utilizada e informações associadas à execução experimental. Esse campo permite distinguir diferentes experimentos realizados sobre uma mesma amostra e manter a rastreabilidade dos dados gerados.</p>
+<p>Estrutura:</p>
+<p><code>OCCLL</code></p>
+<p>Onde:</p>
+<ul>
+<li><strong>O</strong> = Modalidade ômica (1 caractere)</li>
+<li><strong>CC</strong> = Número da corrida experimental (2 dígitos)</li>
+<li><strong>LL</strong> = Número da lane (2 dígitos)</li>
+</ul>
+<p>Por exemplo:</p>
+<p><code>G0101</code></p>
+<p>corresponde a:</p>
+<ul>
+<li><strong>G</strong> = Whole Genome Sequencing (WGS)</li>
+<li><strong>01</strong> = Primeira corrida</li>
+<li><strong>01</strong> = Lane 1</li>
+</ul>
+<p>Resultado:</p>
+<p><strong>Sequenciamento de Genoma Completo (WGS), corrida 01, lane 01</strong></p>
+<h4 id="codigos-de-modalidades-omicas">Códigos de Modalidades Ômicas<a class="wk-anchor" href="#codigos-de-modalidades-omicas" aria-label="Link para esta seção">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Modalidade Ômica (EN)</th>
+<th style="text-align:left">Tradução (PT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Whole Genome Sequencing (WGS)</td>
+<td style="text-align:left">Sequenciamento de Genoma Completo</td>
+</tr>
+<tr>
+<td style="text-align:left">X</td>
+<td style="text-align:left">Whole Exome Sequencing (WES)</td>
+<td style="text-align:left">Sequenciamento de Exoma Completo</td>
+</tr>
+<tr>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA-Seq</td>
+<td style="text-align:left">Sequenciamento de RNA</td>
+</tr>
+<tr>
+<td style="text-align:left">P</td>
+<td style="text-align:left">Gene Panel Sequencing</td>
+<td style="text-align:left">Sequenciamento por Painel Gênico</td>
+</tr>
+</tbody>
+</table></div>
+<p>Os códigos M (metilação de DNA) e B (metilação de DNA 5-base) estão reservados para versões futuras (veja as modalidades aceitas em <a href="tipos-de-dados.html">Tipos de dados</a>).</p>
+<h4 id="numero-da-corrida">Número da Corrida<a class="wk-anchor" href="#numero-da-corrida" aria-label="Link para esta seção">#</a></h4>
+<p>Número sequencial <strong>atribuído automaticamente pela plataforma</strong>. O usuário <strong>não define</strong> esse número manualmente.</p>
+<p>A corrida é identificada pela combinação de três campos informados em cada Experimento: <strong>data de sequenciamento</strong>, <strong>centro de sequenciamento</strong> e <strong>plataforma de sequenciamento</strong>. A numeração é feita dentro de cada <strong>Estudo</strong>:</p>
+<ul>
+<li>A primeira combinação registrada no Estudo recebe <code>01</code>, a segunda recebe <code>02</code>, e assim por diante.</li>
+<li>Experimentos com a mesma data, o mesmo centro e a mesma plataforma pertencem à mesma corrida e recebem o mesmo número.</li>
+<li>Uma vez atribuído, o número da corrida não muda.</li>
+</ul>
+<p>Por isso, esses três campos são obrigatórios e devem ser preenchidos com cuidado. Além de distinguir repetições técnicas e novas execuções do mesmo experimento, essa identificação <strong>facilita análises de efeito de lote (batch) posteriores</strong>, em que é importante saber quais dados foram gerados em corridas diferentes.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">Primeira corrida</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Segunda corrida</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Terceira corrida</td>
+</tr>
+<tr>
+<td style="text-align:left">...</td>
+<td style="text-align:left">Corridas subsequentes</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="numero-da-lane">Número da Lane<a class="wk-anchor" href="#numero-da-lane" aria-label="Link para esta seção">#</a></h4>
+<p>Representa a lane de sequenciamento utilizada durante a corrida.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">Lane 1</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Lane 2</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Lane 3</td>
+</tr>
+<tr>
+<td style="text-align:left">04</td>
+<td style="text-align:left">Lane 4</td>
+</tr>
+<tr>
+<td style="text-align:left">...</td>
+<td style="text-align:left">Demais lanes</td>
+</tr>
+</tbody>
+</table></div>
+<p>A identificação da lane auxilia na rastreabilidade técnica e na investigação de possíveis problemas relacionados ao sequenciamento.</p>
+<h3 id="exemplos-de-interpretacao">Exemplos de Interpretação<a class="wk-anchor" href="#exemplos-de-interpretacao" aria-label="Link para esta seção">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Código</th>
+<th style="text-align:left">Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">G0101</td>
+<td style="text-align:left">WGS, corrida 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">X0102</td>
+<td style="text-align:left">WES, corrida 01, lane 02</td>
+</tr>
+<tr>
+<td style="text-align:left">R0201</td>
+<td style="text-align:left">RNA-Seq, corrida 02, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">P0101</td>
+<td style="text-align:left">Painel gênico, corrida 01, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="exemplos-de-barcodes-completos">Exemplos de Barcodes Completos<a class="wk-anchor" href="#exemplos-de-barcodes-completos" aria-label="Link para esta seção">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Barcode</th>
+<th style="text-align:left">Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ATPBR-56-001-1234-5678-01AB-G0101</td>
+<td style="text-align:left">Amostra de tecido tumoral maligno congelado de câncer de ovário submetida a WGS na corrida 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">ATPBR-50-002-3456-7890-01AC-R0101</td>
+<td style="text-align:left">Amostra de tecido tumoral maligno preservado em FFPE de câncer de mama submetida a RNA-Seq na corrida 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">ATPBR-61-003-4321-8765-02KB-X0201</td>
+<td style="text-align:left">Amostra de sangue normal não tumoral congelado de câncer de próstata submetida a WES na corrida 02, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<p>A combinação do código de ensaio com os demais campos do barcode permite identificar de forma única o contexto biológico e experimental associado aos dados produzidos no ATPBR, garantindo rastreabilidade desde a amostra física até os arquivos gerados pelo sequenciamento.</p>
+<h3 id="referencias">Referências<a class="wk-anchor" href="#referencias" aria-label="Link para esta seção">#</a></h3>
+<ul>
+<li>National Cancer Institute. Genomic Data Commons. <em>TCGA Barcode</em>. GDC Docs. Disponível em: <a target="_blank" rel="noopener" href="https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/">https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/</a></li>
+</ul>
+<hr />
+<p><strong>Próximo capítulo → <a href="tipos-de-dados.html">Tipos de dados</a>:</strong> os formatos aceitos para metadados e arquivos de sequenciamento, e os arquivos que a plataforma gera a partir deles.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="dicionario-de-dados.html"><small>← Anterior</small>Dicionário de dados</a>
+                <a class="wk-next" href="tipos-de-dados.html"><small>Próximo →</small>Tipos de dados</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html" aria-current="page">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#principios-do-sistema-de-identificacao">Princípios do Sistema de Identificação</a></li>
+<li class=""><a href="#material-biologico-e-objetos-digitais">Material Biológico e Objetos Digitais</a></li>
+<li class=""><a href="#estrutura-do-barcode">Estrutura do Barcode</a></li>
+<li class=""><a href="#interpretacao-do-barcode">Interpretação do Barcode</a></li>
+<li class=""><a href="#significado-dos-codigos">Significado dos Códigos</a></li>
+<li class="wk-sub"><a href="#codigos-de-modalidades-omicas">Códigos de Modalidades Ômicas</a></li>
+<li class="wk-sub"><a href="#numero-da-corrida">Número da Corrida</a></li>
+<li class="wk-sub"><a href="#numero-da-lane">Número da Lane</a></li>
+<li class=""><a href="#exemplos-de-interpretacao">Exemplos de Interpretação</a></li>
+<li class=""><a href="#exemplos-de-barcodes-completos">Exemplos de Barcodes Completos</a></li>
+<li class=""><a href="#referencias">Referências</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>

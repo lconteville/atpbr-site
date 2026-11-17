@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegador de resultados · Wiki do ATPBR</title>
+    <meta name="description" content="Navegador de resultados: como explorar os resultados no cBioPortal do ATPBR.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Navegador de resultados</nav>
+            <h1>Navegador de resultados</h1>
+            <p class="wk-meta">Capítulo 12 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>Os resultados gerados pela <a href="plataforma-analitica.html">Plataforma analítica</a> chegam aos usuários pelo <strong>cBioPortal do ATPBR</strong>, um ambiente interativo para navegar, visualizar e analisar dados genômicos e clínicos de câncer sem exigir conhecimento avançado em bioinformática. Este capítulo descreve o que está disponível no portal e como explorá-lo.</p>
+<p>O portal é voltado a pesquisadores translacionais, biólogos moleculares, clínicos, bioinformatas e cientistas de dados interessados no panorama molecular dos tumores brasileiros.</p>
+<h3 id="1-dados-disponiveis">1. Dados disponíveis<a class="wk-anchor" href="#1-dados-disponiveis" aria-label="Link para esta seção">#</a></h3>
+<p>O cBioPortal integra, em um mesmo estudo, as camadas de dados geradas ao longo do fluxo do ATPBR:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Camada</th>
+<th style="text-align:left">Origem</th>
+<th style="text-align:left">O que permite explorar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Mutações somáticas</strong></td>
+<td style="text-align:left">Variantes filtradas e anotadas pelo <code>nf-core/sarek</code> (WGS, WES, painel gênico)</td>
+<td style="text-align:left">Genes alterados de forma recorrente, tipos de mutação e distribuição das alterações entre os casos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Número de cópias</strong></td>
+<td style="text-align:left">Dados segmentados de número de cópias, quando disponíveis</td>
+<td style="text-align:left">Ganhos e perdas genômicas, amplas ou focais.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Expressão gênica</strong></td>
+<td style="text-align:left">Matrizes em TPM do <code>nf-core/rnaseq</code> (RNA-seq)</td>
+<td style="text-align:left">Diferenças de expressão entre genes, amostras e grupos, e efeito transcricional de alterações genômicas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Dados clínicos e de amostras</strong></td>
+<td style="text-align:left">Metadados cadastrados na submissão (veja <a href="dicionario-de-dados.html">Dicionário de dados</a>)</td>
+<td style="text-align:left">Filtragem de coortes, estratificação das análises e interpretação clínica dos achados.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Nem todo estudo terá todas essas camadas: a disponibilidade depende dos ensaios realizados, da qualidade das amostras e da etapa de disponibilização. Consulte a descrição de cada estudo no portal.</p>
+<h3 id="2-como-navegar">2. Como navegar<a class="wk-anchor" href="#2-como-navegar" aria-label="Link para esta seção">#</a></h3>
+<p>O caminho típico de exploração tem quatro passos:</p>
+<ol>
+<li><strong>Escolher um estudo</strong> na lista de estudos. Cada estudo corresponde a um conjunto de dados curado, geralmente um tipo de tumor.</li>
+<li><strong>Conhecer a coorte na Study View</strong>, que resume o número de pacientes e amostras, os tipos de dados disponíveis e a distribuição das principais variáveis clínicas e moleculares.</li>
+<li><strong>Filtrar a coorte</strong> pelos atributos disponíveis, como tipo de tumor, histologia, tipo de amostra, estadiamento ou disponibilidade de sequenciamento.</li>
+<li><strong>Consultar genes</strong> de interesse e examinar os resultados nas visualizações descritas abaixo.</li>
+</ol>
+<p>Os estudos e perfis visíveis variam conforme as permissões de cada usuário e a etapa de disponibilização dos dados (veja <a href="acesso-aos-dados.html">Acesso aos dados</a>).</p>
+<h3 id="3-principais-funcionalidades">3. Principais funcionalidades<a class="wk-anchor" href="#3-principais-funcionalidades" aria-label="Link para esta seção">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Funcionalidade</th>
+<th style="text-align:left">Para que serve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Study View</strong></td>
+<td style="text-align:left">Visão geral do estudo e ponto de partida para aplicar filtros na coorte.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Consulta por gene</strong></td>
+<td style="text-align:left">Buscar um ou mais genes na coorte selecionada e ver como estão alterados. Por padrão, inclui mutações não sinônimas, fusões, amplificações e deleções profundas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OncoPrint</strong></td>
+<td style="text-align:left">Resumo visual, amostra por amostra, das alterações nos genes consultados. Ajuda a identificar eventos recorrentes, alterações concomitantes e mutuamente exclusivas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Visualização de mutações</strong></td>
+<td style="text-align:left">Detalhes de cada variante: tipo, posição na proteína e amostras afetadas. Útil para identificar hotspots.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Número de cópias e expressão</strong></td>
+<td style="text-align:left">Explorar amplificações, deleções e níveis de expressão, quando esses dados existem no estudo.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Aba Plots</strong></td>
+<td style="text-align:left">Comparar medidas moleculares com anotações clínicas, por exemplo a expressão de um gene por subtipo tumoral.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Comparação de grupos</strong></td>
+<td style="text-align:left">Comparar características moleculares e clínicas entre subcoortes definidas pelo usuário.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Análise de sobrevida</strong></td>
+<td style="text-align:left">Gráficos de desfecho, quando o estudo inclui status vital e tempo de seguimento.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Visão do paciente / da amostra</strong></td>
+<td style="text-align:left">Todas as informações clínicas e moleculares de um caso, incluindo várias amostras do mesmo paciente.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Onco Query Language (OQL)</strong></td>
+<td style="text-align:left">Consultas mais precisas, especificando classes de mutação, variantes exatas, estados de número de cópias ou limiares de expressão.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Download e compartilhamento</strong></td>
+<td style="text-align:left">Exportar tabelas e resultados para análise em R ou Python, e salvar ou compartilhar consultas. Depende das permissões do usuário.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="4-casos-de-uso">4. Casos de uso<a class="wk-anchor" href="#4-casos-de-uso" aria-label="Link para esta seção">#</a></h3>
+<p>O portal é especialmente útil para:</p>
+<ul>
+<li>Explorar a frequência e a distribuição de alterações somáticas em genes selecionados nas coortes brasileiras.</li>
+<li>Comparar padrões moleculares entre subgrupos clínicos, como subtipo, estadiamento ou histologia.</li>
+<li>Investigar alterações concomitantes ou mutuamente exclusivas que sugiram vias biológicas compartilhadas.</li>
+<li>Gerar hipóteses sobre biomarcadores e assinaturas moleculares para validação futura.</li>
+<li>Verificar, antes de uma análise externa, se uma coorte tem os perfis moleculares necessários.</li>
+<li>Revisar casos individuais em seu contexto molecular e clínico.</li>
+<li>Preparar figuras e resumos para reuniões, relatórios e o planejamento de publicações.</li>
+</ul>
+<h3 id="5-como-os-dados-chegam-ao-portal">5. Como os dados chegam ao portal<a class="wk-anchor" href="#5-como-os-dados-chegam-ao-portal" aria-label="Link para esta seção">#</a></h3>
+<p>Os estudos são preparados e carregados exclusivamente pela equipe de dados do ATPBR. Os resultados dos pipelines e os metadados cadastrados são harmonizados, convertidos para os formatos exigidos pelo cBioPortal e validados antes do carregamento. Quando novos ensaios ou correções ficam disponíveis, o estudo é revisado, revalidado e recarregado.</p>
+<p>Cada estudo no portal é formado pelos seguintes grupos de arquivos:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Grupo de arquivos</th>
+<th style="text-align:left">Função no portal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Metadados do estudo</strong></td>
+<td style="text-align:left">Identificador, nome, descrição, citação e visibilidade do estudo.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Dados clínicos do paciente</strong></td>
+<td style="text-align:left">Atributos no nível do paciente (Tabela 1).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Dados clínicos da amostra</strong></td>
+<td style="text-align:left">Atributos no nível da amostra (Tabela 2).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Perfil de mutações</strong></td>
+<td style="text-align:left">Mutações somáticas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Perfil de expressão</strong></td>
+<td style="text-align:left">Expressão de mRNA e de transcritos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Número de cópias</strong></td>
+<td style="text-align:left">Dados segmentados de número de cópias.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Listas de casos</strong></td>
+<td style="text-align:left">Amostras disponíveis para cada tipo de análise.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tabela 1. Campos no nível do paciente.</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Atributo</th>
+<th style="text-align:left">Tipo</th>
+<th style="text-align:left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>PATIENT_ID</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Identificador do paciente, que vincula seus dados clínicos às amostras e aos dados moleculares.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SAMPLES_PER_PATIENT</strong></td>
+<td style="text-align:left">Número</td>
+<td style="text-align:left">Número de amostras do paciente no estudo.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SEX</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Sexo do paciente.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RACE</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Raça/cor do paciente, conforme registrada na submissão.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>COUNTRY</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">País associado ao paciente, conforme a definição do estudo.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>DIAGNOSIS_AGE</strong></td>
+<td style="text-align:left">Número</td>
+<td style="text-align:left">Idade ao diagnóstico, em anos.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OS_STATUS</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Status de sobrevida global (vivo ou falecido).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OS_MONTHS</strong></td>
+<td style="text-align:left">Número</td>
+<td style="text-align:left">Tempo de sobrevida global em meses, a partir do diagnóstico.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Tabela 2. Campos no nível da amostra.</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Atributo</th>
+<th style="text-align:left">Tipo</th>
+<th style="text-align:left">Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>PATIENT_ID</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Paciente ao qual a amostra pertence.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SAMPLE_ID</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Identificador da amostra, que a vincula aos dados moleculares.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>CANCER_TYPE</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Tipo de câncer.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>CANCER_TYPE_DETAILED</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Tipo de câncer detalhado.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ONCOTREE_CODE</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Código OncoTree da doença.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SAMPLE_TYPE</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Tipo de espécime, como tumor primário ou metástase.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>TUMOR_STAGE_2009</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Estadiamento do tumor.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>TREATMENT_DRUG_NAME</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Medicamento ou esquema de tratamento, quando disponível.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>TREATMENT_RESPONSE</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Resposta ao tratamento.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>RNASEQ_DATA</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Indica se a amostra tem dados de RNA-seq.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>EXOME_DATA</strong></td>
+<td style="text-align:left">Texto</td>
+<td style="text-align:left">Indica se a amostra tem dados de exoma.</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="6-privacidade">6. Privacidade<a class="wk-anchor" href="#6-privacidade" aria-label="Link para esta seção">#</a></h3>
+<p>Todos os dados do portal são desidentificados antes da disponibilização, conforme os princípios apresentados em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a>. Desidentificados não quer dizer anônimos: por isso, só são publicados os estudos validados e aprovados para divulgação, depois de uma avaliação dos riscos de reidentificação (veja <a href="governanca-de-dados.html">Governança de dados</a>). O uso dos dados obtidos no portal, incluindo a proibição de tentativas de reidentificação e as regras de citação, segue as <a href="politicas-de-uso.html">Políticas de uso</a>. Os resultados devem ser interpretados considerando o escopo e as limitações de cada coorte.</p>
+<hr />
+<p><strong>Próximo capítulo → <a href="politicas-de-uso.html">Políticas de uso</a>:</strong> as responsabilidades de quem acessa e utiliza os dados do ATPBR.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="plataforma-analitica.html"><small>← Anterior</small>Plataforma analítica</a>
+                <a class="wk-next" href="politicas-de-uso.html"><small>Próximo →</small>Políticas de uso</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html" aria-current="page">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#1-dados-disponiveis">1. Dados disponíveis</a></li>
+<li class=""><a href="#2-como-navegar">2. Como navegar</a></li>
+<li class=""><a href="#3-principais-funcionalidades">3. Principais funcionalidades</a></li>
+<li class=""><a href="#4-casos-de-uso">4. Casos de uso</a></li>
+<li class=""><a href="#5-como-os-dados-chegam-ao-portal">5. Como os dados chegam ao portal</a></li>
+<li class=""><a href="#6-privacidade">6. Privacidade</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>

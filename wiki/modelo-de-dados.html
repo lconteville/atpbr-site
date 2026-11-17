@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de dados · Wiki do ATPBR</title>
+    <meta name="description" content="Modelo de dados: como as informações cadastradas se organizam e se relacionam.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Modelo de dados</nav>
+            <h1>Modelo de dados</h1>
+            <p class="wk-meta">Capítulo 7 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>Em <a href="submissao-de-dados.html">Submissão de dados</a>, vimos a ordem em que as informações são cadastradas. O modelo de dados explica <strong>por que</strong> essa ordem existe: ele define como as informações são organizadas e relacionadas na plataforma, garantindo rastreabilidade, interoperabilidade e consistência ao longo de todo o ciclo de vida dos dados.</p>
+<h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
+<p>O ATPBR organiza os dados em uma estrutura hierárquica que conecta informações científicas, clínicas e experimentais, desde a definição do projeto até os arquivos brutos gerados pelos experimentos. Os dados são organizados em quatro módulos principais:</p>
+<p><strong>Projeto → Investigação → Estudo → Ensaio</strong></p>
+<p>Os módulos Estudo e Ensaio contêm os <strong>elementos</strong> que representam os dados clínicos e experimentais: <strong>Pacientes</strong> e <strong>Amostras</strong> (no Estudo) e <strong>Arquivos de dados</strong> e <strong>Experimentos</strong> (no Ensaio).</p>
+<h3 id="principais-modulos">Principais Módulos<a class="wk-anchor" href="#principais-modulos" aria-label="Link para esta seção">#</a></h3>
+<h4 id="projeto">Projeto<a class="wk-anchor" href="#projeto" aria-label="Link para esta seção">#</a></h4>
+<p>O <strong>Projeto</strong> representa o contexto científico <strong>geral</strong> dos dados que serão submetidos. É o nível mais alto da hierarquia e funciona como um “guarda-chuva” sob o qual são organizadas uma ou mais linhas de pesquisa relacionadas. Define os objetivos científicos, o escopo da pesquisa e as instituições participantes.</p>
+<h4 id="investigacao">Investigação<a class="wk-anchor" href="#investigacao" aria-label="Link para esta seção">#</a></h4>
+<p>A <strong>Investigação</strong> representa uma <strong>linha de pesquisa</strong> dentro do projeto. Agrupa estudos relacionados por um mesmo tema, objetivo científico ou hipótese de pesquisa, podendo abranger um ou mais tipos de câncer.</p>
+<h4 id="estudo">Estudo<a class="wk-anchor" href="#estudo" aria-label="Link para esta seção">#</a></h4>
+<p>O <strong>Estudo</strong> representa uma unidade científica dedicada à caracterização de um <strong>único tipo de câncer</strong> dentro de uma Investigação. Neste nível são definidos o desenho do estudo, as coortes de participantes e amostras e os critérios clínicos.</p>
+<p>O Estudo contém os elementos:</p>
+<ul>
+<li><strong>Pacientes:</strong> os participantes do estudo, cada um com um único registro na plataforma, independentemente do número de amostras associadas.</li>
+<li><strong>Amostras:</strong> o material biológico coletado de cada paciente. Um paciente pode ter várias amostras.</li>
+</ul>
+<h4 id="ensaio">Ensaio<a class="wk-anchor" href="#ensaio" aria-label="Link para esta seção">#</a></h4>
+<p>O <strong>Ensaio</strong> representa uma <strong>única corrida experimental</strong> utilizada para gerar dados ômicos a partir das amostras de um Estudo. Corridas distintas, mesmo pertencentes à mesma abordagem ômica, devem ser cadastradas como Ensaios independentes. Um Estudo pode ter vários Ensaios.</p>
+<p>O Ensaio contém os elementos:</p>
+<ul>
+<li><strong>Arquivos de dados:</strong> os arquivos brutos produzidos na corrida (FASTQ, veja <a href="tipos-de-dados.html">Tipos de dados</a>), que são o ponto de partida para o processamento realizado pela plataforma.</li>
+<li><strong>Experimentos:</strong> os metadados técnicos da corrida para cada amostra sequenciada, como plataforma de sequenciamento, preparação da biblioteca e layout de leitura. Cada Experimento liga uma <strong>Amostra</strong> aos seus <strong>Arquivos de dados</strong>.</li>
+</ul>
+<h3 id="como-os-elementos-se-relacionam">Como os Elementos se Relacionam<a class="wk-anchor" href="#como-os-elementos-se-relacionam" aria-label="Link para esta seção">#</a></h3>
+<p>Cada elemento aponta para um elemento previamente cadastrado. Por isso, a ordem de cadastro descrita em <a href="submissao-de-dados.html">Submissão de dados</a> não pode ser invertida:</p>
+<ul>
+<li>Uma <strong>Amostra</strong> referencia um <strong>Paciente</strong> já cadastrado.</li>
+<li>Um <strong>Experimento</strong> referencia uma <strong>Amostra</strong> já cadastrada e os <strong>Arquivos de dados</strong> já disponíveis no Ensaio.</li>
+</ul>
+<p>Essa cadeia permite rastrear qualquer resultado até a corrida, a amostra e o paciente de origem.</p>
+<p>Os campos de cada módulo e elemento estão descritos no capítulo seguinte. Alguns deles também compõem o identificador único de pacientes, amostras e ensaios, apresentado em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
+<hr />
+<p><strong>Próximo capítulo → <a href="dicionario-de-dados.html">Dicionário de dados</a>:</strong> os campos de cada módulo e elemento e as regras para preenchê-los.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="acesso-aos-dados.html"><small>← Anterior</small>Acesso aos dados</a>
+                <a class="wk-next" href="dicionario-de-dados.html"><small>Próximo →</small>Dicionário de dados</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html" aria-current="page">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#visao-geral">Visão Geral</a></li>
+<li class=""><a href="#principais-modulos">Principais Módulos</a></li>
+<li class="wk-sub"><a href="#projeto">Projeto</a></li>
+<li class="wk-sub"><a href="#investigacao">Investigação</a></li>
+<li class="wk-sub"><a href="#estudo">Estudo</a></li>
+<li class="wk-sub"><a href="#ensaio">Ensaio</a></li>
+<li class=""><a href="#como-os-elementos-se-relacionam">Como os Elementos se Relacionam</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>

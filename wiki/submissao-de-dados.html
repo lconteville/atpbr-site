@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissão de dados · Wiki do ATPBR</title>
+    <meta name="description" content="Submissão de dados: o passo a passo para cadastrar um projeto e enviar seus dados.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Submissão de dados</nav>
+            <h1>Submissão de dados</h1>
+            <p class="wk-meta">Capítulo 5 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>A submissão de dados é o processo pelo qual centros de pesquisa, hospitais, laboratórios e grupos de pesquisa incorporam projetos e seus respectivos dados ao ATPBR. É a etapa de <strong>ingestão</strong> apresentada em <a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a>: a partir dela, os dados seguem para validação, processamento e compartilhamento.</p>
+<p>Este capítulo descreve <strong>o que fazer e em que ordem</strong>. Depois de <a href="acesso-aos-dados.html">Acesso aos dados</a>, que explica como os dados submetidos são compartilhados, os capítulos seguintes detalham como as informações se organizam (<a href="modelo-de-dados.html">Modelo de dados</a>), como cada campo deve ser preenchido (<a href="dicionario-de-dados.html">Dicionário de dados</a>), como os identificadores são gerados (<a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>) e quais formatos são aceitos (<a href="tipos-de-dados.html">Tipos de dados</a>).</p>
+<h3 id="quem-pode-submeter-dados">Quem Pode Submeter Dados<a class="wk-anchor" href="#quem-pode-submeter-dados" aria-label="Link para esta seção">#</a></h3>
+<p>A submissão de dados pode ser realizada por pesquisadores, instituições e centros de pesquisa que desejem incorporar estudos ao ATPBR, desde que atendam aos requisitos técnicos, éticos e de governança estabelecidos pela plataforma (veja os critérios mínimos em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a> e as regras completas em <a href="governanca-de-dados.html">Governança de dados</a>).</p>
+<p>Antes de enviar dados, o pesquisador remetente aceita o <strong>Termo de Responsabilidade do Pesquisador Remetente</strong>, apresentado na área de submissão. Ao aceitá-lo, ele declara, entre outros pontos, que:</p>
+<ul>
+<li>os dados são autênticos e as informações prestadas são verdadeiras, completas e atualizadas;</li>
+<li>os dados foram desidentificados conforme os padrões do ATPBR, e as chaves que ligam os códigos aos participantes permanecem separadas e protegidas na instituição de origem;</li>
+<li>vai informar as aprovações éticas, a versão do TCLE (ou a dispensa de consentimento) e as permissões e restrições de uso de cada conjunto, e apresentar os documentos comprobatórios;</li>
+<li>vai comunicar ao ATPBR mudanças nas aprovações éticas, retiradas de consentimento, novas restrições e incidentes de segurança de que tiver conhecimento.</li>
+</ul>
+<p>Tenha também em mãos a documentação ética do projeto e dos estudos: o parecer do CEP ou da Conep, a versão do TCLE utilizada ou a decisão de dispensa de consentimento, o instrumento de transferência de material biológico e dados (TTMD), quando houver, e as permissões e restrições de uso dos dados. A equipe do ATPBR pode solicitar esses documentos durante a validação.</p>
+<h3 id="passo-a-passo">Passo a Passo<a class="wk-anchor" href="#passo-a-passo" aria-label="Link para esta seção">#</a></h3>
+<p>A submissão é feita pelo portal da plataforma. Cada etapa depende da anterior, e o painel do projeto indica essa ordem com números e setas.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Etapa</th>
+<th style="text-align:left">O que cadastrar</th>
+<th style="text-align:left">Como</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>Projeto</strong>, incluindo o acrônimo e as instituições associadas</td>
+<td style="text-align:left">Formulário</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>Investigação</strong> (linha de pesquisa)</td>
+<td style="text-align:left">Formulário</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>Estudo</strong> (um tipo de câncer)</td>
+<td style="text-align:left">Formulário</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>Pacientes</strong> do Estudo</td>
+<td style="text-align:left">Formulário ou planilha-modelo</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>Amostras</strong> de cada paciente</td>
+<td style="text-align:left">Formulário ou planilha-modelo</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>Ensaio</strong> (uma corrida de sequenciamento)</td>
+<td style="text-align:left">Formulário</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>Arquivos de dados</strong> (FASTQ) do Ensaio</td>
+<td style="text-align:left">Envio pelo portal <strong>ou</strong> caminho na Plataforma Multiusuário de Bioinformática do INCA</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>Experimentos</strong> (metadados técnicos de cada amostra sequenciada)</td>
+<td style="text-align:left">Formulário ou planilha-modelo</td>
+</tr>
+</tbody>
+</table></div>
+<p>Alguns pontos de atenção em cada etapa:</p>
+<ul>
+<li><strong>Projeto:</strong> as instituições associadas informadas aqui são as que aparecerão depois como opção de <strong>centro coletor</strong> no cadastro de pacientes.</li>
+<li><strong>Estudo:</strong> dentro de um mesmo projeto, cada tipo de câncer só pode ter um Estudo.</li>
+<li><strong>Pacientes e Amostras:</strong> uma amostra só pode ser cadastrada para um paciente já registrado. Os eventos clínicos são informados em <strong>número de dias</strong> a partir do diagnóstico, e não como datas (veja <a href="dicionario-de-dados.html">Dicionário de dados</a>).</li>
+<li><strong>Ensaio:</strong> cada corrida de sequenciamento é um Ensaio separado. No cadastro, também são indicadas as <strong>condições de compartilhamento</strong> desejadas para o Ensaio. Essa indicação não publica os dados por si só: a divulgação depende da validação do conjunto e de aprovação própria (veja <a href="acesso-aos-dados.html">Acesso aos dados</a>).</li>
+<li><strong>Arquivos de dados:</strong> os FASTQ precisam estar disponíveis <strong>antes</strong> do cadastro dos Experimentos. Há duas formas de fazer isso:
+<ul>
+<li><strong>Envio pelo portal:</strong> na área <em>Arquivos de Dados</em>, selecione o Ensaio e envie os arquivos FASTQ. Cada arquivo fica vinculado ao Ensaio e herda suas permissões de compartilhamento.</li>
+<li><strong>Arquivos já armazenados no INCA:</strong> se os FASTQ já estiverem no repositório da <strong>Plataforma Multiusuário de Bioinformática do INCA</strong>, não é necessário enviá-los novamente. Basta informar o <strong>caminho absoluto do diretório</strong> onde estão os arquivos no campo <em>Repositórios Associados</em> do Ensaio.</li>
+</ul>
+</li>
+<li><strong>Experimentos:</strong> um experimento só pode ser cadastrado para uma amostra já registrada. Os campos fastq_1 e fastq_2 devem conter o <strong>nome exato</strong> dos arquivos FASTQ do Ensaio. A plataforma avisa quando um nome informado não corresponde a nenhum arquivo enviado.</li>
+</ul>
+<h3 id="antes-de-submeter">Antes de Submeter<a class="wk-anchor" href="#antes-de-submeter" aria-label="Link para esta seção">#</a></h3>
+<p>Recomenda-se verificar se:</p>
+<ul>
+<li>Os arquivos FASTQ estão completos e íntegros, e no formato aceito (veja <a href="tipos-de-dados.html">Tipos de dados</a>).</li>
+<li>Os campos obrigatórios foram preenchidos e os vocabulários controlados foram utilizados (veja <a href="dicionario-de-dados.html">Dicionário de dados</a>).</li>
+<li>Os códigos de paciente e de amostra seguem as regras de desidentificação (veja <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>).</li>
+<li>Não há informações pessoais ou identificadores diretos de participantes (nome, CPF, Cartão Nacional de Saúde, número de prontuário, contatos) nos metadados, <strong>nos campos de texto livre, como descrições e observações, nos nomes dos arquivos nem nos cabeçalhos dos arquivos</strong>.</li>
+<li>As datas de eventos clínicos foram convertidas em número de dias a partir do diagnóstico.</li>
+<li>A documentação ética e as permissões de uso de cada conjunto estão disponíveis (veja <a href="governanca-de-dados.html">Governança de dados</a>).</li>
+<li>As planilhas foram preenchidas a partir dos templates oficiais, sem alterar sua estrutura.</li>
+</ul>
+<p>O cumprimento desses requisitos reduz a ocorrência de erros e acelera o processo de validação.</p>
+<h3 id="validacao-dos-dados">Validação dos Dados<a class="wk-anchor" href="#validacao-dos-dados" aria-label="Link para esta seção">#</a></h3>
+<p>Após o envio, cada conjunto passa por três verificações distintas e complementares, feitas por responsáveis diferentes:</p>
+<ul>
+<li><strong>Verificação automatizada:</strong> campos obrigatórios, estrutura e uso dos vocabulários controlados.</li>
+<li><strong>Verificação técnica:</strong> formato e integridade dos arquivos, consistência entre pacientes, amostras, experimentos e arquivos e compatibilidade com o modelo de dados do ATPBR.</li>
+<li><strong>Verificação ético-documental:</strong> correspondência entre o estudo cadastrado, o protocolo e a aprovação ética, as condições de consentimento ou dispensa e as permissões e restrições de uso.</li>
+</ul>
+<p>No cadastro por planilha, uma prévia mostra as linhas lidas e os erros encontrados antes de salvar, para que você possa conferir e confirmar.</p>
+<p>Ao final, a equipe de validação registra o conjunto como <strong>apto</strong>, <strong>pendente de complementação</strong> ou <strong>não admitido</strong>, com a motivação. O fato de os dados terem sido aceitos pelo sistema <strong>não significa</strong> que foram admitidos: conjuntos pendentes ou não admitidos ficam bloqueados para divulgação e para novos usos até a regularização.</p>
+<h3 id="correcao-de-erros">Correção de Erros<a class="wk-anchor" href="#correcao-de-erros" aria-label="Link para esta seção">#</a></h3>
+<p>Caso sejam detectados problemas durante a validação, o sistema apresentará mensagens indicando os erros encontrados e as ações necessárias para correção.</p>
+<p>Dependendo do tipo de inconsistência, poderá ser necessário:</p>
+<ul>
+<li>Atualizar metadados.</li>
+<li>Corrigir nomenclaturas.</li>
+<li>Reenviar arquivos.</li>
+<li>Completar informações obrigatórias.</li>
+<li>Ajustar relacionamentos entre amostras e experimentos.</li>
+<li>Apresentar documentos éticos ou esclarecer permissões de uso.</li>
+</ul>
+<p>Após as correções, os dados poderão ser reenviados para uma nova validação. Submissões que não atendam aos requisitos desta documentação poderão ser consideradas não admitidas.</p>
+<p>Se, depois do envio, houver alguma mudança que afete os dados (novo parecer ético, retirada de consentimento de um participante, nova restrição de uso ou incidente de segurança), comunique a equipe do ATPBR pelo e-mail <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>. Mudanças relevantes levam o conjunto a uma nova verificação.</p>
+<hr />
+<p><strong>Próximo capítulo → <a href="acesso-aos-dados.html">Acesso aos dados</a>:</strong> quem poderá acessar os dados que você submeteu e como as regras de compartilhamento do Ensaio se aplicam.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="governanca-de-dados.html"><small>← Anterior</small>Governança de dados</a>
+                <a class="wk-next" href="acesso-aos-dados.html"><small>Próximo →</small>Acesso aos dados</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html" aria-current="page">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#quem-pode-submeter-dados">Quem Pode Submeter Dados</a></li>
+<li class=""><a href="#passo-a-passo">Passo a Passo</a></li>
+<li class=""><a href="#antes-de-submeter">Antes de Submeter</a></li>
+<li class=""><a href="#validacao-dos-dados">Validação dos Dados</a></li>
+<li class=""><a href="#correcao-de-erros">Correção de Erros</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>
