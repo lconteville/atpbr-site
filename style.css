@@ -1803,3 +1803,68 @@ img {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ── CTA com um único card (Voluntários comentado) ──
+   Faixa horizontal alinhada ao container de 1200px: texto à esquerda, botão
+   à direita. Com dois cards, o :only-child deixa de valer e volta o layout
+   original em duas colunas. */
+.cta-card:only-child {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    min-height: 0;
+    padding: 4.5rem max(3rem, calc((100% - 1200px) / 2 + 20px));
+}
+
+.cta-card:only-child .cta-content {
+    flex: 1 1 auto;
+    max-width: 640px;
+    gap: 1.4rem;
+}
+
+.cta-card:only-child p {
+    padding-bottom: 0;
+    font-size: 1.35rem;
+}
+
+.cta-card:only-child .cta-btn-wrap {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+    justify-content: center;
+}
+
+.cta-card:only-child .cta-btn {
+    width: 340px;
+}
+
+@media (max-width: 900px) {
+    .cta-card:only-child {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.5rem;
+        padding: 4rem 2.5rem;
+    }
+
+    .cta-card:only-child .cta-btn-wrap {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cta-card:only-child .cta-btn {
+        width: min(320px, 92%);
+    }
+}
+
+@media (max-width: 480px) {
+    .cta-card:only-child {
+        border-radius: 3rem;
+        padding: 3.5rem 1.8rem;
+    }
+
+    .cta-card:only-child p {
+        font-size: 1.2rem;
+    }
+}
