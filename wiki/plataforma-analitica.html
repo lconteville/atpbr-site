@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma analítica · Wiki do ATPBR</title>
+    <meta name="description" content="Plataforma analítica: como os dados enviados são processados.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Plataforma analítica</nav>
+            <h1>Plataforma analítica</h1>
+            <p class="wk-meta">Capítulo 11 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>Os arquivos FASTQ aceitos na submissão (veja <a href="tipos-de-dados.html">Tipos de dados</a>) são processados pela <strong>Plataforma Analítica do ATPBR (ATPBR-AP)</strong>. Este capítulo descreve quais pipelines são usados, como estão configurados e quais resultados geram.</p>
+<h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
+<p>A execução dos pipelines é <strong>gerenciada centralmente pela equipe do ATPBR</strong>: o usuário não precisa configurar nem executar nenhuma análise. Isso garante que todos os dados sejam processados da mesma forma, o que permite comparar estudos diferentes.</p>
+<p><strong>Dados brutos → pipelines padronizados → resultados harmonizados → cBioPortal</strong></p>
+<p>Os pipelines são fluxos de trabalho da comunidade <a target="_blank" rel="noopener" href="https://nf-co.re/">nf-core</a>, construídos em Nextflow, executados em contêineres e com versões e parâmetros fixos.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Dados</th>
+<th style="text-align:left">Pipeline</th>
+<th style="text-align:left">Principal resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">WGS, WES e painel gênico</td>
+<td style="text-align:left"><code>nf-core/sarek</code> 3.10.0</td>
+<td style="text-align:left">Variantes somáticas anotadas</td>
+</tr>
+<tr>
+<td style="text-align:left">RNA-seq</td>
+<td style="text-align:left"><code>nf-core/rnaseq</code> 3.18.0</td>
+<td style="text-align:left">Matrizes de expressão gênica</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="controle-de-qualidade">Controle de Qualidade<a class="wk-anchor" href="#controle-de-qualidade" aria-label="Link para esta seção">#</a></h3>
+<p>Todas as amostras passam automaticamente por duas ferramentas antes da análise:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"><strong>FastQC</strong></a>: avalia a qualidade dos dados brutos.</li>
+<li><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/34/17/i884/5093234"><strong>fastp</strong></a>: remove adaptadores e descarta leituras de baixa qualidade.</li>
+</ul>
+<p>Os resultados das duas ferramentas são reunidos em um relatório <strong>MultiQC</strong> (<code>multiqc_report.html</code>). As principais métricas a observar são:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Métrica</th>
+<th style="text-align:left">O que se espera</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Qualidade por base (Phred)</td>
+<td style="text-align:left">A maior parte das bases na zona verde (Q ≥ 30). Uma pequena queda nas primeiras e nas últimas bases da leitura é normal.</td>
+</tr>
+<tr>
+<td style="text-align:left">Conteúdo GC</td>
+<td style="text-align:left">Distribuição em forma de sino, próxima de 41% no DNA e de 50% no mRNA (<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6391780/pdf/13104_2019_Article_4137.pdf">Piovesan et al., 2019</a>; <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11847481/">Palma et al., 2025</a>). Vários picos sugerem contaminação.</td>
+</tr>
+<tr>
+<td style="text-align:left">Bases não identificadas (N)</td>
+<td style="text-align:left">Menos de 5%. Valores maiores indicam problema na corrida de sequenciamento.</td>
+</tr>
+<tr>
+<td style="text-align:left">Duplicação</td>
+<td style="text-align:left">Baixa em WGS. Níveis mais altos são esperados em WES, painel gênico e RNA-seq.</td>
+</tr>
+<tr>
+<td style="text-align:left">Conteúdo de adaptadores</td>
+<td style="text-align:left">Menos de 0,1% após o corte pelo fastp.</td>
+</tr>
+<tr>
+<td style="text-align:left">Leituras filtradas (fastp)</td>
+<td style="text-align:left">O fastp descarta leituras com mais de 40% das bases com Q &lt; 15, com mais de 5 bases N, com menos de 15 pb após o corte ou formadas por sequências repetitivas (por exemplo, caudas poli-G).</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="analise-de-wgs-wes-e-painel-genico">Análise de WGS, WES e Painel Gênico<a class="wk-anchor" href="#analise-de-wgs-wes-e-painel-genico" aria-label="Link para esta seção">#</a></h3>
+<p>O pipeline <a target="_blank" rel="noopener" href="https://nf-co.re/sarek"><code>nf-core/sarek</code></a> executa as seguintes etapas:</p>
+<ol>
+<li><strong>Controle de qualidade e corte</strong> com FastQC e fastp.</li>
+<li><strong>Alinhamento</strong> ao genoma de referência GRCh38 com <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1303.3997v2">BWA-MEM</a>. As leituras de diferentes lanes são reunidas por amostra e salvas em formato CRAM.</li>
+<li><strong>Pré-processamento</strong> com o <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/20644199/">GATK</a>: marcação de duplicatas e recalibração da qualidade das bases.</li>
+<li><strong>Chamada de variantes somáticas</strong> (SNVs e pequenas inserções e deleções) com o <a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/861054v1">Mutect2</a>, em amostras de tumor isolado ou em pares tumor-normal.</li>
+<li><strong>Anotação</strong> dos efeitos de cada variante em genes, transcritos e proteínas com o <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/27268795/">Ensembl VEP</a>.</li>
+<li><strong>Filtragem</strong> de artefatos e de variantes germinativas: são removidas as variantes presentes no painel de normais do <a target="_blank" rel="noopener" href="https://www.internationalgenome.org/">1000 Genomes</a>, as variantes com frequência acima de 1% no <a target="_blank" rel="noopener" href="https://gnomad.broadinstitute.org/">gnomAD</a> e as variantes com frequência acima de 0,1% na população brasileira, segundo o <a target="_blank" rel="noopener" href="https://abraom.ib.usp.br/">ABraOM</a>. A filtragem pelo ABraOM é feita por um pipeline interno da equipe do ATPBR, após o <code>nf-core/sarek</code>.</li>
+</ol>
+<p><strong>Configuração</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left"><code>nf-core/sarek</code></th>
+<th style="text-align:left">Versão 3.10.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Genoma de referência</strong></td>
+<td style="text-align:left"><em>Homo sapiens</em> iGenomes GATK GRCh38</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Corte (trimming)</strong></td>
+<td style="text-align:left">fastp</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Alinhador</strong></td>
+<td style="text-align:left">BWA-MEM</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Chamador de variantes</strong></td>
+<td style="text-align:left">Mutect2</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Filtros</strong></td>
+<td style="text-align:left">Painel de normais do 1000 Genomes, gnomAD, VEP <code>--filter_common</code>, ABraOM</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="secao"><a class="wk-anchor" href="#secao" aria-label="Link para esta seção">#</a></h3>
+<h3 id="analise-de-rna-seq">Análise de RNA-seq<a class="wk-anchor" href="#analise-de-rna-seq" aria-label="Link para esta seção">#</a></h3>
+<p>O pipeline <a target="_blank" rel="noopener" href="https://nf-co.re/rnaseq"><code>nf-core/rnaseq</code></a> processa RNA-seq de leituras curtas (RNA total, enriquecido com poli(A) ou depletado de rRNA) nas seguintes etapas:</p>
+<ol>
+<li><strong>Concatenação</strong> dos FASTQ de uma mesma amostra sequenciada em várias lanes.</li>
+<li><strong>Controle de qualidade e corte</strong> com FastQC e fastp.</li>
+<li><strong>Pseudoalinhamento e quantificação</strong> com o Salmon, que atribui as leituras diretamente aos transcritos conhecidos do transcriptoma de referência. A expressão é estimada por transcrito e somada por gene.</li>
+<li><strong>Normalização</strong> em Transcritos por Milhão (TPM), que corrige as diferenças de tamanho de biblioteca e de comprimento dos transcritos.</li>
+</ol>
+<p>Por padrão, não são aplicadas etapas adicionais de filtragem. Se o controle de qualidade indicar problemas, a equipe pode ajustar parâmetros específicos (veja <em>Limitações</em>, abaixo).</p>
+<p><strong>Configuração</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left"><code>nf-core/rnaseq</code></th>
+<th style="text-align:left">Versão 3.18.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Genoma de referência</strong></td>
+<td style="text-align:left"><em>Homo sapiens</em> Ensembl Release 113 GRCh38</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Corte (trimming)</strong></td>
+<td style="text-align:left">fastp</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Pseudoalinhamento e quantificação</strong></td>
+<td style="text-align:left">Salmon</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="limitacoes">Limitações<a class="wk-anchor" href="#limitacoes" aria-label="Link para esta seção">#</a></h3>
+<ul>
+<li><strong>Modalidades:</strong> apenas as modalidades listadas em <a href="tipos-de-dados.html">Tipos de dados</a> são processadas.</li>
+<li><strong>Organismo:</strong> os pipelines são configurados apenas para dados humanos. Amostras de organismos não humanos ou mistas, como xenotransplantes derivados de pacientes, não são suportadas.</li>
+<li><strong>Variantes germinativas:</strong> não há análise exclusivamente germinativa, pois o Mutect2 é otimizado para variantes somáticas. Além disso, variantes germinativas são dados de acesso controlado (veja <a href="acesso-aos-dados.html">Acesso aos dados</a>).</li>
+<li><strong>Heterogeneidade dos dados:</strong> os dados vêm de vários centros, com diferenças de manuseio das amostras, kits de biblioteca e protocolos de sequenciamento. Para incluir amostras raras com qualidade comprometida, a equipe pode ajustar os parâmetros do pipeline. Esses ajustes, assim como diferenças entre corridas, podem introduzir <strong>efeitos de lote</strong>. Por isso, o número da corrida faz parte do barcode (veja <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>).</li>
+</ul>
+<hr />
+<p><strong>Próximo capítulo → <a href="navegador-de-resultados.html">Navegador de resultados</a>:</strong> como explorar no cBioPortal do ATPBR as variantes e as matrizes de expressão geradas aqui.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="tipos-de-dados.html"><small>← Anterior</small>Tipos de dados</a>
+                <a class="wk-next" href="navegador-de-resultados.html"><small>Próximo →</small>Navegador de resultados</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html" aria-current="page">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#visao-geral">Visão Geral</a></li>
+<li class=""><a href="#controle-de-qualidade">Controle de Qualidade</a></li>
+<li class=""><a href="#analise-de-wgs-wes-e-painel-genico">Análise de WGS, WES e Painel Gênico</a></li>
+<li class=""><a href="#secao"></a></li>
+<li class=""><a href="#analise-de-rna-seq">Análise de RNA-seq</a></li>
+<li class=""><a href="#limitacoes">Limitações</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>

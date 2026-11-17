@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de dados · Wiki do ATPBR</title>
+    <meta name="description" content="Tipos de dados: formatos aceitos na submissão e arquivos gerados pela plataforma.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Tipos de dados</nav>
+            <h1>Tipos de dados</h1>
+            <p class="wk-meta">Capítulo 10 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>Os capítulos anteriores trataram dos <strong>metadados</strong>: como se organizam (<a href="modelo-de-dados.html">Modelo de dados</a>), como se preenchem (<a href="dicionario-de-dados.html">Dicionário de dados</a>) e como geram os identificadores (<a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>). Este capítulo trata dos <strong>formatos</strong>: o que o ATPBR aceita na submissão e o que a plataforma gera a partir disso.</p>
+<h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
+<p>O ATPBR aceita dois tipos de dados para submissão:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Categoria</th>
+<th style="text-align:left">Formato aceito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Metadados</td>
+<td style="text-align:left">Formulários do portal ou planilhas-modelo Excel (.xlsx ou .xls)</td>
+</tr>
+<tr>
+<td style="text-align:left">Dados brutos de sequenciamento</td>
+<td style="text-align:left">FASTQ compactado com gzip (.fastq.gz ou .fq.gz)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Todos os demais arquivos são gerados internamente pela plataforma e <strong>não devem ser submetidos</strong>.</p>
+<h3 id="metadados">Metadados<a class="wk-anchor" href="#metadados" aria-label="Link para esta seção">#</a></h3>
+<p>Os metadados podem ser registrados de duas formas:</p>
+<ul>
+<li><strong>Formulários do portal:</strong> cadastro de um registro por vez (um paciente, uma amostra ou um experimento). Projetos, Investigações, Estudos e Ensaios são sempre cadastrados por formulário.</li>
+<li><strong>Planilhas-modelo:</strong> cadastro de vários pacientes, amostras ou experimentos de uma só vez. Baixe o modelo na própria página de cadastro, preencha e envie o arquivo. Antes de salvar, uma prévia mostra as linhas lidas e os erros encontrados.</li>
+</ul>
+<p>Ao usar planilhas, utilize exclusivamente os templates disponibilizados pelo ATPBR e mantenha sua estrutura original (não renomeie, remova ou reordene colunas). As regras de preenchimento de cada campo são as mesmas dos formulários e estão no <a href="dicionario-de-dados.html">Dicionário de dados</a>.</p>
+<h3 id="dados-brutos-de-sequenciamento">Dados Brutos de Sequenciamento<a class="wk-anchor" href="#dados-brutos-de-sequenciamento" aria-label="Link para esta seção">#</a></h3>
+<p>Os dados de sequenciamento devem corresponder aos arquivos primários gerados pelos equipamentos de sequenciamento.</p>
+<p><strong>Modalidades aceitas</strong></p>
+<p>Nesta primeira versão, são aceitas as seguintes modalidades ômicas:</p>
+<ul>
+<li>Sequenciamento de genoma completo (<strong>WGS</strong>).</li>
+<li>Sequenciamento de exoma completo (<strong>WES</strong>).</li>
+<li>Sequenciamento por <strong>painel gênico</strong>.</li>
+<li>Sequenciamento de RNA (<strong>RNA-seq</strong>).</li>
+</ul>
+<p>Outras modalidades, como metilação de DNA, serão incorporadas em versões futuras.</p>
+<p><strong>Requisitos dos arquivos FASTQ</strong></p>
+<ul>
+<li>Arquivos compactados no formato gzip (.fastq.gz ou .fq.gz).</li>
+<li>Em leituras pareadas (paired-end), os dois arquivos de cada amostra: leitura 1 e leitura 2.</li>
+<li>Vinculados a um Ensaio: enviados pelo portal ou localizados na Plataforma Multiusuário de Bioinformática do INCA (veja <a href="submissao-de-dados.html">Submissão de dados</a>).</li>
+<li>Nomes idênticos aos informados nos campos fastq_1 e fastq_2 dos Experimentos.</li>
+<li>Nomes de arquivo sem dados pessoais, como nome ou número de prontuário do paciente.</li>
+<li>Integridade verificada por checksum.</li>
+</ul>
+<h3 id="dados-gerados-pelo-atpbr">Dados Gerados pelo ATPBR<a class="wk-anchor" href="#dados-gerados-pelo-atpbr" aria-label="Link para esta seção">#</a></h3>
+<p>A partir dos FASTQ, a plataforma gera internamente:</p>
+<ul>
+<li>Arquivos de alinhamento (CRAM).</li>
+<li>Variantes somáticas (VCF e MAF).</li>
+<li>Matrizes de expressão gênica.</li>
+<li>Dados de número de cópias.</li>
+<li>Métricas de controle de qualidade.</li>
+</ul>
+<p>Os pipelines que geram esses arquivos estão descritos no próximo capítulo.</p>
+<hr />
+<p><strong>Próximo capítulo → <a href="plataforma-analitica.html">Plataforma analítica</a>:</strong> como os FASTQ enviados são processados e quais resultados são gerados.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="sistema-de-identificacao-e-barcode.html"><small>← Anterior</small>Sistema de identificação e barcode</a>
+                <a class="wk-next" href="plataforma-analitica.html"><small>Próximo →</small>Plataforma analítica</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html" aria-current="page">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#visao-geral">Visão Geral</a></li>
+<li class=""><a href="#metadados">Metadados</a></li>
+<li class=""><a href="#dados-brutos-de-sequenciamento">Dados Brutos de Sequenciamento</a></li>
+<li class=""><a href="#dados-gerados-pelo-atpbr">Dados Gerados pelo ATPBR</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>

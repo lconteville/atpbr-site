@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitetura da plataforma · Wiki do ATPBR</title>
+    <meta name="description" content="Arquitetura da plataforma: visão geral do caminho que os dados percorrem.">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>Wiki do ATPBR</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../index.html">Site</a>
+                <a href="../infografico.html">Infográfico</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Arquitetura da plataforma</nav>
+            <h1>Arquitetura da plataforma</h1>
+            <p class="wk-meta">Capítulo 3 de 14 · Atualizado em 16/11/2026</p>
+            <article class="wk-body">
+<p>A arquitetura do ATPBR foi projetada para suportar todo o ciclo de vida dos dados oncológicos, desde sua submissão até sua análise e disponibilização de resultados para a comunidade científica. A plataforma é composta por módulos interoperáveis que atuam de forma integrada para garantir rastreabilidade, padronização, escalabilidade e reprodutibilidade.</p>
+<p>Este capítulo apresenta a <strong>visão de conjunto</strong>. Cada etapa descrita aqui é detalhada em um capítulo próprio, indicado ao longo do texto.</p>
+<h3 id="visao-geral-da-arquitetura">Visão Geral da Arquitetura<a class="wk-anchor" href="#visao-geral-da-arquitetura" aria-label="Link para esta seção">#</a></h3>
+<p>De forma simplificada, o fluxo de dados no ATPBR segue as seguintes etapas:</p>
+<p><strong>Ingestão → Validação → Armazenamento → Processamento → Harmonização → Exploração → Compartilhamento</strong></p>
+<p>Em todas as etapas, os princípios de proteção dos participantes apresentados em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a> são aplicados por meio de controle de acesso por perfis e permissões, registro e auditoria de atividades e gestão das solicitações de acesso a dados controlados. As regras e os responsáveis por cada etapa estão em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
+<h3 id="ingestao-de-dados">Ingestão de Dados<a class="wk-anchor" href="#ingestao-de-dados" aria-label="Link para esta seção">#</a></h3>
+<p>A ingestão é o recebimento dos metadados e dos arquivos de sequenciamento enviados pelos usuários. O processo, passo a passo, está em <a href="submissao-de-dados.html">Submissão de dados</a>. Os dados são organizados segundo o <a href="modelo-de-dados.html">Modelo de dados</a> e recebem identificadores padronizados, descritos em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
+<h3 id="validacao">Validação<a class="wk-anchor" href="#validacao" aria-label="Link para esta seção">#</a></h3>
+<p>Após a ingestão, os dados passam por verificações automáticas e manuais de integridade, formato, campos obrigatórios e consistência entre metadados e arquivos, além da conferência da documentação ética e das permissões de uso. Ser aceito pelo sistema não equivale a ser admitido: enquanto houver pendências, o conjunto fica bloqueado para divulgação e para novos usos. As verificações e a correção de erros estão descritas em <a href="submissao-de-dados.html">Submissão de dados</a>, e as regras de admissão, em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
+<h3 id="armazenamento-de-dados">Armazenamento de Dados<a class="wk-anchor" href="#armazenamento-de-dados" aria-label="Link para esta seção">#</a></h3>
+<p>A arquitetura separa o armazenamento em <strong>duas camadas complementares</strong>, ligadas por um catálogo de metadados:</p>
+<ul>
+<li><strong>Camada de dados brutos:</strong> guarda os arquivos de grande volume (os FASTQ submetidos e os CRAM gerados no processamento), preservando os originais para rastreabilidade e futuras reanálises.</li>
+<li><strong>Camada de dados estruturados:</strong> guarda os dados processados e organizados para consulta, como dados clínicos harmonizados, alterações genômicas e matrizes de expressão gênica.</li>
+<li><strong>Metadados e catalogação:</strong> o catálogo registra projetos, investigações, estudos, pacientes, amostras, ensaios, experimentos, arquivos e processamentos executados. É ele que permite localizar um conjunto de dados, compreender sua origem e reconstruir o histórico completo de geração das informações.</li>
+</ul>
+<h3 id="processamento-de-dados">Processamento de Dados<a class="wk-anchor" href="#processamento-de-dados" aria-label="Link para esta seção">#</a></h3>
+<p>Os FASTQ validados são processados por pipelines padronizados, que identificam variantes somáticas e quantificam a expressão gênica. Os pipelines, as versões e os arquivos gerados estão em <a href="plataforma-analitica.html">Plataforma analítica</a>.</p>
+<h3 id="harmonizacao-e-integracao">Harmonização e Integração<a class="wk-anchor" href="#harmonizacao-e-integracao" aria-label="Link para esta seção">#</a></h3>
+<p>Os resultados do processamento são padronizados, anotados e integrados aos dados clínicos, o que permite comparar estudos diferentes. Os dados harmonizados são carregados no cBioPortal do ATPBR.</p>
+<h3 id="exploracao-e-compartilhamento">Exploração e Compartilhamento<a class="wk-anchor" href="#exploracao-e-compartilhamento" aria-label="Link para esta seção">#</a></h3>
+<p>Os resultados podem ser explorados no <a href="navegador-de-resultados.html">Navegador de resultados</a> (cBioPortal do ATPBR). Os estudos e conjuntos de dados de todos os projetos podem ser consultados no <strong>catálogo de dados</strong> da plataforma. O que é aberto, o que é controlado e como solicitar acesso estão em <a href="acesso-aos-dados.html">Acesso aos dados</a>.</p>
+<hr />
+<p><strong>Próximo capítulo → <a href="governanca-de-dados.html">Governança de dados</a>:</strong> as regras que valem ao longo desse fluxo: quem é responsável por cada etapa, como os participantes são protegidos e quais autorizações cada uso exige.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Capítulos">
+                <a class="wk-prev" href="comece-aqui.html"><small>← Anterior</small>Comece aqui</a>
+                <a class="wk-next" href="governanca-de-dados.html"><small>Próximo →</small>Governança de dados</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
+                <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Páginas</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Início</a></li>
+<li><a href="sobre-o-atpbr.html">Sobre o ATPBR</a></li>
+<li><a href="comece-aqui.html">Comece aqui</a></li>
+<li><a href="arquitetura-da-plataforma.html" aria-current="page">Arquitetura da plataforma</a></li>
+<li><a href="governanca-de-dados.html">Governança de dados</a></li>
+<li><a href="submissao-de-dados.html">Submissão de dados</a></li>
+<li><a href="acesso-aos-dados.html">Acesso aos dados</a></li>
+<li><a href="modelo-de-dados.html">Modelo de dados</a></li>
+<li><a href="dicionario-de-dados.html">Dicionário de dados</a></li>
+<li><a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a></li>
+<li><a href="tipos-de-dados.html">Tipos de dados</a></li>
+<li><a href="plataforma-analitica.html">Plataforma analítica</a></li>
+<li><a href="navegador-de-resultados.html">Navegador de resultados</a></li>
+<li><a href="politicas-de-uso.html">Políticas de uso</a></li>
+<li><a href="perguntas-frequentes.html">Perguntas frequentes</a></li>
+                </ol>
+                <h2 class="wk-side-title">Nesta página</h2>
+<ul class="wk-toc">
+<li class=""><a href="#visao-geral-da-arquitetura">Visão Geral da Arquitetura</a></li>
+<li class=""><a href="#ingestao-de-dados">Ingestão de Dados</a></li>
+<li class=""><a href="#validacao">Validação</a></li>
+<li class=""><a href="#armazenamento-de-dados">Armazenamento de Dados</a></li>
+<li class=""><a href="#processamento-de-dados">Processamento de Dados</a></li>
+<li class=""><a href="#harmonizacao-e-integracao">Harmonização e Integração</a></li>
+<li class=""><a href="#exploracao-e-compartilhamento">Exploração e Compartilhamento</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Atlas Tumoral da População Brasileira</strong><br>
+                Laboratório de Bioinformática e Biologia Computacional, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>
