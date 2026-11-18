@@ -37,13 +37,13 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Modelo de dados</nav>
             <h1>Modelo de dados</h1>
-            <p class="wk-meta">Capítulo 7 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 7 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Em <a href="submissao-de-dados.html">Submissão de dados</a>, vimos a ordem em que as informações são cadastradas. O modelo de dados explica <strong>por que</strong> essa ordem existe: ele define como as informações são organizadas e relacionadas na plataforma, garantindo rastreabilidade, interoperabilidade e consistência ao longo de todo o ciclo de vida dos dados.</p>
 <h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
 <p>O ATPBR organiza os dados em uma estrutura hierárquica que conecta informações científicas, clínicas e experimentais, desde a definição do projeto até os arquivos brutos gerados pelos experimentos. Os dados são organizados em quatro módulos principais:</p>
 <p><strong>Projeto → Investigação → Estudo → Ensaio</strong></p>
-<p>Os módulos Estudo e Ensaio contêm os <strong>elementos</strong> que representam os dados clínicos e experimentais: <strong>Pacientes</strong> e <strong>Amostras</strong> (no Estudo) e <strong>Arquivos de dados</strong> e <strong>Experimentos</strong> (no Ensaio).</p>
+<p>Os módulos Estudo e Ensaio contêm os <strong>elementos</strong> que representam os dados clínicos e experimentais: <strong>Pacientes</strong> e <strong>Amostras</strong> (dentro do Estudo) e <strong>Arquivos de dados</strong> e <strong>Experimentos</strong> (dentro do Ensaio).</p>
 <h3 id="principais-modulos">Principais Módulos<a class="wk-anchor" href="#principais-modulos" aria-label="Link para esta seção">#</a></h3>
 <h4 id="projeto">Projeto<a class="wk-anchor" href="#projeto" aria-label="Link para esta seção">#</a></h4>
 <p>O <strong>Projeto</strong> representa o contexto científico <strong>geral</strong> dos dados que serão submetidos. É o nível mais alto da hierarquia e funciona como um “guarda-chuva” sob o qual são organizadas uma ou mais linhas de pesquisa relacionadas. Define os objetivos científicos, o escopo da pesquisa e as instituições participantes.</p>
@@ -64,7 +64,20 @@
 <li><strong>Experimentos:</strong> os metadados técnicos da corrida para cada amostra sequenciada, como plataforma de sequenciamento, preparação da biblioteca e layout de leitura. Cada Experimento liga uma <strong>Amostra</strong> aos seus <strong>Arquivos de dados</strong>.</li>
 </ul>
 <h3 id="como-os-elementos-se-relacionam">Como os Elementos se Relacionam<a class="wk-anchor" href="#como-os-elementos-se-relacionam" aria-label="Link para esta seção">#</a></h3>
-<p>Cada elemento aponta para um elemento previamente cadastrado. Por isso, a ordem de cadastro descrita em <a href="submissao-de-dados.html">Submissão de dados</a> não pode ser invertida:</p>
+<p><img src="images/modelo_dados.png" alt="Modelo de dados do ATPBR: Projeto, Investigação, Estudo e Ensaio; dentro do Estudo, Paciente e Amostra; dentro do Ensaio, Arquivos de dados e Experimento" /></p>
+<p>A figura mostra a hierarquia da esquerda para a direita e, dentro de cada módulo, os elementos na ordem em que são cadastrados:</p>
+<ul>
+<li><strong>Projeto:</strong> iniciativa com uma ou mais linhas de pesquisa.</li>
+<li><strong>Investigação:</strong> uma linha de pesquisa, voltada a um ou mais tipos de câncer.</li>
+<li><strong>Estudo:</strong> dedicado a um único tipo de câncer.</li>
+<li><strong>Ensaio:</strong> a corrida e a abordagem experimental, por exemplo, a Corrida 01 do sequenciamento genômico.</li>
+</ul>
+<p>Abaixo do Estudo e do Ensaio estão os elementos que cada um contém:</p>
+<ul>
+<li><strong>Dentro do Estudo:</strong> o <strong>Paciente</strong> (o participante, cadastrado com dados pseudonimizados) e a <strong>Amostra</strong> (o material biológico).</li>
+<li><strong>Dentro do Ensaio:</strong> os <strong>Arquivos de dados</strong> (os FASTQ da corrida) e o <strong>Experimento</strong> (os metadados técnicos da corrida).</li>
+</ul>
+<p>Além de pertencer a um módulo, cada elemento aponta para um elemento previamente cadastrado. Por isso, a ordem de cadastro descrita em <a href="submissao-de-dados.html">Submissão de dados</a> não pode ser invertida:</p>
 <ul>
 <li>Uma <strong>Amostra</strong> referencia um <strong>Paciente</strong> já cadastrado.</li>
 <li>Um <strong>Experimento</strong> referencia uma <strong>Amostra</strong> já cadastrada e os <strong>Arquivos de dados</strong> já disponíveis no Ensaio.</li>

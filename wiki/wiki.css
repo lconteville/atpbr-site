@@ -248,6 +248,13 @@ h4:hover .wk-anchor,
     border-radius: 12px;
 }
 
+/* figuras dos capítulos (atpbr-wiki/images/): fundo transparente, sem moldura */
+.wk-body img[src^="images/"] {
+    border: 0;
+    border-radius: 0;
+    margin: 8px 0;
+}
+
 .wk-body hr {
     border: 0;
     border-top: 1px solid var(--linha);
