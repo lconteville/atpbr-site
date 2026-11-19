@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data dictionary · ATPBR Wiki</title>
+    <meta name="description" content="Data dictionary: the fields of each module and how to fill them in.">
+    <link rel="alternate" hreflang="pt-br" href="../dicionario-de-dados.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../dicionario-de-dados.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Data dictionary</nav>
+            <h1>Data dictionary</h1>
+            <p class="wk-meta">Chapter 8 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>Now that you know the modules and elements of the <a href="data-model.html">Data model</a>, this chapter describes <strong>what to fill in for each one</strong>. The data dictionary defines the structure, meaning and completion rules of the data stored on the platform, ensuring consistency and comparability across the data submitted by the different participating centers.</p>
+<p>Each field has a formal definition, an expected type and format, a required or optional status and, where applicable, controlled vocabularies or reference ontologies. Some of these fields also make up the ATPBR <a href="identification-and-barcode-system.html">Identification and barcode system</a>.</p>
+<h3 id="organization-of-the-data-dictionary">Organization of the Data Dictionary<a class="wk-anchor" href="#organization-of-the-data-dictionary" aria-label="Link to this section">#</a></h3>
+<p>The data dictionary is organized according to the platform's four main modules:</p>
+<ul>
+<li>
+<p>Project:</p>
+<ul>
+<li>Required fields:
+<ul>
+<li>Project Title, Acronym, Description, Principal Investigator (PI), Associated Institutions, Ethics Approval, Funding</li>
+</ul>
+</li>
+<li>Optional fields:
+<ul>
+<li>Co-PIs, Scientific Committee, Start Date, End Date</li>
+</ul>
+</li>
+<li>Fields linked to ontologies:
+<ul>
+<li>Associated Institutions (linked to the ROR ID)</li>
+</ul>
+</li>
+<li>Fields used to compose the barcode:
+<ul>
+<li>Acronym (5 to 7 uppercase letters), Associated Institutions (reference to the center that collected the samples)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Investigation:</p>
+<ul>
+<li>Required fields:
+<ul>
+<li>Investigation Title</li>
+</ul>
+</li>
+<li>Optional fields:
+<ul>
+<li>Description</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Study:</p>
+<ul>
+<li>Required fields:
+<ul>
+<li>Study Title, Associated Investigation, Cancer Type, Description, Specific Ethics Approval</li>
+</ul>
+</li>
+<li>Optional fields:
+<ul>
+<li>Publications</li>
+</ul>
+</li>
+<li>Fields with reference ontologies:
+<ul>
+<li>Cancer Type (linked to OncoTree)</li>
+</ul>
+</li>
+<li>Within a single project, each cancer type can have only one Study.</li>
+</ul>
+</li>
+<li>
+<p>Assays:</p>
+<ul>
+<li>Required fields:
+<ul>
+<li>Assay Title, Omic Type</li>
+</ul>
+</li>
+<li>Optional fields:
+<ul>
+<li>Description, Associated Repositories</li>
+</ul>
+</li>
+<li>Fields used to compose the barcode:
+<ul>
+<li>Omic Type</li>
+</ul>
+</li>
+<li>Field for files already stored at INCA:
+<ul>
+<li>Associated Repositories: if the FASTQ files are already in the repository of the INCA Multi-user Bioinformatics Platform, enter the absolute path of the directory here (see <a href="data-submission.html">Data submission</a>).</li>
+</ul>
+</li>
+<li>The Assay also states the sharing conditions requested for its data, which are subject to validation and approval (see <a href="data-access.html">Data access</a>).</li>
+</ul>
+</li>
+</ul>
+<p>Following the three main elements of the data model of the data ingestion platform, each element has a specific set of clinical, biological and experimental attributes. The full description of all attributes is available in the spreadsheet  <a target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/1rXTByRdGkWNw3NNK8IkSV1a70fT6KmHn/edit?gid=911344761#gid=911344761">ATPBR_planilha_metadados.xlsx</a></p>
+<p>Where applicable, each attribute described in this spreadsheet includes:</p>
+<ul>
+<li>Attribute name</li>
+<li>Description</li>
+<li>Data type</li>
+<li>Required or optional status</li>
+<li>Allowed values</li>
+<li>Controlled vocabulary or ontology</li>
+</ul>
+<p>Only the main required fields of each element are presented below. The full description is in the metadata spreadsheet.</p>
+<ul>
+<li><strong>Patients</strong>
+<ul>
+<li>Main required fields:
+<ul>
+<li>patient_id - Participant code, 4 digits long, defined by the collector center and unrelated to personal data</li>
+<li>collector_center - Collector center (institution), via the &quot;Collector Center&quot; vocabulary</li>
+<li>disease_type - The patient's cancer type, chosen from the OncoTree classification among the types of the tissue defined in the Study</li>
+<li>primary_site - Organ where the tumor originated</li>
+<li>consent_type - Type of consent obtained for participation in the study</li>
+<li>data_use_permission - Primary permission for the use of this patient's data/samples</li>
+<li>data_use_restriction - Additional restriction on data use according to the GA4GH Data Use Ontology (DUO). A single value; use &quot;NRES&quot; when there is no additional restriction</li>
+</ul>
+</li>
+<li>Optional field related to the diagnosis: disease_subtype - OncoTree subtype, below the cancer type, when known</li>
+<li>Automatic field: cid10_category - ICD-10 (CID-10) category calculated by the platform from disease_type, disease_subtype and primary_site. The user does not fill in this field.</li>
+<li>Fields used to compose the barcode: patient_id, collector_center, cid10_category</li>
+</ul>
+</li>
+<li><strong>Samples</strong>
+<ul>
+<li>Main required fields:
+<ul>
+<li>sample_id - Sample code, 4 digits long, defined by the collector center and unrelated to personal data</li>
+<li>patient_id - Identifier of the already registered Patient to whom this sample belongs</li>
+<li>sample_type - Biological material or biological derivative corresponding to the collected sample.</li>
+<li>sample_status - Pathological classification of the sample at the time of collection.</li>
+<li>sample_preservation - Method used to preserve the sample after collection.</li>
+</ul>
+</li>
+<li>Fields used to compose the barcode: sample_id, sample_type, sample_status, sample_preservation</li>
+<li>A Sample requires at least one staging system to be filled in (see the section <em>Mandatory Sample Staging</em>, below).</li>
+</ul>
+</li>
+<li><strong>Experiments</strong>
+<ul>
+<li>Main required fields:
+<ul>
+<li>sample_id - Identifier of the already registered Sample from which this experiment was generated</li>
+<li>analyte_type - Type of analyte used to generate the sequencing data</li>
+<li>library_kit - Identification of the kit used for library construction</li>
+<li>sequencing_center - Center where the sequencing was performed</li>
+<li>sequencing_platform - Identification of the platform used to sequence the samples</li>
+<li>date_of_sequencing - Date on which the sequencing was performed, in DD/MM/YYYY format</li>
+<li>library_layout - Type of read used</li>
+<li>lane_number - Sequencing lane number</li>
+<li>fastq_1 - Exact name of the read 1 FASTQ file, as listed in the Assay's Data Files</li>
+</ul>
+</li>
+<li>Conditional field: fastq_2 - Exact name of the read 2 FASTQ file. Required when library_layout = PAIRED.</li>
+<li>Fields used to compose the barcode: lane_number. The combination of date_of_sequencing, sequencing_center and sequencing_platform defines the run number (see <a href="identification-and-barcode-system.html">Identification and barcode system</a>).</li>
+</ul>
+</li>
+</ul>
+<h3 id="mandatory-sample-staging">Mandatory Sample Staging<a class="wk-anchor" href="#mandatory-sample-staging" aria-label="Link to this section">#</a></h3>
+<p>Every sample registered in ATPBR must provide <strong>at least one staging system</strong>. The platform rejects the registration of a sample that has <strong>none</strong> of the following fields filled in:</p>
+<ul>
+<li><strong>FIGO</strong> (gynecological tumors)</li>
+<li><strong>TNM</strong> (general system)</li>
+<li><strong>Rai</strong> (chronic lymphocytic leukemia)</li>
+<li><strong>Binet</strong> (chronic lymphocytic leukemia)</li>
+<li><strong>LMC Phase</strong> (chronic myeloid leukemia)</li>
+<li><strong>AML/ALL Stage</strong> (acute leukemias)</li>
+<li><strong>CIN</strong> (cervical intraepithelial neoplasia)</li>
+</ul>
+<p>You do not need to fill in all of them: the staging system that applies to the case is enough. The AJCC staging fields are optional and do not count toward this rule. If none of the systems above is provided, the sample is highlighted in the registration table with the message: <em>&quot;Provide at least one staging system (FIGO, TNM, Rai, Binet, LMC Phase, AML/ALL Stage or CIN).&quot;</em></p>
+<h3 id="dates-and-time-information-as-a-number-of-days">Dates and time: information as a number of days<a class="wk-anchor" href="#dates-and-time-information-as-a-number-of-days" aria-label="Link to this section">#</a></h3>
+<p>To protect the identity of participants, ATPBR <strong>does not accept calendar dates</strong> for clinical events, such as date of birth, diagnosis, collection, treatment or death. Combined with one another, these dates would make it possible to re-identify the patient.</p>
+<p>Instead, temporal fields take the <strong>number of days</strong> counted from a common reference point, the <strong>diagnosis</strong>, which corresponds to <strong>day 0</strong>. The day of diagnosis is the date of the first exam that concluded malignancy.</p>
+<p>Examples:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">What to enter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">diagnosis_age_in_days</td>
+<td style="text-align:left">Patient's age at diagnosis, in days</td>
+</tr>
+<tr>
+<td style="text-align:left">days_to_sample</td>
+<td style="text-align:left">Days between diagnosis and sample collection</td>
+</tr>
+<tr>
+<td style="text-align:left">days_to_treatment_first_course</td>
+<td style="text-align:left">Days between diagnosis and the start of the first treatment</td>
+</tr>
+<tr>
+<td style="text-align:left">days_to_last_follow_up</td>
+<td style="text-align:left">Days between diagnosis and the patient's last record (last follow-up or death)</td>
+</tr>
+</tbody>
+</table></div>
+<p>For example, if the sample was collected 15 days after diagnosis, enter <code>15</code> in days_to_sample.</p>
+<p>To convert the dates in your institution's medical records, use the <strong>date-to-days converter</strong>, available in the platform's registration forms. The conversion must be done before filling in the forms, and the original dates must not be sent to ATPBR.</p>
+<p>The only calendar date accepted is the <strong>sequencing date</strong> (date_of_sequencing), because it does not refer to the patient. It must be in DD/MM/YYYY format, with a 4-digit year, be a valid date and cannot be in the future.</p>
+<h3 id="versioning">Versioning<a class="wk-anchor" href="#versioning" aria-label="Link to this section">#</a></h3>
+<p>The ATPBR data dictionary is kept under version control and updated whenever necessary to accommodate new technologies, omic modalities, clinical fields, reference ontologies and regulatory requirements.</p>
+<p>All changes are recorded and documented, ensuring the traceability of changes and backward compatibility whenever applicable.</p>
+<hr />
+<p><strong>Next chapter → <a href="identification-and-barcode-system.html">Identification and barcode system</a>:</strong> how some of the fields described here combine to form the unique identifier of patients, samples and assays.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-model.html"><small>← Previous</small>Data model</a>
+                <a class="wk-next" href="identification-and-barcode-system.html"><small>Next →</small>Identification and barcode system</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html" aria-current="page">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#organization-of-the-data-dictionary">Organization of the Data Dictionary</a></li>
+<li class=""><a href="#mandatory-sample-staging">Mandatory Sample Staging</a></li>
+<li class=""><a href="#dates-and-time-information-as-a-number-of-days">Dates and time: information as a number of days</a></li>
+<li class=""><a href="#versioning">Versioning</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

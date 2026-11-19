@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Governança de dados · Wiki do ATPBR</title>
     <meta name="description" content="Governança de dados: responsabilidades, proteção dos participantes e autorizações de uso.">
+    <link rel="alternate" hreflang="en" href="en/data-governance.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/data-governance.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,52 +39,118 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Governança de dados</nav>
             <h1>Governança de dados</h1>
-            <p class="wk-meta">Capítulo 4 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 4 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Em <a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a>, vimos o caminho técnico que os dados percorrem no ATPBR. Este capítulo trata das <strong>regras</strong> que valem ao longo desse caminho: quem é responsável por cada etapa, que condições um conjunto de dados precisa cumprir para entrar na plataforma e ser compartilhado, e como os participantes das pesquisas são protegidos.</p>
-<p>Leia este capítulo antes de submeter dados ou de solicitar acesso a dados controlados. Os capítulos seguintes aplicam estas regras a cada situação: <a href="submissao-de-dados.html">Submissão de dados</a> a quem envia dados, <a href="acesso-aos-dados.html">Acesso aos dados</a> a quem solicita acesso e <a href="politicas-de-uso.html">Políticas de uso</a> a quem recebe os dados.</p>
-<h3 id="documentos-que-regem-o-atpbr">Documentos que regem o ATPBR<a class="wk-anchor" href="#documentos-que-regem-o-atpbr" aria-label="Link para esta seção">#</a></h3>
-<p>A governança do ATPBR é definida por três documentos institucionais do INCA:</p>
+<p>Leia este capítulo <strong>antes de submeter dados ou de solicitar acesso a dados controlados</strong>. Os capítulos seguintes aplicam estas regras a cada situação: <a href="submissao-de-dados.html">Submissão de dados</a> a quem envia dados, <a href="acesso-aos-dados.html">Acesso aos dados</a> a quem solicita acesso e <a href="politicas-de-uso.html">Políticas de uso</a> a quem recebe os dados.</p>
+<h3 id="documentos-e-instrumentos-de-governanca-do-atpbr">Documentos e instrumentos de governança do ATPBR<a class="wk-anchor" href="#documentos-e-instrumentos-de-governanca-do-atpbr" aria-label="Link para esta seção">#</a></h3>
+<p>A governança do Atlas Tumoral da População Brasileira (ATPBR) se apoia em políticas institucionais, instrumentos de proteção dos participantes e termos que formalizam responsabilidades. Juntos, cobrem todo o ciclo de vida dos dados, da submissão à reutilização, em conformidade com a legislação brasileira e as boas práticas internacionais. A coluna Status indica se cada documento está aprovado, em revisão ou em elaboração; documentos que ainda não foram aprovados <strong>não devem ser lidos como normas vigentes</strong>.</p>
+<h4 id="politicas-institucionais">Políticas institucionais<a class="wk-anchor" href="#politicas-institucionais" aria-label="Link para esta seção">#</a></h4>
 <div class="wk-table"><table>
 <thead>
 <tr>
 <th style="text-align:left">Documento</th>
 <th style="text-align:left">O que estabelece</th>
-<th style="text-align:left">A quem se dirige</th>
+<th style="text-align:left">A quem se destina</th>
+<th style="text-align:left">Status</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left"><strong>Política de Governança de Dados</strong></td>
-<td style="text-align:left">Princípios, responsabilidades de cada participante, regras de constituição do banco, proteção dos participantes, segurança e supervisão</td>
-<td style="text-align:left">Todos os envolvidos com a plataforma</td>
+<td style="text-align:left">Princípios gerais de governança; papel do INCA como instituição coordenadora e mantenedora; instâncias de governança (CGN, CCP, CAD, CESP e SAB) e responsabilidades das instituições participantes; constituição e gestão do banco de dados; proteção dos participantes; segurança da informação e mecanismos de supervisão.</td>
+<td style="text-align:left">Todas as instituições, pesquisadores e profissionais envolvidos no ATPBR.</td>
+<td style="text-align:left">Em revisão. Será publicada na íntegra após aprovação.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Política de Fluxo e Acesso a Dados</strong></td>
-<td style="text-align:left">Procedimentos de submissão, verificação, classificação, solicitação de acesso, decisão pelo Comitê de Acesso a Dados, habilitação, monitoramento e encerramento dos acessos</td>
-<td style="text-align:left">Quem submete, quem solicita e quem opera a plataforma</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Termo de Responsabilidade do Pesquisador Remetente</strong></td>
-<td style="text-align:left">Declarações e compromissos de quem envia dados ao ATPBR</td>
-<td style="text-align:left">Pesquisadores remetentes</td>
+<td style="text-align:left">Procedimentos de submissão, verificação, classificação e disponibilização dos dados; modalidades de acesso (público, registrado, controlado por visita aos dados e interno); critérios para solicitação e autorização de acesso, incluindo a pré-autorização por códigos DUO; atribuições do Comitê de Acesso a Dados; monitoramento e encerramento dos acessos concedidos.</td>
+<td style="text-align:left">Pesquisadores remetentes, solicitantes de acesso, Comitê de Acesso a Dados e operadores da plataforma.</td>
+<td style="text-align:left">Em revisão. Será publicada na íntegra após aprovação.</td>
 </tr>
 </tbody>
 </table></div>
+<h4 id="protecao-de-dados-e-direitos-dos-participantes">Proteção de dados e direitos dos participantes<a class="wk-anchor" href="#protecao-de-dados-e-direitos-dos-participantes" aria-label="Link para esta seção">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Documento</th>
+<th style="text-align:left">O que estabelece</th>
+<th style="text-align:left">A quem se destina</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Relatório de Impacto à Proteção de Dados Pessoais (RIPD)</strong></td>
+<td style="text-align:left">Identifica e avalia os riscos do tratamento de dados pessoais e sensíveis na plataforma, individuais e coletivos, e descreve as medidas de segurança, salvaguardas e mecanismos adotados para preveni-los ou mitigá-los, em conformidade com a LGPD.</td>
+<td style="text-align:left">Instituições responsáveis pelo tratamento dos dados, encarregados de proteção de dados, equipes de governança e de segurança da informação e órgãos de fiscalização competentes.</td>
+<td style="text-align:left">Em revisão. Documento interno, por conter informações sobre riscos e controles de segurança; será publicado um resumo institucional.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Modelo de Termo de Consentimento Livre e Esclarecido (TCLE) em camadas</strong></td>
+<td style="text-align:left">Modelo de referência que apresenta, de forma clara e estruturada, as finalidades de coleta, armazenamento, compartilhamento e reutilização dos dados em pesquisas futuras, com escolhas por camada (uso futuro, compartilhamento internacional, uso comercial, recontato e retorno de achados) registradas como códigos DUO. <strong>Não é uma autorização geral:</strong> cada estudo deve avaliar a compatibilidade entre seu consentimento, sua aprovação ética e os usos pretendidos.</td>
+<td style="text-align:left">Pesquisadores responsáveis pela coleta de dados, instituições participantes, Comitês de Ética em Pesquisa e participantes das pesquisas.</td>
+<td style="text-align:left">Em elaboração. O modelo será publicado; cada estudo adota a versão aprovada pelo seu CEP.</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="termos-de-responsabilidade-e-compartilhamento">Termos de responsabilidade e compartilhamento<a class="wk-anchor" href="#termos-de-responsabilidade-e-compartilhamento" aria-label="Link para esta seção">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Documento</th>
+<th style="text-align:left">O que estabelece</th>
+<th style="text-align:left">A quem se destina</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Termo de Acordo Institucional</strong></td>
+<td style="text-align:left">Formaliza a adesão de cada instituição ao consórcio ATPBR e os acordos prévios exigidos pela Resolução CNS nº 738/2024 para bancos de dados constituídos com a participação de mais de uma instituição: contribuição, acesso e compartilhamento dos dados, responsabilidades, participação nos colegiados e crédito aos centros.</td>
+<td style="text-align:left">Instituições participantes e INCA.</td>
+<td style="text-align:left">Em elaboração. O modelo será publicado.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Termo de Responsabilidade do Pesquisador Remetente</strong></td>
+<td style="text-align:left">Declarações e responsabilidades de quem submete dados ao ATPBR, aceitas na plataforma <strong>antes da primeira submissão</strong>: legitimidade da submissão, observância das aprovações éticas, compatibilidade com os consentimentos e autorizações aplicáveis, qualidade das informações e cumprimento das políticas da plataforma.</td>
+<td style="text-align:left">Pesquisadores responsáveis pela submissão de dados.</td>
+<td style="text-align:left">Em revisão. Será publicado na íntegra após aprovação.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Termo de Uso de Dados de Acesso Controlado (DAA)</strong></td>
+<td style="text-align:left">Condições para o uso dos dados autorizados na instância segura do ATPBR, por visita aos dados e sem download: finalidade aprovada, confidencialidade, proibição de tentativas de reidentificação e de extração de dados individuais, exportação apenas de resultados verificados, medidas de segurança, comunicação de incidentes, custos de processamento quando aplicáveis e condições de encerramento do acesso.</td>
+<td style="text-align:left">Pesquisadores e instituições autorizados a acessar dados controlados.</td>
+<td style="text-align:left">Em elaboração. O modelo será publicado.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Acordo de Transferência de Dados (DTA)</strong></td>
+<td style="text-align:left">Condições jurídicas, institucionais e técnicas para o envio de dados das instituições de origem ao ATPBR: finalidades autorizadas, responsabilidades, medidas de proteção, restrições de uso e condições de armazenamento e retenção.</td>
+<td style="text-align:left">Instituições de origem que contribuem com dados e INCA.</td>
+<td style="text-align:left">Em elaboração. O modelo será publicado.</td>
+</tr>
+</tbody>
+</table></div>
+<p>As regras de funcionamento dos colegiados ficam em regimentos próprios, em elaboração: o <strong>Regimento do CAD</strong> (composição, prazos e recursos) e o <strong>Regimento do CCP</strong> (período de embargo, autoria e crédito aos centros).</p>
+<h4 id="compromisso-com-o-uso-responsavel-dos-dados">Compromisso com o uso responsável dos dados<a class="wk-anchor" href="#compromisso-com-o-uso-responsavel-dos-dados" aria-label="Link para esta seção">#</a></h4>
+<p>O ATPBR adota uma abordagem de acesso responsável, considerando a natureza dos dados, suas condições de uso e os direitos dos participantes das pesquisas.<br />
+As permissões de uso de cada conjunto de dados são classificadas com a <strong>Data Use Ontology (DUO)</strong>, da Global Alliance for Genomics and Health (GA4GH), o que padroniza as restrições de uso e sua interpretação nos pedidos de acesso. A classificação DUO auxilia a leitura das permissões, mas <strong>não substitui a verificação do consentimento e da aprovação ética</strong> de cada estudo.<br />
+O compartilhamento de dados observa as aprovações éticas, as bases legais aplicáveis e os instrumentos institucionais pertinentes, garantindo que cada conjunto seja utilizado exclusivamente dentro das condições autorizadas. Os dados de acesso controlado são analisados <strong>por visita aos dados</strong>, na instância segura do ATPBR, <strong>sem download</strong>.</p>
 <p>Esses documentos seguem a legislação e as normas éticas aplicáveis à pesquisa com seres humanos, entre elas:</p>
 <ul>
 <li>Lei Geral de Proteção de Dados Pessoais (LGPD, Lei nº 13.709/2018).</li>
 <li>Lei nº 14.874/2024, que dispõe sobre a pesquisa com seres humanos, e sua regulamentação.</li>
-<li>Resoluções CNS nº 466/2012 (pesquisa com seres humanos), nº 340/2004 (genética humana), nº 738/2024 (bancos de dados para pesquisa) e nº 441/2011 (biobancos e biorrepositórios).</li>
+<li>Resoluções CNS nº 466/2012 (pesquisa com seres humanos), nº 340/2004 (genética humana) e nº 738/2024 (bancos de dados para pesquisa).</li>
 <li>Resolução CD/ANPD nº 19/2024 (transferência internacional de dados pessoais).</li>
 <li>Políticas de Governança, de Segurança Cibernética e de Gestão de Crises do INCA.</li>
 </ul>
-<p>As políticas do ATPBR <strong>complementam, mas não substituem</strong>, a aprovação ética de cada pesquisa, os termos de consentimento e os acordos firmados entre as instituições. Os textos completos podem ser solicitados pelo e-mail <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>.</p>
+<p>As políticas do ATPBR <strong>complementam, mas não substituem</strong>, a aprovação ética de cada pesquisa, os termos de consentimento e os acordos firmados entre as instituições. Os documentos aprovados são publicados na íntegra nesta documentação, para consulta antes do aceite do Termo de Responsabilidade ou de um pedido de acesso; os documentos internos, como o RIPD, têm resumo público. Dúvidas podem ser enviadas para <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>.</p>
 <h3 id="principios">Princípios<a class="wk-anchor" href="#principios" aria-label="Link para esta seção">#</a></h3>
 <p>A gestão dos dados no ATPBR segue, entre outros, estes princípios:</p>
 <ul>
 <li><strong>Finalidade científica:</strong> os dados são usados para objetivos de pesquisa legítimos, definidos e compatíveis com as condições em que foram obtidos.</li>
-<li><strong>Proteção dos participantes:</strong> respeito à dignidade, à autonomia, à confidencialidade e às escolhas manifestadas por cada participante.</li>
+<li><strong>Proteção dos participantes:</strong> respeito à dignidade, à autonomia, à confidencialidade e às escolhas manifestadas por cada participante, e prevenção de riscos coletivos, como a estigmatização de grupos populacionais, étnicos, comunitários ou territoriais.</li>
 <li><strong>Necessidade e proporcionalidade:</strong> cada uso recebe apenas os dados adequados à finalidade autorizada.</li>
 <li><strong>Regularidade ética:</strong> as aprovações éticas, os termos de consentimento e as decisões éticas pertinentes são sempre observados.</li>
 <li><strong>Qualidade e integridade científica:</strong> os dados são mantidos íntegros, contextualizados e rastreáveis até a sua origem.</li>
@@ -130,6 +198,8 @@
 <li>Ser aceito pelo sistema <strong>não equivale</strong> a ser admitido. O preenchimento dos campos e o envio dos arquivos não constituem, sozinhos, autorização de incorporação, publicação ou uso científico.</li>
 </ul>
 <h3 id="quem-e-quem">Quem é quem<a class="wk-anchor" href="#quem-e-quem" aria-label="Link para esta seção">#</a></h3>
+<p>A governança do consórcio se apoia em seis instâncias com papéis complementares: três decidem, duas aconselham e uma executa.</p>
+<p><img src="images/governanca_quem_faz_o_que.png" alt="Seis instâncias de governança do ATPBR. Decidem: CGN, Conselho de Governança Nacional; CCP, Comitê Científico e de Publicações; CAD, Comitê de Acesso a Dados. Aconselham: CESP, Comitê de Ética, Sociedade e Participação; SAB, Conselho Consultivo Científico Internacional. Executa: Núcleo Executivo LBBC/INCA" /></p>
 <div class="wk-table"><table>
 <thead>
 <tr>
@@ -139,58 +209,67 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>INCA</strong></td>
-<td style="text-align:left">Define as finalidades e as condições de uso dos dados no ATPBR, assegura recursos e controles e supervisiona a aplicação das políticas. Nas operações próprias da plataforma (armazenamento, processamento e definição das condições de acesso), atua como controlador, nos termos da LGPD.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Coordenação do ATPBR</strong></td>
-<td style="text-align:left">Integra as equipes científicas, técnicas, de curadoria, privacidade e segurança; mantém a matriz de responsabilidades e o dossiê do banco; supervisiona o cumprimento das restrições de origem; determina correções e, quando necessário, a suspensão de novos usos.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Responsável pelo banco</strong></td>
-<td style="text-align:left">Pessoa formalmente designada que supervisiona se a operação do banco segue o protocolo aprovado pela instância ética e encaminha as atualizações necessárias.</td>
+<td style="text-align:left"><strong>INCA – Instituição coordenadora e mantenedora</strong></td>
+<td style="text-align:left">Desenvolveu o ATPBR e mantém sua infraestrutura, operação e equipe executiva (Núcleo Executivo/LBBC). As decisões sobre ciência, acesso e ética são tomadas pelos colegiados do consórcio (CGN, CCP, CAD, CESP e SAB), nos quais os centros participantes têm assento e voto. Para fins da LGPD, o INCA atua como <strong>controlador</strong> dos dados tratados na plataforma, em conjunto com os centros participantes, que permanecem controladores dos dados que originam.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Instituições de origem (provedoras)</strong></td>
-<td style="text-align:left">Asseguram a regularidade da coleta e do consentimento; removem os identificadores diretos e guardam, separadamente, as chaves de correspondência; informam permissões e restrições; comunicam alterações e retiradas de consentimento; cooperam no atendimento aos participantes e na resposta a incidentes.</td>
+<td style="text-align:left">Asseguram a regularidade da coleta e do consentimento; removem os identificadores diretos e guardam, separadamente, as <strong>chaves de correspondência</strong>; informam permissões e restrições; comunicam alterações e retiradas de consentimento; cooperam no atendimento aos participantes e na resposta a incidentes. Para fins da LGPD, permanecem controladoras dos dados que originam.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Pesquisadores remetentes</strong></td>
 <td style="text-align:left">Preparam e enviam os dados conforme os padrões da plataforma, apresentam a documentação ética e as permissões de cada conjunto e aceitam o Termo de Responsabilidade do Pesquisador Remetente.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Equipes de validação e curadoria</strong></td>
-<td style="text-align:left">Verificam integridade, completude, qualidade, proveniência e documentação ética de cada conjunto e registram as pendências e sua resolução.</td>
+<td style="text-align:left"><strong>Núcleo Executivo e Curadoria Operacional (LBBC/INCA)</strong></td>
+<td style="text-align:left">Equipe interna que executa a operação: verifica integridade, completude, qualidade, proveniência e documentação ética de cada conjunto, registra pendências, roda os pipelines, cura dados e metadados (incluindo os códigos DUO), apoia os centros na submissão e secretaria os comitês, <strong>sem voto</strong>. Reporta ao CGN.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Equipes técnicas e de segurança</strong></td>
 <td style="text-align:left">Implementam os controles da plataforma: perfis de acesso, autenticação, criptografia, registros de auditoria, cópias de segurança e tratamento de vulnerabilidades.</td>
 </tr>
 <tr>
+<td style="text-align:left"><strong>Conselho de Governança Nacional (CGN)</strong></td>
+<td style="text-align:left"><strong>Instância máxima e deliberativa</strong>, com 9 membros com voto e 2 observadores (Decit/MS e CNPq). Define a estratégia, aprova a entrada de centros e as políticas gerais, resolve conflitos entre os comitês e decide, junto com o CAD, os casos excepcionais, como uso comercial e transferência internacional ampla.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Comitê Científico e de Publicações (CCP)</strong></td>
+<td style="text-align:left"><strong>Deliberativo</strong>, com 9 membros. Avalia propostas de análise, define projetos prioritários, evita sobreposição entre grupos, aplica as regras de embargo e autoria e registra manuscritos e apresentações.</td>
+</tr>
+<tr>
 <td style="text-align:left"><strong>Comitê de Acesso a Dados (CAD)</strong></td>
-<td style="text-align:left">Avalia e decide, de forma fundamentada, os pedidos de acesso controlado.</td>
+<td style="text-align:left"><strong>Deliberativo</strong>, com 7 membros, entre eles um membro leigo indicado pelo CESP e um representante do Banco Nacional de Tumores (BNT), que articula o comitê com o BNT e com os dados clínico-patológicos. Define as regras de compatibilidade com os códigos DUO, decide <strong>em até 30 dias</strong> os pedidos de acesso controlado que não são pré-autorizados, audita os acessos e aplica sanções.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Comitê de Ética, Sociedade e Participação (CESP)</strong></td>
+<td style="text-align:left"><strong>Consultivo</strong>, com 5 a 7 membros, incluindo representantes de pacientes e de minorias étnico-raciais. Acompanha os riscos coletivos, os usos proibidos e a participação social, e indica o membro leigo do CAD.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Conselho Consultivo Científico Internacional (SAB)</strong></td>
+<td style="text-align:left"><strong>Consultivo</strong>, com 5 membros internacionais. Orienta o alinhamento do ATPBR aos padrões e às boas práticas internacionais, como os da GA4GH.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Pesquisadores e instituições destinatários</strong></td>
-<td style="text-align:left">Usam os dados apenas na finalidade autorizada, mantêm confidencialidade e segurança, não tentam reidentificar participantes e cumprem o instrumento de uso firmado.</td>
+<td style="text-align:left">Usam os dados apenas na finalidade autorizada, mantêm confidencialidade e segurança, <strong>não tentam reidentificar participantes</strong> e cumprem o instrumento de uso firmado; respeitam os períodos de embargo e citam o ATPBR e os centros de origem.</td>
 </tr>
 </tbody>
 </table></div>
-<p>As funções são exercidas por pessoas formalmente designadas pelo INCA, com substitutos definidos, e organizadas em uma <strong>matriz de responsabilidades</strong> que separa quem fornece os dados, quem os verifica, quem decide sobre sua incorporação ou disponibilização e quem executa e supervisiona.</p>
+<p>As funções são exercidas por pessoas formalmente designadas pelo INCA, com substitutos definidos, e organizadas em uma <strong>matriz de responsabilidades</strong> que separa quem fornece os dados, quem os verifica, quem decide sobre sua incorporação ou disponibilização e quem executa e supervisiona. Os membros dos colegiados têm mandato de 2 anos, renovável uma vez, declaram <strong>conflitos de interesse</strong> todo ano e a cada pauta, e <strong>quem submete um conjunto não vota sobre ele</strong>. Nenhum membro ocupa cadeira no CCP e no CAD ao mesmo tempo, e não há cadeira para empresas.</p>
+<h4 id="o-caminho-dos-dados-e-quem-atua-em-cada-etapa">O caminho dos dados e quem atua em cada etapa<a class="wk-anchor" href="#o-caminho-dos-dados-e-quem-atua-em-cada-etapa" aria-label="Link para esta seção">#</a></h4>
+<p><img src="images/governanca_caminho_dados.png" alt="O caminho dos dados no ATPBR em seis etapas: 1. Participante (CESP); 2. Centro contribuinte (CGN); 3. Verificação e processamento (Núcleo); 4. Plataforma ATPBR (CAD e Núcleo); 5. Pedido de acesso (Núcleo, CAD e CGN); 6. Uso e publicação (CCP e CESP)" /></p>
+<p><em>As etiquetas abaixo de cada etapa indicam as instâncias que atuam nela.</em></p>
 <h3 id="protecao-dos-participantes">Proteção dos participantes<a class="wk-anchor" href="#protecao-dos-participantes" aria-label="Link para esta seção">#</a></h3>
-<h4 id="dados-desidentificados-nao-sao-dados-anonimos">Dados desidentificados não são dados anônimos<a class="wk-anchor" href="#dados-desidentificados-nao-sao-dados-anonimos" aria-label="Link para esta seção">#</a></h4>
-<p>O ATPBR não recebe nomes, documentos, números de prontuário, contatos ou datas de eventos clínicos. Cada participante e cada amostra é representado por um código definido pelo centro coletor, e as informações que permitem associar esses códigos às pessoas ficam <strong>somente na instituição de origem</strong>, inclusive nos estudos conduzidos pelo próprio INCA.</p>
-<p>Ainda assim, os dados do ATPBR são <strong>pseudonimizados</strong>, e não anônimos: o barcode liga, de propósito, os registros clínicos, as amostras e os dados genômicos de um mesmo participante, e a combinação dessas informações pode permitir uma identificação indireta. Por isso, os dados continuam sendo tratados como <strong>dados pessoais sensíveis</strong>, com todas as proteções da LGPD. Um conjunto só é considerado anônimo quando houver uma avaliação documentada que sustente essa conclusão.</p>
-<p>Os dados genéticos recebem salvaguardas reforçadas, pois podem revelar informações sobre familiares e, em doenças raras ou grupos pequenos, facilitar a identificação.</p>
-<h4 id="regras-uniformes-de-desidentificacao">Regras uniformes de desidentificação<a class="wk-anchor" href="#regras-uniformes-de-desidentificacao" aria-label="Link para esta seção">#</a></h4>
-<p>Todos os conjuntos, de qualquer instituição, seguem as mesmas regras antes do envio:</p>
+<p>Os dados recebidos pelo ATPBR <strong>não incluem informações de identificação direta</strong> dos participantes.</p>
+<p>Cada participante e amostra recebe um código, permitindo integrar informações clínicas e genômicas sem identificar diretamente as pessoas. A correspondência entre os códigos e as identidades fica protegida, exclusivamente sob responsabilidade da <strong>instituição de origem</strong>.</p>
+<p>Todos os dados são tratados como <strong>informações pessoais sensíveis</strong>, seguindo a Lei Geral de Proteção de Dados (LGPD), com controles de acesso e cuidados adicionais para os dados genéticos.</p>
+<h4 id="regras-de-protecao-dos-dados">Regras de proteção dos dados<a class="wk-anchor" href="#regras-de-protecao-dos-dados" aria-label="Link para esta seção">#</a></h4>
+<p>Antes do envio ao ATPBR, todas as instituições seguem regras padronizadas:</p>
 <ul>
-<li>Remoção dos identificadores diretos (nome, CPF, Cartão Nacional de Saúde, RG, número de prontuário, matrícula, endereço, telefone e e-mail).</li>
-<li>Uso dos códigos de paciente e de amostra definidos pelo ATPBR (veja <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>).</li>
+<li>Remoção dos <strong>identificadores pessoais</strong> (nome, CPF, Cartão Nacional de Saúde, RG, número de prontuário, matrícula, endereço, telefone e e-mail).</li>
+<li>Uso dos <strong>códigos</strong> de paciente e de amostra definidos pelo ATPBR (veja <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>).</li>
 <li>Substituição das datas de eventos clínicos por <strong>número de dias</strong> a partir do diagnóstico (veja <a href="dicionario-de-dados.html">Dicionário de dados</a>).</li>
 <li>Verificação de <strong>campos livres, nomes de arquivos, cabeçalhos e metadados técnicos</strong>, onde identificadores costumam aparecer sem que se perceba.</li>
 </ul>
-<p>As chaves de correspondência permanecem guardadas separadamente, em ambiente protegido, sob a responsabilidade da instituição ou do pesquisador de origem.</p>
 <h3 id="ciclo-de-vida-de-um-conjunto-de-dados">Ciclo de vida de um conjunto de dados<a class="wk-anchor" href="#ciclo-de-vida-de-um-conjunto-de-dados" aria-label="Link para esta seção">#</a></h3>
 <div class="wk-table"><table>
 <thead>
@@ -218,7 +297,7 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong>5. Classificação e divulgação</strong></td>
-<td style="text-align:left">Cada material é classificado como de acesso público, controlado ou interno, e o que for público passa por uma avaliação de risco de reidentificação antes de ser divulgado (veja <a href="acesso-aos-dados.html">Acesso aos dados</a>).</td>
+<td style="text-align:left">Cada material é classificado como de acesso público, controlado ou interno, e o que for público passa por uma avaliação de risco de reidentificação antes de ser divulgado (veja <a href="acesso-aos-dados.html">Acesso aos dados</a>). Antes da abertura, o conjunto pode cumprir um <strong>período de embargo</strong> (moratória de publicação), durante o qual a primeira publicação é reservada ao projeto de origem; as regras de embargo e autoria são aplicadas pelo Comitê Científico e de Publicações (CCP).</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>6. Acesso controlado</strong></td>
@@ -230,7 +309,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>Conjuntos <strong>pendentes</strong> ou <strong>não admitidos</strong> permanecem bloqueados: não aparecem para terceiros, não são publicados e não podem ser usados em novas pesquisas até a regularização. Mudanças relevantes depois da validação, como um novo documento, uma nova restrição ou novos pacientes, levam o conjunto a uma nova verificação.</p>
+<p>Conjuntos <strong>pendentes</strong> ou <strong>não admitidos</strong> <strong>permanecem bloqueados</strong>: não aparecem para terceiros, não são publicados e não podem ser usados em novas pesquisas até a regularização. Mudanças relevantes depois da validação, como um novo documento, uma nova restrição ou novos pacientes, levam o conjunto a uma <strong>nova verificação</strong>.</p>
 <h3 id="documentacao-etica-e-permissoes-de-cada-conjunto">Documentação ética e permissões de cada conjunto<a class="wk-anchor" href="#documentacao-etica-e-permissoes-de-cada-conjunto" aria-label="Link para esta seção">#</a></h3>
 <p>Cada conjunto de dados fica vinculado aos documentos que comprovam que ele pode entrar na plataforma e ser usado. Esse conjunto de registros forma o <strong>dossiê</strong> do conjunto.</p>
 <div class="wk-table"><table>
@@ -259,8 +338,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>Os documentos esperados incluem o parecer do CEP ou da Conep, a versão do TCLE utilizada (ou a decisão de dispensa de consentimento), o instrumento de transferência de material biológico e dados (TTMD) e o registro das permissões de uso. <strong>Um campo preenchido sem o documento correspondente não supre a exigência de comprovação.</strong></p>
-<p>As permissões registradas em cada nível (Estudo, Paciente, Amostra, Ensaio e Arquivo) são consideradas <strong>em conjunto</strong>. Prevalece sempre a restrição mais protetiva, e uma divergência entre níveis, por exemplo um estudo liberado para uso geral com um paciente que recusou o uso futuro, impede a liberação até ser resolvida e documentada.</p>
+<p>Os documentos esperados incluem o parecer do CEP ou da Conep, a versão do TCLE utilizada (ou a decisão de dispensa de consentimento), o instrumento de transferência de dados (DTA) e o registro das permissões de uso. <strong>Um campo preenchido sem o documento correspondente não supre a exigência de comprovação.</strong></p>
+<p>As permissões registradas em cada nível (Estudo, Paciente, Amostra, Ensaio e Arquivo) são consideradas <strong>em conjunto</strong>. <strong>Prevalece sempre a restrição mais protetiva</strong>, e uma divergência entre níveis, por exemplo um estudo liberado para uso geral com um paciente que recusou o uso futuro, <strong>impede a liberação</strong> até ser resolvida e documentada.</p>
 <p>As permissões e restrições seguem a <strong>Data Use Ontology (DUO)</strong> da GA4GH, que padroniza condições como uso geral em pesquisa (GRU), pesquisa em saúde (HMB), doença específica (DS), uso não comercial (NCU), exigência de aprovação ética (IRB), colaboração com o pesquisador provedor (COL), restrição geográfica (GS) e moratória de publicação (MOR).</p>
 <h3 id="uso-futuro-dos-dados">Uso futuro dos dados<a class="wk-anchor" href="#uso-futuro-dos-dados" aria-label="Link para esta seção">#</a></h3>
 <p>Usar os dados em uma nova pesquisa exige respeitar as condições do estudo de origem e as escolhas de cada participante:</p>
@@ -286,16 +365,16 @@
 </tr>
 </tbody>
 </table></div>
-<p>O CAD não concede dispensa de consentimento: essa competência é exclusiva da instância ética.</p>
+<p><strong>O CAD não concede dispensa de consentimento</strong>: essa competência é exclusiva da instância ética.</p>
 <h3 id="acesso-aos-dados-e-comite-de-acesso-a-dados">Acesso aos dados e Comitê de Acesso a Dados<a class="wk-anchor" href="#acesso-aos-dados-e-comite-de-acesso-a-dados" aria-label="Link para esta seção">#</a></h3>
 <p>O que é público, o que é controlado e o que é de uso interno, assim como as etapas de um pedido de acesso controlado e a forma como o CAD decide, estão em <a href="acesso-aos-dados.html">Acesso aos dados</a>. Dois pontos valem para todos os casos:</p>
 <ul>
 <li>Atuar no desenvolvimento do software ou na manutenção da infraestrutura <strong>não dá acesso</strong> aos dados de pesquisa. As permissões internas seguem uma matriz de perfis e o princípio do menor privilégio.</li>
-<li>O CAD é composto por membros formalmente designados pelo INCA, que declaram conflitos de interesses e não participam das deliberações em que estejam impedidos. Composição, quórum e prazos são definidos no regimento do CAD.</li>
+<li>O CAD, cuja composição está em Quem é quem, reúne-se mensalmente, e seus membros não participam das deliberações em que estejam impedidos. Quórum e demais regras estão no <strong>Regimento do CAD</strong>.</li>
 </ul>
-<h3 id="amostras-biologicas-e-dados-derivados">Amostras biológicas e dados derivados<a class="wk-anchor" href="#amostras-biologicas-e-dados-derivados" aria-label="Link para esta seção">#</a></h3>
-<p>O ATPBR gerencia <strong>dados</strong>. A autorização de acesso a dados não autoriza, por si só, o acesso às amostras biológicas correspondentes nem sua transferência: as decisões sobre amostras cabem às instituições que as guardam, com autorizações e instrumentos próprios. Do mesmo modo, a transferência física de amostras e a incorporação dos dados delas derivados à plataforma são operações distintas.</p>
-<p>As permissões e restrições que se aplicam a uma amostra continuam valendo para os dados produzidos a partir dela.</p>
+<h3 id="amostras-biologicas-fora-do-escopo-do-atpbr">Amostras biológicas (fora do escopo do ATPBR)<a class="wk-anchor" href="#amostras-biologicas-fora-do-escopo-do-atpbr" aria-label="Link para esta seção">#</a></h3>
+<p>O ATPBR <strong>gerencia apenas dados</strong>. A governança das amostras biológicas (coleta, guarda, acesso, uso e transferência) é de competência do Banco Nacional de Tumores (BNT) do INCA e das instituições que as guardam, e não é regulada pelas políticas do ATPBR; o mesmo vale para os instrumentos sobre amostras, como o Acordo de Transferência de Material Biológico (MTA). A autorização de acesso a dados <strong>não inclui acesso às amostras</strong> correspondentes.</p>
+<p>As permissões e restrições que se aplicam a uma amostra <strong>continuam valendo para os dados produzidos a partir dela</strong>.</p>
 <h3 id="direitos-dos-participantes-e-retirada-de-consentimento">Direitos dos participantes e retirada de consentimento<a class="wk-anchor" href="#direitos-dos-participantes-e-retirada-de-consentimento" aria-label="Link para esta seção">#</a></h3>
 <p>Os participantes exercem seus direitos (acesso, correção, restrição e retirada dos dados) por meio da <strong>instituição de origem</strong>, que é quem guarda as chaves de correspondência. O atendimento é coordenado com o encarregado pelo tratamento de dados pessoais do INCA, e a plataforma localiza os registros <strong>pelos códigos</strong>, sem precisar receber nome ou documento do participante.</p>
 <p>Quando há retirada de consentimento, nova restrição ou outra solicitação do participante:</p>
@@ -305,16 +384,16 @@
 <li>os pesquisadores que já receberam os dados são comunicados, quando necessário;</li>
 <li>as providências são documentadas, ressalvadas as hipóteses legais de retenção.</li>
 </ul>
-<p>A instituição de origem e o pesquisador remetente devem comunicar prontamente ao ATPBR qualquer alteração que afete os dados enviados, como mudança de parecer ético, retirada de consentimento, nova restrição ou incidente de segurança.</p>
+<p>A instituição de origem e o pesquisador remetente devem <strong>comunicar prontamente</strong> ao ATPBR qualquer alteração que afete os dados enviados, como mudança de parecer ético, retirada de consentimento, nova restrição ou incidente de segurança.</p>
 <h3 id="seguranca-incidentes-e-rastreabilidade">Segurança, incidentes e rastreabilidade<a class="wk-anchor" href="#seguranca-incidentes-e-rastreabilidade" aria-label="Link para esta seção">#</a></h3>
 <p>A plataforma segue a Política de Segurança Cibernética do INCA, com controles adicionais proporcionais aos seus riscos: gestão de perfis, acesso limitado ao necessário para cada função, autenticação reforçada para acessos privilegiados, criptografia, cópias de segurança e continuidade das operações.</p>
-<p>São mantidos registros das solicitações, decisões, anuências, habilitações, acessos, downloads, suspensões, revogações e encerramentos, protegidos contra alteração indevida. Esses registros permitem reconstruir quem acessou qual conjunto, quando e com base em qual autorização.</p>
-<p>Incidentes de segurança são tratados pelos procedimentos de privacidade e segurança do INCA, com a participação da equipe do ATPBR e a cooperação das instituições de origem. Pesquisadores que suspeitem de incidente, reidentificação ou uso indevido devem comunicar o INCA imediatamente.</p>
+<p>São mantidos registros das solicitações, decisões, anuências, habilitações, acessos, downloads, suspensões, revogações e encerramentos, <strong>protegidos contra alteração indevida</strong>. Esses registros permitem reconstruir quem acessou qual conjunto, quando e com base em qual autorização.</p>
+<p>Incidentes de segurança são tratados pelos procedimentos de privacidade e segurança do INCA, com a participação da equipe do ATPBR e a cooperação das instituições de origem. Pesquisadores que suspeitem de incidente, reidentificação ou uso indevido devem <strong>comunicar o INCA imediatamente</strong>.</p>
 <p>Os riscos das operações da plataforma são avaliados no <strong>Relatório de Impacto à Proteção de Dados Pessoais (RIPD)</strong> do ATPBR.</p>
 <h3 id="monitoramento-e-revisao">Monitoramento e revisão<a class="wk-anchor" href="#monitoramento-e-revisao" aria-label="Link para esta seção">#</a></h3>
 <p>A coordenação do ATPBR acompanha indicadores sobre a regularidade dos conjuntos, as decisões de disponibilização, as solicitações dos participantes, os incidentes e as medidas corretivas.</p>
 <p>Mudanças relevantes na arquitetura da plataforma, nas categorias de dados, nas funcionalidades de acesso, nas instituições participantes ou nas condições de uso levam a uma avaliação do impacto sobre a governança, o protocolo ético, os instrumentos jurídicos e os controles de segurança.</p>
-<p>A implementação dos controles é progressiva, mas cada operação só começa depois que os controles necessários a ela estão em funcionamento. Por isso, a divulgação pública e o acesso controlado só são ativados depois de concluídos os seus respectivos procedimentos.</p>
+<p>A implementação dos controles é progressiva, mas <strong>cada operação só começa depois que os controles necessários a ela estão em funcionamento</strong>. Por isso, a divulgação pública e o acesso controlado só são ativados depois de concluídos os seus respectivos procedimentos.</p>
 <hr />
 <p><strong>Próximo capítulo → <a href="submissao-de-dados.html">Submissão de dados</a>:</strong> como cadastrar um projeto e enviar seus dados, aplicando as regras deste capítulo.</p>
 
@@ -330,7 +409,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
@@ -352,18 +431,22 @@
                 </ol>
                 <h2 class="wk-side-title">Nesta página</h2>
 <ul class="wk-toc">
-<li class=""><a href="#documentos-que-regem-o-atpbr">Documentos que regem o ATPBR</a></li>
+<li class=""><a href="#documentos-e-instrumentos-de-governanca-do-atpbr">Documentos e instrumentos de governança do ATPBR</a></li>
+<li class="wk-sub"><a href="#politicas-institucionais">Políticas institucionais</a></li>
+<li class="wk-sub"><a href="#protecao-de-dados-e-direitos-dos-participantes">Proteção de dados e direitos dos participantes</a></li>
+<li class="wk-sub"><a href="#termos-de-responsabilidade-e-compartilhamento">Termos de responsabilidade e compartilhamento</a></li>
+<li class="wk-sub"><a href="#compromisso-com-o-uso-responsavel-dos-dados">Compromisso com o uso responsável dos dados</a></li>
 <li class=""><a href="#principios">Princípios</a></li>
 <li class=""><a href="#autorizacoes-diferentes-que-nao-se-substituem">Autorizações diferentes, que não se substituem</a></li>
 <li class=""><a href="#quem-e-quem">Quem é quem</a></li>
+<li class="wk-sub"><a href="#o-caminho-dos-dados-e-quem-atua-em-cada-etapa">O caminho dos dados e quem atua em cada etapa</a></li>
 <li class=""><a href="#protecao-dos-participantes">Proteção dos participantes</a></li>
-<li class="wk-sub"><a href="#dados-desidentificados-nao-sao-dados-anonimos">Dados desidentificados não são dados anônimos</a></li>
-<li class="wk-sub"><a href="#regras-uniformes-de-desidentificacao">Regras uniformes de desidentificação</a></li>
+<li class="wk-sub"><a href="#regras-de-protecao-dos-dados">Regras de proteção dos dados</a></li>
 <li class=""><a href="#ciclo-de-vida-de-um-conjunto-de-dados">Ciclo de vida de um conjunto de dados</a></li>
 <li class=""><a href="#documentacao-etica-e-permissoes-de-cada-conjunto">Documentação ética e permissões de cada conjunto</a></li>
 <li class=""><a href="#uso-futuro-dos-dados">Uso futuro dos dados</a></li>
 <li class=""><a href="#acesso-aos-dados-e-comite-de-acesso-a-dados">Acesso aos dados e Comitê de Acesso a Dados</a></li>
-<li class=""><a href="#amostras-biologicas-e-dados-derivados">Amostras biológicas e dados derivados</a></li>
+<li class=""><a href="#amostras-biologicas-fora-do-escopo-do-atpbr">Amostras biológicas (fora do escopo do ATPBR)</a></li>
 <li class=""><a href="#direitos-dos-participantes-e-retirada-de-consentimento">Direitos dos participantes e retirada de consentimento</a></li>
 <li class=""><a href="#seguranca-incidentes-e-rastreabilidade">Segurança, incidentes e rastreabilidade</a></li>
 <li class=""><a href="#monitoramento-e-revisao">Monitoramento e revisão</a></li>

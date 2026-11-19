@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data submission · ATPBR Wiki</title>
+    <meta name="description" content="Data submission: step by step, how to register a project and submit your data.">
+    <link rel="alternate" hreflang="pt-br" href="../submissao-de-dados.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../submissao-de-dados.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Data submission</nav>
+            <h1>Data submission</h1>
+            <p class="wk-meta">Chapter 5 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>Data submission is the process through which research centers, hospitals, laboratories and research groups bring projects and their data into ATPBR. It is the <strong>ingestion</strong> stage presented in <a href="platform-architecture.html">Platform architecture</a>: from there, the data move on to validation, processing and sharing.</p>
+<p>This chapter describes <strong>what to do and in what order</strong>. After <a href="data-access.html">Data access</a>, which explains how submitted data are shared, the following chapters detail how the information is organized (<a href="data-model.html">Data model</a>), how each field must be filled in (<a href="data-dictionary.html">Data dictionary</a>), how identifiers are generated (<a href="identification-and-barcode-system.html">Identification and barcode system</a>) and which formats are accepted (<a href="data-types.html">Data types</a>).</p>
+<h3 id="who-can-submit-data">Who Can Submit Data<a class="wk-anchor" href="#who-can-submit-data" aria-label="Link to this section">#</a></h3>
+<p>Data can be submitted by researchers, institutions and research centers that wish to bring studies into ATPBR, provided they meet the technical, ethical and governance requirements set by the platform (see the minimum criteria in <a href="about-atpbr.html">About ATPBR</a> and the full rules in <a href="data-governance.html">Data governance</a>).</p>
+<p>Before sending data, the submitting researcher accepts the <strong>Submitting Researcher's Responsibility Agreement</strong>, shown in the submission area. By accepting it, the researcher declares, among other things, that:</p>
+<ul>
+<li>the data are authentic and the information provided is true, complete and up to date;</li>
+<li>the data have been de-identified according to ATPBR standards, and the keys linking the codes to the participants remain separate and protected at the originating institution;</li>
+<li>they will report the ethics approvals, the version of the informed consent form (TCLE) (or the consent waiver) and the use permissions and restrictions of each dataset, and provide the supporting documents;</li>
+<li>they will notify ATPBR of any changes to ethics approvals, consent withdrawals, new restrictions and security incidents they become aware of.</li>
+</ul>
+<p>Also have at hand the ethics documentation for the project and the studies: the approval opinion of the Research Ethics Committee (CEP) or of the National Research Ethics Commission (Conep), the version of the TCLE used or the consent waiver decision, the data transfer agreement (DTA), if any, and the data use permissions and restrictions. The ATPBR team may request these documents during validation.</p>
+<h3 id="step-by-step">Step by Step<a class="wk-anchor" href="#step-by-step" aria-label="Link to this section">#</a></h3>
+<p>Submission is done through the platform portal. Each step depends on the previous one, and the project dashboard shows this order with numbers and arrows.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Step</th>
+<th style="text-align:left">What to register</th>
+<th style="text-align:left">How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>Project</strong>, including the acronym and the associated institutions</td>
+<td style="text-align:left">Form</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>Investigation</strong> (research line)</td>
+<td style="text-align:left">Form</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>Study</strong> (one cancer type)</td>
+<td style="text-align:left">Form</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>Patients</strong> of the Study</td>
+<td style="text-align:left">Form or template spreadsheet</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>Samples</strong> from each patient</td>
+<td style="text-align:left">Form or template spreadsheet</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>Assay</strong> (one sequencing run)</td>
+<td style="text-align:left">Form</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>Data Files</strong> (FASTQ) of the Assay</td>
+<td style="text-align:left">Upload through the portal <strong>or</strong> path on the INCA Multi-user Bioinformatics Platform</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>Experiments</strong> (technical metadata of each sequenced sample)</td>
+<td style="text-align:left">Form or template spreadsheet</td>
+</tr>
+</tbody>
+</table></div>
+<p>Some points to watch at each step:</p>
+<ul>
+<li><strong>Project:</strong> the associated institutions entered here are the ones that will later appear as <strong>collector center</strong> options when registering patients.</li>
+<li><strong>Study:</strong> within a single project, each cancer type can have only one Study.</li>
+<li><strong>Patients and Samples:</strong> a sample can only be registered for a patient who is already registered. Clinical events are entered as a <strong>number of days</strong> from diagnosis, not as dates (see <a href="data-dictionary.html">Data dictionary</a>).</li>
+<li><strong>Assay:</strong> each sequencing run is a separate Assay. When registering it, you also indicate the desired <strong>sharing conditions</strong> for the Assay. This indication does not publish the data by itself: release depends on the validation of the dataset and on a separate approval (see <a href="data-access.html">Data access</a>).</li>
+<li><strong>Data Files:</strong> the FASTQ files must be available <strong>before</strong> the Experiments are registered. There are two ways to do this:
+<ul>
+<li><strong>Upload through the portal:</strong> in the <em>Data Files</em> area, select the Assay and upload the FASTQ files. Each file is linked to the Assay and inherits its sharing permissions.</li>
+<li><strong>Files already stored at INCA:</strong> if the FASTQ files are already in the repository of the <strong>INCA Multi-user Bioinformatics Platform</strong>, you do not need to upload them again. Just enter the <strong>absolute path of the directory</strong> containing the files in the Assay's <em>Associated Repositories</em> field.</li>
+</ul>
+</li>
+<li><strong>Experiments:</strong> an experiment can only be registered for a sample that is already registered. The fastq_1 and fastq_2 fields must contain the <strong>exact name</strong> of the Assay's FASTQ files. The platform warns you when a name you enter does not match any uploaded file.</li>
+</ul>
+<h3 id="before-submitting">Before Submitting<a class="wk-anchor" href="#before-submitting" aria-label="Link to this section">#</a></h3>
+<p>We recommend checking that:</p>
+<ul>
+<li>The FASTQ files are complete and intact, and in the accepted format (see <a href="data-types.html">Data types</a>).</li>
+<li>The required fields have been filled in and the controlled vocabularies have been used (see <a href="data-dictionary.html">Data dictionary</a>).</li>
+<li>The patient and sample codes follow the de-identification rules (see <a href="identification-and-barcode-system.html">Identification and barcode system</a>).</li>
+<li>There is no personal information or direct identifier of participants (name, CPF (Brazilian taxpayer ID), National Health Card number, medical record number, contact details) in the metadata, <strong>in free-text fields such as descriptions and notes, in file names or in file headers</strong>.</li>
+<li>The dates of clinical events have been converted into a number of days from diagnosis.</li>
+<li>The ethics documentation and the use permissions of each dataset are available (see <a href="data-governance.html">Data governance</a>).</li>
+<li>The spreadsheets were filled in from the official templates, without changing their structure.</li>
+</ul>
+<p>Meeting these requirements reduces errors and speeds up the validation process.</p>
+<h3 id="data-validation">Data Validation<a class="wk-anchor" href="#data-validation" aria-label="Link to this section">#</a></h3>
+<p>After submission, each dataset goes through three distinct and complementary checks, carried out by different people:</p>
+<ul>
+<li><strong>Automated check:</strong> required fields, structure and use of the controlled vocabularies.</li>
+<li><strong>Technical check:</strong> file format and integrity, consistency between patients, samples, experiments and files, and compatibility with the ATPBR data model.</li>
+<li><strong>Ethics and documentation check:</strong> correspondence between the registered study, the protocol and the ethics approval, the consent or waiver conditions, and the use permissions and restrictions.</li>
+</ul>
+<p>When registering through a spreadsheet, a preview shows the rows read and the errors found before saving, so you can review and confirm.</p>
+<p>At the end, the validation team records the dataset as <strong>eligible</strong>, <strong>pending completion</strong> or <strong>not admitted</strong>, with the reasons. The fact that the data were accepted by the system <strong>does not mean</strong> that they were admitted: pending or not admitted datasets are blocked from release and from new uses until the issues are resolved.</p>
+<h3 id="correcting-errors">Correcting Errors<a class="wk-anchor" href="#correcting-errors" aria-label="Link to this section">#</a></h3>
+<p>If problems are detected during validation, the system will display messages indicating the errors found and the actions needed to correct them.</p>
+<p>Depending on the type of inconsistency, you may need to:</p>
+<ul>
+<li>Update metadata.</li>
+<li>Correct naming.</li>
+<li>Upload files again.</li>
+<li>Complete required information.</li>
+<li>Adjust relationships between samples and experiments.</li>
+<li>Provide ethics documents or clarify use permissions.</li>
+</ul>
+<p>After the corrections, the data can be resubmitted for a new validation. Submissions that do not meet the requirements of this documentation may be considered not admitted.</p>
+<p>If, after submission, there is any change that affects the data (a new ethics opinion, a participant's consent withdrawal, a new use restriction or a security incident), notify the ATPBR team at <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>. Relevant changes send the dataset to a new check.</p>
+<hr />
+<p><strong>Next chapter → <a href="data-access.html">Data access</a>:</strong> who will be able to access the data you submitted and how the Assay's sharing rules apply.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-governance.html"><small>← Previous</small>Data governance</a>
+                <a class="wk-next" href="data-access.html"><small>Next →</small>Data access</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html" aria-current="page">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#who-can-submit-data">Who Can Submit Data</a></li>
+<li class=""><a href="#step-by-step">Step by Step</a></li>
+<li class=""><a href="#before-submitting">Before Submitting</a></li>
+<li class=""><a href="#data-validation">Data Validation</a></li>
+<li class=""><a href="#correcting-errors">Correcting Errors</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

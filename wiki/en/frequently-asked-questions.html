@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently asked questions · ATPBR Wiki</title>
+    <meta name="description" content="Frequently asked questions: quick answers to the most common questions.">
+    <link rel="alternate" hreflang="pt-br" href="../perguntas-frequentes.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../perguntas-frequentes.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Frequently asked questions</nav>
+            <h1>Frequently asked questions</h1>
+            <p class="wk-meta">Chapter 14 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>This page gathers the most common questions about using ATPBR. If your question is not here, contact the ATPBR team by e-mail at <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>.</p>
+<h3 id="about-atpbr">About ATPBR<a class="wk-anchor" href="#about-atpbr" aria-label="Link to this section">#</a></h3>
+<p><strong>Does ATPBR receive data that identifies patients?</strong></p>
+<p>Not directly. ATPBR only receives data that has been de-identified beforehand by the participating institutions: names, identity documents, medical record numbers, contact details and dates of clinical events must not be sent, and the link between the codes and the individuals is kept only at the institution of origin. Even so, the data is pseudonymized, not anonymized, and is therefore protected as sensitive personal data. Learn more in <a href="data-governance.html">Data governance</a> and <a href="usage-policies.html">Usage policies</a>.</p>
+<p><strong>Which types of omics data are accepted?</strong></p>
+<p>WGS, WES, gene panel and RNA-seq. Other modalities, such as DNA methylation, will be added in future versions. See <a href="data-types.html">Data types</a>.</p>
+<h3 id="registration-and-submission">Registration and submission<a class="wk-anchor" href="#registration-and-submission" aria-label="Link to this section">#</a></h3>
+<p><strong>In what order should I register the information?</strong></p>
+<p>Project → Investigation → Study → Patients → Samples → Assay → Data Files → Experiments. Each step depends on the previous one. The step-by-step guide is in <a href="data-submission.html">Data submission</a>, and the reason for this order is in <a href="data-model.html">Data model</a>.</p>
+<p><strong>Can I register several patients, samples or experiments at once?</strong></p>
+<p>Yes, using the template spreadsheets (Excel, <code>.xlsx</code> or <code>.xls</code>), which you can download from the registration page itself. See <a href="data-types.html">Data types</a>.</p>
+<p><strong>My collector center does not appear in the list on the patient registration form. What should I do?</strong></p>
+<p>The collector center must be among the Project's <strong>Associated Institutions</strong>. Edit the Project and add the institution; from then on, it appears in the &quot;Collector Center&quot; list on the patient registration form. See <a href="identification-and-barcode-system.html">Identification and barcode system</a>.</p>
+<p><strong>Why can't I create a second Study with the same cancer type?</strong></p>
+<p>Within a single project, each cancer type can have only one Study. New patients with that cancer type must be registered in the existing Study.</p>
+<p><strong>Why doesn't the cancer type I am looking for appear on the patient registration form?</strong></p>
+<p>The patient's cancer type options are limited to the tissue defined in the Study. If the type you are looking for belongs to another tissue, it must be registered in the corresponding Study.</p>
+<h3 id="dates-and-time">Dates and time<a class="wk-anchor" href="#dates-and-time" aria-label="Link to this section">#</a></h3>
+<p><strong>Why can't I enter dates, such as the date of diagnosis or collection?</strong></p>
+<p>Combined with one another, the dates of clinical events make it possible to re-identify the patient. That is why temporal fields take the <strong>number of days</strong> counted from the diagnosis. See <a href="data-dictionary.html">Data dictionary</a>.</p>
+<p><strong>What is &quot;day 0&quot;?</strong></p>
+<p>It is the date of diagnosis, that is, of the first exam that concluded malignancy. All other events are counted from it. For example, a sample collected 15 days after diagnosis must be entered with the value <code>15</code> in days_to_sample.</p>
+<p><strong>How do I convert the dates in the medical record into a number of days?</strong></p>
+<p>Use the <strong>date-to-days converter</strong>, available in the platform's registration forms. The conversion is done on your own computer, and the original dates must not be sent to ATPBR.</p>
+<p><strong>Is there any date that must be entered as a date?</strong></p>
+<p>Yes, only the <strong>sequencing date</strong> (date_of_sequencing), in DD/MM/YYYY format, because it does not refer to the patient.</p>
+<h3 id="identifiers-and-barcode">Identifiers and barcode<a class="wk-anchor" href="#identifiers-and-barcode" aria-label="Link to this section">#</a></h3>
+<p><strong>Who defines the patient_id and the sample_id?</strong></p>
+<p>The collector center. Both are 4-digit codes and must be unrelated to personal data: for example, do not use the medical record number or parts of the date of birth.</p>
+<p><strong>Do I need to fill in the barcode?</strong></p>
+<p>No. The barcode is generated automatically by the platform from the fields entered when registering the patient, the sample and the experiment. See <a href="identification-and-barcode-system.html">Identification and barcode system</a>.</p>
+<p><strong>Why does &quot;XXX&quot; appear in the barcode?</strong></p>
+<p>&quot;XXX&quot; indicates that one of the fields used to compose the barcode has not been filled in yet or could not be identified. Check the record's required fields.</p>
+<p><strong>Why does the run number appear as &quot;00&quot;?</strong></p>
+<p>The run number is assigned from the combination of sequencing date, sequencing center and sequencing platform. As long as any of these three fields is not filled in, the run appears as <code>00</code>.</p>
+<p><strong>I received a duplicate registration warning. What does it mean?</strong></p>
+<p>The platform does not accept two records with the same barcode. The warning indicates that a patient, sample or experiment with the same identification data already exists. Check whether the record was registered earlier or whether the code you entered is correct.</p>
+<h3 id="samples">Samples<a class="wk-anchor" href="#samples" aria-label="Link to this section">#</a></h3>
+<p><strong>My sample was rejected for missing staging. Why?</strong></p>
+<p>Every sample must provide at least one staging system (FIGO, TNM, Rai, Binet, LMC Phase, AML/ALL Stage or CIN). The system that applies to the case is enough; the AJCC fields do not meet this requirement. See <a href="data-dictionary.html">Data dictionary</a>.</p>
+<p><strong>Where do I enter the collection tube anticoagulant (EDTA, citrate)?</strong></p>
+<p>In the collection_tube_additive field (collection tube additive), which is optional. This field is not part of sample preservation and is not included in the barcode.</p>
+<h3 id="sequencing-files">Sequencing files<a class="wk-anchor" href="#sequencing-files" aria-label="Link to this section">#</a></h3>
+<p><strong>In what format should I submit the sequencing files?</strong></p>
+<p>Gzip-compressed FASTQ (<code>.fastq.gz</code> or <code>.fq.gz</code>). For paired-end reads, submit both files for each sample. See <a href="data-types.html">Data types</a>.</p>
+<p><strong>Why can't I register the experiments before submitting the FASTQ files?</strong></p>
+<p>Each experiment indicates, in the fastq_1 and fastq_2 fields, which files belong to that sample. That is why the files must be available in the Assay before the experiments are registered. See <a href="data-submission.html">Data submission</a>.</p>
+<p><strong>My FASTQ files are already on the INCA Multi-user Bioinformatics Platform. Do I need to submit them again?</strong></p>
+<p>No. Enter the absolute path of the directory where the files are stored in the Assay's <em>Associated Repositories</em> field. See <a href="data-submission.html">Data submission</a>.</p>
+<p><strong>I received a warning that a FASTQ file was not found. What does it mean?</strong></p>
+<p>The name entered in fastq_1 or fastq_2 does not match any file in the Assay. Check that the file was submitted to the correct Assay and that the name was typed exactly the same, including the extension.</p>
+<p><strong>Can the FASTQ file name contain the patient's name or the medical record number?</strong></p>
+<p>No. File names must not contain personal data either. Rename the files before submitting them, if necessary.</p>
+<p><strong>Do I need to submit BAM, CRAM or VCF files?</strong></p>
+<p>No. These files are generated by the ATPBR pipelines from the submitted FASTQ files. See <a href="analysis-platform.html">Analysis platform</a>.</p>
+<p><strong>Do I need to run any pipeline?</strong></p>
+<p>No. The pipelines are run centrally by the ATPBR team. See <a href="analysis-platform.html">Analysis platform</a>.</p>
+<h3 id="governance-and-ethics">Governance and ethics<a class="wk-anchor" href="#governance-and-ethics" aria-label="Link to this section">#</a></h3>
+<p><strong>What is the Submitting Researcher's Responsibility Agreement?</strong></p>
+<p>It is the agreement the researcher accepts before submitting data to ATPBR. In it, the researcher declares that the data is authentic and has been de-identified, that they will provide the ethics documentation and the use permissions of each dataset, and that they will report changes, such as consent withdrawals or new restrictions. See <a href="data-submission.html">Data submission</a>.</p>
+<p><strong>My study has ethics approval. Is that enough to share the data in ATPBR?</strong></p>
+<p>Not necessarily. The ethics approval of the original study does not, by itself, authorize new uses or sharing. You must check whether the informed consent form (TCLE) and the protocol allow inclusion in ATPBR and future use of the data, and whether the institution of origin authorizes the sharing. See <a href="data-governance.html">Data governance</a>.</p>
+<p><strong>The system accepted my data. Is it already available to other researchers?</strong></p>
+<p>No. Being accepted by the system is not the same as being admitted. Each dataset goes through technical and ethical-documentary checks and only becomes available after it is recorded as eligible. Pending datasets remain blocked until the issues are resolved. See <a href="data-submission.html">Data submission</a>.</p>
+<p><strong>I filled in the ethics approval field. Do I need to send any document?</strong></p>
+<p>Yes. The completed field does not replace the supporting document. The ATPBR team may request the approval opinion of the Research Ethics Committee (CEP) or of the National Research Ethics Commission (Conep), the version of the TCLE (or the consent waiver decision) and the data transfer agreement. See <a href="data-governance.html">Data governance</a>.</p>
+<p><strong>A participant has withdrawn consent. What should I do?</strong></p>
+<p>Notify the ATPBR team by e-mail at <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>, identifying the participant <strong>only by the code</strong> used on the platform (patient_id or barcode), never by name or identity document. ATPBR blocks new uses of the data and, when necessary, notifies the researchers who have already received it. See <a href="data-governance.html">Data governance</a>.</p>
+<p><strong>Does data access include the biological samples?</strong></p>
+<p>No. Access to data and access to or transfer of samples are separate authorizations. Decisions about samples rest with the institutions that hold them. See <a href="data-governance.html">Data governance</a>.</p>
+<h3 id="data-access">Data access<a class="wk-anchor" href="#data-access" aria-label="Link to this section">#</a></h3>
+<p><strong>Which data can I consult without requesting authorization?</strong></p>
+<p>The information approved for public release: the metadata in the Data catalog and the results published in the <a href="results-browser.html">Results browser</a> (ATPBR cBioPortal).</p>
+<p><strong>Who decides whether my project's data appears in cBioPortal?</strong></p>
+<p>The person responsible for the project indicates, when registering each Assay, whether the data can be made available. Publication, however, only happens after the dataset is validated and the release is approved, with an assessment of re-identification risks and in compliance with the participants' consent and the original permissions. FASTQ and CRAM files always remain under controlled access. See <a href="data-access.html">Data access</a>.</p>
+<p><strong>How do I obtain access to controlled-access data, such as FASTQ, CRAM or germline variants?</strong></p>
+<p>Submit an access request in the access request module of the ATPBR platform, using your institutional login (questions: <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>). The access request is reviewed by the Data Access Committee (CAD) and, if approved, release depends on signing the data use agreement. CAD authorization does not replace the ethics approval of your research. See <a href="data-access.html">Data access</a>.</p>
+<p><strong>Can my collaborators use my access?</strong></p>
+<p>No. Access is individual and accounts cannot be shared. Each collaborator must be identified in the access request and accept the same obligations. See <a href="usage-policies.html">Usage policies</a>.</p>
+<p><strong>How should I cite ATPBR?</strong></p>
+<p>Cite ATPBR and the studies from which the data originates. The reference article is in <a href="about-atpbr.html">About ATPBR</a>, and the usage rules are in <a href="usage-policies.html">Usage policies</a>.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="usage-policies.html"><small>← Previous</small>Usage policies</a>
+                <span></span>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html" aria-current="page">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#about-atpbr">About ATPBR</a></li>
+<li class=""><a href="#registration-and-submission">Registration and submission</a></li>
+<li class=""><a href="#dates-and-time">Dates and time</a></li>
+<li class=""><a href="#identifiers-and-barcode">Identifiers and barcode</a></li>
+<li class=""><a href="#samples">Samples</a></li>
+<li class=""><a href="#sequencing-files">Sequencing files</a></li>
+<li class=""><a href="#governance-and-ethics">Governance and ethics</a></li>
+<li class=""><a href="#data-access">Data access</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

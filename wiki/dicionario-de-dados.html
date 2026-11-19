@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dicionário de dados · Wiki do ATPBR</title>
     <meta name="description" content="Dicionário de dados: os campos de cada módulo e as regras de preenchimento.">
+    <link rel="alternate" hreflang="en" href="en/data-dictionary.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/data-dictionary.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,7 +39,7 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Dicionário de dados</nav>
             <h1>Dicionário de dados</h1>
-            <p class="wk-meta">Capítulo 8 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 8 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Depois de conhecer os módulos e elementos do <a href="modelo-de-dados.html">Modelo de dados</a>, este capítulo descreve <strong>o que preencher em cada um</strong>. O dicionário de dados define a estrutura, o significado e as regras de preenchimento dos dados armazenados na plataforma, garantindo a consistência e a comparabilidade entre os dados submetidos pelos diferentes centros participantes.</p>
 <p>Cada campo possui uma definição formal, tipo e formato esperados, obrigatoriedade de preenchimento e, quando aplicável, vocabulários controlados ou ontologias de referência. Alguns desses campos também compõem o <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a> do ATPBR.</p>
@@ -260,7 +262,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">

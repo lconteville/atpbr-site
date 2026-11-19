@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acesso aos dados · Wiki do ATPBR</title>
     <meta name="description" content="Acesso aos dados: o que é aberto, o que é controlado e como solicitar acesso.">
+    <link rel="alternate" hreflang="en" href="en/data-access.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/data-access.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,7 +39,7 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Acesso aos dados</nav>
             <h1>Acesso aos dados</h1>
-            <p class="wk-meta">Capítulo 6 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 6 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <h3 id="acesso-aos-dados">Acesso aos Dados<a class="wk-anchor" href="#acesso-aos-dados" aria-label="Link para esta seção">#</a></h3>
 <p>Ao submeter dados ao ATPBR (veja <a href="submissao-de-dados.html">Submissão de dados</a>), você indica como gostaria que eles fossem compartilhados. Este capítulo explica as modalidades de acesso, que equilibram o compartilhamento científico, a privacidade dos participantes e os requisitos éticos e regulatórios, e descreve como solicitar acesso a dados controlados. Os princípios e responsabilidades por trás dessas regras estão em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
@@ -53,13 +55,18 @@
 <tbody>
 <tr>
 <td style="text-align:left"><strong>Público</strong></td>
-<td style="text-align:left">Metadados descritivos de projetos e estudos, informações do catálogo e resultados aprovados para divulgação</td>
+<td style="text-align:left">Metadados descritivos de estudos e ensaios, informações do catálogo e resultados aprovados para divulgação, incluindo mutações somáticas e um conjunto clínico mínimo com variáveis agrupadas (idade em faixas, sobrevida arredondada, raça/cor agrupada)</td>
 <td style="text-align:left">Qualquer pessoa</td>
 </tr>
 <tr>
+<td style="text-align:left"><strong>Registrado</strong></td>
+<td style="text-align:left">Conjuntos de menor risco, classificados para essa modalidade segundo critérios aprovados pelo CAD</td>
+<td style="text-align:left">Pesquisadores com identidade e vínculo institucional verificados, após aceite do termo padrão de uso; cada acesso é registrado, sem deliberação individual do CAD</td>
+</tr>
+<tr>
 <td style="text-align:left"><strong>Controlado</strong></td>
-<td style="text-align:left">Arquivos de sequenciamento, resultados intermediários, dados genômicos individualizados, matrizes ômicas e dados clínicos que exijam proteção adicional</td>
-<td style="text-align:left">Pesquisadores autorizados pelo Comitê de Acesso a Dados, nas condições aprovadas</td>
+<td style="text-align:left">Arquivos de sequenciamento, resultados intermediários, variantes germinativas, dados genômicos individualizados, matrizes ômicas completas e dados clínicos que exijam proteção adicional</td>
+<td style="text-align:left">Pesquisadores autorizados pelo Comitê de Acesso a Dados, nas condições aprovadas, ou por pré-autorização, quando a finalidade é integralmente compatível com os códigos DUO de todos os conjuntos (regras definidas e auditadas pelo CAD).</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Interno operacional</strong></td>
@@ -76,13 +83,13 @@
 <li>Os <strong>resultados das análises</strong> aprovados para divulgação podem ser publicados no cBioPortal do ATPBR.</li>
 <li>Os <strong>arquivos FASTQ e CRAM</strong> permanecem sob acesso controlado.</li>
 </ul>
-<h3 id="dados-de-acesso-aberto">Dados de acesso aberto<a class="wk-anchor" href="#dados-de-acesso-aberto" aria-label="Link para esta seção">#</a></h3>
+<h3 id="dados-de-acesso-publico">Dados de acesso público<a class="wk-anchor" href="#dados-de-acesso-publico" aria-label="Link para esta seção">#</a></h3>
 <p>Os resultados aprovados para divulgação pública no cBioPortal do ATPBR (veja <a href="navegador-de-resultados.html">Navegador de resultados</a>) podem ser consultados e baixados sem necessidade de autorização adicional.</p>
 <p>O <strong>catálogo de dados</strong> da plataforma lista os estudos e conjuntos de dados de todos os projetos, com o tipo de câncer, o tipo de ômica e o número de pacientes, amostras e experimentos. Para cada conjunto, o catálogo indica se você já tem acesso (por fazer parte do projeto ou por concessão) ou se é necessária autorização.</p>
 <p>Toda divulgação pública segue estas regras:</p>
 <ul>
 <li>Antes da publicação, avaliam-se coortes pequenas, atributos raros, combinações de filtros clínicos, demográficos e genômicos e consultas sucessivas que permitam reconstruir informações individuais.</li>
-<li>Quando o risco não é aceitável, as informações são agregadas, apresentadas em faixas ou omitidas, ou o conjunto passa ao acesso controlado. Os limiares e técnicas são definidos pela coordenação do ATPBR, com validação técnica.</li>
+<li>Quando o risco não é aceitável, as informações são agregadas, apresentadas em faixas ou omitidas, ou o conjunto passa ao acesso controlado. Por padrão, no portal público a idade ao diagnóstico aparece em faixas de 5 anos, a sobrevida em meses arredondados, a raça/cor em categorias agrupadas, e contagens abaixo do limiar mínimo são suprimidas. Variantes germinativas, leituras brutas e datas nunca são públicas. Os limiares e técnicas são definidos pela coordenação do ATPBR, com validação técnica.</li>
 <li>Cada aprovação registra o responsável, a versão do conjunto, os parâmetros de publicação, os testes realizados e a data. Mudanças relevantes nos dados, nos filtros ou nos indicadores exigem nova avaliação.</li>
 <li>Aprovar a divulgação do registro descritivo <strong>não</strong> libera os arquivos de sequenciamento, os registros clínicos individuais nem as matrizes ômicas associadas.</li>
 </ul>
@@ -92,8 +99,8 @@
 <li>Arquivos de sequenciamento bruto ou alinhado (FASTQ e CRAM).</li>
 <li>Resultados intermediários do processamento.</li>
 <li>Variantes germinativas e demais dados genômicos individualizados.</li>
-<li>Matrizes ômicas.</li>
-<li>Dados individuais em nível de participante.</li>
+<li>Matrizes ômicas completas ou não aprovadas para divulgação (as matrizes processadas e aprovadas aparecem no Navegador de resultados).</li>
+<li>Dados clínicos individuais além das variáveis publicadas no Navegador de resultados.</li>
 <li>Informações clínicas cuja granularidade ou combinação de atributos exija proteção adicional.</li>
 <li>Outros dados definidos pelas políticas de governança do ATPBR.</li>
 </ul>
@@ -101,7 +108,7 @@
 <h3 id="acesso-interno-operacional">Acesso interno operacional<a class="wk-anchor" href="#acesso-interno-operacional" aria-label="Link para esta seção">#</a></h3>
 <p>Conjuntos em validação ou em processamento e informações administrativas são acessados apenas pelas equipes autorizadas do ATPBR, conforme suas funções e o princípio do menor privilégio. Atuar no desenvolvimento do software ou na manutenção da infraestrutura não dá acesso aos dados de pesquisa. Acessos privilegiados ou excepcionais dependem de justificativa, autorização, prazo limitado e registro, e são revistos depois.</p>
 <h3 id="como-solicitar-acesso-a-dados-controlados">Como solicitar acesso a dados controlados<a class="wk-anchor" href="#como-solicitar-acesso-a-dados-controlados" aria-label="Link para esta seção">#</a></h3>
-<p>Pesquisadores interessados em acessar dados de acesso controlado devem entrar em contato com a equipe do ATPBR pelo e-mail <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>. A equipe fornecerá as orientações sobre o processo de solicitação e a documentação necessária, de acordo com a natureza dos dados e as políticas de acesso vigentes.</p>
+<p>Pesquisadores interessados em acessar dados de acesso controlado devem registrar a solicitação no módulo de pedidos de acesso da plataforma ATPBR, após login com conta institucional. Dúvidas sobre o processo podem ser enviadas para <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>. A equipe fornecerá as orientações sobre o processo de solicitação e a documentação necessária, de acordo com a natureza dos dados e as políticas de acesso vigentes.</p>
 <h4 id="o-que-o-pedido-deve-conter">O que o pedido deve conter<a class="wk-anchor" href="#o-que-o-pedido-deve-conter" aria-label="Link para esta seção">#</a></h4>
 <ul>
 <li>Identificação e contato institucional do pesquisador responsável e da sua instituição.</li>
@@ -175,11 +182,11 @@
 <p>O instrumento de origem define se a instituição provedora se manifesta <strong>caso a caso</strong> ou se deu <strong>anuência prévia</strong> para usos compatíveis. No primeiro caso, a manifestação precisa ser expressa: o <strong>silêncio não vale como anuência</strong>. No segundo, verifica-se se o pedido está inteiramente coberto pelas permissões já formalizadas.</p>
 <h4 id="depois-da-decisao">Depois da decisão<a class="wk-anchor" href="#depois-da-decisao" aria-label="Link para esta seção">#</a></h4>
 <ul>
-<li>Antes da liberação, o pesquisador e, quando aplicável, sua instituição firmam o <strong>instrumento de uso de dados</strong> aprovado pelo INCA, que não pode ampliar as autorizações de origem.</li>
-<li>O acesso é <strong>individual</strong>, vinculado ao projeto e aos conjuntos autorizados, com prazo de expiração e sem contas compartilhadas.</li>
+<li>Antes da liberação, o pesquisador e, quando aplicável, sua instituição firma o <strong>instrumento de uso de dados</strong> aprovado pelo INCA, que não pode ampliar as autorizações de origem.</li>
+<li>O acesso é <strong>individual</strong>, vinculado ao projeto e aos conjuntos autorizados, com prazo de expiração (em regra, 12 meses, com aviso antes do vencimento) e sem contas compartilhadas.</li>
 <li>A <strong>renovação não é automática</strong>: depende de nova comprovação das condições de elegibilidade.</li>
 <li>O acesso pode ser <strong>suspenso preventivamente</strong> diante de indícios de uso indevido, risco de reidentificação ou mudança nas permissões de origem, e <strong>revogado</strong> pelo CAD em caso de descumprimento.</li>
-<li>No <strong>encerramento</strong>, as credenciais são desativadas e o pesquisador confirma a eliminação, a devolução ou a retenção autorizada das cópias.</li>
+<li>No <strong>encerramento</strong>, as credenciais e a instância de processamento são desativadas. Os dados permanecem no ATPBR; ficam com o pesquisador apenas os resultados cuja exportação foi verificada e autorizada.</li>
 <li>Pedidos de reconsideração podem ser apresentados diante de correção documental, fato novo ou erro material, mas não liberam acesso provisório.</li>
 </ul>
 <p>O acesso a dados por pesquisador ou instituição no exterior depende, além das demais condições, das permissões de origem para compartilhamento internacional e de um mecanismo de transferência admitido pela LGPD.</p>
@@ -199,7 +206,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
@@ -224,7 +231,7 @@
 <li class=""><a href="#acesso-aos-dados">Acesso aos Dados</a></li>
 <li class=""><a href="#modalidades-de-acesso">Modalidades de acesso</a></li>
 <li class=""><a href="#quem-decide-o-que-e-compartilhado">Quem decide o que é compartilhado</a></li>
-<li class=""><a href="#dados-de-acesso-aberto">Dados de acesso aberto</a></li>
+<li class=""><a href="#dados-de-acesso-publico">Dados de acesso público</a></li>
 <li class=""><a href="#dados-de-acesso-controlado">Dados de acesso controlado</a></li>
 <li class=""><a href="#acesso-interno-operacional">Acesso interno operacional</a></li>
 <li class=""><a href="#como-solicitar-acesso-a-dados-controlados">Como solicitar acesso a dados controlados</a></li>

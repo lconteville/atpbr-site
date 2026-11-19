@@ -122,6 +122,14 @@ a:hover {
     color: var(--azul);
 }
 
+/* seletor de idioma (PT <-> EN) */
+.wk-top-nav .wk-lang {
+    color: var(--azul);
+    border: 1px solid var(--linha);
+    border-radius: 999px;
+    padding: 4px 12px;
+}
+
 .wk-menu {
     display: none;
     font: inherit;
@@ -246,6 +254,13 @@ h4:hover .wk-anchor,
     height: auto;
     border: 1px solid var(--linha);
     border-radius: 12px;
+}
+
+/* figuras dos capítulos (atpbr-wiki/images/): fundo transparente, sem moldura */
+.wk-body img[src^="images/"] {
+    border: 0;
+    border-radius: 0;
+    margin: 8px 0;
 }
 
 .wk-body hr {
@@ -565,7 +580,7 @@ h4:hover .wk-anchor,
         gap: 12px;
     }
 
-    .wk-top-nav a[href="../infografico.html"] {
+    .wk-top-nav a[href$="infografico.html"] {
         display: none;
     }
 

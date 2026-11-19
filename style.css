@@ -1792,6 +1792,18 @@ img {
     text-decoration: none;
 }
 
+/* link para a mesma peça no outro idioma, abaixo do botão */
+.docs-grid .pub-alt {
+    margin: 0.9rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.docs-grid .pub-alt a {
+    color: inherit;
+    font-weight: 600;
+}
+
 @media (max-width: 1024px) {
     .docs-grid {
         grid-template-columns: repeat(2, 1fr);

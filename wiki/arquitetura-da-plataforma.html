@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura da plataforma · Wiki do ATPBR</title>
     <meta name="description" content="Arquitetura da plataforma: visão geral do caminho que os dados percorrem.">
+    <link rel="alternate" hreflang="en" href="en/platform-architecture.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/platform-architecture.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,13 +39,14 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Arquitetura da plataforma</nav>
             <h1>Arquitetura da plataforma</h1>
-            <p class="wk-meta">Capítulo 3 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 3 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>A arquitetura do ATPBR foi projetada para suportar todo o ciclo de vida dos dados oncológicos, desde sua submissão até sua análise e disponibilização de resultados para a comunidade científica. A plataforma é composta por módulos interoperáveis que atuam de forma integrada para garantir rastreabilidade, padronização, escalabilidade e reprodutibilidade.</p>
 <p>Este capítulo apresenta a <strong>visão de conjunto</strong>. Cada etapa descrita aqui é detalhada em um capítulo próprio, indicado ao longo do texto.</p>
 <h3 id="visao-geral-da-arquitetura">Visão Geral da Arquitetura<a class="wk-anchor" href="#visao-geral-da-arquitetura" aria-label="Link para esta seção">#</a></h3>
 <p>De forma simplificada, o fluxo de dados no ATPBR segue as seguintes etapas:</p>
-<p><strong>Ingestão → Validação → Armazenamento → Processamento → Harmonização → Exploração → Compartilhamento</strong></p>
+<p><strong>Submissão → Armazenamento seguro → Harmonização → Análises reprodutíveis → Visualização → Acesso controlado → Governança</strong></p>
+<p><img src="images/fluxo_arquitetura.png" alt="Fluxo de dados no ATPBR: Submissão, Armazenamento seguro, Harmonização, Análises reprodutíveis, Visualização, Acesso controlado e Governança" /></p>
 <p>Em todas as etapas, os princípios de proteção dos participantes apresentados em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a> são aplicados por meio de controle de acesso por perfis e permissões, registro e auditoria de atividades e gestão das solicitações de acesso a dados controlados. As regras e os responsáveis por cada etapa estão em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
 <h3 id="ingestao-de-dados">Ingestão de Dados<a class="wk-anchor" href="#ingestao-de-dados" aria-label="Link para esta seção">#</a></h3>
 <p>A ingestão é o recebimento dos metadados e dos arquivos de sequenciamento enviados pelos usuários. O processo, passo a passo, está em <a href="submissao-de-dados.html">Submissão de dados</a>. Os dados são organizados segundo o <a href="modelo-de-dados.html">Modelo de dados</a> e recebem identificadores padronizados, descritos em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
@@ -59,9 +62,9 @@
 <h3 id="processamento-de-dados">Processamento de Dados<a class="wk-anchor" href="#processamento-de-dados" aria-label="Link para esta seção">#</a></h3>
 <p>Os FASTQ validados são processados por pipelines padronizados, que identificam variantes somáticas e quantificam a expressão gênica. Os pipelines, as versões e os arquivos gerados estão em <a href="plataforma-analitica.html">Plataforma analítica</a>.</p>
 <h3 id="harmonizacao-e-integracao">Harmonização e Integração<a class="wk-anchor" href="#harmonizacao-e-integracao" aria-label="Link para esta seção">#</a></h3>
-<p>Os resultados do processamento são padronizados, anotados e integrados aos dados clínicos, o que permite comparar estudos diferentes. Os dados harmonizados são carregados no cBioPortal do ATPBR.</p>
+<p>Os resultados do processamento são padronizados, anotados e integrados aos dados clínicos, o que permite comparar estudos diferentes. Os dados harmonizados não sensíveis são carregados no cBioPortal do ATPBR.</p>
 <h3 id="exploracao-e-compartilhamento">Exploração e Compartilhamento<a class="wk-anchor" href="#exploracao-e-compartilhamento" aria-label="Link para esta seção">#</a></h3>
-<p>Os resultados podem ser explorados no <a href="navegador-de-resultados.html">Navegador de resultados</a> (cBioPortal do ATPBR). Os estudos e conjuntos de dados de todos os projetos podem ser consultados no <strong>catálogo de dados</strong> da plataforma. O que é aberto, o que é controlado e como solicitar acesso estão em <a href="acesso-aos-dados.html">Acesso aos dados</a>.</p>
+<p>Os resultados podem ser explorados no <a href="navegador-de-resultados.html">Navegador de resultados</a> (cBioPortal do ATPBR). Os estudos e conjuntos de dados dos projetos podem ser consultados no Catálogo de Dados da plataforma, desde que sua disponibilização tenha sido autorizada pelos respectivos responsáveis. Para saber mais sobre os critérios de disponibilização, os níveis de acesso (aberto ou controlado) e os procedimentos para solicitar acesso aos dados, consulte a seção <a href="acesso-aos-dados.html">Acesso aos dados</a>.</p>
 <hr />
 <p><strong>Próximo capítulo → <a href="governanca-de-dados.html">Governança de dados</a>:</strong> as regras que valem ao longo desse fluxo: quem é responsável por cada etapa, como os participantes são protegidos e quais autorizações cada uso exige.</p>
 
@@ -77,7 +80,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">

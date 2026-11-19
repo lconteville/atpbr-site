@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navegador de resultados · Wiki do ATPBR</title>
     <meta name="description" content="Navegador de resultados: como explorar os resultados no cBioPortal do ATPBR.">
+    <link rel="alternate" hreflang="en" href="en/results-browser.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/results-browser.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,9 +39,10 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Navegador de resultados</nav>
             <h1>Navegador de resultados</h1>
-            <p class="wk-meta">Capítulo 12 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 12 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Os resultados gerados pela <a href="plataforma-analitica.html">Plataforma analítica</a> chegam aos usuários pelo <strong>cBioPortal do ATPBR</strong>, um ambiente interativo para navegar, visualizar e analisar dados genômicos e clínicos de câncer sem exigir conhecimento avançado em bioinformática. Este capítulo descreve o que está disponível no portal e como explorá-lo.</p>
+<p>O ATPBR utiliza o <strong>cBioPortal for Cancer Genomics, versão 7.2</strong>, uma plataforma de código aberto amplamente utilizada pela comunidade científica internacional para exploração integrada de dados moleculares e clínicos de câncer.</p>
 <p>O portal é voltado a pesquisadores translacionais, biólogos moleculares, clínicos, bioinformatas e cientistas de dados interessados no panorama molecular dos tumores brasileiros.</p>
 <h3 id="1-dados-disponiveis">1. Dados disponíveis<a class="wk-anchor" href="#1-dados-disponiveis" aria-label="Link para esta seção">#</a></h3>
 <p>O cBioPortal integra, em um mesmo estudo, as camadas de dados geradas ao longo do fluxo do ATPBR:</p>
@@ -219,7 +222,7 @@
 <tr>
 <td style="text-align:left"><strong>RACE</strong></td>
 <td style="text-align:left">Texto</td>
-<td style="text-align:left">Raça/cor do paciente, conforme registrada na submissão.</td>
+<td style="text-align:left">Raça/cor do paciente, em categorias agrupadas.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>COUNTRY</strong></td>
@@ -229,7 +232,7 @@
 <tr>
 <td style="text-align:left"><strong>DIAGNOSIS_AGE</strong></td>
 <td style="text-align:left">Número</td>
-<td style="text-align:left">Idade ao diagnóstico, em anos.</td>
+<td style="text-align:left">Idade ao diagnóstico, em faixas de 5 anos.</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>OS_STATUS</strong></td>
@@ -239,7 +242,7 @@
 <tr>
 <td style="text-align:left"><strong>OS_MONTHS</strong></td>
 <td style="text-align:left">Número</td>
-<td style="text-align:left">Tempo de sobrevida global em meses, a partir do diagnóstico.</td>
+<td style="text-align:left">Tempo de sobrevida global em meses arredondados, a partir do diagnóstico.</td>
 </tr>
 </tbody>
 </table></div>
@@ -327,7 +330,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">

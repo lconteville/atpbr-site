@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de identificação e barcode · Wiki do ATPBR</title>
     <meta name="description" content="Sistema de identificação e barcode: como a plataforma identifica pacientes, amostras e ensaios.">
+    <link rel="alternate" hreflang="en" href="en/identification-and-barcode-system.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/identification-and-barcode-system.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,7 +39,7 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Sistema de identificação e barcode</nav>
             <h1>Sistema de identificação e barcode</h1>
-            <p class="wk-meta">Capítulo 9 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 9 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Vários campos descritos no <a href="dicionario-de-dados.html">Dicionário de dados</a>, como o acrônimo do projeto, o centro coletor, os códigos de paciente e de amostra e o tipo de ômica, não servem apenas para descrever os dados: eles se combinam para formar o <strong>barcode</strong>, o identificador único de cada paciente, amostra e ensaio. O usuário não digita o barcode; a plataforma o gera automaticamente a partir desses campos.</p>
 <p>O ATPBR utiliza um sistema padronizado de identificação para garantir a rastreabilidade de participantes, amostras biológicas, experimentos e dados gerados ao longo de todo o ciclo de vida de um projeto ou estudo. Esse sistema é baseado em barcodes estruturados, que funcionam como identificadores únicos e persistentes dentro da plataforma.</p>
@@ -844,7 +846,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
