@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic · Brazilian Population Tumor Atlas</title>
+    <meta name="description"
+        content="Cancer in Brazil needs data from Brazil. ATPBR on one page: the problem, the opportunity, the platform and how we protect the data.">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+    </script>
+    <style>
+        :root {
+            --azul: #3F5C8A;
+            --azul-medio: #5A78A6;
+            --verde: #5FB49C;
+            --petroleo: #4E8F9A;
+            --vermelho: #C8553D;
+            --cinza: #6B7280;
+            --texto: #2F2F2F;
+            --card: #F5F7FA;
+            --linha: #E3E8EF;
+            --vazio: #DCE3EC;
+            --grad: linear-gradient(90deg, var(--azul), var(--verde));
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", "Montserrat", Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background: #fff;
+            line-height: 1.35;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:hover {
+            opacity: .8;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        svg.ico {
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        .barra {
+            height: 12px;
+            background: var(--grad);
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        /* ── Barra de ações (fora do infográfico) ── */
+        .acoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 18px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--azul-medio);
+        }
+
+        .acoes nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* ── Cabeçalho ── */
+        .topo {
+            display: grid;
+            grid-template-columns: 330px 1fr;
+            gap: 44px;
+            align-items: center;
+            padding-top: 30px;
+        }
+
+        .topo h1 {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.16;
+            color: var(--azul);
+        }
+
+        .topo h1 span {
+            color: var(--verde);
+        }
+
+        .topo p {
+            margin-top: 18px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--cinza);
+            line-height: 1.4;
+        }
+
+        .pilulas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .pilula {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card);
+            border-radius: 38px;
+            padding: 14px 16px 14px 14px;
+            min-height: 76px;
+        }
+
+        .pilula .bola {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--grad);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        .pilula strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--azul);
+        }
+
+        .pilula small {
+            display: block;
+            margin-top: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--cinza);
+        }
+
+        /* ── Seções ── */
+        main section.wrap {
+            margin-top: 56px;
+        }
+
+        .olho {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--verde);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin-top: 12px;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--azul);
+            line-height: 1.15;
+        }
+
+        /* 01 · The problem */
+        .problema {
+            display: grid;
+            grid-template-columns: 305px 1fr;
+            gap: 50px;
+            margin-top: 30px;
+        }
+
+        .waffle {
+            display: grid;
+            grid-template-columns: repeat(10, 26px);
+            gap: 5px;
+        }
+
+        .waffle i {
+            width: 26px;
+            height: 26px;
+            border-radius: 5px;
+            background: var(--vazio);
+        }
+
+        .waffle i.b {
+            background: var(--azul);
+        }
+
+        .waffle i.l {
+            background: var(--vermelho);
+        }
+
+        .waffle-legenda {
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--azul);
+            display: flex;
+            gap: 12px;
+            align-items: baseline;
+        }
+
+        .waffle-legenda b {
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .waffle-legenda .l {
+            color: var(--vermelho);
+        }
+
+        .bases {
+            list-style: none;
+        }
+
+        .bases li {
+            padding: 14px 0 18px;
+            border-bottom: 1.5px solid var(--linha);
+        }
+
+        .bases li:first-child {
+            padding-top: 6px;
+        }
+
+        .bases li:last-child {
+            border-bottom: 0;
+        }
+
+        .bases h3 {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            color: var(--azul-medio);
+        }
+
+        .bases .linha {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .num {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .num b {
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--azul);
+            white-space: nowrap;
+        }
+
+        .num.alerta b {
+            color: var(--vermelho);
+        }
+
+        .num span {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--cinza);
+            padding-top: 4px;
+        }
+
+        .fontes {
+            margin-top: 22px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: var(--cinza);
+        }
+
+        .fontes a {
+            font-weight: 600;
+            color: var(--azul-medio);
+        }
+
+        .faixa {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 22px;
+            padding: 14px 28px 14px 24px;
+            border-radius: 36px;
+            background: var(--azul);
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .faixa svg {
+            color: var(--verde);
+        }
+
+        .faixa strong {
+            display: block;
+            font-weight: 700;
+        }
+
+        .faixa span {
+            display: block;
+            margin-top: 4px;
+            color: #B9C6DB;
+        }
+
+        /* 02 · The opportunity */
+        .ancestralidade {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 34px;
+            border-radius: 17px;
+            overflow: hidden;
+            list-style: none;
+        }
+
+        .ancestralidade li {
+            padding: 9px 4px;
+            text-align: center;
+            font-size: 12.5px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .ancestralidade li:nth-child(1) {
+            background: var(--verde);
+        }
+
+        .ancestralidade li:nth-child(2) {
+            background: var(--petroleo);
+        }
+
+        .ancestralidade li:nth-child(3) {
+            background: var(--azul-medio);
+        }
+
+        .ancestralidade li:nth-child(4) {
+            background: var(--azul);
+        }
+
+        .cards4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .cards4 .card {
+            display: flex;
+            flex-direction: column;
+            min-height: 232px;
+        }
+
+        .bola-branca {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--verde);
+            display: grid;
+            place-items: center;
+        }
+
+        .cards4 b {
+            margin-top: 20px;
+            font-size: 50px;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--azul);
+            white-space: nowrap;
+        }
+
+        .cards4 p {
+            margin-top: 14px;
+            font-size: 13.5px;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .cards4 .ref {
+            margin-top: auto;
+            padding-top: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--cinza);
+        }
+
+        .cards4 a.ref {
+            color: var(--azul-medio);
+        }
+
+        .etapas {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+            list-style: none;
+        }
+
+        .etapas li {
+            display: grid;
+            place-items: center;
+            height: 48px;
+            padding: 0 10px 0 20px;
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%, 14px 50%);
+        }
+
+        .etapas li:first-child {
+            padding-left: 10px;
+            clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 0 100%);
+        }
+
+        .etapas li:nth-child(1) {
+            background: #5FB49C;
+        }
+
+        .etapas li:nth-child(2) {
+            background: #55A09B;
+        }
+
+        .etapas li:nth-child(3) {
+            background: #4E8C99;
+        }
+
+        .etapas li:nth-child(4) {
+            background: #4A7795;
+        }
+
+        .etapas li:nth-child(5) {
+            background: #3F5C8A;
+        }
+
+        /* Missão */
+        .missao {
+            margin-top: 64px;
+            padding: 36px 0;
+            background: var(--grad);
+            color: #fff;
+        }
+
+        .missao .olho {
+            color: #fff;
+        }
+
+        .missao p {
+            margin-top: 14px;
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        /* 03 · The platform */
+        .ciclo {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            margin-top: 36px;
+            list-style: none;
+        }
+
+        .ciclo::before {
+            content: "";
+            position: absolute;
+            top: 37px;
+            left: calc(100% / 14);
+            right: calc(100% / 14);
+            border-top: 3px dotted var(--verde);
+        }
+
+        .ciclo a {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--azul);
+        }
+
+        .ciclo .bola {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background: var(--grad);
+            color: #fff;
+            display: grid;
+            place-items: center;
+        }
+
+        .publico {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-top: 36px;
+            list-style: none;
+        }
+
+        .publico .rotulo {
+            margin-right: 8px;
+            font-size: 12.5px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--azul-medio);
+        }
+
+        .publico .chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px 6px 12px;
+            border: 1.5px solid var(--linha);
+            border-radius: 17px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--azul);
+        }
+
+        .publico .chip svg {
+            color: var(--verde);
+        }
+
+        .comece {
+            display: inline-block;
+            margin-top: 14px;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--verde);
+        }
+
+        /* 04 · Trust */
+        .cards3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .cards3 .card {
+            padding: 24px 22px;
+            min-height: 238px;
+        }
+
+        .cards3 h3 {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--azul-medio);
+        }
+
+        .fair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 10px;
+            margin-top: 22px;
+        }
+
+        .fair b {
+            display: block;
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1;
+            color: var(--azul);
+        }
+
+        .fair span {
+            display: block;
+            margin-top: 6px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--verde);
+        }
+
+        .criterios {
+            list-style: none;
+            margin-top: 18px;
+            display: grid;
+            gap: 14px;
+        }
+
+        .criterios li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .criterios .bola-branca {
+            width: 40px;
+            height: 40px;
+        }
+
+        .card.lgpd {
+            background: var(--azul);
+            color: #fff;
+        }
+
+        .lgpd h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 900;
+            letter-spacing: 0;
+            color: #fff;
+        }
+
+        .lgpd h3 svg {
+            color: var(--verde);
+        }
+
+        .lgpd ul {
+            list-style: none;
+            margin-top: 18px;
+            display: grid;
+            gap: 9px;
+        }
+
+        .lgpd li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        .lgpd li::before {
+            content: "";
+            position: absolute;
+            left: 1px;
+            top: 4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--verde);
+        }
+
+        .lgpd .links {
+            display: flex;
+            gap: 18px;
+            margin-top: 18px;
+            font-size: 12.5px;
+            font-weight: 700;
+        }
+
+        .lgpd .links a {
+            color: var(--verde);
+        }
+
+        /* Rodapé */
+        footer.wrap {
+            margin-top: 52px;
+        }
+
+        .contatos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 14px 34px;
+            padding-top: 18px;
+            border-top: 1.5px solid var(--linha);
+        }
+
+        .contatos a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--azul);
+        }
+
+        .contatos a.artigo {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--azul-medio);
+        }
+
+        .contatos svg {
+            color: var(--verde);
+        }
+
+        .logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 26px 0 30px;
+        }
+
+        .logos .gov {
+            height: 50px;
+            width: auto;
+        }
+
+        .logos .cnpq {
+            height: 44px;
+            width: auto;
+        }
+
+        /* ── Responsivo ── */
+        @media (max-width: 960px) {
+            .wrap {
+                padding: 0 28px;
+            }
+
+            .topo {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .topo img {
+                width: 260px;
+            }
+
+            .pilulas,
+            .cards3 {
+                grid-template-columns: 1fr;
+            }
+
+            .problema {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .cards4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .etapas {
+                grid-template-columns: 1fr;
+            }
+
+            .etapas li,
+            .etapas li:first-child {
+                clip-path: none;
+                border-radius: 24px;
+                padding: 0 10px;
+            }
+
+            .ciclo {
+                grid-template-columns: repeat(4, 1fr);
+                row-gap: 26px;
+            }
+
+            .ciclo::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .wrap {
+                padding: 0 18px;
+            }
+
+            .topo h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .waffle {
+                grid-template-columns: repeat(10, 1fr);
+                max-width: 305px;
+            }
+
+            .waffle i {
+                width: auto;
+                aspect-ratio: 1;
+            }
+
+            .bases .linha {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .cards4 {
+                grid-template-columns: 1fr;
+            }
+
+            .cards4 .card {
+                min-height: 0;
+            }
+
+            .ciclo {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .missao p {
+                font-size: 19px;
+            }
+
+            .faixa {
+                border-radius: 24px;
+            }
+
+            .logos {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logos .gov {
+                height: auto;
+            }
+        }
+
+        @media print {
+            .acoes {
+                display: none;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="barra"></div>
+
+    <div class="wrap acoes">
+        <a href="./en.html">← Back to the ATPBR website</a>
+        <nav aria-label="Downloads and documentation">
+            <a href="./wiki/en/index.html">Documentation (wiki)</a>
+            <a href="./infografico.html" hreflang="pt-br" lang="pt-br">Português</a>
+            <a href="./assets/infografico/infografico_ATPBR_enxuto_en.pdf" download>Download PDF</a>
+            <a href="./assets/infografico/infografico_ATPBR_enxuto_en.png" download>Download PNG</a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- ── Cabeçalho ── -->
+        <header class="wrap">
+            <div class="topo">
+                <img src="./assets/infografico/logo-atpbr.png" width="330" height="183"
+                    alt="ATPBR, Brazilian Population Tumor Atlas">
+                <div>
+                    <h1>Cancer in Brazil<br>needs data<br><span>from Brazil.</span></h1>
+                    <p>A national initiative that maps the molecular profile of cancer in Brazilians and shares these data responsibly.</p>
+                </div>
+            </div>
+
+            <div class="pilulas">
+                <div class="pilula">
+                    <span class="bola"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.9"
+                            aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <circle cx="12" cy="12" r="5" />
+                            <circle cx="12" cy="12" r="1.5" />
+                        </svg></span>
+                    <div><strong>Ministry of Health + CNPq</strong><small>since Dec 2023</small></div>
+                </div>
+                <div class="pilula">
+                    <span class="bola"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.9"
+                            aria-hidden="true">
+                            <circle cx="8" cy="8" r="3" />
+                            <circle cx="17" cy="9" r="2.5" />
+                            <path d="M2.5 20c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6M14 14.5c3.5-.6 7 1.2 7 5.5" />
+                        </svg></span>
+                    <div><strong>INCA + Brazilian Cancer</strong><small>Genome Consortium</small></div>
+                </div>
+                <div class="pilula">
+                    <span class="bola"><svg class="ico" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.9"
+                            aria-hidden="true">
+                            <path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12s10 6 10 6" />
+                            <path d="M8.5 6h7M8.5 18h7M10 9.5h4M10 14.5h4" />
+                        </svg></span>
+                    <div><strong>Clinical + multi-omic</strong><small>genome · transcriptome · epigenome</small></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ── 01 · The problem ── -->
+        <section class="wrap" aria-labelledby="s01">
+            <p class="olho">01 · The problem</p>
+            <h2 id="s01">Cancer genomics is not diverse</h2>
+
+            <div class="problema">
+                <figure>
+                    <div class="waffle" id="waffle" role="img"
+                        aria-label="TCGA: out of every 100 participants, 77 are white and 3 are Latino"></div>
+                    <figcaption class="waffle-legenda">
+                        <b>TCGA</b><span>■ 77% white</span><span class="l">■ 3% Latino</span>
+                    </figcaption>
+                </figure>
+
+                <ul class="bases">
+                    <li>
+                        <h3>PCAWG / ICGC-TCGA</h3>
+                        <div class="linha">
+                            <div class="num"><b>76%</b><span>European<br>ancestry</span></div>
+                            <div class="num alerta"><b>1%</b><span>Latin American</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>AACR Project GENIE</h3>
+                        <div class="linha">
+                            <div class="num"><b>72%</b><span>white</span></div>
+                            <div class="num alerta"><b>57%</b><span>of the expected<br>Hispanic representation</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>NCI PDMR</h3>
+                        <div class="linha">
+                            <div class="num"><b>75%</b><span>European<br>ancestry</span></div>
+                            <div class="num alerta"><b>&lt;1%</b><span>Latin American</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="fontes">Sources:
+                <a href="https://doi.org/10.1001/jamaoncol.2016.1854" target="_blank" rel="noopener">Spratt 2016</a> ·
+                <a href="https://doi.org/10.1038/s41586-020-1969-6" target="_blank" rel="noopener">Campbell 2020</a> ·
+                <a href="https://doi.org/10.1158/2159-8290.CD-21-1547" target="_blank" rel="noopener">Pugh 2022</a> ·
+                <a href="https://doi.org/10.1038/s41698-023-00351-6" target="_blank" rel="noopener">Cheung 2023</a> ·
+                Hilbers 2023
+            </p>
+
+            <div class="faixa">
+                <svg class="ico" width="36" height="36" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="5" />
+                    <circle cx="12" cy="12" r="1.5" />
+                </svg>
+                <p><strong>Risk, prognostic and treatment-response variants differ between populations.</strong>
+                    <span>Poorly representative data lead to less effective decisions for Brazilians.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- ── 02 · The opportunity ── -->
+        <section class="wrap" aria-labelledby="s02">
+            <p class="olho">02 · The opportunity</p>
+            <h2 id="s02">Brazilian diversity matters</h2>
+
+            <ul class="ancestralidade" aria-label="Ancestry components of the Brazilian population">
+                <li>INDIGENOUS</li>
+                <li>AFRICAN</li>
+                <li>EUROPEAN</li>
+                <li>OTHER</li>
+            </ul>
+
+            <div class="cards4">
+                <div class="card">
+                    <span class="bola-branca"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="1.8" aria-hidden="true">
+                            <path d="M7 3c0 6 10 6 10 12s-10 6-10 6M17 3c0 6-10 6-10 12s10 6 10 6" />
+                            <path d="M8.5 6h7M8.5 18h7M10 9.5h4M10 14.5h4" />
+                        </svg></span>
+                    <b>8.7 M</b>
+                    <p>novel variants in 2,723 Brazilian genomes</p>
+                    <a class="ref" href="https://www.science.org/doi/10.1126/science.adl3564" target="_blank"
+                        rel="noopener">Nunes 2025</a>
+                </div>
+                <div class="card">
+                    <span class="bola-branca"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="1.8" aria-hidden="true">
+                            <circle cx="10.5" cy="10.5" r="6.5" />
+                            <path d="M15.5 15.5 21 21" />
+                        </svg></span>
+                    <b>17-25%</b>
+                    <p>of hereditary variant carriers are missed by testing criteria</p>
+                    <a class="ref" href="https://doi.org/10.1038/s41431-022-01098-7" target="_blank"
+                        rel="noopener">de Oliveira 2022</a>
+                </div>
+                <div class="card">
+                    <span class="bola-branca"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="1.8" aria-hidden="true">
+                            <path d="M4 20V4M4 20h16" />
+                            <path d="M8 16v-5M12 16V8M16 16v-7" />
+                        </svg></span>
+                    <b aria-label="More">↑</b>
+                    <p>pathogenic variants more frequent than in international databases</p>
+                    <a class="ref" href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank"
+                        rel="noopener">Boroni 2026</a>
+                </div>
+                <div class="card">
+                    <span class="bola-branca"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                            stroke-width="1.8" aria-hidden="true">
+                            <path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z" />
+                            <circle cx="12" cy="10" r="2.5" />
+                        </svg></span>
+                    <b>275</b>
+                    <p>patients with tumor-germline WGS across all 5 regions (BGMO)</p>
+                    <span class="ref">Ferreira 2026</span>
+                </div>
+            </div>
+
+            <ol class="etapas" aria-label="What ATPBR does with the data">
+                <li>Standardize</li>
+                <li>Integrate</li>
+                <li>Govern</li>
+                <li>Share</li>
+                <li>Reuse</li>
+            </ol>
+        </section>
+
+        <!-- ── Missão ── -->
+        <div class="missao">
+            <div class="wrap">
+                <p class="olho">Our mission</p>
+                <p>Expanding Brazilian representation in cancer research, towards precision medicine in SUS, Brazil's public health system.
+                </p>
+            </div>
+        </div>
+
+        <!-- ── 03 · The platform ── -->
+        <section class="wrap" aria-labelledby="s03">
+            <p class="olho">03 · The platform</p>
+            <h2 id="s03">The entire data life cycle</h2>
+
+            <ol class="ciclo">
+                <li><a href="./wiki/en/data-submission.html"><span class="bola"><svg class="ico" width="36" height="36" viewBox="0 0 24 24"
+                                stroke-width="1.7" aria-hidden="true">
+                                <path d="M12 16V4M7 9l5-5 5 5" />
+                                <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" />
+                            </svg></span>Submission</a></li>
+                <li><a href="./wiki/en/platform-architecture.html"><span class="bola"><svg class="ico" width="36" height="36"
+                                viewBox="0 0 24 24" stroke-width="1.7" aria-hidden="true">
+                                <ellipse cx="12" cy="5.5" rx="7.5" ry="2.8" />
+                                <path
+                                    d="M4.5 5.5v13c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-13M4.5 12c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8" />
+                            </svg></span>Secure<br>storage</a></li>
+                <li><a href="./wiki/en/data-model.html"><span class="bola"><svg class="ico" width="36" height="36" viewBox="0 0 24 24"
+                                stroke-width="1.7" aria-hidden="true">
+                                <circle cx="6" cy="5" r="2.2" />
+                                <circle cx="6" cy="19" r="2.2" />
+                                <circle cx="18" cy="12" r="2.2" />
+                                <path d="M6 7.2v9.6M6 9c0 3 3 3 6 3h3.8" />
+                            </svg></span>Harmonization</a></li>
+                <li><a href="./wiki/en/analysis-platform.html"><span class="bola"><svg class="ico" width="36" height="36" viewBox="0 0 24 24"
+                                stroke-width="1.7" aria-hidden="true">
+                                <rect x="3" y="4" width="6" height="5" rx="1" />
+                                <rect x="15" y="4" width="6" height="5" rx="1" />
+                                <rect x="9" y="15" width="6" height="5" rx="1" />
+                                <path d="M9 6.5h6M18 9v3.5h-6V15" />
+                            </svg></span>Reproducible<br>analyses</a></li>
+                <li><a href="./wiki/en/results-browser.html"><span class="bola"><svg class="ico" width="36" height="36"
+                                viewBox="0 0 24 24" stroke-width="1.7" aria-hidden="true">
+                                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg></span>Visualization</a></li>
+                <li><a href="./wiki/en/data-access.html"><span class="bola"><svg class="ico" width="36" height="36" viewBox="0 0 24 24"
+                                stroke-width="1.7" aria-hidden="true">
+                                <circle cx="8" cy="15" r="4" />
+                                <path d="m11 12 9-9M17 6l3 3M15 8l2 2" />
+                            </svg></span>Controlled<br>access</a></li>
+                <li><a href="./wiki/en/data-governance.html"><span class="bola"><svg class="ico" width="36" height="36" viewBox="0 0 24 24"
+                                stroke-width="1.7" aria-hidden="true">
+                                <path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z" />
+                                <path d="m8.5 12 2.5 2.5 4.5-5" />
+                            </svg></span>Governance</a></li>
+            </ol>
+
+            <ul class="publico">
+                <li class="rotulo">AUDIENCE</li>
+                <li class="chip"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8"
+                        aria-hidden="true">
+                        <circle cx="10.5" cy="10.5" r="6.5" />
+                        <path d="M15.5 15.5 21 21" />
+                    </svg>Researchers</li>
+                <li class="chip"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8"
+                        aria-hidden="true">
+                        <circle cx="6" cy="12" r="2.5" />
+                        <circle cx="18" cy="5.5" r="2.5" />
+                        <circle cx="18" cy="18.5" r="2.5" />
+                        <path d="m8.2 10.8 7.6-4M8.2 13.2l7.6 4" />
+                    </svg>Institutions</li>
+                <li class="chip"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8"
+                        aria-hidden="true">
+                        <path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" />
+                    </svg>Bioinformaticians</li>
+                <li class="chip"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8"
+                        aria-hidden="true">
+                        <path d="M4 20V4M4 20h16" />
+                        <path d="M8 16v-5M12 16V8M16 16v-7" />
+                    </svg>Managers</li>
+                <li class="chip"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.8"
+                        aria-hidden="true">
+                        <circle cx="8" cy="8" r="3" />
+                        <circle cx="17" cy="9" r="2.5" />
+                        <path d="M2.5 20c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6M14 14.5c3.5-.6 7 1.2 7 5.5" />
+                    </svg>Collaborators</li>
+            </ul>
+            <a class="comece" href="./wiki/en/start-here.html">Start here: the reading path for each profile ↗</a>
+        </section>
+
+        <!-- ── 04 · Trust ── -->
+        <section class="wrap" aria-labelledby="s04">
+            <p class="olho">04 · Trust</p>
+            <h2 id="s04">Quality and privacy</h2>
+
+            <div class="cards3">
+                <div class="card">
+                    <h3>FAIR PRINCIPLES</h3>
+                    <div class="fair">
+                        <div><b>F</b><span>Findable</span></div>
+                        <div><b>A</b><span>Accessible</span></div>
+                        <div><b>I</b><span>Interoperable</span></div>
+                        <div><b>R</b><span>Reusable</span></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>3 MINIMUM CRITERIA</h3>
+                    <ul class="criterios">
+                        <li><span class="bola-branca"><svg class="ico" width="22" height="22" viewBox="0 0 24 24"
+                                    stroke-width="1.8" aria-hidden="true">
+                                    <path d="M3 7h18M3 12h18M3 17h18" stroke-dasharray="3 2" />
+                                </svg></span>High-quality sequencing</li>
+                        <li><span class="bola-branca"><svg class="ico" width="22" height="22" viewBox="0 0 24 24"
+                                    stroke-width="1.8" aria-hidden="true">
+                                    <path d="M5 4h10l4 4v12H5z" />
+                                    <path d="M14 4v5h5M8 14l2.5 2.5L16 11" />
+                                </svg></span>Informed consent</li>
+                        <li><span class="bola-branca"><svg class="ico" width="22" height="22" viewBox="0 0 24 24"
+                                    stroke-width="1.8" aria-hidden="true">
+                                    <path d="M9 6h11M9 12h11M9 18h11" />
+                                    <circle cx="4.5" cy="6" r="1.2" />
+                                    <circle cx="4.5" cy="12" r="1.2" />
+                                    <circle cx="4.5" cy="18" r="1.2" />
+                                </svg></span>Minimum clinical metadata</li>
+                    </ul>
+                </div>
+
+                <div class="card lgpd">
+                    <h3><svg class="ico" width="28" height="28" viewBox="0 0 24 24" stroke-width="2"
+                            aria-hidden="true">
+                            <rect x="5" y="10.5" width="14" height="10" rx="2" />
+                            <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+                        </svg>LGPD</h3>
+                    <ul>
+                        <li>De-identified at source</li>
+                        <li>No direct identifiers</li>
+                        <li>Keys stay at the institution</li>
+                        <li>Pseudonymized: protected as sensitive data</li>
+                    </ul>
+                    <div class="links">
+                        <a href="./wiki/en/data-governance.html">Governance ↗</a>
+                        <a href="./wiki/en/usage-policies.html">Usage policies ↗</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ── Rodapé ── -->
+    <footer class="wrap">
+        <div class="contatos">
+            <a href="https://atpbr.com.br"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.8" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18" />
+                </svg>www.atpbr.com.br</a>
+            <a href="mailto:atpbr@inca.gov.br"><svg class="ico" width="24" height="24" viewBox="0 0 24 24"
+                    stroke-width="1.8" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3.5 6 8.5 7 8.5-7" />
+                </svg>atpbr@inca.gov.br</a>
+            <a class="artigo" href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener"><svg
+                    class="ico" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.8" aria-hidden="true">
+                    <path
+                        d="M4 4.5h6a2 2 0 0 1 2 2V20a1.8 1.8 0 0 0-1.8-1.8H4zM20 4.5h-6a2 2 0 0 0-2 2V20a1.8 1.8 0 0 1 1.8-1.8H20z" />
+                </svg>Boroni et al., Lancet Reg Health Am 2026</a>
+        </div>
+        <div class="logos">
+            <img class="gov" src="./assets/infografico/logos-inca-sus-ms.png" width="451" height="50"
+                alt="INCA, SUS and Ministry of Health">
+            <img class="cnpq" src="./assets/infografico/logo-cnpq.png" width="102" height="44" alt="CNPq">
+        </div>
+    </footer>
+    <div class="barra"></div>
+
+    <script>
+        // TCGA: 77 white squares, 20 others and 3 Latino (filled in at the end).
+        (function () {
+            var w = document.getElementById('waffle');
+            for (var i = 0; i < 100; i++) {
+                var q = document.createElement('i');
+                if (i < 77) q.className = 'b';
+                else if (i >= 97) q.className = 'l';
+                w.appendChild(q);
+            }
+        })();
+    </script>
+</body>
+
+</html>
