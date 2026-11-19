@@ -693,6 +693,20 @@
                 <div class="slider-viewport" id="pubViewport">
                     <div class="slider-track" id="pubTrack">
 
+                        <div class="pub-card pub-evento">
+                            <div class="pub-card-meta">
+                                <span class="pub-date">November 26, 2026 · 2 pm to 4 pm (Brasília time)</span>
+                                <span class="pub-source">Event · INCA</span>
+                            </div>
+                            <h3 class="pub-title">Brazil's National Day Against Cancer: launch of the Brazilian
+                                Population Tumor Atlas (ATPBR) platform</h3>
+                            <p class="pub-authors">Moacyr Santos Silva Auditorium, INCA (Praça da Cruz Vermelha, 23,
+                                8th floor, Centro, Rio de Janeiro) and live on TV INCA</p>
+                            <a href="https://www.gov.br/inca/pt-br/assuntos/eventos/dia-nacional-de-combate-ao-cancer-2026-2014-lancamento-do-atlas-tumoral-da-populacao-brasileira-atpbr"
+                                class="pub-btn" target="_blank" rel="noopener">See the program (in Portuguese)</a>
+                            <p class="pub-alt">Watch live: <a href="https://youtube.com/live/uRMpxJpY0WM?feature=share" target="_blank" rel="noopener">TV INCA on YouTube</a></p>
+                        </div>
+
                         
                         <div class="pub-card">
                             <div class="pub-card-meta">
@@ -1000,7 +1014,7 @@
         const pubViewport = document.getElementById('pubViewport');
         const pubPrev = document.getElementById('pubPrev');
         const pubNext = document.getElementById('pubNext');
-        const pubCards = document.querySelectorAll('.pub-card');
+        const pubCards = document.querySelectorAll('#pubTrack .pub-card');
         const PUB_TOTAL = pubCards.length;
         const PUB_GAP = 20;
         let pubIndex = 0;
