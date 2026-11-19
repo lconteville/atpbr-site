@@ -811,8 +811,13 @@
             }
 
             .waffle {
-                grid-template-columns: repeat(10, 1fr);
-                max-width: 305px;
+                grid-template-columns: repeat(10, minmax(0, 1fr));
+                max-width: min(305px, 100%);
+            }
+
+            /* sem minmax(0, ...) a coluna não encolhe abaixo dos 305px do quadriculado (telas de 320px) */
+            .problema {
+                grid-template-columns: minmax(0, 1fr);
             }
 
             .waffle i {
@@ -852,6 +857,45 @@
 
             .logos .gov {
                 height: auto;
+            }
+
+            /* celular: links com área de toque de pelo menos 40px e fontes legíveis */
+            .acoes {
+                font-size: 14px;
+                gap: 0 18px;
+            }
+
+            .acoes nav {
+                gap: 0 18px;
+            }
+
+            .acoes a,
+            .comece,
+            .lgpd .links a {
+                display: inline-flex;
+                align-items: center;
+                min-height: 40px;
+            }
+
+            .comece {
+                margin-top: 4px;
+            }
+
+            .fontes {
+                font-size: 13px;
+                line-height: 2;
+            }
+        }
+
+        /* telas menores que 360px (iPhone SE antigo, 320px): a faixa de ancestralidades vira 2 x 2
+           e o ciclo de vida passa a 2 colunas, para "OUTRAS" e "Armazenamento" caberem */
+        @media (max-width: 359px) {
+            .ancestralidade {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .ciclo {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 

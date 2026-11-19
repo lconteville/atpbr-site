@@ -1880,3 +1880,80 @@ img {
         font-size: 1.2rem;
     }
 }
+
+
+/* ── AJUSTES PARA CELULAR ──
+   A faixa de logos tinha largura fixa (393px) e, em telas de 390px, alargava a
+   página inteira: aparecia rolagem lateral, o botão do menu ficava cortado e o
+   menu aberto saía deslocado. Aqui os logos quebram linha, a imagem dos
+   objetivos deixa de sair pela borda e os links pequenos ganham área de toque
+   de pelo menos 44px. */
+@media (max-width: 600px) {
+    .patrocinadores-logos {
+        width: auto;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 16px 24px;
+    }
+
+    .patrocinadores-logos img {
+        max-width: 100%;
+        height: 44px;
+        object-fit: contain;
+    }
+
+    .objetivos-image {
+        left: 0;
+    }
+
+    /* as colunas já estão empilhadas; o mínimo de 320px só servia para a quebra no desktop
+       e, somado ao respiro lateral, estourava telas de 320 a 380px */
+    .left,
+    .right {
+        min-width: 0;
+    }
+
+    .docs-grid .pub-alt a {
+        display: inline-block;
+        padding: 12px 0;
+        margin: -12px 0;
+    }
+
+    .footer-insta {
+        padding: 11px;
+        margin: -11px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* "Eventos e Publicações" + setas não cabem lado a lado em 360px:
+       as setas descem para a linha de baixo, à direita */
+    .pub-header {
+        flex-wrap: wrap;
+    }
+
+    .pub-arrows {
+        margin-left: auto;
+    }
+
+    /* "Documentação" e "Publicações" passavam da borda em 320px */
+    .pub-header h2 {
+        font-size: min(3.6rem, 15vw);
+    }
+
+    /* "Colaboradores" encostava na borda do cartão */
+    .cta-card h2 {
+        font-size: min(3.2rem, 12vw);
+    }
+}
+
+/* rede de segurança: nada mais largo que a tela gera rolagem lateral
+   (clip, e não hidden, para não quebrar o cabeçalho fixo) */
+@media (max-width: 700px) {
+    html,
+    body {
+        overflow-x: clip;
+    }
+}

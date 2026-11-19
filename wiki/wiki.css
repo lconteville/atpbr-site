@@ -183,6 +183,8 @@ a:hover {
 /* ── Conteúdo (markdown) ── */
 .wk-body {
     max-width: 860px;
+    /* URLs longas (ex.: docs.gdc.cancer.gov) quebram linha em vez de alargar a página no celular */
+    overflow-wrap: break-word;
 }
 
 .wk-body>*:first-child {
@@ -580,7 +582,58 @@ h4:hover .wk-anchor,
         gap: 12px;
     }
 
-    .wk-top-nav a[href$="infografico.html"] {
+    /* o link do infográfico some no celular (PT: infografico.html, EN: infografico-en.html) */
+    .wk-top-nav a[href*="infografico"] {
+        display: none;
+    }
+
+    /* área de toque de pelo menos 40px nos links do topo e da paginação */
+    .wk-top-nav a,
+    .wk-menu {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+    }
+
+    .wk-crumbs a {
+        display: inline-block;
+        padding: 10px 0;
+        margin: -10px 0;
+    }
+}
+
+/* telas estreitas (360px ou menos): marca e menu do topo mais compactos para caber numa linha */
+@media (max-width: 400px) {
+    .wk-top-in {
+        padding: 8px 12px;
+    }
+
+    .wk-brand {
+        gap: 8px;
+    }
+
+    .wk-brand img {
+        height: 28px;
+    }
+
+    .wk-brand span {
+        font-size: 14px;
+    }
+
+    .wk-top-nav {
+        gap: 10px;
+        font-size: 13.5px;
+    }
+
+    .wk-top-nav .wk-lang,
+    .wk-menu {
+        padding: 4px 10px;
+    }
+}
+
+/* 320px (iPhone SE antigo): só o logo, sem o nome, para o menu caber */
+@media (max-width: 340px) {
+    .wk-brand span {
         display: none;
     }
 
