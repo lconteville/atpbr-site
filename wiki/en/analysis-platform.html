@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis platform · ATPBR Wiki</title>
+    <meta name="description" content="Analysis platform: how the submitted data are processed.">
+    <link rel="alternate" hreflang="pt-br" href="../plataforma-analitica.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../plataforma-analitica.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Analysis platform</nav>
+            <h1>Analysis platform</h1>
+            <p class="wk-meta">Chapter 11 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>The FASTQ files accepted at submission (see <a href="data-types.html">Data types</a>) are processed by the <strong>ATPBR Analysis Platform (ATPBR-AP)</strong>. This chapter describes which pipelines are used, how they are configured and what results they produce.</p>
+<h3 id="overview">Overview<a class="wk-anchor" href="#overview" aria-label="Link to this section">#</a></h3>
+<p>Pipeline execution is <strong>centrally managed by the ATPBR team</strong>: users do not need to configure or run any analysis. This ensures that all data are processed in the same way, which makes it possible to compare different studies.</p>
+<p><strong>Raw data → standardized pipelines → harmonized results → cBioPortal</strong></p>
+<p>The pipelines are community workflows from <a target="_blank" rel="noopener" href="https://nf-co.re/">nf-core</a>, built in Nextflow, run in containers and with fixed versions and parameters.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Data</th>
+<th style="text-align:left">Pipeline</th>
+<th style="text-align:left">Main result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">WGS, WES and gene panel</td>
+<td style="text-align:left"><code>nf-core/sarek</code> 3.10.0</td>
+<td style="text-align:left">Annotated and filtered somatic variants</td>
+</tr>
+<tr>
+<td style="text-align:left">RNA-seq</td>
+<td style="text-align:left"><code>nf-core/rnaseq</code> 3.18.0</td>
+<td style="text-align:left">Gene expression matrices</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="quality-control">Quality Control<a class="wk-anchor" href="#quality-control" aria-label="Link to this section">#</a></h3>
+<p>Quality control makes it possible to assess the characteristics of the sequencing reads and to identify potential problems that could compromise downstream analyses.</p>
+<p>The tools used include:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/?utm_source=chatgpt.com">FastQC</a>: assesses the quality of the raw reads, including per-base quality, GC content, duplication and presence of adapters.</li>
+<li><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/34/17/i884/5093234?utm_source=chatgpt.com">fastp</a>: filters and preprocesses the reads, including removal of adapters and low-quality sequences, according to the configured parameters.</li>
+<li><a target="_blank" rel="noopener" href="https://multiqc.info/?utm_source=chatgpt.com">MultiQC</a>: consolidates metrics and reports from different tools, making it easier to assess the samples together.</li>
+</ul>
+<p>The results of the two tools are combined in a <strong>MultiQC</strong> report. The main metrics assessed are:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Metric</th>
+<th style="text-align:left">What is expected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Per-base quality (Phred)</td>
+<td style="text-align:left">Most bases in the green zone (Q ≥ 30). A small drop in the first and last bases of the read is normal.</td>
+</tr>
+<tr>
+<td style="text-align:left">GC content</td>
+<td style="text-align:left">Bell-shaped distribution, close to 41% for DNA and 50% for mRNA (<a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6391780/pdf/13104_2019_Article_4137.pdf">Piovesan et al., 2019</a>; <a target="_blank" rel="noopener" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11847481/">Palma et al., 2025</a>). Multiple peaks suggest contamination.</td>
+</tr>
+<tr>
+<td style="text-align:left">Unidentified bases (N)</td>
+<td style="text-align:left">Less than 5%. Higher values indicate a problem with sequencing quality.</td>
+</tr>
+<tr>
+<td style="text-align:left">Duplication</td>
+<td style="text-align:left">Interpretation depends on the assay type, depth and library complexity. High levels may be expected in WES, gene panels and RNA-seq.</td>
+</tr>
+<tr>
+<td style="text-align:left">Adapter content</td>
+<td style="text-align:left">Less than 0.1% after trimming by fastp.</td>
+</tr>
+<tr>
+<td style="text-align:left">Filtered reads (fastp)</td>
+<td style="text-align:left">fastp discards reads with more than 40% of bases with Q &lt; 15, with more than 5 N bases, shorter than 15 bp after trimming, or made up of repetitive sequences (for example, poly-G tails).</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="wgs-wes-and-gene-panel-analysis">WGS, WES and Gene Panel Analysis<a class="wk-anchor" href="#wgs-wes-and-gene-panel-analysis" aria-label="Link to this section">#</a></h3>
+<p>DNA sequencing data are processed with <a target="_blank" rel="noopener" href="https://nf-co.re/sarek"><code>nf-core/sarek</code></a> , version 3.10.0, with ATPBR-specific settings. The workflow comprises the following steps:</p>
+<ol>
+<li><strong>Quality control and preprocessing</strong> with FastQC and fastp.</li>
+<li><strong>Alignment</strong> to the GRCh38 reference genome with <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1303.3997v2">BWA-MEM</a>. Reads from different lanes are merged per sample and saved in CRAM format.</li>
+<li><strong>Preprocessing</strong> of the alignments with <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/20644199/">GATK</a>: duplicate marking and base quality score recalibration.</li>
+<li><strong>Somatic variant calling</strong>: identification of single nucleotide variants (SNVs) and small insertions and deletions (indels) with <a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/861054v1">Mutect2</a>, under two strategies:
+<ul>
+<li><strong>Paired samples (tumor-normal):</strong> uses data from the tumor and from a matched normal sample from the same patient, which makes it possible to distinguish somatic from germline variants with greater precision.</li>
+<li><strong>Unpaired samples (tumor-only):</strong> uses tumor data only, without a matched normal sample. In this case, the identification of somatic variants relies more heavily on population filters and artifact detection resources, and germline variants may remain among the results.</li>
+</ul>
+</li>
+<li><strong>Annotation</strong> of the effects of each variant on genes, transcripts and proteins with <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/27268795/">Ensembl VEP</a>.</li>
+<li><strong>Filtering</strong> of artifacts and of potentially germline variants, according to the analysis strategy:
+<ul>
+<li><strong>Paired samples:</strong> the tumor-normal comparison makes it possible to identify and exclude variants present in the matched normal sample, complemented by the Mutect2 quality filters.</li>
+<li><strong>Unpaired samples:</strong> the filter removes variants present in the <a target="_blank" rel="noopener" href="https://www.internationalgenome.org/">1000 Genomes</a> panel of normals (PoN), variants with a population frequency above 1% in <a target="_blank" rel="noopener" href="https://gnomad.broadinstitute.org/">gnomAD</a> and variants with a frequency above 0.1% in the Brazilian population, according to <a target="_blank" rel="noopener" href="https://abraom.ib.usp.br/">ABraOM</a>. ABraOM filtering is performed by an in-house pipeline of the ATPBR team, after <code>nf-core/sarek</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Configuration</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left"><code>nf-core/sarek</code></th>
+<th style="text-align:left">Version 3.10.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Reference genome</strong></td>
+<td style="text-align:left"><em>Homo sapiens</em> iGenomes GATK GRCh38</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Trimming</strong></td>
+<td style="text-align:left">fastp</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Aligner</strong></td>
+<td style="text-align:left">BWA-MEM</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Variant caller</strong></td>
+<td style="text-align:left">Mutect2 (tumor-normal and tumor-only)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Functional annotation</strong></td>
+<td style="text-align:left">Ensembl VEP</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Filters</strong></td>
+<td style="text-align:left">PoN, gnomAD, 1000 Genomes and ABraOM, depending on the step and the strategy</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="post-processing-of-somatic-variants">Post-processing of somatic variants<a class="wk-anchor" href="#post-processing-of-somatic-variants" aria-label="Link to this section">#</a></h3>
+<p>After <code>nf-core/sarek</code> has run, scripts developed by the ATPBR team process the annotated VCF files to select variants, organize genomic information and add complementary population data.</p>
+<p>The documented processing comprises the following steps:</p>
+<ol>
+<li><strong>Selection of PASS variants:</strong> Variants whose FILTER field in the VCF has the value PASS are selected, indicating that they met the filtering criteria applied earlier.</li>
+<li><strong>Conversion to a table:</strong> the VEP annotation fields and the tumor read counts (depth DP, reads per allele AD and allele frequency AF) are extracted into one table per sample. The 1000 Genomes frequency reported by VEP is renamed <code>GMAF</code>.</li>
+<li><strong>Annotation with ABraOM:</strong> each variant receives the allele frequency observed in the Brazilian population.</li>
+</ol>
+<h3 id="rna-seq-analysis">RNA-seq Analysis<a class="wk-anchor" href="#rna-seq-analysis" aria-label="Link to this section">#</a></h3>
+<p>The <a target="_blank" rel="noopener" href="https://nf-co.re/rnaseq"><code>nf-core/rnaseq</code></a> pipeline processes short-read RNA-seq (total RNA, poly(A)-enriched or rRNA-depleted) in the following steps:</p>
+<ol>
+<li><strong>Concatenation</strong> of the FASTQ files of a single sample sequenced across several lanes.</li>
+<li><strong>Quality control and trimming</strong> with FastQC and fastp.</li>
+<li><strong>Pseudoalignment and quantification</strong> with Salmon, which assigns reads directly to the known transcripts of the reference transcriptome. Expression is estimated per transcript and summed per gene.</li>
+<li><strong>Normalization</strong> to Transcripts Per Million (TPM), which corrects for differences in library size and transcript length.</li>
+</ol>
+<p>By default, no additional filtering steps are applied. If quality control indicates problems, the team may adjust specific parameters (see <em>Limitations</em>, below).</p>
+<p><strong>Configuration</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left"><code>nf-core/rnaseq</code></th>
+<th style="text-align:left">Version 3.18.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Reference genome</strong></td>
+<td style="text-align:left"><em>Homo sapiens</em> Ensembl Release 113 GRCh38</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Trimming</strong></td>
+<td style="text-align:left">fastp</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Pseudoalignment and quantification</strong></td>
+<td style="text-align:left">Salmon</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="limitations">Limitations<a class="wk-anchor" href="#limitations" aria-label="Link to this section">#</a></h3>
+<ul>
+<li><strong>Modalities:</strong> only the modalities listed in <a href="data-types.html">Data types</a> are processed.</li>
+<li><strong>Organism:</strong> the pipelines are configured for human data only. Samples from non-human or mixed organisms, such as patient-derived xenografts, are not supported.</li>
+<li><strong>Germline variants:</strong> there is no germline-only analysis, because Mutect2 is optimized for somatic variants. In addition, germline variants are controlled-access data (see <a href="data-access.html">Data access</a>).</li>
+<li><strong>Data heterogeneity:</strong> the data come from several centers, with differences in sample handling, library kits and sequencing protocols. To include rare samples of compromised quality, the team may adjust the pipeline parameters. These adjustments, as well as differences between runs, can introduce <strong>batch effects</strong>. That is why the run number is part of the barcode (see <a href="identification-and-barcode-system.html">Identification and barcode system</a>).</li>
+</ul>
+<hr />
+<p><strong>Next chapter → <a href="results-browser.html">Results browser</a>:</strong> how to explore the variants and expression matrices generated here in the ATPBR cBioPortal.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-types.html"><small>← Previous</small>Data types</a>
+                <a class="wk-next" href="results-browser.html"><small>Next →</small>Results browser</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html" aria-current="page">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#overview">Overview</a></li>
+<li class=""><a href="#quality-control">Quality Control</a></li>
+<li class=""><a href="#wgs-wes-and-gene-panel-analysis">WGS, WES and Gene Panel Analysis</a></li>
+<li class=""><a href="#post-processing-of-somatic-variants">Post-processing of somatic variants</a></li>
+<li class=""><a href="#rna-seq-analysis">RNA-seq Analysis</a></li>
+<li class=""><a href="#limitations">Limitations</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

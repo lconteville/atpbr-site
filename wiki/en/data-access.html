@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data access · ATPBR Wiki</title>
+    <meta name="description" content="Data access: what is open, what is controlled and how to request access.">
+    <link rel="alternate" hreflang="pt-br" href="../acesso-aos-dados.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../acesso-aos-dados.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Data access</nav>
+            <h1>Data access</h1>
+            <p class="wk-meta">Chapter 6 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<h3 id="data-access">Data Access<a class="wk-anchor" href="#data-access" aria-label="Link to this section">#</a></h3>
+<p>When you submit data to ATPBR (see <a href="data-submission.html">Data submission</a>), you indicate how you would like them to be shared. This chapter explains the access levels, which balance scientific sharing, participant privacy and ethical and regulatory requirements, and describes how to request access to controlled-access data. The principles and responsibilities behind these rules are in <a href="data-governance.html">Data governance</a>.</p>
+<h3 id="access-levels">Access levels<a class="wk-anchor" href="#access-levels" aria-label="Link to this section">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:left">What it includes</th>
+<th style="text-align:left">Who has access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Public</strong></td>
+<td style="text-align:left">Descriptive metadata of studies and assays, catalog information and results approved for release, including somatic mutations and a minimum clinical set with grouped variables (age in bands, rounded survival, grouped race/color)</td>
+<td style="text-align:left">Anyone</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Registered</strong></td>
+<td style="text-align:left">Lower-risk datasets, classified for this level according to criteria approved by the CAD (Data Access Committee)</td>
+<td style="text-align:left">Researchers with verified identity and institutional affiliation, after accepting the standard terms of use; each access is logged, without individual deliberation by the CAD</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Controlled</strong></td>
+<td style="text-align:left">Sequencing files, intermediate results, germline variants, individual-level genomic data, complete omics matrices and clinical data that require additional protection</td>
+<td style="text-align:left">Researchers authorized by the Data Access Committee, under the approved conditions, or by pre-authorization, when the purpose is fully compatible with the DUO codes of all the datasets (rules defined and audited by the CAD).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Internal operational</strong></td>
+<td style="text-align:left">Datasets under validation or processing and administrative information</td>
+<td style="text-align:left">Authorized ATPBR teams, according to their roles</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="who-decides-what-is-shared">Who decides what is shared<a class="wk-anchor" href="#who-decides-what-is-shared" aria-label="Link to this section">#</a></h3>
+<p>When registering each <strong>Assay</strong>, the person responsible for the project indicates whether that assay can be made available in ATPBR (see <a href="data-submission.html">Data submission</a>). This indication is the starting point, but it is not enough: release only happens after the dataset is validated as <strong>eligible</strong> and the publication is approved, with an assessment of re-identification risks. The permissions recorded on the Study, the Patients, the Samples, the Assay and the Files are considered together, and the most restrictive one always prevails.</p>
+<p>When the participants' consent, the source permissions and ATPBR policies allow it:</p>
+<ul>
+<li>The assay <strong>metadata</strong> (title, description and omic type) are included in the platform's <strong>Data catalog</strong>.</li>
+<li>The <strong>analysis results</strong> approved for release can be published in the ATPBR cBioPortal.</li>
+<li>The <strong>FASTQ and CRAM files</strong> remain under controlled access.</li>
+</ul>
+<h3 id="public-access-data">Public-access data<a class="wk-anchor" href="#public-access-data" aria-label="Link to this section">#</a></h3>
+<p>Results approved for public release in the ATPBR cBioPortal (see <a href="results-browser.html">Results browser</a>) can be viewed and downloaded without any additional authorization.</p>
+<p>The platform's <strong>Data catalog</strong> lists the studies and datasets of all projects, with the cancer type, the omic type and the number of patients, samples and experiments. For each dataset, the catalog shows whether you already have access (because you are part of the project or were granted access) or whether authorization is required.</p>
+<p>All public release follows these rules:</p>
+<ul>
+<li>Before publication, small cohorts, rare attributes, combinations of clinical, demographic and genomic filters, and successive queries that could allow individual information to be reconstructed are assessed.</li>
+<li>When the risk is not acceptable, the information is aggregated, shown in bands or omitted, or the dataset moves to controlled access. By default, on the public portal, age at diagnosis appears in 5-year bands, survival in rounded months, race/color in grouped categories, and counts below the minimum threshold are suppressed. Germline variants, raw reads and dates are never public. The thresholds and techniques are defined by the ATPBR coordination, with technical validation.</li>
+<li>Each approval records the person responsible, the dataset version, the publication parameters, the tests performed and the date. Relevant changes to the data, filters or indicators require a new assessment.</li>
+<li>Approving the release of the descriptive record does <strong>not</strong> release the sequencing files, the individual clinical records or the associated omics matrices.</li>
+</ul>
+<h3 id="controlled-access-data">Controlled-access data<a class="wk-anchor" href="#controlled-access-data" aria-label="Link to this section">#</a></h3>
+<p>Some datasets have access restrictions because of their potential for identification, their sensitivity or the terms of consent. This category includes, among others:</p>
+<ul>
+<li>Raw or aligned sequencing files (FASTQ and CRAM).</li>
+<li>Intermediate processing results.</li>
+<li>Germline variants and other individual-level genomic data.</li>
+<li>Complete omics matrices or matrices not approved for release (processed and approved matrices appear in the Results browser).</li>
+<li>Individual clinical data beyond the variables published in the Results browser.</li>
+<li>Clinical information whose granularity or combination of attributes requires additional protection.</li>
+<li>Other data defined by the ATPBR governance policies.</li>
+</ul>
+<p>Access to these resources requires a formal request, reviewed by the ATPBR <strong>Data Access Committee (CAD)</strong>. CAD authorization does not replace the ethics approval of the new research nor the consent of the institution that provided the data, when required.</p>
+<h3 id="internal-operational-access">Internal operational access<a class="wk-anchor" href="#internal-operational-access" aria-label="Link to this section">#</a></h3>
+<p>Datasets under validation or processing and administrative information are accessed only by authorized ATPBR teams, according to their roles and the principle of least privilege. Working on software development or infrastructure maintenance does not grant access to research data. Privileged or exceptional access requires justification, authorization, a limited time frame and logging, and is reviewed afterwards.</p>
+<h3 id="how-to-request-access-to-controlled-access-data">How to request access to controlled-access data<a class="wk-anchor" href="#how-to-request-access-to-controlled-access-data" aria-label="Link to this section">#</a></h3>
+<p>Researchers who want to access controlled-access data must register the request in the access request module of the ATPBR platform, after logging in with an institutional account. Questions about the process can be sent to <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>. The team will provide guidance on the request process and the documentation needed, according to the nature of the data and the access policies in force.</p>
+<h4 id="what-the-request-must-contain">What the request must contain<a class="wk-anchor" href="#what-the-request-must-contain" aria-label="Link to this section">#</a></h4>
+<ul>
+<li>Identification and institutional contact details of the principal researcher and of their institution.</li>
+<li>Title, objectives, scientific justification, methodology and expected duration of the research.</li>
+<li>The datasets, variables, files and level of detail requested, with the justification of the need for each data category.</li>
+<li>The protocol and the ethics approval of the new research, when required, and the consent waiver decision, if applicable.</li>
+<li>The team that will have access, the processing and storage environment, the security measures, the country of remote access, if any, and whether copying or extraction is possible.</li>
+<li>The commitment to confidentiality, to no re-identification, to no onward transfer and to respecting the source conditions.</li>
+</ul>
+<p>Each collaborator must be individually identified, be linked to the project and accept the same obligations. Merely registering as a user on the platform does not grant access to restricted materials.</p>
+<h4 id="request-steps">Request steps<a class="wk-anchor" href="#request-steps" aria-label="Link to this section">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Step</th>
+<th style="text-align:left">Responsible</th>
+<th style="text-align:left">Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>1. Request</strong></td>
+<td style="text-align:left">Requesting researcher</td>
+<td style="text-align:left">Request registered, with an identification number, or returned for completion</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>2. Screening</strong></td>
+<td style="text-align:left">Team designated by ATPBR</td>
+<td style="text-align:left">Request prepared for review, follow-up query (request for additional information) or block</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>3. Compatibility</strong></td>
+<td style="text-align:left">Validation team and coordination</td>
+<td style="text-align:left">Opinion on the compatibility of the request with the informed consent form (TCLE), the protocol and the permissions of each dataset</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>4. Source consent</strong></td>
+<td style="text-align:left">Authorized representative of the provider institution</td>
+<td style="text-align:left">Statement recorded or proof of prior consent</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>5. Deliberation</strong></td>
+<td style="text-align:left">CAD</td>
+<td style="text-align:left">Reasoned decision, with conditions and time frame</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>6. Formalization</strong></td>
+<td style="text-align:left">Researcher, their institution and INCA</td>
+<td style="text-align:left">Data use agreement signed</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>7. Enablement</strong></td>
+<td style="text-align:left">Authorized technical team</td>
+<td style="text-align:left">Access activated and logged, per user</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>8. Monitoring</strong></td>
+<td style="text-align:left">Coordination and technical team</td>
+<td style="text-align:left">Review, continuation or suspension of access</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>9. Closure</strong></td>
+<td style="text-align:left">Technical team and coordination</td>
+<td style="text-align:left">Access deactivated and disposition of the data recorded</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="how-the-cad-decides">How the CAD decides<a class="wk-anchor" href="#how-the-cad-decides" aria-label="Link to this section">#</a></h4>
+<p>The CAD compares, <strong>for each dataset</strong>, the declared purpose with the permissions and restrictions recorded at the source (see <a href="data-governance.html">Data governance</a>), without extending to one dataset the permissions of another. Automated comparison of DUO codes provides support but does not decide: inconclusive cases, conflicts and exceptional requests are always assessed by people.</p>
+<p>The CAD may approve the request in full; approve it in part, limiting datasets, variables, people, purpose or time frame; approve it under conditions; issue a follow-up query requesting additional information; or reject it, with reasons. The decision is communicated to the requester through a traceable channel.</p>
+<p>The source instrument defines whether the provider institution gives its position <strong>case by case</strong> or has given <strong>prior consent</strong> for compatible uses. In the first case, the position must be explicit: <strong>silence does not count as consent</strong>. In the second, it is checked whether the request is fully covered by the permissions already formalized.</p>
+<h4 id="after-the-decision">After the decision<a class="wk-anchor" href="#after-the-decision" aria-label="Link to this section">#</a></h4>
+<ul>
+<li>Before release, the researcher and, when applicable, their institution sign the <strong>data use agreement</strong> approved by INCA, which cannot extend the source authorizations.</li>
+<li>Access is <strong>individual</strong>, linked to the project and to the authorized datasets, with an expiration date (as a rule, 12 months, with a notice before expiry) and without shared accounts.</li>
+<li><strong>Renewal is not automatic</strong>: it depends on new proof of the eligibility conditions.</li>
+<li>Access may be <strong>suspended as a precaution</strong> in the face of signs of misuse, re-identification risk or a change in the source permissions, and <strong>revoked</strong> by the CAD in case of non-compliance.</li>
+<li>At <strong>closure</strong>, the credentials and the processing instance are deactivated. The data remain in ATPBR; the researcher keeps only the results whose export has been checked and authorized.</li>
+<li>Requests for reconsideration may be submitted on the grounds of documentary correction, new facts or material error, but they do not grant provisional access.</li>
+</ul>
+<p>Access to data by a researcher or institution abroad depends, in addition to the other conditions, on the source permissions for international sharing and on a transfer mechanism permitted under the LGPD (Brazilian General Data Protection Law).</p>
+<p>The obligations of those who receive the data are in <a href="usage-policies.html">Usage policies</a>.</p>
+<hr />
+<p><strong>Next chapter → <a href="data-model.html">Data model</a>:</strong> how the registered information is organized and related.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-submission.html"><small>← Previous</small>Data submission</a>
+                <a class="wk-next" href="data-model.html"><small>Next →</small>Data model</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html" aria-current="page">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#data-access">Data Access</a></li>
+<li class=""><a href="#access-levels">Access levels</a></li>
+<li class=""><a href="#who-decides-what-is-shared">Who decides what is shared</a></li>
+<li class=""><a href="#public-access-data">Public-access data</a></li>
+<li class=""><a href="#controlled-access-data">Controlled-access data</a></li>
+<li class=""><a href="#internal-operational-access">Internal operational access</a></li>
+<li class=""><a href="#how-to-request-access-to-controlled-access-data">How to request access to controlled-access data</a></li>
+<li class="wk-sub"><a href="#what-the-request-must-contain">What the request must contain</a></li>
+<li class="wk-sub"><a href="#request-steps">Request steps</a></li>
+<li class="wk-sub"><a href="#how-the-cad-decides">How the CAD decides</a></li>
+<li class="wk-sub"><a href="#after-the-decision">After the decision</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

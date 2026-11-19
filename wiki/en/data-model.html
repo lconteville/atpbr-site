@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data model · ATPBR Wiki</title>
+    <meta name="description" content="Data model: how the registered information is organized and linked.">
+    <link rel="alternate" hreflang="pt-br" href="../modelo-de-dados.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../modelo-de-dados.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Data model</nav>
+            <h1>Data model</h1>
+            <p class="wk-meta">Chapter 7 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>In <a href="data-submission.html">Data submission</a>, we saw the order in which information is registered. The data model explains <strong>why</strong> this order exists: it defines how information is organized and related on the platform, ensuring traceability, interoperability and consistency throughout the entire data life cycle.</p>
+<h3 id="overview">Overview<a class="wk-anchor" href="#overview" aria-label="Link to this section">#</a></h3>
+<p>ATPBR uses a hierarchical structure made up of four main modules:</p>
+<p><strong>Project → Investigation → Study → Assay</strong></p>
+<p>This organization connects the scientific context of the research to the patients, the biological samples, the experimental procedures and the data files generated.</p>
+<p>The <strong>Study</strong> and <strong>Assay</strong> modules also contain specific elements:</p>
+<ul>
+<li><strong>Study:</strong> Patients and Samples.</li>
+<li><strong>Assay:</strong> Experiments and Data Files.</li>
+</ul>
+<h3 id="secao"><a class="wk-anchor" href="#secao" aria-label="Link to this section">#</a></h3>
+<h3 id="main-modules">Main Modules<a class="wk-anchor" href="#main-modules" aria-label="Link to this section">#</a></h3>
+<h4 id="project">Project<a class="wk-anchor" href="#project" aria-label="Link to this section">#</a></h4>
+<p>Represents the overall scientific context of the research and is the highest level of the hierarchy. It brings together one or more related research lines and defines the scientific objectives, the scope and the participating institutions.</p>
+<h4 id="investigation">Investigation<a class="wk-anchor" href="#investigation" aria-label="Link to this section">#</a></h4>
+<p>Represents a research line within a Project. It groups studies related by a theme, scientific objective or hypothesis, and may cover different cancer types.</p>
+<h4 id="study">Study<a class="wk-anchor" href="#study" aria-label="Link to this section">#</a></h4>
+<p>Represents a scientific unit dedicated to characterizing a single cancer type within an Investigation. It defines the study design, the cohorts, the selection criteria and the clinical characteristics of the participants.</p>
+<p>It contains two elements:</p>
+<ul>
+<li><strong>Patients:</strong> study participants, each with a single record on the platform, regardless of the number of associated samples.</li>
+<li><strong>Samples:</strong> biological materials collected from the patients. A patient may be associated with several samples.</li>
+</ul>
+<h4 id="assay">Assay<a class="wk-anchor" href="#assay" aria-label="Link to this section">#</a></h4>
+<p>Represents an experimental run used to generate omics data from the samples of a Study. Distinct runs, even when they use the same omics approach, must be registered as separate Assays. A Study may contain several Assays.</p>
+<p>It contains two elements:</p>
+<ul>
+<li><strong>Data Files:</strong> raw files produced in the experimental run, such as FASTQ (see <strong>Data types</strong>), used as input for processing on the platform.</li>
+<li><strong>Experiments:</strong> records of the technical metadata associated with each sample processed in the run, including sequencing platform, library preparation and read layout. Each Experiment links a Sample to its Data Files.</li>
+</ul>
+<h3 id="how-the-elements-relate">How the Elements Relate<a class="wk-anchor" href="#how-the-elements-relate" aria-label="Link to this section">#</a></h3>
+<p><img src="images/data_model.png" alt="ATPBR data model: Project, Investigation, Study and Assay; within the Study, Patient and Sample; within the Assay, Data Files and Experiment" /></p>
+<p>The figure shows the hierarchy of the modules and the relationships between their elements.</p>
+<p>Besides belonging to a module, certain elements depend on previously registered records:</p>
+<ul>
+<li>A <strong>Sample</strong> must be associated with a <strong>Patient</strong>.</li>
+<li>An <strong>Experiment</strong> must be associated with a <strong>Sample</strong> and with the corresponding <strong>Data Files</strong> available in the Assay.</li>
+</ul>
+<p>These dependencies determine the order of registration on the platform and make it possible to trace experimental data back to the sample and patient of origin.</p>
+<p>The fields of each module and element are described in the next chapter. Some of them also make up the unique identifier of patients, samples and assays, presented in <a href="identification-and-barcode-system.html">Identification and barcode system</a>.</p>
+<hr />
+<p><strong>Next chapter → <a href="data-dictionary.html">Data dictionary</a>:</strong> the fields of each module and element and the rules for filling them in.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-access.html"><small>← Previous</small>Data access</a>
+                <a class="wk-next" href="data-dictionary.html"><small>Next →</small>Data dictionary</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html" aria-current="page">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#overview">Overview</a></li>
+<li class=""><a href="#secao"></a></li>
+<li class=""><a href="#main-modules">Main Modules</a></li>
+<li class="wk-sub"><a href="#project">Project</a></li>
+<li class="wk-sub"><a href="#investigation">Investigation</a></li>
+<li class="wk-sub"><a href="#study">Study</a></li>
+<li class="wk-sub"><a href="#assay">Assay</a></li>
+<li class=""><a href="#how-the-elements-relate">How the Elements Relate</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

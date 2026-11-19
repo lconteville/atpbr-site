@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identification and barcode system · ATPBR Wiki</title>
+    <meta name="description" content="Identification and barcode system: how the platform identifies patients, samples and assays.">
+    <link rel="alternate" hreflang="pt-br" href="../sistema-de-identificacao-e-barcode.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../sistema-de-identificacao-e-barcode.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Identification and barcode system</nav>
+            <h1>Identification and barcode system</h1>
+            <p class="wk-meta">Chapter 9 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>Several fields described in the <a href="data-dictionary.html">Data dictionary</a>, such as the project acronym, the collector center, the patient and sample codes and the omics type, do more than describe the data: they combine to form the <strong>barcode</strong>, the unique identifier of each patient, sample and assay. Users do not type the barcode; the platform generates it automatically from these fields.</p>
+<p>ATPBR uses a standardized identification system to ensure the traceability of participants, biological samples, experiments and generated data throughout the entire life cycle of a project or study. This system is based on structured barcodes, which work as unique and persistent identifiers within the platform.</p>
+<p>Inspired by the <a target="_blank" rel="noopener" href="https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/">The Cancer Genome Atlas (TCGA) barcode</a>, the ATPBR identification system was adapted to meet the specific needs of Brazilian cancer research, incorporating requirements for governance, de-identification, multi-omics integration and biobank management.</p>
+<p>The barcode is the main mechanism linking the biological material stored in the National Tumor Bank (BNT), the metadata recorded on the platform and the files generated during the analytical processes. In this way, the same identifier follows the sample from its collection to the production of molecular results and their release for research.</p>
+<h3 id="principles-of-the-identification-system">Principles of the Identification System<a class="wk-anchor" href="#principles-of-the-identification-system" aria-label="Link to this section">#</a></h3>
+<p>The ATPBR barcode system was developed on the basis of four fundamental principles:</p>
+<p><strong>Unique Identification</strong></p>
+<p>Each participant, sample and assay receives a unique combination of codes, eliminating ambiguity and allowing the unequivocal identification of the objects recorded on the platform.</p>
+<p><strong>Traceability</strong></p>
+<p>All data produced in ATPBR can be linked to their biological and experimental origin. The system makes it possible to reconstruct the complete history of a sample, from its collection, storage and processing to the generation of the associated omics files.</p>
+<p><strong>De-identification</strong></p>
+<p>The identifiers contain no personal information or data that would allow the direct identification of participants, and the correspondence between the codes and the individuals is kept only at the institution of origin. Because the barcode deliberately links all records of the same participant, the data are <strong>pseudonymized</strong>, not anonymous: for this reason, they remain protected as sensitive personal data (see <a href="data-governance.html">Data governance</a>).</p>
+<p><strong>Interoperability</strong></p>
+<p>The barcode structure was designed to facilitate integration between the different ATPBR modules and to promote compatibility with standards widely used in biomedical data repositories and platforms.</p>
+<h3 id="biological-material-and-digital-objects">Biological Material and Digital Objects<a class="wk-anchor" href="#biological-material-and-digital-objects" aria-label="Link to this section">#</a></h3>
+<p>The same barcode is used to connect different components of the ATPBR infrastructure.</p>
+<p>In the physical environment, it identifies materials stored in the National Tumor Bank, including tissue, blood, plasma and other biological samples.</p>
+<p>In the digital environment, the identifier is used to associate:</p>
+<ul>
+<li>Clinical metadata.</li>
+<li>Experimental information.</li>
+<li>FASTQ files.</li>
+<li>Processed files.</li>
+<li>Analytical results.</li>
+<li>Processing and provenance records.</li>
+</ul>
+<p>This strategy ensures consistency between the different layers of the platform and makes it possible to trace the origin of any data available in ATPBR.</p>
+<h3 id="barcode-structure">Barcode Structure<a class="wk-anchor" href="#barcode-structure" aria-label="Link to this section">#</a></h3>
+<p>The ATPBR identifier <strong>is not a single code</strong>: it is built <strong>incrementally and in a nested way</strong>, following the hierarchy of the <a href="data-model.html">Data model</a> (<strong>Patient → Sample → Assay</strong>). Each level fully reuses the barcode of the previous level and adds its own fields.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:left">What is identified</th>
+<th style="text-align:left">Composition</th>
+<th style="text-align:left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Patient</strong></td>
+<td style="text-align:left">the study participant</td>
+<td style="text-align:left"><code>PROJECT-CANCER-CENTER-PARTICIPANT</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Sample</strong></td>
+<td style="text-align:left">the collected biological material</td>
+<td style="text-align:left"><code>‹patient barcode›-SAMPLE-TYPE</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234-5678-01AB</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Assay</strong></td>
+<td style="text-align:left">the omics experiment performed on the sample</td>
+<td style="text-align:left"><code>‹sample barcode›-ASSAY</code></td>
+<td style="text-align:left"><code>ATPBR-56-001-1234-5678-01AB-G0101</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>For this reason, the &quot;complete&quot; <strong>seven-field</strong> barcode exists only at the <strong>assay</strong> level: it is the result of stacking the three levels. Read from left to right, separated by hyphens (<code>-</code>), the complete structure is:</p>
+<p><code>PROJECT-CANCER-CENTER-PARTICIPANT-SAMPLE-TYPE-ASSAY</code></p>
+<p>Example:</p>
+<p><code>ATPBR-56-001-1234-5678-01AB-G0101</code></p>
+<p>Each component of the identifier is described in the following sections.</p>
+<h3 id="interpreting-the-barcode">Interpreting the Barcode<a class="wk-anchor" href="#interpreting-the-barcode" aria-label="Link to this section">#</a></h3>
+<p>Each segment of the ATPBR barcode has a specific meaning and represents a piece of information associated with the project, participant, sample or experimental assay.</p>
+<p>Taking the example:</p>
+<p><code>ATPBR-56-001-1234-5678-01AB-G0101</code></p>
+<p>The interpretation is as follows:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Project</td>
+<td style="text-align:left">ATPBR</td>
+<td style="text-align:left">Brazilian Population Tumor Atlas</td>
+</tr>
+<tr>
+<td style="text-align:left">Cancer (ICD-10)</td>
+<td style="text-align:left">56</td>
+<td style="text-align:left">Malignant neoplasm of ovary (C56)</td>
+</tr>
+<tr>
+<td style="text-align:left">Participating Center</td>
+<td style="text-align:left">001</td>
+<td style="text-align:left">Brazilian National Cancer Institute (INCA)</td>
+</tr>
+<tr>
+<td style="text-align:left">Participant</td>
+<td style="text-align:left">1234</td>
+<td style="text-align:left">Participant code</td>
+</tr>
+<tr>
+<td style="text-align:left">Sample</td>
+<td style="text-align:left">5678</td>
+<td style="text-align:left">Biological sample identifier</td>
+</tr>
+<tr>
+<td style="text-align:left">Sample Type</td>
+<td style="text-align:left">01AB</td>
+<td style="text-align:left">Frozen malignant tumor tissue</td>
+</tr>
+<tr>
+<td style="text-align:left">Assay</td>
+<td style="text-align:left">G0101</td>
+<td style="text-align:left">Whole genome sequencing (WGS), run 01, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<p>Therefore, the barcode above identifies a sample of frozen malignant tumor tissue from a patient with ovarian cancer, collected at INCA in the context of the ATPBR project and submitted to a whole genome sequencing assay.</p>
+<h3 id="meaning-of-the-codes">Meaning of the Codes<a class="wk-anchor" href="#meaning-of-the-codes" aria-label="Link to this section">#</a></h3>
+<ul>
+<li><strong>Project Code</strong></li>
+</ul>
+<p>This is the <strong>project acronym</strong>, defined by the user when registering the Project. It must have <strong>5 to 7 uppercase letters</strong> and is unique on the platform: each project has its own.</p>
+<p>Example:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Project</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ATPBR</td>
+<td style="text-align:left">Brazilian Population Tumor Atlas</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><strong>Cancer Code (ICD-10)</strong></li>
+</ul>
+<p>Identifies the participant's cancer diagnosis by the <strong>category of the International Classification of Diseases (ICD-10, CID-10 in Portuguese)</strong>, represented by the 2 digits of the code, without the letter &quot;C&quot;. For example, category C56 (malignant neoplasm of ovary) enters the barcode as <code>56</code>.</p>
+<blockquote>
+<p><strong>How this code is defined:</strong> the user <strong>does not type</strong> the code. In the <strong>Patient registration</strong>, the user provides the cancer type (OncoTree classification, among the types of the tissue defined in the Study), the subtype, when known, and the organ of origin of the tumor. From these answers, the platform automatically calculates the corresponding ICD-10 category, and that value is what enters the barcode. For hematologic neoplasms (leukemias, lymphomas, myeloma), the category is defined by the subtype, regardless of the organ.</p>
+</blockquote>
+<p>Examples of codes:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">ICD-10 category</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">C15</td>
+<td style="text-align:left">Esophagus</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">C16</td>
+<td style="text-align:left">Stomach</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">C18</td>
+<td style="text-align:left">Colon</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">C20</td>
+<td style="text-align:left">Rectum</td>
+</tr>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left">C34</td>
+<td style="text-align:left">Bronchus and lung</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left">C43</td>
+<td style="text-align:left">Melanoma</td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left">C44</td>
+<td style="text-align:left">Other neoplasms of skin</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">C50</td>
+<td style="text-align:left">Breast</td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left">C53</td>
+<td style="text-align:left">Cervix uteri</td>
+</tr>
+<tr>
+<td style="text-align:left">56</td>
+<td style="text-align:left">C56</td>
+<td style="text-align:left">Ovary</td>
+</tr>
+<tr>
+<td style="text-align:left">61</td>
+<td style="text-align:left">C61</td>
+<td style="text-align:left">Prostate</td>
+</tr>
+<tr>
+<td style="text-align:left">91</td>
+<td style="text-align:left">C91</td>
+<td style="text-align:left">Lymphoid leukemia</td>
+</tr>
+<tr>
+<td style="text-align:left">92</td>
+<td style="text-align:left">C92</td>
+<td style="text-align:left">Myeloid leukemia</td>
+</tr>
+<tr>
+<td style="text-align:left">99</td>
+<td style="text-align:left">(not applicable)</td>
+<td style="text-align:left">Non-malignant neoplasm (benign, in situ or of uncertain behavior)</td>
+</tr>
+</tbody>
+</table></div>
+<p>The ICD-10 malignant neoplasm categories (C00 to C97) are accepted, plus code <code>99</code> for non-malignant neoplasms. The complete list is available in the metadata spreadsheet. The codes are stable: codes already in use are never changed.</p>
+<ul>
+<li><strong>Participating Center Code</strong></li>
+</ul>
+<p>Identifies the <strong>collector center</strong>, the institution responsible for collecting or submitting the sample. Each center receives a <strong>3-digit</strong> code.</p>
+<p><strong>How a center enters the system:</strong></p>
+<ol>
+<li>The institution is <strong>registered by the user when creating the Project</strong>, together with its <strong>ROR</strong> identifier.</li>
+<li>From then on, it appears in the <strong>&quot;Collector Center&quot; controlled vocabulary</strong> and becomes available for selection <strong>when registering a patient</strong>.</li>
+<li>The code recorded in the barcode is that of the institution selected in this vocabulary.</li>
+</ol>
+<p><strong>The codes are global and permanent:</strong></p>
+<ul>
+<li>Each institution has <strong>a single fixed code across the entire platform</strong>, uniquely identified by its <strong>ROR id</strong>, so that the same real center always resolves to the same code.</li>
+<li>A <strong>new code is generated only when the institution has not been selected on the platform before</strong>; centers already in use reuse the existing code.</li>
+<li>Codes are <strong>never reused or removed</strong>, so that the barcodes of samples already registered remain valid.</li>
+</ul>
+<p>Predefined centers:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Institution</th>
+<th style="text-align:left">ROR id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">001</td>
+<td style="text-align:left">Brazilian National Cancer Institute (INCA)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/055n68305">055n68305</a></td>
+</tr>
+<tr>
+<td style="text-align:left">002</td>
+<td style="text-align:left">Cancer Institute of the State of São Paulo (ICESP)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/005vqqr19">005vqqr19</a></td>
+</tr>
+<tr>
+<td style="text-align:left">003</td>
+<td style="text-align:left">Ceará Cancer Institute (ICC)</td>
+<td style="text-align:left"><a target="_blank" rel="noopener" href="https://ror.org/01pg9bv14">01pg9bv14</a></td>
+</tr>
+</tbody>
+</table></div>
+<p>New centers receive the next available sequential code, in the order in which they are first used.</p>
+<ul>
+<li><strong>Participant Code</strong></li>
+</ul>
+<p>A <strong>4-digit</strong> code that identifies the participant. It is <strong>defined by the collector center</strong> and entered in the patient_id field of the patient registration.</p>
+<p>Example:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1234</td>
+<td style="text-align:left">Participant code</td>
+</tr>
+</tbody>
+</table></div>
+<p>The code must have no relation whatsoever to the participant's personal data: for example, do not use the medical record number or parts of the date of birth.</p>
+<ul>
+<li><strong>Sample Code</strong></li>
+</ul>
+<p>A <strong>4-digit</strong> code that identifies the biological sample linked to a participant. It is also <strong>defined by the collector center</strong> and entered in the sample_id field of the sample registration.</p>
+<p>Example:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">5678</td>
+<td style="text-align:left">Specific biological sample</td>
+</tr>
+</tbody>
+</table></div>
+<p>The same participant may have multiple samples. The platform does not accept two records with the same barcode and warns you when it detects a possible duplicate registration.</p>
+<ul>
+<li><strong>Sample Type Code</strong></li>
+</ul>
+<p>The Sample Type field is made up of four characters and describes, at the same time, the biological material, the pathological status and the preservation method of the sample.</p>
+<p>Structure:</p>
+<p><code>TTSP</code></p>
+<p>Where:</p>
+<ul>
+<li><strong>TT</strong> = Material type (2 digits)</li>
+<li><strong>S</strong> = Sample status (1 letter)</li>
+<li><strong>P</strong> = Sample preservation (1 letter)</li>
+</ul>
+<p>For example, <code>01AB</code> corresponds to:</p>
+<ul>
+<li><strong>01</strong> = <em>Tissue</em></li>
+<li><strong>A</strong> = <em>Malignant Tumor</em></li>
+<li><strong>B</strong> = <em>Frozen</em></li>
+</ul>
+<p>Result: <strong>Frozen malignant tumor tissue</strong>.</p>
+<blockquote>
+<p><strong>Language of the values:</strong> on the platform, the labels of these vocabularies appear <strong>in English</strong>, to keep all projects consistent. The tables below show the official label. What enters the barcode is always the <strong>code</strong> (the left-hand column), not the text.</p>
+</blockquote>
+<p><strong>Material Type Codes</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Sample Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">Tissue</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Blood</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Plasma</td>
+</tr>
+<tr>
+<td style="text-align:left">04</td>
+<td style="text-align:left">Serum</td>
+</tr>
+<tr>
+<td style="text-align:left">05</td>
+<td style="text-align:left">Bone Marrow</td>
+</tr>
+<tr>
+<td style="text-align:left">06</td>
+<td style="text-align:left">Peritoneal Fluid</td>
+</tr>
+<tr>
+<td style="text-align:left">07</td>
+<td style="text-align:left">Synovial Fluid</td>
+</tr>
+<tr>
+<td style="text-align:left">08</td>
+<td style="text-align:left">Pericardial Fluid</td>
+</tr>
+<tr>
+<td style="text-align:left">09</td>
+<td style="text-align:left">Cerebrospinal Fluid</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">Bronchial Lavage</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">Urine</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">Saliva</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">Sputum</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">Feces</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">Skin</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left">Cells</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">Breast Secretion</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left">Pleural Fluid</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">Extracellular Vesicles</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left">Aspiration Biopsy</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left">Buffy Coat</td>
+</tr>
+</tbody>
+</table></div>
+<p>Code 11 is not used.</p>
+<p><strong>Sample Status Codes</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Sample Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">Malignant Tumor</td>
+</tr>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">Benign Tumor</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Lesion</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Metastasis</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">Normal - Adjacent</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Normal - Distant</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Lymph Node - Metastatic</td>
+</tr>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:left">Lymph Node - Reactive</td>
+</tr>
+<tr>
+<td style="text-align:left">I</td>
+<td style="text-align:left">Inflammation</td>
+</tr>
+<tr>
+<td style="text-align:left">J</td>
+<td style="text-align:left">Cell Line</td>
+</tr>
+<tr>
+<td style="text-align:left">K</td>
+<td style="text-align:left">Normal Non Tumoral</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Sample Preservation Codes</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Sample Preservation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">A</td>
+<td style="text-align:left">Fresh</td>
+</tr>
+<tr>
+<td style="text-align:left">B</td>
+<td style="text-align:left">Frozen</td>
+</tr>
+<tr>
+<td style="text-align:left">C</td>
+<td style="text-align:left">FFPE (Formalin-Fixed, Paraffin-Embedded)</td>
+</tr>
+<tr>
+<td style="text-align:left">D</td>
+<td style="text-align:left">Paraformaldehyde (PFA)</td>
+</tr>
+<tr>
+<td style="text-align:left">E</td>
+<td style="text-align:left">RNAlater</td>
+</tr>
+<tr>
+<td style="text-align:left">F</td>
+<td style="text-align:left">Culture Medium</td>
+</tr>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Saline Buffer</td>
+</tr>
+<tr>
+<td style="text-align:left">L</td>
+<td style="text-align:left">Saline Solution</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p><strong>Anticoagulants:</strong> the collection tube additive (for example, EDTA or citrate) is entered in a separate field, collection_tube_additive, which is optional and <strong>does not enter the barcode</strong>.</p>
+</blockquote>
+<p><strong>Interpretation Examples</strong></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01AB</td>
+<td style="text-align:left">Frozen malignant tumor tissue</td>
+</tr>
+<tr>
+<td style="text-align:left">01AC</td>
+<td style="text-align:left">Malignant tumor tissue preserved in FFPE</td>
+</tr>
+<tr>
+<td style="text-align:left">01EB</td>
+<td style="text-align:left">Frozen adjacent normal tissue</td>
+</tr>
+<tr>
+<td style="text-align:left">02KB</td>
+<td style="text-align:left">Frozen normal non-tumoral blood</td>
+</tr>
+<tr>
+<td style="text-align:left">22KB</td>
+<td style="text-align:left">Frozen normal non-tumoral buffy coat</td>
+</tr>
+<tr>
+<td style="text-align:left">17JF</td>
+<td style="text-align:left">Cell line maintained in culture medium</td>
+</tr>
+<tr>
+<td style="text-align:left">20AB</td>
+<td style="text-align:left">Frozen malignant tumor extracellular vesicles</td>
+</tr>
+</tbody>
+</table></div>
+<p>The combination of these codes makes it possible to describe, in a compact and standardized way, the main biological and operational characteristics of each sample, while maintaining traceability throughout the entire ATPBR workflow.</p>
+<ul>
+<li><strong>Assay Code</strong></li>
+</ul>
+<p>The <strong>Assay</strong> field identifies the omics modality used and information associated with the experimental run. This field makes it possible to distinguish different experiments performed on the same sample and to maintain the traceability of the generated data.</p>
+<p>Structure:</p>
+<p><code>OCCLL</code></p>
+<p>Where:</p>
+<ul>
+<li><strong>O</strong> = Omics modality (1 character)</li>
+<li><strong>CC</strong> = Experimental run number (2 digits)</li>
+<li><strong>LL</strong> = Lane number (2 digits)</li>
+</ul>
+<p>For example:</p>
+<p><code>G0101</code></p>
+<p>corresponds to:</p>
+<ul>
+<li><strong>G</strong> = Whole Genome Sequencing (WGS)</li>
+<li><strong>01</strong> = First run</li>
+<li><strong>01</strong> = Lane 1</li>
+</ul>
+<p>Result:</p>
+<p><strong>Whole Genome Sequencing (WGS), run 01, lane 01</strong></p>
+<h4 id="omics-modality-codes">Omics Modality Codes<a class="wk-anchor" href="#omics-modality-codes" aria-label="Link to this section">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Omics Modality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">G</td>
+<td style="text-align:left">Whole Genome Sequencing (WGS)</td>
+</tr>
+<tr>
+<td style="text-align:left">X</td>
+<td style="text-align:left">Whole Exome Sequencing (WES)</td>
+</tr>
+<tr>
+<td style="text-align:left">R</td>
+<td style="text-align:left">RNA-Seq</td>
+</tr>
+<tr>
+<td style="text-align:left">P</td>
+<td style="text-align:left">Gene Panel Sequencing</td>
+</tr>
+</tbody>
+</table></div>
+<p>Codes M (DNA methylation) and B (5-base DNA methylation) are reserved for future versions (see the accepted modalities in <a href="data-types.html">Data types</a>).</p>
+<h4 id="run-number">Run Number<a class="wk-anchor" href="#run-number" aria-label="Link to this section">#</a></h4>
+<p>A sequential number <strong>assigned automatically by the platform</strong>. The user <strong>does not set</strong> this number manually.</p>
+<p>The run is identified by the combination of three fields entered in each Experiment: <strong>sequencing date</strong>, <strong>sequencing center</strong> and <strong>sequencing platform</strong>. Numbering is done within each <strong>Study</strong>:</p>
+<ul>
+<li>The first combination recorded in the Study receives <code>01</code>, the second receives <code>02</code>, and so on.</li>
+<li>Experiments with the same date, the same center and the same platform belong to the same run and receive the same number.</li>
+<li>Once assigned, the run number does not change.</li>
+</ul>
+<p>For this reason, these three fields are required and must be filled in carefully. Besides distinguishing technical replicates and new runs of the same experiment, this identification <strong>makes later batch-effect analyses easier</strong>, where it is important to know which data were generated in different runs.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">First run</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Second run</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Third run</td>
+</tr>
+<tr>
+<td style="text-align:left">...</td>
+<td style="text-align:left">Subsequent runs</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="lane-number">Lane Number<a class="wk-anchor" href="#lane-number" aria-label="Link to this section">#</a></h4>
+<p>Represents the sequencing lane used during the run.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">01</td>
+<td style="text-align:left">Lane 1</td>
+</tr>
+<tr>
+<td style="text-align:left">02</td>
+<td style="text-align:left">Lane 2</td>
+</tr>
+<tr>
+<td style="text-align:left">03</td>
+<td style="text-align:left">Lane 3</td>
+</tr>
+<tr>
+<td style="text-align:left">04</td>
+<td style="text-align:left">Lane 4</td>
+</tr>
+<tr>
+<td style="text-align:left">...</td>
+<td style="text-align:left">Other lanes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Identifying the lane supports technical traceability and the investigation of possible sequencing-related problems.</p>
+<h3 id="interpretation-examples">Interpretation Examples<a class="wk-anchor" href="#interpretation-examples" aria-label="Link to this section">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">G0101</td>
+<td style="text-align:left">WGS, run 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">X0102</td>
+<td style="text-align:left">WES, run 01, lane 02</td>
+</tr>
+<tr>
+<td style="text-align:left">R0201</td>
+<td style="text-align:left">RNA-Seq, run 02, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">P0101</td>
+<td style="text-align:left">Gene panel, run 01, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="examples-of-complete-barcodes">Examples of Complete Barcodes<a class="wk-anchor" href="#examples-of-complete-barcodes" aria-label="Link to this section">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Barcode</th>
+<th style="text-align:left">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ATPBR-56-001-1234-5678-01AB-G0101</td>
+<td style="text-align:left">Frozen malignant tumor tissue sample from ovarian cancer submitted to WGS in run 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">ATPBR-50-002-3456-7890-01AC-R0101</td>
+<td style="text-align:left">FFPE-preserved malignant tumor tissue sample from breast cancer submitted to RNA-Seq in run 01, lane 01</td>
+</tr>
+<tr>
+<td style="text-align:left">ATPBR-61-003-4321-8765-02KB-X0201</td>
+<td style="text-align:left">Frozen normal non-tumoral blood sample from prostate cancer submitted to WES in run 02, lane 01</td>
+</tr>
+</tbody>
+</table></div>
+<p>The combination of the assay code with the other barcode fields makes it possible to uniquely identify the biological and experimental context associated with the data produced in ATPBR, ensuring traceability from the physical sample to the files generated by sequencing.</p>
+<h3 id="references">References<a class="wk-anchor" href="#references" aria-label="Link to this section">#</a></h3>
+<ul>
+<li>National Cancer Institute. Genomic Data Commons. <em>TCGA Barcode</em>. GDC Docs. Available at: <a target="_blank" rel="noopener" href="https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/">https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/</a></li>
+</ul>
+<hr />
+<p><strong>Next chapter → <a href="data-types.html">Data types</a>:</strong> the accepted formats for metadata and sequencing files, and the files the platform generates from them.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="data-dictionary.html"><small>← Previous</small>Data dictionary</a>
+                <a class="wk-next" href="data-types.html"><small>Next →</small>Data types</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html" aria-current="page">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#principles-of-the-identification-system">Principles of the Identification System</a></li>
+<li class=""><a href="#biological-material-and-digital-objects">Biological Material and Digital Objects</a></li>
+<li class=""><a href="#barcode-structure">Barcode Structure</a></li>
+<li class=""><a href="#interpreting-the-barcode">Interpreting the Barcode</a></li>
+<li class=""><a href="#meaning-of-the-codes">Meaning of the Codes</a></li>
+<li class="wk-sub"><a href="#omics-modality-codes">Omics Modality Codes</a></li>
+<li class="wk-sub"><a href="#run-number">Run Number</a></li>
+<li class="wk-sub"><a href="#lane-number">Lane Number</a></li>
+<li class=""><a href="#interpretation-examples">Interpretation Examples</a></li>
+<li class=""><a href="#examples-of-complete-barcodes">Examples of Complete Barcodes</a></li>
+<li class=""><a href="#references">References</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

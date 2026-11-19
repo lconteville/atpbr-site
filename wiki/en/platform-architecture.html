@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform architecture · ATPBR Wiki</title>
+    <meta name="description" content="Platform architecture: an overview of the path the data follow.">
+    <link rel="alternate" hreflang="pt-br" href="../arquitetura-da-plataforma.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../arquitetura-da-plataforma.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Platform architecture</nav>
+            <h1>Platform architecture</h1>
+            <p class="wk-meta">Chapter 3 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>The ATPBR architecture was designed to support the entire life cycle of cancer data, from submission to analysis and the release of results to the scientific community. The platform consists of interoperable modules that work together to ensure traceability, standardization, scalability and reproducibility.</p>
+<p>This chapter presents the <strong>big picture</strong>. Each stage described here is detailed in a chapter of its own, indicated throughout the text.</p>
+<h3 id="architecture-overview">Architecture overview<a class="wk-anchor" href="#architecture-overview" aria-label="Link to this section">#</a></h3>
+<p>In simplified form, the data flow in ATPBR follows these stages:</p>
+<p><strong>Submission → Secure storage → Harmonization → Reproducible analyses → Visualization → Controlled access → Governance</strong></p>
+<p><img src="images/architecture_flow.png" alt="Data flow in ATPBR: Submission, Secure storage, Harmonization, Reproducible analyses, Visualization, Controlled access and Governance" /></p>
+<p>At every stage, the participant-protection principles presented in <a href="about-atpbr.html">About ATPBR</a> are applied through role- and permission-based access control, activity logging and auditing, and the management of access requests for controlled-access data. The rules for each stage, and who is responsible for it, are set out in <a href="data-governance.html">Data governance</a>.</p>
+<h3 id="data-ingestion">Data ingestion<a class="wk-anchor" href="#data-ingestion" aria-label="Link to this section">#</a></h3>
+<p>Ingestion is the receipt of the metadata and sequencing files submitted by users. The step-by-step process is described in <a href="data-submission.html">Data submission</a>. Data are organized according to the <a href="data-model.html">Data model</a> and receive standardized identifiers, described in <a href="identification-and-barcode-system.html">Identification and barcode system</a>.</p>
+<h3 id="validation">Validation<a class="wk-anchor" href="#validation" aria-label="Link to this section">#</a></h3>
+<p>After ingestion, data undergo automatic and manual checks of integrity, format, required fields and consistency between metadata and files, as well as a review of the ethics documentation and usage permissions. Being accepted by the system is not the same as being admitted: while there are pending issues, the dataset remains blocked from release and from new uses. The checks and how to correct errors are described in <a href="data-submission.html">Data submission</a>, and the admission rules in <a href="data-governance.html">Data governance</a>.</p>
+<h3 id="data-storage">Data storage<a class="wk-anchor" href="#data-storage" aria-label="Link to this section">#</a></h3>
+<p>The architecture separates storage into <strong>two complementary layers</strong>, linked by a metadata catalog:</p>
+<ul>
+<li><strong>Raw data layer:</strong> holds the large-volume files (the submitted FASTQ and the CRAM generated during processing), preserving the originals for traceability and future reanalysis.</li>
+<li><strong>Structured data layer:</strong> holds the data processed and organized for querying, such as harmonized clinical data, genomic alterations and gene expression matrices.</li>
+<li><strong>Metadata and cataloging:</strong> the catalog records projects, investigations, studies, patients, samples, assays, experiments, files and the processing runs performed. It is what makes it possible to locate a dataset, understand its origin and reconstruct the complete history of how the information was generated.</li>
+</ul>
+<h3 id="data-processing">Data processing<a class="wk-anchor" href="#data-processing" aria-label="Link to this section">#</a></h3>
+<p>Validated FASTQ files are processed by standardized pipelines, which identify somatic variants and quantify gene expression. The pipelines, their versions and the files generated are described in <a href="analysis-platform.html">Analysis platform</a>.</p>
+<h3 id="harmonization-and-integration">Harmonization and integration<a class="wk-anchor" href="#harmonization-and-integration" aria-label="Link to this section">#</a></h3>
+<p>Processing results are standardized, annotated and integrated with clinical data, which makes it possible to compare different studies. Non-sensitive harmonized data are loaded into the ATPBR cBioPortal.</p>
+<h3 id="exploration-and-sharing">Exploration and sharing<a class="wk-anchor" href="#exploration-and-sharing" aria-label="Link to this section">#</a></h3>
+<p>Results can be explored in the <a href="results-browser.html">Results browser</a> (ATPBR cBioPortal). The projects' studies and datasets can be consulted in the platform's Data catalog, provided that their release has been authorized by those responsible for them. To learn more about the release criteria, the access levels (open or controlled) and the procedures for requesting data access, see the <a href="data-access.html">Data access</a> section.</p>
+<hr />
+<p><strong>Next chapter → <a href="data-governance.html">Data governance</a>:</strong> the rules that apply throughout this flow: who is responsible for each stage, how participants are protected and which authorizations each use requires.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="start-here.html"><small>← Previous</small>Start here</a>
+                <a class="wk-next" href="data-governance.html"><small>Next →</small>Data governance</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html" aria-current="page">Platform architecture</a></li>
+<li><a href="data-governance.html">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#architecture-overview">Architecture overview</a></li>
+<li class=""><a href="#data-ingestion">Data ingestion</a></li>
+<li class=""><a href="#validation">Validation</a></li>
+<li class=""><a href="#data-storage">Data storage</a></li>
+<li class=""><a href="#data-processing">Data processing</a></li>
+<li class=""><a href="#harmonization-and-integration">Harmonization and integration</a></li>
+<li class=""><a href="#exploration-and-sharing">Exploration and sharing</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

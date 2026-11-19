@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submissão de dados · Wiki do ATPBR</title>
     <meta name="description" content="Submissão de dados: o passo a passo para cadastrar um projeto e enviar seus dados.">
+    <link rel="alternate" hreflang="en" href="en/data-submission.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/data-submission.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,7 +39,7 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Submissão de dados</nav>
             <h1>Submissão de dados</h1>
-            <p class="wk-meta">Capítulo 5 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 5 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>A submissão de dados é o processo pelo qual centros de pesquisa, hospitais, laboratórios e grupos de pesquisa incorporam projetos e seus respectivos dados ao ATPBR. É a etapa de <strong>ingestão</strong> apresentada em <a href="arquitetura-da-plataforma.html">Arquitetura da plataforma</a>: a partir dela, os dados seguem para validação, processamento e compartilhamento.</p>
 <p>Este capítulo descreve <strong>o que fazer e em que ordem</strong>. Depois de <a href="acesso-aos-dados.html">Acesso aos dados</a>, que explica como os dados submetidos são compartilhados, os capítulos seguintes detalham como as informações se organizam (<a href="modelo-de-dados.html">Modelo de dados</a>), como cada campo deve ser preenchido (<a href="dicionario-de-dados.html">Dicionário de dados</a>), como os identificadores são gerados (<a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>) e quais formatos são aceitos (<a href="tipos-de-dados.html">Tipos de dados</a>).</p>
@@ -50,7 +52,7 @@
 <li>vai informar as aprovações éticas, a versão do TCLE (ou a dispensa de consentimento) e as permissões e restrições de uso de cada conjunto, e apresentar os documentos comprobatórios;</li>
 <li>vai comunicar ao ATPBR mudanças nas aprovações éticas, retiradas de consentimento, novas restrições e incidentes de segurança de que tiver conhecimento.</li>
 </ul>
-<p>Tenha também em mãos a documentação ética do projeto e dos estudos: o parecer do CEP ou da Conep, a versão do TCLE utilizada ou a decisão de dispensa de consentimento, o instrumento de transferência de material biológico e dados (TTMD), quando houver, e as permissões e restrições de uso dos dados. A equipe do ATPBR pode solicitar esses documentos durante a validação.</p>
+<p>Tenha também em mãos a documentação ética do projeto e dos estudos: o parecer do CEP ou da Conep, a versão do TCLE utilizada ou a decisão de dispensa de consentimento, o instrumento de transferência de dados (DTA), quando houver, e as permissões e restrições de uso dos dados. A equipe do ATPBR pode solicitar esses documentos durante a validação.</p>
 <h3 id="passo-a-passo">Passo a Passo<a class="wk-anchor" href="#passo-a-passo" aria-label="Link para esta seção">#</a></h3>
 <p>A submissão é feita pelo portal da plataforma. Cada etapa depende da anterior, e o painel do projeto indica essa ordem com números e setas.</p>
 <div class="wk-table"><table>
@@ -167,7 +169,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">

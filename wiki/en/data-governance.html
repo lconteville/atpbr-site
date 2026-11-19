@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data governance · ATPBR Wiki</title>
+    <meta name="description" content="Data governance: responsibilities, participant protection and authorizations for use.">
+    <link rel="alternate" hreflang="pt-br" href="../governanca-de-dados.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../wiki.css">
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-W86MJVHT"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());</script>
+</head>
+
+<body>
+    <a class="wk-skip" href="#conteudo">Skip to content</a>
+    <header class="wk-top">
+        <div class="wk-top-in">
+            <a class="wk-brand" href="index.html">
+                <img src="../../assets/infografico/logo-atpbr.png" width="64" height="35" alt="">
+                <span>ATPBR Wiki</span>
+            </a>
+            <nav class="wk-top-nav" aria-label="Site">
+                <a href="../../en.html">Site</a>
+                <a href="../../infografico.html">Infographic (PT)</a>
+                <a class="wk-lang" href="../governanca-de-dados.html" hreflang="pt-br" lang="pt-br" title="Ler esta página em português">Português</a>
+                <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Pages</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="wk-layout">
+        <main class="wk-main" id="conteudo">
+            <nav class="wk-crumbs" aria-label="You are here"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Data governance</nav>
+            <h1>Data governance</h1>
+            <p class="wk-meta">Chapter 4 of 14 · Updated 18 Nov 2026</p>
+            <article class="wk-body">
+<p>In <a href="platform-architecture.html">Platform architecture</a>, we saw the technical path that data follows in ATPBR. This chapter covers the <strong>rules</strong> that apply along that path: who is responsible for each step, which conditions a dataset must meet to enter the platform and be shared, and how research participants are protected.</p>
+<p>Read this chapter <strong>before submitting data or requesting access to controlled-access data</strong>. The following chapters apply these rules to each situation: <a href="data-submission.html">Data submission</a> for those who send data, <a href="data-access.html">Data access</a> for those who request access and <a href="usage-policies.html">Usage policies</a> for those who receive the data.</p>
+<h3 id="atpbr-governance-documents-and-instruments">ATPBR governance documents and instruments<a class="wk-anchor" href="#atpbr-governance-documents-and-instruments" aria-label="Link to this section">#</a></h3>
+<p>The governance of the Brazilian Population Tumor Atlas (ATPBR) rests on institutional policies, participant protection instruments and terms that formalize responsibilities. Together, they cover the entire data life cycle, from submission to reuse, in compliance with Brazilian law and international good practice. The Status column indicates whether each document is approved, under review or in preparation; documents that have not yet been approved <strong>must not be read as rules in force</strong>.</p>
+<h4 id="institutional-policies">Institutional policies<a class="wk-anchor" href="#institutional-policies" aria-label="Link to this section">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">What it establishes</th>
+<th style="text-align:left">Intended for</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Data Governance Policy</strong></td>
+<td style="text-align:left">General governance principles; the role of the Brazilian National Cancer Institute (INCA) as the coordinating and maintaining institution; governance bodies (CGN, CCP, CAD, CESP and SAB) and the responsibilities of participating institutions; constitution and management of the database; participant protection; information security and oversight mechanisms.</td>
+<td style="text-align:left">All institutions, researchers and professionals involved in ATPBR.</td>
+<td style="text-align:left">Under review. It will be published in full after approval.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Data Flow and Access Policy</strong></td>
+<td style="text-align:left">Procedures for submitting, verifying, classifying and making data available; access modalities (public, registered, controlled through data visiting, and internal); criteria for requesting and authorizing access, including pre-authorization through DUO codes; duties of the Data Access Committee; monitoring and termination of granted access.</td>
+<td style="text-align:left">Submitting researchers, access requesters, the Data Access Committee and platform operators.</td>
+<td style="text-align:left">Under review. It will be published in full after approval.</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="data-protection-and-participants-rights">Data protection and participants' rights<a class="wk-anchor" href="#data-protection-and-participants-rights" aria-label="Link to this section">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">What it establishes</th>
+<th style="text-align:left">Intended for</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Personal Data Protection Impact Assessment (RIPD)</strong></td>
+<td style="text-align:left">Identifies and assesses the risks, both individual and collective, of processing personal and sensitive data on the platform, and describes the security measures, safeguards and mechanisms adopted to prevent or mitigate them, in compliance with the LGPD (Brazilian General Data Protection Law).</td>
+<td style="text-align:left">Institutions responsible for processing the data, data protection officers, governance and information security teams and the competent supervisory authorities.</td>
+<td style="text-align:left">Under review. Internal document, because it contains information on risks and security controls; an institutional summary will be published.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Layered informed consent form (TCLE) template</strong></td>
+<td style="text-align:left">Reference template that presents, in a clear and structured way, the purposes of collecting, storing, sharing and reusing the data in future research, with choices per layer (future use, international sharing, commercial use, recontact and return of findings) recorded as DUO codes. <strong>It is not a general authorization:</strong> each study must assess the compatibility between its consent, its ethics approval and the intended uses.</td>
+<td style="text-align:left">Researchers responsible for data collection, participating institutions, Research Ethics Committees and research participants.</td>
+<td style="text-align:left">In preparation. The template will be published; each study adopts the version approved by its Research Ethics Committee (CEP).</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="responsibility-and-sharing-terms">Responsibility and sharing terms<a class="wk-anchor" href="#responsibility-and-sharing-terms" aria-label="Link to this section">#</a></h4>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">What it establishes</th>
+<th style="text-align:left">Intended for</th>
+<th style="text-align:left">Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Institutional Agreement</strong></td>
+<td style="text-align:left">Formalizes each institution's membership in the ATPBR consortium and the prior agreements required by CNS (National Health Council) Resolution No. 738/2024 for databases built with the participation of more than one institution: data contribution, access and sharing, responsibilities, participation in the collegiate bodies and credit to the centers.</td>
+<td style="text-align:left">Participating institutions and INCA.</td>
+<td style="text-align:left">In preparation. The template will be published.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Submitting Researcher's Responsibility Agreement</strong></td>
+<td style="text-align:left">Declarations and responsibilities of those who submit data to ATPBR, accepted on the platform <strong>before the first submission</strong>: legitimacy of the submission, compliance with ethics approvals, compatibility with the applicable consents and authorizations, quality of the information and compliance with the platform's policies.</td>
+<td style="text-align:left">Researchers responsible for submitting data.</td>
+<td style="text-align:left">Under review. It will be published in full after approval.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Controlled-Access Data Use Agreement (DAA)</strong></td>
+<td style="text-align:left">Conditions for using authorized data in the ATPBR secure instance, through data visiting and without download: approved purpose, confidentiality, prohibition of attempts at re-identification and of extraction of individual-level data, export of verified results only, security measures, incident reporting, processing costs where applicable and conditions for terminating access.</td>
+<td style="text-align:left">Researchers and institutions authorized to access controlled-access data.</td>
+<td style="text-align:left">In preparation. The template will be published.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Data Transfer Agreement (DTA)</strong></td>
+<td style="text-align:left">Legal, institutional and technical conditions for sending data from the source institutions to ATPBR: authorized purposes, responsibilities, protection measures, use restrictions and storage and retention conditions.</td>
+<td style="text-align:left">Source institutions that contribute data, and INCA.</td>
+<td style="text-align:left">In preparation. The template will be published.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The operating rules of the collegiate bodies are set out in their own bylaws, which are in preparation: the <strong>CAD Bylaws</strong> (composition, deadlines and appeals) and the <strong>CCP Bylaws</strong> (embargo period, authorship and credit to the centers).</p>
+<h4 id="commitment-to-the-responsible-use-of-data">Commitment to the responsible use of data<a class="wk-anchor" href="#commitment-to-the-responsible-use-of-data" aria-label="Link to this section">#</a></h4>
+<p>ATPBR adopts a responsible access approach that takes into account the nature of the data, its conditions of use and the rights of research participants.<br />
+The use permissions of each dataset are classified with the <strong>Data Use Ontology (DUO)</strong> of the Global Alliance for Genomics and Health (GA4GH), which standardizes use restrictions and how they are interpreted in access requests. The DUO classification helps in reading the permissions, but it <strong>does not replace the verification of the consent and ethics approval</strong> of each study.<br />
+Data sharing complies with the ethics approvals, the applicable legal bases and the relevant institutional instruments, ensuring that each dataset is used exclusively within the authorized conditions. Controlled-access data are analyzed <strong>through data visiting</strong>, in the ATPBR secure instance, <strong>without download</strong>.</p>
+<p>These documents follow the legislation and ethical standards applicable to research involving human participants, including:</p>
+<ul>
+<li>Brazilian General Data Protection Law (LGPD, Law No. 13.709/2018).</li>
+<li>Law No. 14.874/2024, which governs research involving human participants, and its implementing regulations.</li>
+<li>CNS Resolutions No. 466/2012 (research involving human participants), No. 340/2004 (human genetics) and No. 738/2024 (databases for research).</li>
+<li>CD/ANPD Resolution No. 19/2024 (international transfer of personal data), issued by the ANPD (Brazilian Data Protection Authority).</li>
+<li>INCA's Governance, Cybersecurity and Crisis Management Policies.</li>
+</ul>
+<p>ATPBR's policies <strong>complement, but do not replace</strong>, the ethics approval of each research project, the consent forms and the agreements signed between the institutions. Approved documents are published in full in this documentation, so that they can be consulted before accepting the Responsibility Agreement or submitting an access request; internal documents, such as the RIPD, have a public summary. Questions can be sent to <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a>.</p>
+<h3 id="principles">Principles<a class="wk-anchor" href="#principles" aria-label="Link to this section">#</a></h3>
+<p>Data management in ATPBR follows these principles, among others:</p>
+<ul>
+<li><strong>Scientific purpose:</strong> data are used for legitimate, defined research objectives that are compatible with the conditions under which the data were obtained.</li>
+<li><strong>Participant protection:</strong> respect for the dignity, autonomy, confidentiality and choices expressed by each participant, and prevention of collective risks, such as the stigmatization of population, ethnic, community or territorial groups.</li>
+<li><strong>Necessity and proportionality:</strong> each use receives only the data appropriate to the authorized purpose.</li>
+<li><strong>Ethical compliance:</strong> ethics approvals, consent forms and relevant ethics decisions are always observed.</li>
+<li><strong>Quality and scientific integrity:</strong> data are kept intact, contextualized and traceable to their origin.</li>
+<li><strong>Security and prevention:</strong> safeguards are proportional to the risks of improper access, re-identification and incompatible use.</li>
+<li><strong>Segregation of duties:</strong> those who prepare, those who validate, those who decide and those who execute are distinct people or bodies.</li>
+<li><strong>Accountability:</strong> decisions are recorded, so that the compliance of each operation can be demonstrated.</li>
+<li><strong>Transparency and interoperability:</strong> the platform's rules are public, and the data follow standardized metadata, controlled vocabularies and identifiers.</li>
+</ul>
+<h3 id="different-authorizations-that-do-not-replace-one-another">Different authorizations that do not replace one another<a class="wk-anchor" href="#different-authorizations-that-do-not-replace-one-another" aria-label="Link to this section">#</a></h3>
+<p>A single dataset may depend on several authorizations. Each has its own object, and none of them waives the others:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Authorization</th>
+<th style="text-align:left">Who grants it</th>
+<th style="text-align:left">What it guarantees</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Ethics approval</strong></td>
+<td style="text-align:left">Research Ethics Committee (CEP) or National Research Ethics Commission (Conep)</td>
+<td style="text-align:left">That the research, whether the original study or a new one, is ethically compliant</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Participant consent</strong> (or its waiver)</td>
+<td style="text-align:left">The participant; the waiver can only be granted by the competent ethics body</td>
+<td style="text-align:left">That the participant authorized the use of their data, under the conditions of the signed form</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Consent of the provider institution</strong></td>
+<td style="text-align:left">An authorized representative of the institution that provided the data</td>
+<td style="text-align:left">That the source institution agrees to that particular sharing</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Access authorization</strong></td>
+<td style="text-align:left">ATPBR Data Access Committee (CAD)</td>
+<td style="text-align:left">That a specific controlled-access request is compatible with the conditions of the dataset</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two practical consequences:</p>
+<ul>
+<li>The ethics approval of the original study <strong>does not, by itself, authorize</strong> any new use or sharing of the data.</li>
+<li>Being accepted by the system <strong>is not the same as</strong> being admitted. Filling in the fields and uploading the files do not, by themselves, constitute authorization for incorporation, publication or scientific use.</li>
+</ul>
+<h3 id="who-s-who">Who's who<a class="wk-anchor" href="#who-s-who" aria-label="Link to this section">#</a></h3>
+<p>The consortium's governance rests on six bodies with complementary roles: three decide, two advise and one executes.</p>
+<p><img src="images/governance_who_does_what.png" alt="Six ATPBR governance bodies. Decide: CGN, National Governance Council; CCP, Scientific and Publications Committee; CAD, Data Access Committee. Advise: CESP, Ethics, Society and Participation Committee; SAB, International Scientific Advisory Board. Executes: LBBC/INCA Executive Office" /></p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Participant</th>
+<th style="text-align:left">Main responsibilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>INCA: coordinating and maintaining institution</strong></td>
+<td style="text-align:left">Developed ATPBR and maintains its infrastructure, operations and executive team (Executive Office/LBBC). Decisions on science, access and ethics are made by the consortium's collegiate bodies (CGN, CCP, CAD, CESP and SAB), in which the participating centers have a seat and a vote. For LGPD purposes, INCA acts as <strong>controller</strong> of the data processed on the platform, jointly with the participating centers, which remain controllers of the data they originate.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Source (provider) institutions</strong></td>
+<td style="text-align:left">Ensure the compliance of collection and consent; remove direct identifiers and keep the <strong>linkage keys</strong> separately; report permissions and restrictions; communicate changes to and withdrawals of consent; cooperate in responding to participants and to incidents. For LGPD purposes, they remain controllers of the data they originate.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Submitting researchers</strong></td>
+<td style="text-align:left">Prepare and send the data according to the platform's standards, provide the ethics documentation and the permissions of each dataset and accept the Submitting Researcher's Responsibility Agreement.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Executive Office and Operational Curation (LBBC/INCA)</strong></td>
+<td style="text-align:left">Internal team that runs the operations: verifies the integrity, completeness, quality, provenance and ethics documentation of each dataset, records outstanding issues, runs the pipelines, curates data and metadata (including the DUO codes), supports the centers in submission and acts as secretariat to the committees, <strong>without a vote</strong>. Reports to the CGN.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Technical and security teams</strong></td>
+<td style="text-align:left">Implement the platform's controls: access profiles, authentication, encryption, audit logs, backups and vulnerability management.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>National Governance Council (CGN)</strong></td>
+<td style="text-align:left"><strong>Highest decision-making body</strong>, with 9 voting members and 2 observers (Decit/MS, the Department of Science and Technology of the Ministry of Health, and CNPq, the National Council for Scientific and Technological Development). Defines the strategy, approves the admission of centers and the general policies, resolves conflicts between the committees and decides, together with the CAD, exceptional cases such as commercial use and broad international transfer.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Scientific and Publications Committee (CCP)</strong></td>
+<td style="text-align:left"><strong>Decision-making</strong>, with 9 members. Evaluates analysis proposals, defines priority projects, avoids overlap between groups, applies the embargo and authorship rules and registers manuscripts and presentations.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Data Access Committee (CAD)</strong></td>
+<td style="text-align:left"><strong>Decision-making</strong>, with 7 members, including a lay member nominated by the CESP and a representative of the National Tumor Bank (BNT), who links the committee with the BNT and with the clinicopathological data. Defines the compatibility rules for DUO codes, decides controlled-access requests that are not pre-authorized <strong>within 30 days</strong>, audits access and applies sanctions.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Ethics, Society and Participation Committee (CESP)</strong></td>
+<td style="text-align:left"><strong>Advisory</strong>, with 5 to 7 members, including representatives of patients and of ethnic and racial minorities. Monitors collective risks, prohibited uses and social participation, and nominates the lay member of the CAD.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>International Scientific Advisory Board (SAB)</strong></td>
+<td style="text-align:left"><strong>Advisory</strong>, with 5 international members. Guides the alignment of ATPBR with international standards and good practice, such as those of the GA4GH.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Recipient researchers and institutions</strong></td>
+<td style="text-align:left">Use the data only for the authorized purpose, maintain confidentiality and security, <strong>do not attempt to re-identify participants</strong> and comply with the signed use instrument; respect embargo periods and cite ATPBR and the source centers.</td>
+</tr>
+</tbody>
+</table></div>
+<p>The roles are performed by people formally designated by INCA, with defined substitutes, and organized in a <strong>responsibility matrix</strong> that separates who provides the data, who verifies them, who decides on their incorporation or release and who executes and oversees. Members of the collegiate bodies serve 2-year terms, renewable once, declare <strong>conflicts of interest</strong> every year and for each agenda, and <strong>whoever submits a dataset does not vote on it</strong>. No member holds a seat on the CCP and the CAD at the same time, and there are no seats for companies.</p>
+<h4 id="the-data-path-and-who-acts-at-each-step">The data path and who acts at each step<a class="wk-anchor" href="#the-data-path-and-who-acts-at-each-step" aria-label="Link to this section">#</a></h4>
+<p><img src="images/governance_data_path.png" alt="The ATPBR data path in six steps: 1. Participant (CESP); 2. Contributing center (CGN); 3. Verification and processing (Executive Office); 4. ATPBR platform (CAD and Executive Office); 5. Access request (Executive Office, CAD and CGN); 6. Use and publication (CCP and CESP)" /></p>
+<p><em>The tags below each step indicate the bodies that act on it.</em></p>
+<h3 id="participant-protection">Participant protection<a class="wk-anchor" href="#participant-protection" aria-label="Link to this section">#</a></h3>
+<p>The data received by ATPBR <strong>do not include direct identifying information</strong> about participants.</p>
+<p>Each participant and sample receives a code, which makes it possible to integrate clinical and genomic information without directly identifying people. The linkage between codes and identities is protected and remains exclusively under the responsibility of the <strong>source institution</strong>.</p>
+<p>All data are treated as <strong>sensitive personal information</strong>, in accordance with the General Data Protection Law (LGPD), with access controls and additional safeguards for genetic data.</p>
+<h4 id="data-protection-rules">Data protection rules<a class="wk-anchor" href="#data-protection-rules" aria-label="Link to this section">#</a></h4>
+<p>Before sending data to ATPBR, all institutions follow standardized rules:</p>
+<ul>
+<li>Removal of <strong>personal identifiers</strong> (name, CPF (Brazilian individual taxpayer number), National Health Card number, RG (identity card number), medical record number, registration number, address, telephone and email).</li>
+<li>Use of the patient and sample <strong>codes</strong> defined by ATPBR (see <a href="identification-and-barcode-system.html">Identification and barcode system</a>).</li>
+<li>Replacement of clinical event dates with the <strong>number of days</strong> from diagnosis (see <a href="data-dictionary.html">Data dictionary</a>).</li>
+<li>Checking of <strong>free-text fields, file names, headers and technical metadata</strong>, where identifiers often appear unnoticed.</li>
+</ul>
+<h3 id="life-cycle-of-a-dataset">Life cycle of a dataset<a class="wk-anchor" href="#life-cycle-of-a-dataset" aria-label="Link to this section">#</a></h3>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Step</th>
+<th style="text-align:left">What happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>1. Registration and upload</strong></td>
+<td style="text-align:left">The submitting researcher accepts the Responsibility Agreement, registers the Project, Investigation, Study, Patients, Samples, Assay, Files and Experiments, and provides the ethics documentation and the use permissions (see <a href="data-submission.html">Data submission</a>).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>2. Admissibility check</strong></td>
+<td style="text-align:left">Three distinct and complementary checks: (i) <strong>automated</strong>, of required fields, structure and vocabularies; (ii) <strong>technical</strong>, of integrity, consistency and correspondence between patients, samples, experiments and files; and (iii) <strong>ethics and documentation</strong>, of ethics opinions, consent and source permissions.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>3. Validation result</strong></td>
+<td style="text-align:left">The validation team records the dataset as <strong>eligible</strong>, <strong>pending completion</strong> or <strong>not admitted</strong>, with the reasoning and the person responsible for the decision.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>4. Processing and curation</strong></td>
+<td style="text-align:left">Eligible data are processed by the <a href="analysis-platform.html">Analysis platform</a>. Provenance is preserved, and source restrictions carry over to derived data.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>5. Classification and release</strong></td>
+<td style="text-align:left">Each item is classified as public, controlled-access or internal, and anything public undergoes a re-identification risk assessment before release (see <a href="data-access.html">Data access</a>). Before opening, the dataset may be subject to an <strong>embargo period</strong> (publication moratorium), during which first publication is reserved for the original project; the embargo and authorship rules are applied by the Scientific and Publications Committee (CCP).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>6. Controlled access</strong></td>
+<td style="text-align:left">Researchers request access, and the CAD decides case by case (see <a href="data-access.html">Data access</a>).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>7. Retention and disposal</strong></td>
+<td style="text-align:left">The need to retain data and documents is reviewed periodically, according to the scientific purposes, the legal and ethical obligations and the source conditions.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Pending</strong> or <strong>not admitted</strong> datasets <strong>remain blocked</strong>: they are not visible to third parties, are not published and cannot be used in new research until they are brought into compliance. Relevant changes after validation, such as a new document, a new restriction or new patients, trigger a <strong>new verification</strong> of the dataset.</p>
+<h3 id="ethics-documentation-and-permissions-of-each-dataset">Ethics documentation and permissions of each dataset<a class="wk-anchor" href="#ethics-documentation-and-permissions-of-each-dataset" aria-label="Link to this section">#</a></h3>
+<p>Each dataset is linked to the documents proving that it may enter the platform and be used. This set of records forms the dataset's <strong>dossier</strong>.</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Level</th>
+<th style="text-align:left">What is reported and checked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Project</strong></td>
+<td style="text-align:left">Title, scientific lead, participating institutions and ethics approval, with the supporting documents, their version and their validity</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Study</strong></td>
+<td style="text-align:left">Relevant ethics opinion, cohort characteristics, conditions for display in the catalog and study restrictions</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Patients and Samples</strong></td>
+<td style="text-align:left">Consent type, use permissions and restrictions, and identification codes</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Assay, Experiments and Files</strong></td>
+<td style="text-align:left">The conditions of use carry over to the data produced</td>
+</tr>
+</tbody>
+</table></div>
+<p>The expected documents include the CEP or Conep opinion, the version of the informed consent form (TCLE) used (or the consent waiver decision), the data transfer agreement (DTA) and the record of use permissions. <strong>A filled-in field without the corresponding document does not meet the proof requirement.</strong></p>
+<p>The permissions recorded at each level (Study, Patient, Sample, Assay and File) are considered <strong>together</strong>. <strong>The most protective restriction always prevails</strong>, and a discrepancy between levels, for example a study released for general use with a patient who refused future use, <strong>prevents release</strong> until it is resolved and documented.</p>
+<p>Permissions and restrictions follow the GA4GH <strong>Data Use Ontology (DUO)</strong>, which standardizes conditions such as general research use (GRU), health/medical/biomedical research (HMB), disease-specific research (DS), non-commercial use only (NCU), ethics approval required (IRB), collaboration with the provider researcher required (COL), geographic restriction (GS) and publication moratorium (MOR).</p>
+<h3 id="future-use-of-data">Future use of data<a class="wk-anchor" href="#future-use-of-data" aria-label="Link to this section">#</a></h3>
+<p>Using the data in new research requires respecting the conditions of the original study and the choices of each participant:</p>
+<div class="wk-table"><table>
+<thead>
+<tr>
+<th style="text-align:left">Status of the original consent</th>
+<th style="text-align:left">What is required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Future use was authorized</td>
+<td style="text-align:left">The new research may use the data under the authorized conditions, with its own ethics review</td>
+</tr>
+<tr>
+<td style="text-align:left">Future use was not foreseen</td>
+<td style="text-align:left">New consent or a waiver granted by the competent ethics body</td>
+</tr>
+<tr>
+<td style="text-align:left">Future use was expressly refused</td>
+<td style="text-align:left">Only with new consent from the participant or their legal representative</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>The CAD does not grant consent waivers</strong>: that power lies exclusively with the ethics body.</p>
+<h3 id="data-access-and-the-data-access-committee">Data access and the Data Access Committee<a class="wk-anchor" href="#data-access-and-the-data-access-committee" aria-label="Link to this section">#</a></h3>
+<p>What is public, what is controlled-access and what is for internal use, as well as the steps of a controlled-access request and how the CAD decides, are described in <a href="data-access.html">Data access</a>. Two points apply in all cases:</p>
+<ul>
+<li>Working on software development or infrastructure maintenance <strong>does not grant access</strong> to research data. Internal permissions follow a profile matrix and the principle of least privilege.</li>
+<li>The CAD, whose composition is described in Who's who, meets monthly, and its members do not take part in deliberations from which they are disqualified. Quorum and other rules are set out in the <strong>CAD Bylaws</strong>.</li>
+</ul>
+<h3 id="biological-samples-outside-the-scope-of-atpbr">Biological samples (outside the scope of ATPBR)<a class="wk-anchor" href="#biological-samples-outside-the-scope-of-atpbr" aria-label="Link to this section">#</a></h3>
+<p>ATPBR <strong>manages data only</strong>. The governance of biological samples (collection, storage, access, use and transfer) is the responsibility of INCA's National Tumor Bank (BNT) and of the institutions that hold them, and is not regulated by ATPBR's policies; the same applies to instruments concerning samples, such as the Material Transfer Agreement (MTA). Authorization to access data <strong>does not include access to the corresponding samples</strong>.</p>
+<p>The permissions and restrictions that apply to a sample <strong>continue to apply to the data produced from it</strong>.</p>
+<h3 id="participants-rights-and-consent-withdrawal">Participants' rights and consent withdrawal<a class="wk-anchor" href="#participants-rights-and-consent-withdrawal" aria-label="Link to this section">#</a></h3>
+<p>Participants exercise their rights (access, correction, restriction and withdrawal of their data) through the <strong>source institution</strong>, which holds the linkage keys. Requests are handled in coordination with INCA's data protection officer, and the platform locates the records <strong>by their codes</strong>, without needing to receive the participant's name or identity document.</p>
+<p>When there is a consent withdrawal, a new restriction or another request from the participant:</p>
+<ul>
+<li>the affected datasets are identified by their source codes;</li>
+<li>new incompatible uses are blocked;</li>
+<li>researchers who have already received the data are notified, when necessary;</li>
+<li>the measures taken are documented, subject to the cases of retention provided for by law.</li>
+</ul>
+<p>The source institution and the submitting researcher must <strong>promptly notify</strong> ATPBR of any change affecting the submitted data, such as a change in the ethics opinion, consent withdrawal, a new restriction or a security incident.</p>
+<h3 id="security-incidents-and-traceability">Security, incidents and traceability<a class="wk-anchor" href="#security-incidents-and-traceability" aria-label="Link to this section">#</a></h3>
+<p>The platform follows the INCA Cybersecurity Policy, with additional controls proportional to its risks: profile management, access limited to what each role needs, strong authentication for privileged access, encryption, backups and business continuity.</p>
+<p>Records are kept of requests, decisions, consents, enablements, accesses, downloads, suspensions, revocations and terminations, <strong>protected against improper alteration</strong>. These records make it possible to reconstruct who accessed which dataset, when and on the basis of which authorization.</p>
+<p>Security incidents are handled through INCA's privacy and security procedures, with the participation of the ATPBR team and the cooperation of the source institutions. Researchers who suspect an incident, re-identification or misuse must <strong>notify INCA immediately</strong>.</p>
+<p>The risks of the platform's operations are assessed in ATPBR's <strong>Personal Data Protection Impact Assessment (RIPD)</strong>.</p>
+<h3 id="monitoring-and-review">Monitoring and review<a class="wk-anchor" href="#monitoring-and-review" aria-label="Link to this section">#</a></h3>
+<p>ATPBR's coordination tracks indicators on the compliance of datasets, release decisions, participant requests, incidents and corrective measures.</p>
+<p>Relevant changes to the platform architecture, data categories, access features, participating institutions or conditions of use trigger an assessment of the impact on governance, the ethics protocol, the legal instruments and the security controls.</p>
+<p>Controls are implemented progressively, but <strong>each operation starts only after the controls it requires are in place</strong>. For this reason, public release and controlled access are enabled only after their respective procedures have been completed.</p>
+<hr />
+<p><strong>Next chapter → <a href="data-submission.html">Data submission</a>:</strong> how to register a project and submit your data, applying the rules in this chapter.</p>
+
+            </article>
+            <nav class="wk-pager" aria-label="Chapters">
+                <a class="wk-prev" href="platform-architecture.html"><small>← Previous</small>Platform architecture</a>
+                <a class="wk-next" href="data-submission.html"><small>Next →</small>Data submission</a>
+            </nav>
+        </main>
+
+        <aside class="wk-side" id="wk-side">
+            <div class="wk-search">
+                <label for="wk-q" class="wk-visually-hidden">Search the wiki</label>
+                <input id="wk-q" type="search" placeholder="Search the wiki" autocomplete="off">
+            </div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nothing found for"></div>
+            <div id="wk-nav">
+                <h2 class="wk-side-title">Pages</h2>
+                <ol class="wk-pages">
+                    <li class="wk-home"><a href="index.html">Home</a></li>
+<li><a href="about-atpbr.html">About ATPBR</a></li>
+<li><a href="start-here.html">Start here</a></li>
+<li><a href="platform-architecture.html">Platform architecture</a></li>
+<li><a href="data-governance.html" aria-current="page">Data governance</a></li>
+<li><a href="data-submission.html">Data submission</a></li>
+<li><a href="data-access.html">Data access</a></li>
+<li><a href="data-model.html">Data model</a></li>
+<li><a href="data-dictionary.html">Data dictionary</a></li>
+<li><a href="identification-and-barcode-system.html">Identification and barcode system</a></li>
+<li><a href="data-types.html">Data types</a></li>
+<li><a href="analysis-platform.html">Analysis platform</a></li>
+<li><a href="results-browser.html">Results browser</a></li>
+<li><a href="usage-policies.html">Usage policies</a></li>
+<li><a href="frequently-asked-questions.html">Frequently asked questions</a></li>
+                </ol>
+                <h2 class="wk-side-title">On this page</h2>
+<ul class="wk-toc">
+<li class=""><a href="#atpbr-governance-documents-and-instruments">ATPBR governance documents and instruments</a></li>
+<li class="wk-sub"><a href="#institutional-policies">Institutional policies</a></li>
+<li class="wk-sub"><a href="#data-protection-and-participants-rights">Data protection and participants&#x27; rights</a></li>
+<li class="wk-sub"><a href="#responsibility-and-sharing-terms">Responsibility and sharing terms</a></li>
+<li class="wk-sub"><a href="#commitment-to-the-responsible-use-of-data">Commitment to the responsible use of data</a></li>
+<li class=""><a href="#principles">Principles</a></li>
+<li class=""><a href="#different-authorizations-that-do-not-replace-one-another">Different authorizations that do not replace one another</a></li>
+<li class=""><a href="#who-s-who">Who&#x27;s who</a></li>
+<li class="wk-sub"><a href="#the-data-path-and-who-acts-at-each-step">The data path and who acts at each step</a></li>
+<li class=""><a href="#participant-protection">Participant protection</a></li>
+<li class="wk-sub"><a href="#data-protection-rules">Data protection rules</a></li>
+<li class=""><a href="#life-cycle-of-a-dataset">Life cycle of a dataset</a></li>
+<li class=""><a href="#ethics-documentation-and-permissions-of-each-dataset">Ethics documentation and permissions of each dataset</a></li>
+<li class=""><a href="#future-use-of-data">Future use of data</a></li>
+<li class=""><a href="#data-access-and-the-data-access-committee">Data access and the Data Access Committee</a></li>
+<li class=""><a href="#biological-samples-outside-the-scope-of-atpbr">Biological samples (outside the scope of ATPBR)</a></li>
+<li class=""><a href="#participants-rights-and-consent-withdrawal">Participants&#x27; rights and consent withdrawal</a></li>
+<li class=""><a href="#security-incidents-and-traceability">Security, incidents and traceability</a></li>
+<li class=""><a href="#monitoring-and-review">Monitoring and review</a></li>
+</ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="wk-foot">
+        <div class="wk-foot-in">
+            <p><strong>ATPBR · Brazilian Population Tumor Atlas</strong><br>
+                Laboratory of Bioinformatics and Computational Biology, INCA</p>
+            <p><a href="https://atpbr.com.br">atpbr.com.br</a> · <a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a> ·
+                <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">Boroni et al., 2026</a></p>
+        </div>
+    </footer>
+
+    <script src="search-index.js"></script>
+    <script src="../wiki.js"></script>
+</body>
+
+</html>

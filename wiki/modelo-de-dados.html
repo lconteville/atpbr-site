@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modelo de dados · Wiki do ATPBR</title>
     <meta name="description" content="Modelo de dados: como as informações cadastradas se organizam e se relacionam.">
+    <link rel="alternate" hreflang="en" href="en/data-model.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/data-model.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -41,48 +43,43 @@
             <article class="wk-body">
 <p>Em <a href="submissao-de-dados.html">Submissão de dados</a>, vimos a ordem em que as informações são cadastradas. O modelo de dados explica <strong>por que</strong> essa ordem existe: ele define como as informações são organizadas e relacionadas na plataforma, garantindo rastreabilidade, interoperabilidade e consistência ao longo de todo o ciclo de vida dos dados.</p>
 <h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
-<p>O ATPBR organiza os dados em uma estrutura hierárquica que conecta informações científicas, clínicas e experimentais, desde a definição do projeto até os arquivos brutos gerados pelos experimentos. Os dados são organizados em quatro módulos principais:</p>
+<p>O ATPBR utiliza uma estrutura hierárquica composta por quatro módulos principais:</p>
 <p><strong>Projeto → Investigação → Estudo → Ensaio</strong></p>
-<p>Os módulos Estudo e Ensaio contêm os <strong>elementos</strong> que representam os dados clínicos e experimentais: <strong>Pacientes</strong> e <strong>Amostras</strong> (dentro do Estudo) e <strong>Arquivos de dados</strong> e <strong>Experimentos</strong> (dentro do Ensaio).</p>
+<p>Essa organização conecta o contexto científico da pesquisa aos pacientes, às amostras biológicas, aos procedimentos experimentais e aos arquivos de dados gerados.</p>
+<p>Os módulos <strong>Estudo</strong> e <strong>Ensaio</strong> também contêm elementos específicos:</p>
+<ul>
+<li><strong>Estudo:</strong> Pacientes e Amostras.</li>
+<li><strong>Ensaio:</strong> Experimentos e Arquivos de dados.</li>
+</ul>
+<h3 id="secao"><a class="wk-anchor" href="#secao" aria-label="Link para esta seção">#</a></h3>
 <h3 id="principais-modulos">Principais Módulos<a class="wk-anchor" href="#principais-modulos" aria-label="Link para esta seção">#</a></h3>
 <h4 id="projeto">Projeto<a class="wk-anchor" href="#projeto" aria-label="Link para esta seção">#</a></h4>
-<p>O <strong>Projeto</strong> representa o contexto científico <strong>geral</strong> dos dados que serão submetidos. É o nível mais alto da hierarquia e funciona como um “guarda-chuva” sob o qual são organizadas uma ou mais linhas de pesquisa relacionadas. Define os objetivos científicos, o escopo da pesquisa e as instituições participantes.</p>
+<p>Representa o contexto científico geral da pesquisa e constitui o nível mais alto da hierarquia. Reúne uma ou mais linhas de pesquisa relacionadas e define os objetivos científicos, o escopo e as instituições participantes.</p>
 <h4 id="investigacao">Investigação<a class="wk-anchor" href="#investigacao" aria-label="Link para esta seção">#</a></h4>
-<p>A <strong>Investigação</strong> representa uma <strong>linha de pesquisa</strong> dentro do projeto. Agrupa estudos relacionados por um mesmo tema, objetivo científico ou hipótese de pesquisa, podendo abranger um ou mais tipos de câncer.</p>
+<p>Representa uma linha de pesquisa dentro de um Projeto. Agrupa estudos relacionados por um tema, objetivo científico ou hipótese, podendo abranger diferentes tipos de câncer.</p>
 <h4 id="estudo">Estudo<a class="wk-anchor" href="#estudo" aria-label="Link para esta seção">#</a></h4>
-<p>O <strong>Estudo</strong> representa uma unidade científica dedicada à caracterização de um <strong>único tipo de câncer</strong> dentro de uma Investigação. Neste nível são definidos o desenho do estudo, as coortes de participantes e amostras e os critérios clínicos.</p>
-<p>O Estudo contém os elementos:</p>
+<p>Representa uma unidade científica dedicada à caracterização de um único tipo de câncer dentro de uma Investigação. Define o desenho do estudo, as coortes, os critérios de seleção e as características clínicas dos participantes.</p>
+<p>Contém dois elementos:</p>
 <ul>
-<li><strong>Pacientes:</strong> os participantes do estudo, cada um com um único registro na plataforma, independentemente do número de amostras associadas.</li>
-<li><strong>Amostras:</strong> o material biológico coletado de cada paciente. Um paciente pode ter várias amostras.</li>
+<li><strong>Pacientes:</strong> participantes do estudo, cada um com um único registro na plataforma, independentemente do número de amostras associadas.</li>
+<li><strong>Amostras:</strong> materiais biológicos coletados dos pacientes. Um paciente pode estar associado a várias amostras.</li>
 </ul>
 <h4 id="ensaio">Ensaio<a class="wk-anchor" href="#ensaio" aria-label="Link para esta seção">#</a></h4>
-<p>O <strong>Ensaio</strong> representa uma <strong>única corrida experimental</strong> utilizada para gerar dados ômicos a partir das amostras de um Estudo. Corridas distintas, mesmo pertencentes à mesma abordagem ômica, devem ser cadastradas como Ensaios independentes. Um Estudo pode ter vários Ensaios.</p>
-<p>O Ensaio contém os elementos:</p>
+<p>Representa uma corrida experimental utilizada para gerar dados ômicos a partir das amostras de um Estudo. Corridas distintas, mesmo quando utilizam a mesma abordagem ômica, devem ser cadastradas como Ensaios independentes. Um Estudo pode conter vários Ensaios.</p>
+<p>Contém dois elementos:</p>
 <ul>
-<li><strong>Arquivos de dados:</strong> os arquivos brutos produzidos na corrida (FASTQ, veja <a href="tipos-de-dados.html">Tipos de dados</a>), que são o ponto de partida para o processamento realizado pela plataforma.</li>
-<li><strong>Experimentos:</strong> os metadados técnicos da corrida para cada amostra sequenciada, como plataforma de sequenciamento, preparação da biblioteca e layout de leitura. Cada Experimento liga uma <strong>Amostra</strong> aos seus <strong>Arquivos de dados</strong>.</li>
+<li><strong>Arquivos de dados:</strong> arquivos brutos produzidos na corrida experimental, como FASTQ (veja <strong>Tipos de dados</strong>), utilizados como entrada para o processamento na plataforma.</li>
+<li><strong>Experimentos:</strong> registros dos metadados técnicos associados a cada amostra processada na corrida, incluindo plataforma de sequenciamento, preparação da biblioteca e layout de leitura. Cada Experimento relaciona uma Amostra aos respectivos Arquivos de dados.</li>
 </ul>
 <h3 id="como-os-elementos-se-relacionam">Como os Elementos se Relacionam<a class="wk-anchor" href="#como-os-elementos-se-relacionam" aria-label="Link para esta seção">#</a></h3>
 <p><img src="images/modelo_dados.png" alt="Modelo de dados do ATPBR: Projeto, Investigação, Estudo e Ensaio; dentro do Estudo, Paciente e Amostra; dentro do Ensaio, Arquivos de dados e Experimento" /></p>
-<p>A figura mostra a hierarquia da esquerda para a direita e, dentro de cada módulo, os elementos na ordem em que são cadastrados:</p>
+<p>A figura apresenta a hierarquia dos módulos e as relações entre seus elementos.</p>
+<p>Além de pertencer a um módulo, determinados elementos dependem de registros previamente cadastrados:</p>
 <ul>
-<li><strong>Projeto:</strong> iniciativa com uma ou mais linhas de pesquisa.</li>
-<li><strong>Investigação:</strong> uma linha de pesquisa, voltada a um ou mais tipos de câncer.</li>
-<li><strong>Estudo:</strong> dedicado a um único tipo de câncer.</li>
-<li><strong>Ensaio:</strong> a corrida e a abordagem experimental, por exemplo, a Corrida 01 do sequenciamento genômico.</li>
+<li>Uma <strong>Amostra</strong> deve estar associada a um <strong>Paciente</strong>.</li>
+<li>Um <strong>Experimento</strong> deve estar associado a uma <strong>Amostra</strong> e aos respectivos <strong>Arquivos de dados</strong> disponíveis no Ensaio.</li>
 </ul>
-<p>Abaixo do Estudo e do Ensaio estão os elementos que cada um contém:</p>
-<ul>
-<li><strong>Dentro do Estudo:</strong> o <strong>Paciente</strong> (o participante, cadastrado com dados pseudonimizados) e a <strong>Amostra</strong> (o material biológico).</li>
-<li><strong>Dentro do Ensaio:</strong> os <strong>Arquivos de dados</strong> (os FASTQ da corrida) e o <strong>Experimento</strong> (os metadados técnicos da corrida).</li>
-</ul>
-<p>Além de pertencer a um módulo, cada elemento aponta para um elemento previamente cadastrado. Por isso, a ordem de cadastro descrita em <a href="submissao-de-dados.html">Submissão de dados</a> não pode ser invertida:</p>
-<ul>
-<li>Uma <strong>Amostra</strong> referencia um <strong>Paciente</strong> já cadastrado.</li>
-<li>Um <strong>Experimento</strong> referencia uma <strong>Amostra</strong> já cadastrada e os <strong>Arquivos de dados</strong> já disponíveis no Ensaio.</li>
-</ul>
-<p>Essa cadeia permite rastrear qualquer resultado até a corrida, a amostra e o paciente de origem.</p>
+<p>Essas dependências determinam a ordem de cadastro na plataforma e permitem rastrear os dados experimentais até a amostra e o paciente de origem.</p>
 <p>Os campos de cada módulo e elemento estão descritos no capítulo seguinte. Alguns deles também compõem o identificador único de pacientes, amostras e ensaios, apresentado em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
 <hr />
 <p><strong>Próximo capítulo → <a href="dicionario-de-dados.html">Dicionário de dados</a>:</strong> os campos de cada módulo e elemento e as regras para preenchê-los.</p>
@@ -99,7 +96,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
@@ -122,6 +119,7 @@
                 <h2 class="wk-side-title">Nesta página</h2>
 <ul class="wk-toc">
 <li class=""><a href="#visao-geral">Visão Geral</a></li>
+<li class=""><a href="#secao"></a></li>
 <li class=""><a href="#principais-modulos">Principais Módulos</a></li>
 <li class="wk-sub"><a href="#projeto">Projeto</a></li>
 <li class="wk-sub"><a href="#investigacao">Investigação</a></li>

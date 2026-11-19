@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arquitetura da plataforma · Wiki do ATPBR</title>
     <meta name="description" content="Arquitetura da plataforma: visão geral do caminho que os dados percorrem.">
+    <link rel="alternate" hreflang="en" href="en/platform-architecture.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/platform-architecture.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -45,27 +47,24 @@
 <p>De forma simplificada, o fluxo de dados no ATPBR segue as seguintes etapas:</p>
 <p><strong>Submissão → Armazenamento seguro → Harmonização → Análises reprodutíveis → Visualização → Acesso controlado → Governança</strong></p>
 <p><img src="images/fluxo_arquitetura.png" alt="Fluxo de dados no ATPBR: Submissão, Armazenamento seguro, Harmonização, Análises reprodutíveis, Visualização, Acesso controlado e Governança" /></p>
-<h3 id="submissao">Submissão<a class="wk-anchor" href="#submissao" aria-label="Link para esta seção">#</a></h3>
-<p>A submissão é o envio dos metadados e dos arquivos de sequenciamento pelos usuários. O processo, passo a passo, está em <a href="submissao-de-dados.html">Submissão de dados</a>.</p>
-<p>Os dados recebidos passam por verificações automáticas e manuais de integridade, formato, campos obrigatórios e consistência entre metadados e arquivos, além da conferência da documentação ética e das permissões de uso. Ser aceito pelo sistema não equivale a ser admitido: enquanto houver pendências, o conjunto fica bloqueado para divulgação e para novos usos. As verificações e a correção de erros estão descritas em <a href="submissao-de-dados.html">Submissão de dados</a>, e as regras de admissão, em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
-<h3 id="armazenamento-seguro">Armazenamento seguro<a class="wk-anchor" href="#armazenamento-seguro" aria-label="Link para esta seção">#</a></h3>
+<p>Em todas as etapas, os princípios de proteção dos participantes apresentados em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a> são aplicados por meio de controle de acesso por perfis e permissões, registro e auditoria de atividades e gestão das solicitações de acesso a dados controlados. As regras e os responsáveis por cada etapa estão em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
+<h3 id="ingestao-de-dados">Ingestão de Dados<a class="wk-anchor" href="#ingestao-de-dados" aria-label="Link para esta seção">#</a></h3>
+<p>A ingestão é o recebimento dos metadados e dos arquivos de sequenciamento enviados pelos usuários. O processo, passo a passo, está em <a href="submissao-de-dados.html">Submissão de dados</a>. Os dados são organizados segundo o <a href="modelo-de-dados.html">Modelo de dados</a> e recebem identificadores padronizados, descritos em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
+<h3 id="validacao">Validação<a class="wk-anchor" href="#validacao" aria-label="Link para esta seção">#</a></h3>
+<p>Após a ingestão, os dados passam por verificações automáticas e manuais de integridade, formato, campos obrigatórios e consistência entre metadados e arquivos, além da conferência da documentação ética e das permissões de uso. Ser aceito pelo sistema não equivale a ser admitido: enquanto houver pendências, o conjunto fica bloqueado para divulgação e para novos usos. As verificações e a correção de erros estão descritas em <a href="submissao-de-dados.html">Submissão de dados</a>, e as regras de admissão, em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
+<h3 id="armazenamento-de-dados">Armazenamento de Dados<a class="wk-anchor" href="#armazenamento-de-dados" aria-label="Link para esta seção">#</a></h3>
 <p>A arquitetura separa o armazenamento em <strong>duas camadas complementares</strong>, ligadas por um catálogo de metadados:</p>
 <ul>
 <li><strong>Camada de dados brutos:</strong> guarda os arquivos de grande volume (os FASTQ submetidos e os CRAM gerados no processamento), preservando os originais para rastreabilidade e futuras reanálises.</li>
 <li><strong>Camada de dados estruturados:</strong> guarda os dados processados e organizados para consulta, como dados clínicos harmonizados, alterações genômicas e matrizes de expressão gênica.</li>
 <li><strong>Metadados e catalogação:</strong> o catálogo registra projetos, investigações, estudos, pacientes, amostras, ensaios, experimentos, arquivos e processamentos executados. É ele que permite localizar um conjunto de dados, compreender sua origem e reconstruir o histórico completo de geração das informações.</li>
 </ul>
-<p>O acesso às duas camadas é restrito por perfis e permissões, e as atividades ficam registradas para auditoria.</p>
-<h3 id="harmonizacao">Harmonização<a class="wk-anchor" href="#harmonizacao" aria-label="Link para esta seção">#</a></h3>
-<p>A harmonização torna comparáveis os dados vindos de centros e projetos diferentes. Os metadados são organizados segundo o <a href="modelo-de-dados.html">Modelo de dados</a> e preenchidos conforme o <a href="dicionario-de-dados.html">Dicionário de dados</a>, com vocabulários controlados e ontologias de referência. Pacientes, amostras e ensaios recebem identificadores padronizados, descritos em <a href="sistema-de-identificacao-e-barcode.html">Sistema de identificação e barcode</a>.</p>
-<h3 id="analises-reprodutiveis">Análises reprodutíveis<a class="wk-anchor" href="#analises-reprodutiveis" aria-label="Link para esta seção">#</a></h3>
-<p>Os FASTQ validados são processados por pipelines padronizados e versionados, que identificam variantes somáticas e quantificam a expressão gênica. Cada processamento executado fica registrado no catálogo de metadados, o que permite refazer a análise e reconstruir a origem de cada resultado. Os resultados são então padronizados, anotados e integrados aos dados clínicos harmonizados, o que permite comparar estudos diferentes. Os pipelines, as versões e os arquivos gerados estão em <a href="plataforma-analitica.html">Plataforma analítica</a>.</p>
-<h3 id="visualizacao">Visualização<a class="wk-anchor" href="#visualizacao" aria-label="Link para esta seção">#</a></h3>
-<p>Os dados harmonizados são carregados no cBioPortal do ATPBR, onde os resultados podem ser explorados de forma interativa. A preparação e a carga dos estudos são feitas pela equipe de dados do ATPBR. Como navegar pelos resultados está em <a href="navegador-de-resultados.html">Navegador de resultados</a>.</p>
-<h3 id="acesso-controlado">Acesso controlado<a class="wk-anchor" href="#acesso-controlado" aria-label="Link para esta seção">#</a></h3>
-<p>Os estudos e conjuntos de dados de todos os projetos podem ser consultados no <strong>catálogo de dados</strong> da plataforma. Os metadados do catálogo e os resultados aprovados para divulgação são públicos; os arquivos de sequenciamento e os dados individualizados ficam sob acesso controlado e só são liberados a pesquisadores autorizados pelo Comitê de Acesso a Dados. O que é aberto, o que é controlado e como solicitar acesso estão em <a href="acesso-aos-dados.html">Acesso aos dados</a>.</p>
-<h3 id="governanca">Governança<a class="wk-anchor" href="#governanca" aria-label="Link para esta seção">#</a></h3>
-<p>A governança aparece como a última etapa da figura, mas suas regras valem ao longo de todo o fluxo. Em todas as etapas, os princípios de proteção dos participantes apresentados em <a href="sobre-o-atpbr.html">Sobre o ATPBR</a> são aplicados por meio de controle de acesso por perfis e permissões, registro e auditoria de atividades e gestão das solicitações de acesso a dados controlados. As regras e os responsáveis por cada etapa estão em <a href="governanca-de-dados.html">Governança de dados</a>.</p>
+<h3 id="processamento-de-dados">Processamento de Dados<a class="wk-anchor" href="#processamento-de-dados" aria-label="Link para esta seção">#</a></h3>
+<p>Os FASTQ validados são processados por pipelines padronizados, que identificam variantes somáticas e quantificam a expressão gênica. Os pipelines, as versões e os arquivos gerados estão em <a href="plataforma-analitica.html">Plataforma analítica</a>.</p>
+<h3 id="harmonizacao-e-integracao">Harmonização e Integração<a class="wk-anchor" href="#harmonizacao-e-integracao" aria-label="Link para esta seção">#</a></h3>
+<p>Os resultados do processamento são padronizados, anotados e integrados aos dados clínicos, o que permite comparar estudos diferentes. Os dados harmonizados não sensíveis são carregados no cBioPortal do ATPBR.</p>
+<h3 id="exploracao-e-compartilhamento">Exploração e Compartilhamento<a class="wk-anchor" href="#exploracao-e-compartilhamento" aria-label="Link para esta seção">#</a></h3>
+<p>Os resultados podem ser explorados no <a href="navegador-de-resultados.html">Navegador de resultados</a> (cBioPortal do ATPBR). Os estudos e conjuntos de dados dos projetos podem ser consultados no Catálogo de Dados da plataforma, desde que sua disponibilização tenha sido autorizada pelos respectivos responsáveis. Para saber mais sobre os critérios de disponibilização, os níveis de acesso (aberto ou controlado) e os procedimentos para solicitar acesso aos dados, consulte a seção <a href="acesso-aos-dados.html">Acesso aos dados</a>.</p>
 <hr />
 <p><strong>Próximo capítulo → <a href="governanca-de-dados.html">Governança de dados</a>:</strong> as regras que valem ao longo desse fluxo: quem é responsável por cada etapa, como os participantes são protegidos e quais autorizações cada uso exige.</p>
 
@@ -81,7 +80,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
@@ -104,13 +103,12 @@
                 <h2 class="wk-side-title">Nesta página</h2>
 <ul class="wk-toc">
 <li class=""><a href="#visao-geral-da-arquitetura">Visão Geral da Arquitetura</a></li>
-<li class=""><a href="#submissao">Submissão</a></li>
-<li class=""><a href="#armazenamento-seguro">Armazenamento seguro</a></li>
-<li class=""><a href="#harmonizacao">Harmonização</a></li>
-<li class=""><a href="#analises-reprodutiveis">Análises reprodutíveis</a></li>
-<li class=""><a href="#visualizacao">Visualização</a></li>
-<li class=""><a href="#acesso-controlado">Acesso controlado</a></li>
-<li class=""><a href="#governanca">Governança</a></li>
+<li class=""><a href="#ingestao-de-dados">Ingestão de Dados</a></li>
+<li class=""><a href="#validacao">Validação</a></li>
+<li class=""><a href="#armazenamento-de-dados">Armazenamento de Dados</a></li>
+<li class=""><a href="#processamento-de-dados">Processamento de Dados</a></li>
+<li class=""><a href="#harmonizacao-e-integracao">Harmonização e Integração</a></li>
+<li class=""><a href="#exploracao-e-compartilhamento">Exploração e Compartilhamento</a></li>
 </ul>
             </div>
         </aside>

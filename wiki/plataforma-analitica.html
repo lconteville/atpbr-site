@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plataforma analítica · Wiki do ATPBR</title>
     <meta name="description" content="Plataforma analítica: como os dados enviados são processados.">
+    <link rel="alternate" hreflang="en" href="en/analysis-platform.html">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
@@ -28,6 +29,7 @@
             <nav class="wk-top-nav" aria-label="Site">
                 <a href="../index.html">Site</a>
                 <a href="../infografico.html">Infográfico</a>
+                <a class="wk-lang" href="en/analysis-platform.html" hreflang="en" lang="en" title="Read this page in English">English</a>
                 <button class="wk-menu" type="button" aria-controls="wk-side" aria-expanded="false">Páginas</button>
             </nav>
         </div>
@@ -37,7 +39,7 @@
         <main class="wk-main" id="conteudo">
             <nav class="wk-crumbs" aria-label="Você está em"><a href="index.html">Wiki</a><span aria-hidden="true">/</span>Plataforma analítica</nav>
             <h1>Plataforma analítica</h1>
-            <p class="wk-meta">Capítulo 11 de 14 · Atualizado em 16/11/2026</p>
+            <p class="wk-meta">Capítulo 11 de 14 · Atualizado em 18/11/2026</p>
             <article class="wk-body">
 <p>Os arquivos FASTQ aceitos na submissão (veja <a href="tipos-de-dados.html">Tipos de dados</a>) são processados pela <strong>Plataforma Analítica do ATPBR (ATPBR-AP)</strong>. Este capítulo descreve quais pipelines são usados, como estão configurados e quais resultados geram.</p>
 <h3 id="visao-geral">Visão Geral<a class="wk-anchor" href="#visao-geral" aria-label="Link para esta seção">#</a></h3>
@@ -56,7 +58,7 @@
 <tr>
 <td style="text-align:left">WGS, WES e painel gênico</td>
 <td style="text-align:left"><code>nf-core/sarek</code> 3.10.0</td>
-<td style="text-align:left">Variantes somáticas anotadas</td>
+<td style="text-align:left">Variantes somáticas anotadas e filtradas</td>
 </tr>
 <tr>
 <td style="text-align:left">RNA-seq</td>
@@ -66,12 +68,14 @@
 </tbody>
 </table></div>
 <h3 id="controle-de-qualidade">Controle de Qualidade<a class="wk-anchor" href="#controle-de-qualidade" aria-label="Link para esta seção">#</a></h3>
-<p>Todas as amostras passam automaticamente por duas ferramentas antes da análise:</p>
+<p>O controle de qualidade permite avaliar as características das leituras de sequenciamento e identificar possíveis problemas que possam comprometer as análises subsequentes.</p>
+<p>As ferramentas utilizadas incluem:</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"><strong>FastQC</strong></a>: avalia a qualidade dos dados brutos.</li>
-<li><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/34/17/i884/5093234"><strong>fastp</strong></a>: remove adaptadores e descarta leituras de baixa qualidade.</li>
+<li><a target="_blank" rel="noopener" href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/?utm_source=chatgpt.com">FastQC</a>: avalia a qualidade das leituras brutas, incluindo qualidade por base, conteúdo GC, duplicação e presença de adaptadores.</li>
+<li><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/34/17/i884/5093234?utm_source=chatgpt.com">fastp</a>: realiza filtragem e pré-processamento das leituras, incluindo remoção de adaptadores e sequências de baixa qualidade, conforme os parâmetros configurados.</li>
+<li><a target="_blank" rel="noopener" href="https://multiqc.info/?utm_source=chatgpt.com">MultiQC</a>: consolida métricas e relatórios de diferentes ferramentas, facilitando a avaliação conjunta das amostras.</li>
 </ul>
-<p>Os resultados das duas ferramentas são reunidos em um relatório <strong>MultiQC</strong> (<code>multiqc_report.html</code>). As principais métricas a observar são:</p>
+<p>Os resultados das duas ferramentas são reunidos em um relatório <strong>MultiQC</strong>. As principais métricas avaliadas são:</p>
 <div class="wk-table"><table>
 <thead>
 <tr>
@@ -90,11 +94,11 @@
 </tr>
 <tr>
 <td style="text-align:left">Bases não identificadas (N)</td>
-<td style="text-align:left">Menos de 5%. Valores maiores indicam problema na corrida de sequenciamento.</td>
+<td style="text-align:left">Menos de 5%. Valores maiores indicam problema na qualidade do sequenciamento.</td>
 </tr>
 <tr>
 <td style="text-align:left">Duplicação</td>
-<td style="text-align:left">Baixa em WGS. Níveis mais altos são esperados em WES, painel gênico e RNA-seq.</td>
+<td style="text-align:left">A interpretação depende do tipo de ensaio, profundidade e complexidade da biblioteca. Níveis elevados podem ser esperados em WES, painéis gênicos e RNA-seq.</td>
 </tr>
 <tr>
 <td style="text-align:left">Conteúdo de adaptadores</td>
@@ -107,14 +111,24 @@
 </tbody>
 </table></div>
 <h3 id="analise-de-wgs-wes-e-painel-genico">Análise de WGS, WES e Painel Gênico<a class="wk-anchor" href="#analise-de-wgs-wes-e-painel-genico" aria-label="Link para esta seção">#</a></h3>
-<p>O pipeline <a target="_blank" rel="noopener" href="https://nf-co.re/sarek"><code>nf-core/sarek</code></a> executa as seguintes etapas:</p>
+<p>O processamento de dados de sequenciamento de DNA é realizado utilizando o <a target="_blank" rel="noopener" href="https://nf-co.re/sarek"><code>nf-core/sarek</code></a> , versão 3.10.0, com configurações específicas do ATPBR. O fluxo compreende as seguintes etapas:</p>
 <ol>
-<li><strong>Controle de qualidade e corte</strong> com FastQC e fastp.</li>
+<li><strong>Controle de qualidade e pré-processamento</strong> com FastQC e fastp.</li>
 <li><strong>Alinhamento</strong> ao genoma de referência GRCh38 com <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1303.3997v2">BWA-MEM</a>. As leituras de diferentes lanes são reunidas por amostra e salvas em formato CRAM.</li>
-<li><strong>Pré-processamento</strong> com o <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/20644199/">GATK</a>: marcação de duplicatas e recalibração da qualidade das bases.</li>
-<li><strong>Chamada de variantes somáticas</strong> (SNVs e pequenas inserções e deleções) com o <a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/861054v1">Mutect2</a>, em amostras de tumor isolado ou em pares tumor-normal.</li>
+<li><strong>Pré-processamento</strong> dos alinhamentos com o <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/20644199/">GATK</a>: marcação de duplicatas e recalibração da qualidade das bases.</li>
+<li><strong>Chamada de variantes somáticas</strong>identificação de variantes de nucleotídeo único (SNVs) e pequenas inserções e deleções (indels) utilizando o <a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/861054v1">Mutect2</a>, considerando duas estratégias:
+<ul>
+<li><strong>Amostras pareadas (tumor-normal):</strong> utiliza dados do tumor e de uma amostra normal correspondente ao mesmo paciente, permitindo distinguir variantes somáticas de variantes germinativas com maior precisão.</li>
+<li><strong>Amostras não pareadas (tumor-only):</strong> utiliza exclusivamente os dados tumorais, sem uma amostra normal correspondente. Nesse caso, a identificação de variantes somáticas depende mais fortemente de filtros populacionais e de recursos de identificação de artefatos, podendo permanecer variantes germinativas entre os resultados.</li>
+</ul>
+</li>
 <li><strong>Anotação</strong> dos efeitos de cada variante em genes, transcritos e proteínas com o <a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/27268795/">Ensembl VEP</a>.</li>
-<li><strong>Filtragem</strong> de artefatos e de variantes germinativas: são removidas as variantes presentes no painel de normais do <a target="_blank" rel="noopener" href="https://www.internationalgenome.org/">1000 Genomes</a>, as variantes com frequência acima de 1% no <a target="_blank" rel="noopener" href="https://gnomad.broadinstitute.org/">gnomAD</a> e as variantes com frequência acima de 0,1% na população brasileira, segundo o <a target="_blank" rel="noopener" href="https://abraom.ib.usp.br/">ABraOM</a>. A filtragem pelo ABraOM é feita por um pipeline interno da equipe do ATPBR, após o <code>nf-core/sarek</code>.</li>
+<li><strong>Filtragem</strong> de artefatos e de variantes potencialmente germinativas, considerando a estratégia de análise:
+<ul>
+<li><strong>Amostras pareadas:</strong> a comparação tumor-normal permite identificar e excluir variantes presentes na amostra normal correspondente, complementada pelos filtros de qualidade do Mutect2.</li>
+<li><strong>Amostras não pareadas:</strong> são filtradas variantes presentes no painel de normais (PoN) do <a target="_blank" rel="noopener" href="https://www.internationalgenome.org/">1000 Genomes</a>, variantes com frequência populacional acima de 1% no <a target="_blank" rel="noopener" href="https://gnomad.broadinstitute.org/">gnomAD</a> e variantes com frequência acima de 0,1% na população brasileira, segundo o <a target="_blank" rel="noopener" href="https://abraom.ib.usp.br/">ABraOM</a>. A filtragem pelo ABraOM é realizada por um pipeline interno da equipe do ATPBR, após o <code>nf-core/sarek</code>.</li>
+</ul>
+</li>
 </ol>
 <p><strong>Configuração</strong></p>
 <div class="wk-table"><table>
@@ -139,15 +153,26 @@
 </tr>
 <tr>
 <td style="text-align:left"><strong>Chamador de variantes</strong></td>
-<td style="text-align:left">Mutect2</td>
+<td style="text-align:left">Mutect2 (tumor-normal e tumor-only)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Anotação funcional</strong></td>
+<td style="text-align:left">Ensembl VEP</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong>Filtros</strong></td>
-<td style="text-align:left">Painel de normais do 1000 Genomes, gnomAD, VEP <code>--filter_common</code>, ABraOM</td>
+<td style="text-align:left">PoN, gnomAD, 1000 Genomes e ABraOM, conforme a etapa e a estratégia</td>
 </tr>
 </tbody>
 </table></div>
-<h3 id="secao"><a class="wk-anchor" href="#secao" aria-label="Link para esta seção">#</a></h3>
+<h3 id="pos-processamento-das-variantes-somaticas">Pós-processamento das variantes somáticas<a class="wk-anchor" href="#pos-processamento-das-variantes-somaticas" aria-label="Link para esta seção">#</a></h3>
+<p>Após a execução do <code>nf-core/sarek</code>, scripts desenvolvidos pela equipe do ATPBR processam os arquivos VCF anotados para selecionar variantes, organizar informações genômicas e incorporar dados populacionais complementares.</p>
+<p>O processamento documentado compreende as seguintes etapas:</p>
+<ol>
+<li><strong>Seleção das variantes PASS:</strong> São selecionadas as variantes cujo campo FILTER no VCF apresenta o valor PASS, indicando que atenderam aos critérios de filtragem aplicados anteriormente.</li>
+<li><strong>Conversão para tabela:</strong> os campos da anotação do VEP e as contagens de leituras do tumor (profundidade DP, leituras por alelo AD e frequência alélica AF) são extraídos para uma tabela por amostra. A frequência do 1000 Genomes informada pelo VEP passa a se chamar <code>GMAF</code>.</li>
+<li><strong>Anotação com o ABraOM:</strong> cada variante recebe a frequência alélica observada na população brasileira.</li>
+</ol>
 <h3 id="analise-de-rna-seq">Análise de RNA-seq<a class="wk-anchor" href="#analise-de-rna-seq" aria-label="Link para esta seção">#</a></h3>
 <p>O pipeline <a target="_blank" rel="noopener" href="https://nf-co.re/rnaseq"><code>nf-core/rnaseq</code></a> processa RNA-seq de leituras curtas (RNA total, enriquecido com poli(A) ou depletado de rRNA) nas seguintes etapas:</p>
 <ol>
@@ -202,7 +227,7 @@
                 <label for="wk-q" class="wk-visually-hidden">Buscar na wiki</label>
                 <input id="wk-q" type="search" placeholder="Buscar na wiki" autocomplete="off">
             </div>
-            <div id="wk-results" class="wk-results" hidden></div>
+            <div id="wk-results" class="wk-results" hidden data-empty="Nada encontrado para"></div>
             <div id="wk-nav">
                 <h2 class="wk-side-title">Páginas</h2>
                 <ol class="wk-pages">
@@ -227,7 +252,7 @@
 <li class=""><a href="#visao-geral">Visão Geral</a></li>
 <li class=""><a href="#controle-de-qualidade">Controle de Qualidade</a></li>
 <li class=""><a href="#analise-de-wgs-wes-e-painel-genico">Análise de WGS, WES e Painel Gênico</a></li>
-<li class=""><a href="#secao"></a></li>
+<li class=""><a href="#pos-processamento-das-variantes-somaticas">Pós-processamento das variantes somáticas</a></li>
 <li class=""><a href="#analise-de-rna-seq">Análise de RNA-seq</a></li>
 <li class=""><a href="#limitacoes">Limitações</a></li>
 </ul>

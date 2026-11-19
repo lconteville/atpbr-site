@@ -69,7 +69,7 @@
             ? hits.map(function (h) {
                 return '<a href="' + h.p.u + '"><strong>' + esc(h.p.t) + '</strong><span>' + snippet(h.p, terms[0]) + '</span></a>';
             }).join('')
-            : '<p>Nada encontrado para “' + esc(q) + '”.</p>';
+            : '<p>' + esc(results.getAttribute('data-empty') || 'Nada encontrado para') + ' “' + esc(q) + '”.</p>';
         results.hidden = false;
         nav.hidden = true;
     }
