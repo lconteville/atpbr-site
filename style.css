@@ -1793,20 +1793,13 @@ img {
 }
 
 /* link para a mesma peça no outro idioma, abaixo do botão */
-.docs-grid .pub-alt,
-.pub-evento .pub-alt {
+.docs-grid .pub-alt {
     margin: 0.9rem 0 0;
     font-size: 0.9rem;
     opacity: 0.85;
 }
 
-/* no card do evento: link da transmissão logo abaixo do botão (o card já tem gap) */
-.pub-evento .pub-alt {
-    margin-top: -0.9rem;
-}
-
-.docs-grid .pub-alt a,
-.pub-evento .pub-alt a {
+.docs-grid .pub-alt a {
     color: inherit;
     font-weight: 600;
 }
