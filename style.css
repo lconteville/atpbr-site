@@ -1889,15 +1889,6 @@ img {
    objetivos deixa de sair pela borda e os links pequenos ganham área de toque
    de pelo menos 44px. */
 @media (max-width: 600px) {
-    .patrocinadores-logos {
-        width: auto;
-        max-width: 100%;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 16px 24px;
-    }
-
     .patrocinadores-logos img {
         max-width: 100%;
         height: 44px;
@@ -1908,10 +1899,12 @@ img {
         left: 0;
     }
 
-    /* as colunas já estão empilhadas; o mínimo de 320px só servia para a quebra no desktop
-       e, somado ao respiro lateral, estourava telas de 320 a 380px */
+    /* título e texto (ex.: "Panorama Geral" e "Nossa missão") um embaixo do outro.
+       O empilhamento vinha só do mínimo de 320px, que, somado ao respiro lateral,
+       estourava telas de 320 a 380px; aqui ele é explícito e o mínimo sai. */
     .left,
     .right {
+        flex: 1 1 100%;
         min-width: 0;
     }
 
@@ -1946,6 +1939,60 @@ img {
     /* "Colaboradores" encostava na borda do cartão */
     .cta-card h2 {
         font-size: min(3.2rem, 12vw);
+    }
+}
+
+/* faixa de financiadores no tablet: a altura fixa de 20vh (só liberada abaixo de 480px)
+   cortava o texto e os logos quando quebravam linha, que então invadiam o hero e a seção
+   seguinte (ex.: 600 x 960). Agora 20vh é o mínimo e a faixa cresce com o conteúdo. */
+@media (max-width: 1024px) {
+    .patrocinadores {
+        height: auto;
+        min-height: 20vh;
+    }
+
+    /* texto numa linha e logos na linha de baixo, alinhados à esquerda com o texto.
+       Lado a lado, os logos (443px) não cabiam na caixa fixa de 393px e o do Genomas
+       Brasil cobria o fim do texto entre ~600 e ~1100px. */
+    .patrocinadores h3 {
+        flex: 1 1 100%;
+    }
+
+    .patrocinadores-logos {
+        flex: 1 1 100%;
+        width: auto;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 16px 32px;
+    }
+
+    /* a regra global img { margin: 0 auto } repartia a sobra da linha entre os logos */
+    .patrocinadores-logos img {
+        margin: 0;
+    }
+}
+
+/* tablet: o logo e a frase do topo, a faixa de financiadores e o "Panorama Geral" ficavam
+   colados nas bordas da tela; no topo, a frase ainda era cortada pela curva do bloco verde.
+   A altura do topo passa a ser mínima (80vh) para crescer quando logo e frase empilham. */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .hero-container {
+        height: auto;
+        min-height: 80vh;
+        align-content: center;
+        padding: 110px 40px 80px;
+    }
+
+    .patrocinadores {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .dobra {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 
