@@ -2004,3 +2004,443 @@ img {
         overflow-x: clip;
     }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MELHORIAS · NOVEMBRO 2026
+   Navegação, números, tipos de câncer, rede nacional, participe,
+   rodapé e acessibilidade.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+    --navy: #1F3354;
+    --azul-claro: #DCE4F0;
+    --verde-claro: #D9F0E7;
+    --branco: #FAFBFA;
+    --sombra: 0 1px 2px rgba(31, 51, 84, .06), 0 8px 24px rgba(31, 51, 84, .08);
+}
+
+/* ── Acessibilidade ── */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    z-index: 1000;
+    background: var(--dark);
+    color: #fff;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    padding: .7rem 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+.kicker {
+    display: inline-block;
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: .8rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--cor-primaria);
+    margin-bottom: .9rem;
+}
+
+/* Títulos longos em cards: Nunito é mais legível que a fonte de display */
+.pub-title {
+    font-family: "Nunito", sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: -.005em;
+    line-height: 1.25 !important;
+    font-size: 1.3rem !important;
+    overflow-wrap: break-word;
+}
+.pub-btn { white-space: nowrap; }
+
+/* ── Cabeçalho ── */
+.header-link {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    border-color: transparent;
+    background: transparent;
+    padding: .55rem .8rem;
+}
+.header-link:hover { border-color: transparent; text-decoration: underline; text-underline-offset: 4px; }
+.header-cta-destaque {
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 1.02rem;
+    background: var(--dark);
+    color: var(--light);
+    padding: .6rem 1.25rem;
+}
+.header-cta-destaque:hover { background: var(--cor-primaria); color: #fff; }
+a.header-lang { text-decoration: none; }
+.popup-cta-destaque { background: var(--dark) !important; color: var(--light) !important; }
+
+/* ── Hero ── */
+.hero-texto {
+    flex: 1 1 420px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    position: relative;
+    z-index: 2;
+}
+.hero-sub {
+    font-size: 1.22rem;
+    line-height: 1.5;
+    color: var(--dark);
+    max-width: 34em;
+}
+.hero-badge {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: .95rem;
+    line-height: 1.3;
+    color: var(--dark);
+    background: rgba(250, 251, 250, .72);
+    backdrop-filter: blur(6px);
+    border: 1.5px solid rgba(43, 43, 43, .2);
+    border-radius: 999px;
+    padding: .55rem 1.1rem .55rem .8rem;
+    text-decoration: none;
+    transition: background .2s ease, border-color .2s ease;
+}
+.hero-badge:hover { background: #fff; border-color: var(--dark); }
+.hero-badge-dot {
+    width: 10px; height: 10px; flex: none;
+    border-radius: 50%;
+    background: #E0475B;
+    box-shadow: 0 0 0 0 rgba(224, 71, 91, .5);
+    animation: pulso 2s infinite;
+}
+@keyframes pulso {
+    0% { box-shadow: 0 0 0 0 rgba(224, 71, 91, .5); }
+    70% { box-shadow: 0 0 0 10px rgba(224, 71, 91, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(224, 71, 91, 0); }
+}
+
+/* ── Financiadores ── */
+.patrocinadores { height: auto; padding: 48px 20px; }
+.patrocinadores-texto {
+    flex: 1 1 380px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+.patrocinadores-logos { width: auto; flex: 0 1 auto; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: flex-end; }
+.patrocinadores-logos img { height: 54px; margin: 0; }
+.patrocinadores-logos .logo-cnpq { height: 30px; }
+
+/* ── Panorama ── */
+.title .subtitulo {
+    font-family: "Margin", sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 1.1;
+    color: var(--cor-primaria);
+    margin-top: .6rem;
+}
+.panorama-cards-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .panorama-cards-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; } }
+@media (max-width: 600px) { .panorama-card span { font-size: 4.4rem; } }
+.panorama-label {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    max-width: 14em;
+}
+.panorama-nota {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: .9rem !important;
+    color: var(--dark-60);
+    margin-top: .5rem !important;
+}
+
+/* ── Tipos de câncer ── */
+.tipos-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(280px, 5fr) 7fr;
+    gap: 60px;
+    align-items: center;
+}
+.tipos-texto h2 { font-size: 3.6rem; line-height: .95; margin-bottom: 1.4rem; text-wrap: balance; }
+.tipos-texto p { line-height: 1.55; }
+.tipos-leg {
+    display: flex; align-items: center; gap: .6rem;
+    margin-top: 1.4rem !important;
+    font-size: .95rem !important;
+    font-weight: 700;
+}
+.tipos-leg-dot { width: 14px; height: 14px; border-radius: 4px; background: var(--cor-secundaria); flex: none; }
+.tipos-card {
+    background: var(--branco);
+    border-radius: 2rem;
+    padding: 2.2rem 2.4rem 1.6rem;
+    box-shadow: var(--sombra);
+}
+.tipos-lista { list-style: none; display: flex; flex-direction: column; gap: .9rem; }
+.tipo {
+    display: grid;
+    grid-template-columns: minmax(150px, 15em) 1fr 4.2em;
+    align-items: center;
+    gap: 1rem;
+    font-family: "Nunito", sans-serif;
+}
+.tipo-nome { font-size: .98rem; line-height: 1.25; color: var(--dark); }
+.tipo-barra { height: 14px; background: #EAEDF2; border-radius: 99px; overflow: hidden; }
+.tipo-barra i {
+    display: block; height: 100%;
+    width: calc(var(--v) * 100%);
+    min-width: 6px;
+    background: var(--cor-primaria);
+    border-radius: 99px;
+    transform-origin: left;
+    transform: scaleX(1);
+    transition: transform 1s cubic-bezier(.2, .7, .2, 1);
+}
+.tipos-lista:not(.visivel) .tipo-barra i { transform: scaleX(0); }
+.tipo:nth-child(2) .tipo-barra i { transition-delay: .05s; }
+.tipo:nth-child(3) .tipo-barra i { transition-delay: .1s; }
+.tipo:nth-child(4) .tipo-barra i { transition-delay: .15s; }
+.tipo:nth-child(5) .tipo-barra i { transition-delay: .2s; }
+.tipo:nth-child(6) .tipo-barra i { transition-delay: .25s; }
+.tipo:nth-child(7) .tipo-barra i { transition-delay: .3s; }
+.tipo:nth-child(8) .tipo-barra i { transition-delay: .35s; }
+.tipo:nth-child(9) .tipo-barra i { transition-delay: .4s; }
+.tipo:nth-child(10) .tipo-barra i { transition-delay: .45s; }
+.tipo-disp .tipo-barra i { background: var(--cor-secundaria); }
+.tipo-n { text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.02rem; }
+.tipo-tag {
+    display: inline-block;
+    font-family: "Nunito", sans-serif;
+    font-size: .72rem; font-weight: 800;
+    letter-spacing: .06em; text-transform: uppercase;
+    color: #1d5e48; background: var(--verde-claro);
+    border-radius: 99px; padding: .15rem .55rem;
+    vertical-align: 2px; margin-left: .25rem;
+    white-space: nowrap;
+}
+.tipos-total {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1.5px solid #E1E5EB;
+    margin-top: 1.3rem !important; padding-top: 1rem;
+    font-weight: 700;
+}
+.tipos-total b { font-family: "Margin", sans-serif; font-weight: 500; font-size: 2.4rem; }
+.tipos-card .panorama-nota { text-align: left; }
+
+/* ── Rede nacional ── */
+.rede-section {
+    background: var(--cor-primaria);
+    color: var(--light);
+    border-radius: 160px;
+    padding: 110px 20px 100px;
+    margin: 20px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+.rede-section::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(60% 60% at 85% 30%, rgba(114, 201, 169, .35), transparent 70%);
+    pointer-events: none;
+}
+.rede-inner, .rede-lista {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.rede-inner {
+    display: grid;
+    grid-template-columns: minmax(300px, 5fr) 7fr;
+    gap: 50px;
+    align-items: start;
+}
+.rede-section .kicker { color: var(--cor-secundaria); }
+.rede-section h2 { font-size: 4rem; line-height: .95; color: #fff; }
+.rede-lede { margin-top: 1.3rem !important; line-height: 1.55; color: rgba(255, 255, 255, .9); }
+.rede-nums {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 10px; margin: 2rem 0 1.6rem;
+}
+.rede-nums div {
+    display: flex; flex-direction: column-reverse;
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 1.1rem;
+    padding: .9rem .8rem .8rem;
+}
+.rede-nums dd { font-family: "Margin", sans-serif; font-size: 2.6rem; line-height: 1; color: #fff; }
+.rede-nums dt { font-family: "Nunito", sans-serif; font-size: .85rem; font-weight: 700; color: rgba(255, 255, 255, .78); margin-top: .35rem; }
+.rede-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.rede-chip {
+    font-family: "Nunito", sans-serif; font-weight: 700; font-size: .92rem;
+    color: #fff; background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, .45);
+    border-radius: 99px; padding: .4rem .95rem; cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+}
+.rede-chip:hover { border-color: #fff; }
+.rede-chip.ativo { background: #fff; color: var(--navy); border-color: #fff; }
+.rede-painel {
+    margin-top: 1.4rem;
+    min-height: 180px;
+    background: rgba(255, 255, 255, .96);
+    color: var(--dark);
+    border-radius: 1.4rem;
+    padding: 1.3rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(15, 30, 55, .25);
+}
+.rede-hint { font-size: 1rem !important; color: var(--dark-60); line-height: 1.5; }
+.rede-p-cidade { font-family: "Margin", sans-serif; font-size: 1.9rem !important; line-height: 1; }
+.rede-p-cidade span { font-family: "Nunito", sans-serif; font-size: .9rem; font-weight: 800; color: var(--cor-primaria); vertical-align: middle; }
+.rede-p-n { font-size: .85rem !important; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--dark-60); margin: .4rem 0 .7rem !important; }
+.rede-painel ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; max-height: 210px; overflow: auto; }
+.rede-painel li { font-family: "Nunito", sans-serif; font-size: 1rem; line-height: 1.35; padding-left: 1rem; position: relative; }
+.rede-painel li::before { content: ""; position: absolute; left: 0; top: .5em; width: 6px; height: 6px; border-radius: 50%; background: var(--cor-secundaria); }
+
+.rede-mapa { position: relative; }
+.rede-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.rede-svg .uf { fill: rgba(255, 255, 255, .13); stroke: rgba(255, 255, 255, .45); stroke-width: 1.4; stroke-linejoin: round; transition: fill .3s; }
+.rede-svg .uf.fora { fill: rgba(255, 255, 255, .04); stroke: rgba(255, 255, 255, .18); }
+.rede-svg .halo { fill: var(--cor-secundaria); opacity: .28; transition: opacity .2s; }
+.rede-svg .ponto { fill: #fff; stroke: var(--cor-primaria); stroke-width: 2.5; transition: fill .2s; }
+.rede-svg .n { font-family: "Nunito", sans-serif; font-weight: 800; font-size: 17px; fill: var(--navy); text-anchor: middle; pointer-events: none; }
+.rede-svg .rot { font-family: "Nunito", sans-serif; font-weight: 700; font-size: 20px; fill: #fff; paint-order: stroke; stroke: rgba(31, 51, 84, .7); stroke-width: 5px; pointer-events: none; }
+.rede-svg .cidade { cursor: pointer; outline: none; transform-box: fill-box; transform-origin: center; transition: opacity .3s, transform .5s cubic-bezier(.2, .8, .2, 1.3); }
+.rede-svg .cidade:hover .ponto, .rede-svg .cidade:focus-visible .ponto, .rede-svg .cidade.ativa .ponto { fill: var(--cor-secundaria); }
+.rede-svg .cidade:hover .halo, .rede-svg .cidade:focus-visible .halo, .rede-svg .cidade.ativa .halo { opacity: .6; }
+.rede-svg .cidade:focus-visible .ponto { stroke: #fff; stroke-width: 4; }
+.rede-svg .cidade.fora { opacity: .15; pointer-events: none; }
+.filtrando .rede-svg .rot { opacity: .25; }
+.rede-section.pre .cidade { opacity: 0; transform: scale(.3); }
+.rede-section.entra .cidade { transition-delay: calc(var(--d) * .7s); }
+
+.rede-lista { margin-top: 70px; }
+.rede-lista h3 { font-family: "Margin", sans-serif; font-weight: 500; font-size: 2rem; color: #fff; margin-bottom: 1.2rem; }
+.rede-lista-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; align-items: start; }
+.rede-reg {
+    background: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 1.1rem;
+    padding: .2rem 1.1rem;
+    transition: opacity .3s;
+}
+.rede-reg.fora { opacity: .4; }
+.rede-reg summary {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: "Nunito", sans-serif; font-weight: 800; font-size: 1.05rem;
+    padding: .8rem 0; cursor: pointer; list-style: none;
+}
+.rede-reg summary::-webkit-details-marker { display: none; }
+.rede-reg summary::after { content: "+"; font-size: 1.3rem; margin-left: .6rem; }
+.rede-reg[open] summary::after { content: "–"; }
+.rede-reg-n { margin-left: auto; font-size: .85rem; background: rgba(255, 255, 255, .16); border-radius: 99px; padding: .1rem .55rem; }
+.rede-reg > ul { list-style: none; padding-bottom: .9rem; display: flex; flex-direction: column; gap: .8rem; }
+.rede-cid b { font-family: "Nunito", sans-serif; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; color: var(--cor-secundaria); }
+.rede-cid ul { list-style: none; margin-top: .25rem; }
+.rede-cid li { font-family: "Nunito", sans-serif; font-size: .95rem; line-height: 1.35; color: rgba(255, 255, 255, .92); }
+.rede-nota { margin-top: 1.4rem !important; font-size: .9rem !important; color: rgba(255, 255, 255, .7); }
+
+/* ── Participe ── */
+.participe-header { max-width: 1200px; margin: 0 auto 2.4rem; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem 3rem; }
+.participe-header h2 { font-size: 4rem; line-height: .95; }
+.participe-header p { max-width: 28em; color: var(--dark-60); }
+.cta-section .cta-grid { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+.cta-card { align-items: flex-start; min-height: 0; padding: 3.6rem 3.4rem 3rem; }
+.cta-card .kicker { color: inherit; opacity: .75; }
+.cta-card.azul .kicker { color: #fff; }
+.cta-h { font-family: "Margin", sans-serif; font-weight: 500; font-size: 3rem; line-height: 1; margin-bottom: 1.2rem; }
+.cta-card.azul .cta-h { color: #fff; }
+.cta-card .cta-content { gap: 0; }
+.cta-card .cta-btn-wrap { margin-top: 1.4rem; justify-content: flex-start; }
+.cta-card .cta-btn { width: 280px; }
+
+/* ── Rodapé ── */
+.site-footer { padding-top: 70px; }
+.footer-grid {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: grid; grid-template-columns: 1.4fr 1fr 1.4fr; gap: 50px;
+}
+.footer-col p, .footer-col li { font-size: .98rem; line-height: 1.55; color: rgba(255, 255, 255, .88); }
+.footer-col a { color: #fff; text-underline-offset: 3px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+.footer-logo { height: 54px; width: auto; margin: 0 0 1.1rem; filter: brightness(0) invert(1); }
+.footer-h {
+    font-family: "Nunito", sans-serif; font-weight: 800; font-size: .8rem;
+    letter-spacing: .14em; text-transform: uppercase; color: var(--cor-secundaria);
+    margin: 0 0 .8rem; line-height: 1.2;
+}
+.footer-col .footer-h:not(:first-child) { margin-top: 1.6rem; }
+.footer-cite { font-size: .9rem !important; }
+.footer-cite a { word-break: break-all; }
+.footer-logos {
+    max-width: 1200px; margin: 50px auto 0; padding: 22px 30px;
+    background: #fff; border-radius: 1.4rem;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 22px 44px;
+}
+.footer-logos img { height: 40px; width: auto; margin: 0; }
+.footer-logos img[alt="CNPq"] { height: 30px; }
+.site-footer .footer-inner { margin-top: 30px; }
+
+/* ── Responsivo ── */
+@media (max-width: 1100px) {
+    .header-link { display: none; }
+}
+@media (max-width: 900px) {
+    .tipos-inner, .rede-inner { grid-template-columns: 1fr; gap: 36px; }
+    .tipos-inner { padding: 0 20px; }
+    .rede-section { border-radius: 80px; padding: 80px 20px 70px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-sobre { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+    .tipos-texto h2, .rede-section h2, .participe-header h2 { font-size: 2.8rem; }
+    .tipos-card { padding: 1.5rem 1.2rem 1.2rem; border-radius: 1.4rem; }
+    .tipo { grid-template-columns: 1fr 3.6em; gap: .3rem .8rem; }
+    .tipo-nome { grid-column: 1 / -1; }
+    .tipo-barra { grid-column: 1; }
+    .rede-nums { grid-template-columns: repeat(2, 1fr); }
+    .rede-section { border-radius: 44px; padding: 64px 16px 56px; }
+    .cta-card { padding: 2.6rem 1.6rem 2.2rem; }
+    .cta-h { font-size: 2.3rem; }
+    .cta-card .cta-btn { width: 230px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 34px; }
+    .footer-logos img { height: 32px; }
+    .hero-sub { font-size: 1.05rem; }
+}
+
+/* Documentação com 4 peças */
+.docs-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.footer-col li, .footer-col a { font-family: "Nunito", sans-serif; }
+@media (max-width: 600px) {
+    .rede-painel { min-height: 0; }
+    .rede-svg .rot { font-size: 30px; stroke-width: 7px; }
+    .rede-svg .n { font-size: 22px; }
+}
