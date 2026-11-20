@@ -2444,3 +2444,32 @@ a.header-lang { text-decoration: none; }
     .rede-svg .rot { font-size: 30px; stroke-width: 7px; }
     .rede-svg .n { font-size: 22px; }
 }
+
+/* ── Botão "Acessar a plataforma" (cabeçalho e menu do celular) ──
+   O link fica em index.html e en.html (procure LINK DA PLATAFORMA). */
+.header-cta-plataforma {
+    font-family: "Nunito", sans-serif;
+    font-weight: 800;
+    font-size: 1.02rem;
+    background: var(--cor-primaria);
+    border-color: var(--cor-primaria);
+    color: #fff;
+    padding: .6rem 1.25rem;
+}
+.header-cta-plataforma:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+/* no menu do celular o fundo já é azulado: marinho para contrastar */
+.popup-cta-plataforma { background: var(--navy) !important; border-color: var(--navy) !important; color: #fff !important; }
+
+/* Topo no computador: altura mínima (não fixa), descontando o cabeçalho fixo
+   (110px), para o título nunca ficar sob o menu em telas mais baixas. Em telas
+   altas a altura continua 80vh, como antes. */
+.hero { position: relative; }
+.hero::before { height: 100%; }
+@media (min-width: 1025px) {
+    .hero-container {
+        height: auto;
+        min-height: 80vh;
+        padding: 110px 40px 40px;
+        box-sizing: border-box;
+    }
+}
