@@ -61,7 +61,7 @@ def svg(lang):
         x, y = P(CITIES[c][1], CITIES[c][2]); n = len(by_city[c])
         r = 7 + 6.5 * math.sqrt(n - 1)
         uf = CITIES[c][0]; reg = REG_KEY[REGION[uf]]
-        lbl = (f'{c} ({uf}): {n} instituição' + ('ões' if n > 1 else '')) if lang == 'pt' else \
+        lbl = (f'{c} ({uf}): {n} ' + ('instituições' if n > 1 else 'instituição')) if lang == 'pt' else \
               (f'{c} ({uf}): {n} institution' + ('s' if n > 1 else ''))
         out.append(f'<g class="cidade" tabindex="0" role="button" data-cidade="{esc(c)}" data-regiao="{reg}" '
                    f'aria-label="{esc(lbl)}" style="--d:{(y/H):.2f}">'
