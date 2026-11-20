@@ -2564,3 +2564,8 @@ a.header-lang { text-decoration: none; }
     .aviso-plataforma h2 { font-size: 1.7rem; }
     .aviso-acoes .aviso-btn { flex: 1 1 100%; text-align: center; }
 }
+
+/* ── Pacientes por tipo de câncer: legenda com as duas cores das barras ── */
+.tipos-legenda { margin-top: 1.4rem; display: flex; flex-direction: column; gap: .55rem; }
+.tipos-legenda .tipos-leg { margin-top: 0 !important; }
+.tipos-leg-dot-embargo { background: var(--cor-primaria); }
