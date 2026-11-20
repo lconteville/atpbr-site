@@ -50,8 +50,8 @@
             <a href="#publicacoes" class="header-cta header-link">Publicações</a>
             <a href="#documentacao" class="header-cta header-link">Documentação</a>
             <a href="#participe" class="header-cta header-cta-destaque">Participe</a>
-            <!-- LINK DA PLATAFORMA: trocar o href "#" pelo endereço da plataforma quando ele for aberto (aqui e no menu do celular, em index.html e en.html). Enquanto o href for "#", o clique abre o aviso "Em breve" (plataforma.js). -->
-            <a href="#" class="header-cta header-cta-plataforma" target="_blank" rel="noopener">Acessar a plataforma</a>
+            <!-- LINK DA PLATAFORMA: o endereço fica num lugar só, em plataforma.js (PLATAFORMA_URL). Enquanto estiver vazio, os botões com data-plataforma abrem o aviso "Em breve". -->
+            <a href="#" class="header-cta header-cta-plataforma" data-plataforma>Acessar a plataforma</a>
 
             <!-- Instagram -->
             <a href="https://www.instagram.com/atp.br" target="_self" rel="noopener noreferrer" class="header-icon-btn"
@@ -101,7 +101,7 @@
         <a href="#publicacoes" class="popup-cta">Publicações</a>
         <a href="#documentacao" class="popup-cta">Documentação</a>
         <a href="#participe" class="popup-cta popup-cta-destaque">Participe</a>
-        <a href="#" class="popup-cta popup-cta-plataforma" target="_blank" rel="noopener">Acessar a plataforma</a>
+        <a href="#" class="popup-cta popup-cta-plataforma" data-plataforma>Acessar a plataforma</a>
     </div>
 
 
@@ -146,8 +146,10 @@
         </p>
 
         <div class="patrocinadores-logos">
-            <img loading="lazy" src="./assets/logo_genomasraros.webp" alt="logo do Programa Nacional de Genômica e Saúde de Precisão">
-            <img loading="lazy" src="./assets/logo-inca-sus-ms-2026-defeso.png" alt="logos do INCA, SUS e Ministério da Saúde">
+            <img loading="lazy" src="./assets/logo_genomasraros.webp" alt="logo do Programa Nacional de Genômica e Saúde de Precisão" class="logo-genomas">
+            <img loading="lazy" src="./assets/logo-inca-2026-defeso.png" alt="logo do INCA" class="logo-inca">
+            <img loading="lazy" src="./assets/logo-sus-2026-defeso.png" alt="logo do SUS" class="logo-sus">
+            <img loading="lazy" src="./assets/logo-ministerio-saude-2026-defeso.png" alt="logo do Ministério da Saúde" class="logo-ms">
             <img loading="lazy" src="./assets/infografico/logo-cnpq.png" alt="logo do CNPq" class="logo-cnpq">
         </div>
 
@@ -956,6 +958,9 @@
             <h2 id="participe-h2">Participe do ATPBR</h2>
             <p>Duas formas de fazer parte da construção do Atlas.</p>
         </div>
+        <div class="participe-aviso-wrap">
+            <p class="participe-aviso"><span class="hero-badge-dot" aria-hidden="true"></span><span>O acesso à plataforma será aberto em <strong>26 de novembro</strong>, no lançamento oficial.</span></p>
+        </div>
         <div class="cta-grid">
             <div class="cta-card verde">
                 <div class="cta-content">
@@ -963,20 +968,9 @@
                     <h3 class="cta-h">Quero usar os dados</h3>
                     <p>Dados abertos para explorar livremente e dados de acesso controlado, analisados em ambiente seguro dentro da plataforma.</p>
                 </div>
-                <div class="cta-btn-wrap">
-                    <a href="./wiki/acesso-aos-dados.html" class="cta-btn">
-                        <svg class="cta-btn-shadow" viewBox="0 0 559 330" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M220.289 0L232.265 2.91275C275.579 20.5374 282.886 87.6958 345.032 65.8249C380.723 53.2647 402.042 25.5851 445.928 31.744C506.888 40.3004 550.665 109.779 557.787 158.818L559 167.357V189.918L556.563 204.125C546.61 252.201 492.795 295.299 434.561 286.464C375.748 277.54 323.582 219.568 261.112 250.935C221.683 270.731 196.262 318.258 151.09 328.091C147.413 328.892 143.632 329.229 139.956 330H120.259L107.815 327.885C68.4477 318.551 50.7475 290.74 64.5354 256.669C71.522 239.402 84.0084 225.865 94.6216 210.503C102.45 199.168 104.841 188.965 90.7981 180.416C66.9878 165.926 35.8666 183.214 12.2147 167.462C5.80351 163.192 2.04563 156.575 0.145443 149.85C0.481451 145.853 -0.310292 141.317 0.145443 137.391C0.921737 130.704 6.07386 121.08 10.4149 115.534C25.0371 96.8617 46.1785 96.3667 68.1117 88.3895C110.7 72.9031 130.849 32.6161 169.358 11.6645C178.002 6.96031 192.809 0.922653 202.909 0.00336735H220.289V0Z" />
-                        </svg>
-                        <svg class="cta-btn-face" viewBox="0 0 559 330" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M220.289 0L232.265 2.91275C275.579 20.5374 282.886 87.6958 345.032 65.8249C380.723 53.2647 402.042 25.5851 445.928 31.744C506.888 40.3004 550.665 109.779 557.787 158.818L559 167.357V189.918L556.563 204.125C546.61 252.201 492.795 295.299 434.561 286.464C375.748 277.54 323.582 219.568 261.112 250.935C221.683 270.731 196.262 318.258 151.09 328.091C147.413 328.892 143.632 329.229 139.956 330H120.259L107.815 327.885C68.4477 318.551 50.7475 290.74 64.5354 256.669C71.522 239.402 84.0084 225.865 94.6216 210.503C102.45 199.168 104.841 188.965 90.7981 180.416C66.9878 165.926 35.8666 183.214 12.2147 167.462C5.80351 163.192 2.04563 156.575 0.145443 149.85C0.481451 145.853 -0.310292 141.317 0.145443 137.391C0.921737 130.704 6.07386 121.08 10.4149 115.534C25.0371 96.8617 46.1785 96.3667 68.1117 88.3895C110.7 72.9031 130.849 32.6161 169.358 11.6645C178.002 6.96031 192.809 0.922653 202.909 0.00336735H220.289V0Z" />
-                        </svg>
-                        <span class="cta-btn-label">como acessar</span>
-                    </a>
+                <div class="cta-acoes">
+                    <a href="#" class="cta-plataforma" data-plataforma>Acessar a plataforma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <a href="./wiki/acesso-aos-dados.html" class="cta-saiba">Saiba como acessar</a>
                 </div>
             </div>
             <div class="cta-card azul">
@@ -985,20 +979,9 @@
                     <h3 class="cta-h">Quero contribuir com dados</h3>
                     <p>Compartilhe dados clínicos e ômicos e ajude a construir uma base robusta, ética e acessível à comunidade científica.</p>
                 </div>
-                <div class="cta-btn-wrap">
-                    <a href="https://forms.gle/86CwDE7oo6FdZ55z7" class="cta-btn" target="_blank" rel="noopener">
-                        <svg class="cta-btn-shadow" viewBox="0 0 559 330" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M220.289 0L232.265 2.91275C275.579 20.5374 282.886 87.6958 345.032 65.8249C380.723 53.2647 402.042 25.5851 445.928 31.744C506.888 40.3004 550.665 109.779 557.787 158.818L559 167.357V189.918L556.563 204.125C546.61 252.201 492.795 295.299 434.561 286.464C375.748 277.54 323.582 219.568 261.112 250.935C221.683 270.731 196.262 318.258 151.09 328.091C147.413 328.892 143.632 329.229 139.956 330H120.259L107.815 327.885C68.4477 318.551 50.7475 290.74 64.5354 256.669C71.522 239.402 84.0084 225.865 94.6216 210.503C102.45 199.168 104.841 188.965 90.7981 180.416C66.9878 165.926 35.8666 183.214 12.2147 167.462C5.80351 163.192 2.04563 156.575 0.145443 149.85C0.481451 145.853 -0.310292 141.317 0.145443 137.391C0.921737 130.704 6.07386 121.08 10.4149 115.534C25.0371 96.8617 46.1785 96.3667 68.1117 88.3895C110.7 72.9031 130.849 32.6161 169.358 11.6645C178.002 6.96031 192.809 0.922653 202.909 0.00336735H220.289V0Z" />
-                        </svg>
-                        <svg class="cta-btn-face" viewBox="0 0 559 330" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true">
-                            <path
-                                d="M220.289 0L232.265 2.91275C275.579 20.5374 282.886 87.6958 345.032 65.8249C380.723 53.2647 402.042 25.5851 445.928 31.744C506.888 40.3004 550.665 109.779 557.787 158.818L559 167.357V189.918L556.563 204.125C546.61 252.201 492.795 295.299 434.561 286.464C375.748 277.54 323.582 219.568 261.112 250.935C221.683 270.731 196.262 318.258 151.09 328.091C147.413 328.892 143.632 329.229 139.956 330H120.259L107.815 327.885C68.4477 318.551 50.7475 290.74 64.5354 256.669C71.522 239.402 84.0084 225.865 94.6216 210.503C102.45 199.168 104.841 188.965 90.7981 180.416C66.9878 165.926 35.8666 183.214 12.2147 167.462C5.80351 163.192 2.04563 156.575 0.145443 149.85C0.481451 145.853 -0.310292 141.317 0.145443 137.391C0.921737 130.704 6.07386 121.08 10.4149 115.534C25.0371 96.8617 46.1785 96.3667 68.1117 88.3895C110.7 72.9031 130.849 32.6161 169.358 11.6645C178.002 6.96031 192.809 0.922653 202.909 0.00336735H220.289V0Z" />
-                        </svg>
-                        <span class="cta-btn-label">quero fazer parte</span>
-                    </a>
+                <div class="cta-acoes">
+                    <a href="#" class="cta-plataforma" data-plataforma>Acessar a plataforma <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                    <a href="./wiki/submissao-de-dados.html" class="cta-saiba">Saiba como contribuir</a>
                 </div>
             </div>
         </div>
@@ -1024,9 +1007,11 @@
             </div>
         </div>
         <div class="footer-logos">
-            <img src="./assets/logo_genomasraros.webp" alt="Genomas Brasil" loading="lazy">
-            <img src="./assets/logo-inca-sus-ms-2026-defeso.png" alt="INCA, SUS, Ministério da Saúde" loading="lazy">
-            <img src="./assets/infografico/logo-cnpq.png" alt="CNPq" loading="lazy">
+            <img src="./assets/logo_genomasraros.webp" alt="Genomas Brasil" loading="lazy" class="logo-genomas">
+            <img src="./assets/logo-inca-2026-defeso.png" alt="INCA" loading="lazy" class="logo-inca">
+            <img src="./assets/logo-sus-2026-defeso.png" alt="SUS" loading="lazy" class="logo-sus">
+            <img src="./assets/logo-ministerio-saude-2026-defeso.png" alt="Ministério da Saúde" loading="lazy" class="logo-ms">
+            <img src="./assets/infografico/logo-cnpq.png" alt="CNPq" loading="lazy" class="logo-cnpq">
         </div>
         <div class="footer-inner">
             <p class="footer-copy">ATPBR · Atlas Tumoral da População Brasileira &copy; 2026</p>
