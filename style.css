@@ -2725,3 +2725,6 @@ a.header-lang { text-decoration: none; }
 @media (min-width: 681px) and (max-width: 900px) {
     .footer-logos { column-gap: 32px; }
 }
+
+/* ── Mapa da rede em tela estreita: painel abaixo do mapa (rede.js) ── */
+.painel-abaixo .rede-inner > .rede-painel { margin-top: 0; }

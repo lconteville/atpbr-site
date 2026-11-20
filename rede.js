@@ -34,6 +34,9 @@
     var cidades = sec.querySelectorAll('.cidade');
     var fixa = null;
 
+    // <g> do SVG não tem o método click() (só elementos HTML têm): dispara o evento
+    function clica(g) { g.dispatchEvent(new MouseEvent('click')); }
+
     function esc(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
     function mostra(nome) {
@@ -59,9 +62,49 @@
         g.addEventListener('focus', function () { mostra(nome); });
         g.addEventListener('click', function () { fixa = (fixa === nome ? null : nome); fixa ? mostra(nome) : limpa(); });
         g.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); g.click(); }
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clica(g); }
         });
     });
+
+    /* ── Toque no celular ──
+       Num celular os pontos têm de 5 a 16 px, pequenos demais para o dedo:
+       um toque no mapa escolhe a cidade mais próxima (até RAIO px da borda do
+       ponto). Tocar longe de todas limpa a seleção. */
+    var svgMapa = sec.querySelector('.rede-svg');
+    var mapa = sec.querySelector('.rede-mapa');
+    var RAIO = 28;
+    var estreito = window.matchMedia('(max-width: 900px)');
+    svgMapa.addEventListener('click', function (e) {
+        if (!e.target.closest('.cidade')) {
+            var melhor = null, dist = Infinity;
+            cidades.forEach(function (g) {
+                if (g.classList.contains('fora')) return;
+                var r = g.querySelector('.ponto').getBoundingClientRect();
+                var d = Math.hypot(e.clientX - (r.left + r.width / 2), e.clientY - (r.top + r.height / 2)) - r.width / 2;
+                if (d < dist) { dist = d; melhor = g; }
+            });
+            if (melhor && dist <= RAIO) clica(melhor);
+            else if (fixa) { fixa = null; limpa(); }
+        }
+        // em tela estreita o painel fica abaixo do mapa: rola até ele se não estiver visível
+        if (fixa && estreito.matches) {
+            var p = painel.getBoundingClientRect();
+            if (p.bottom > window.innerHeight || p.top < 0) painel.scrollIntoView({ block: 'nearest', behavior: reduz ? 'auto' : 'smooth' });
+        }
+    });
+
+    /* Em tela estreita (uma coluna) o painel vai para baixo do mapa, para a lista
+       de instituições não empurrar o mapa para baixo do dedo a cada toque. */
+    var marcaPainel = document.createComment('lugar do painel no computador');
+    painel.parentNode.insertBefore(marcaPainel, painel);
+    function posicionaPainel() {
+        if (estreito.matches) mapa.parentNode.insertBefore(painel, mapa.nextSibling);
+        else marcaPainel.parentNode.insertBefore(painel, marcaPainel.nextSibling);
+        sec.classList.toggle('painel-abaixo', estreito.matches);
+    }
+    posicionaPainel();
+    if (estreito.addEventListener) estreito.addEventListener('change', posicionaPainel);
+    else if (estreito.addListener) estreito.addListener(posicionaPainel);
 
     /* filtro por região */
     var chips = sec.querySelectorAll('.rede-chip');
