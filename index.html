@@ -50,6 +50,8 @@
             <a href="#publicacoes" class="header-cta header-link">Publicações</a>
             <a href="#documentacao" class="header-cta header-link">Documentação</a>
             <a href="#participe" class="header-cta header-cta-destaque">Participe</a>
+            <!-- LINK DA PLATAFORMA: trocar o href "#" pelo endereço da plataforma quando ele for aberto (aqui e no menu do celular, em index.html e en.html). Enquanto o href for "#", o clique abre o aviso "Em breve" (plataforma.js). -->
+            <a href="#" class="header-cta header-cta-plataforma" target="_blank" rel="noopener">Acessar a plataforma</a>
 
             <!-- Instagram -->
             <a href="https://www.instagram.com/atp.br" target="_self" rel="noopener noreferrer" class="header-icon-btn"
@@ -99,7 +101,23 @@
         <a href="#publicacoes" class="popup-cta">Publicações</a>
         <a href="#documentacao" class="popup-cta">Documentação</a>
         <a href="#participe" class="popup-cta popup-cta-destaque">Participe</a>
+        <a href="#" class="popup-cta popup-cta-plataforma" target="_blank" rel="noopener">Acessar a plataforma</a>
     </div>
+
+
+    <!-- Aviso "Em breve" do botão de acesso à plataforma (aberto por plataforma.js) -->
+    <dialog class="aviso-plataforma" id="avisoPlataforma" aria-labelledby="avisoPlataformaTitulo">
+        <button type="button" class="aviso-fechar" data-fechar aria-label="Fechar aviso">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>Em breve</span>
+        <h2 id="avisoPlataformaTitulo">A plataforma do ATPBR será lançada em breve</h2>
+        <p>Em breve você poderá acessar por aqui os dados clínicos e multiômicos do Atlas Tumoral da População Brasileira. O lançamento oficial será em <strong>26 de novembro, às 14h</strong>, com transmissão ao vivo pela TV INCA.</p>
+        <div class="aviso-acoes">
+            <a class="aviso-btn aviso-btn-principal" href="https://www.gov.br/inca/pt-br/assuntos/eventos/dia-nacional-de-combate-ao-cancer-2026-2014-lancamento-do-atlas-tumoral-da-populacao-brasileira-atpbr" target="_blank" rel="noopener">Ver detalhes do lançamento</a>
+            <button type="button" class="aviso-btn" data-fechar>Fechar</button>
+        </div>
+    </dialog>
 
 
     <main id="conteudo">
@@ -999,7 +1017,7 @@
                 <h2 class="footer-h">Como citar</h2>
                 <p class="footer-cite">Boroni M, Conteville LC, Ribeiro Pinto LF, Viola JPB. The Brazilian Population Tumor Atlas Project: addressing representation in cancer genomics in Brazil. <i>Lancet Reg Health Am</i>. 2026;56:101397. <a href="https://doi.org/10.1016/j.lana.2026.101397" target="_blank" rel="noopener">doi:10.1016/j.lana.2026.101397</a></p>
                 <h2 class="footer-h">Contato</h2>
-                <p><a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a><br>Praça da Cruz Vermelha, 23 · Centro · Rio de Janeiro, RJ</p>
+                <p><a href="mailto:atpbr@inca.gov.br">atpbr@inca.gov.br</a></p>
             </div>
         </div>
         <div class="footer-logos">
@@ -1253,6 +1271,7 @@
 
     </script>
     <script src="./rede.js" defer></script>
+    <script src="./plataforma.js" defer></script>
 </body>
 
 </html>
