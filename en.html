@@ -43,7 +43,7 @@
             <a href="#publicacoes" class="header-cta header-link">Publications</a>
             <a href="#documentacao" class="header-cta header-link">Documentation</a>
             <a href="#participe" class="header-cta header-cta-destaque">Get involved</a>
-            <!-- LINK DA PLATAFORMA: trocar o href "#" pelo endereço da plataforma quando ele for aberto (aqui e no menu do celular, em index.html e en.html) -->
+            <!-- LINK DA PLATAFORMA: trocar o href "#" pelo endereço da plataforma quando ele for aberto (aqui e no menu do celular, em index.html e en.html). Enquanto o href for "#", o clique abre o aviso "Em breve" (plataforma.js). -->
             <a href="#" class="header-cta header-cta-plataforma" target="_blank" rel="noopener">Access the platform</a>
 
             <!-- Instagram -->
@@ -96,6 +96,21 @@
         <a href="#participe" class="popup-cta popup-cta-destaque">Get involved</a>
         <a href="#" class="popup-cta popup-cta-plataforma" target="_blank" rel="noopener">Access the platform</a>
     </div>
+
+
+    <!-- Aviso "Em breve" do botão de acesso à plataforma (aberto por plataforma.js) -->
+    <dialog class="aviso-plataforma" id="avisoPlataforma" aria-labelledby="avisoPlataformaTitulo">
+        <button type="button" class="aviso-fechar" data-fechar aria-label="Close notice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>Coming soon</span>
+        <h2 id="avisoPlataformaTitulo">The ATPBR platform is launching soon</h2>
+        <p>Soon you will be able to access the clinical and multi-omics data of the Brazilian Population Tumor Atlas from here. The official launch is on <strong>26 November, 2 pm (Brasília time)</strong>, live on TV INCA.</p>
+        <div class="aviso-acoes">
+            <a class="aviso-btn aviso-btn-principal" href="https://www.gov.br/inca/pt-br/assuntos/eventos/dia-nacional-de-combate-ao-cancer-2026-2014-lancamento-do-atlas-tumoral-da-populacao-brasileira-atpbr" target="_blank" rel="noopener">See launch details</a>
+            <button type="button" class="aviso-btn" data-fechar>Close</button>
+        </div>
+    </dialog>
 
 
     <main id="conteudo">
@@ -1242,6 +1257,7 @@
 
     </script>
     <script src="./rede.js" defer></script>
+    <script src="./plataforma.js" defer></script>
 </body>
 
 </html>
