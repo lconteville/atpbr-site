@@ -5,7 +5,8 @@ do en.html, entre os marcadores <!-- GOVERNANCA:INICIO --> e <!-- GOVERNANCA:FIM
 Fonte: "Organograma ATPBR - estrutura sem nomes" (versão de 18/11/2026) e os nomes
 dos colegiados usados na wiki (Governança de dados).
 
-A página mostra a versão resumida: cada instância com a sigla, o nome e uma
+A página mostra o organograma em três níveis (deliberativas, consultivas, execução).
+Cada instância é um cartão recolhível: fechado mostra a sigla e o nome; aberto, uma
 frase sobre o que faz ("faz_pt"/"faz_en"). As cadeiras ficam guardadas aqui.
 
 Para publicar os membros quando as indicações chegarem: preencha "membro" na
@@ -32,8 +33,8 @@ def c(pt, en, membro=None, secundaria=False):
 COLEGIADOS = [
     {
         'id': 'cgn',
-        'faz_pt': 'Instância máxima: define a estratégia, aprova a entrada de centros e as políticas gerais.',
-        'faz_en': 'Highest body: sets the strategy, admits new centers and approves general policies.', 'sigla': 'CGN', 'papel': 'decide', 'topo': True,
+        'faz_pt': 'Estratégia, políticas, adesão de centros e resolução de conflitos.',
+        'faz_en': 'Strategy, policies, admission of centers and conflict resolution.', 'sigla': 'CGN', 'papel': 'decide', 'topo': True,
         'pt': 'Conselho de Governança Nacional',
         'en': 'National Governance Council',
         'meta_pt': ['9 com voto + 2 observadores', 'trimestral', 'instância máxima'],
@@ -53,8 +54,8 @@ COLEGIADOS = [
     },
     {
         'id': 'ccp',
-        'faz_pt': 'Avalia propostas de análise, prioriza projetos e cuida das regras de autoria e publicação.',
-        'faz_en': 'Reviews analysis proposals, prioritizes projects and oversees authorship and publication rules.', 'sigla': 'CCP', 'papel': 'decide',
+        'faz_pt': 'Avalia propostas, define prioridades, embargos, autoria e publicações.',
+        'faz_en': 'Reviews proposals and sets priorities, embargoes, authorship and publications.', 'sigla': 'CCP', 'papel': 'decide',
         'pt': 'Comitê Científico e de Publicações',
         'en': 'Scientific and Publications Committee',
         'meta_pt': ['9 membros', 'mensal'],
@@ -73,8 +74,8 @@ COLEGIADOS = [
     },
     {
         'id': 'cad',
-        'faz_pt': 'Decide os pedidos de acesso controlado aos dados, em até 30 dias.',
-        'faz_en': 'Decides on controlled data access requests within 30 days.', 'sigla': 'CAD', 'papel': 'decide',
+        'faz_pt': 'Delibera pedidos de acesso controlado e acompanha os usos autorizados.',
+        'faz_en': 'Decides on controlled access requests and monitors authorized uses.', 'sigla': 'CAD', 'papel': 'decide',
         'pt': 'Comitê de Acesso a Dados',
         'en': 'Data Access Committee',
         'meta_pt': ['7 membros', 'mensal'],
@@ -92,8 +93,8 @@ COLEGIADOS = [
     },
     {
         'id': 'cesp',
-        'faz_pt': 'Traz a voz de pacientes e da sociedade e acompanha os riscos éticos e coletivos.',
-        'faz_en': 'Brings in the voice of patients and society and monitors ethical and collective risks.', 'sigla': 'CESP', 'papel': 'aconselha',
+        'faz_pt': 'Perspectiva de pacientes, proteção de grupos e riscos coletivos.',
+        'faz_en': 'Patient perspective, protection of groups and collective risks.', 'sigla': 'CESP', 'papel': 'aconselha',
         'pt': 'Comitê de Ética, Sociedade e Participação',
         'en': 'Ethics, Society and Participation Committee',
         'meta_pt': ['5 a 7 membros', 'semestral'],
@@ -109,8 +110,8 @@ COLEGIADOS = [
     },
     {
         'id': 'sab',
-        'faz_pt': 'Alinha o ATPBR aos padrões e às boas práticas internacionais.',
-        'faz_en': 'Aligns ATPBR with international standards and best practices.', 'sigla': 'SAB', 'papel': 'aconselha',
+        'faz_pt': 'Padrões internacionais, interoperabilidade e aconselhamento científico.',
+        'faz_en': 'International standards, interoperability and scientific advice.', 'sigla': 'SAB', 'papel': 'aconselha',
         'pt': 'Conselho Consultivo Científico Internacional',
         'en': 'International Scientific Advisory Board',
         'meta_pt': ['5 membros', 'anual'],
@@ -127,8 +128,8 @@ COLEGIADOS = [
 
 EXECUTIVO = {
     'id': 'nucleo',
-        'faz_pt': 'Opera a plataforma: curadoria, qualidade dos dados, pipelines e apoio aos centros.',
-        'faz_en': 'Runs the platform: curation, data quality, pipelines and support to the centers.', 'sigla': 'LBBC/INCA',
+        'faz_pt': 'Recebe, valida, processa e cura os dados, apoia os centros e secretaria os colegiados.',
+        'faz_en': 'Receives, validates, processes and curates the data, supports the centers and acts as secretariat to the boards.', 'sigla': 'LBBC/INCA',
     'pt': 'Núcleo Executivo e Curadoria Operacional',
     'en': 'Executive Office and Operational Curation',
     'meta_pt': ['equipe interna do INCA', 'executa e reporta ao CGN'],
@@ -149,7 +150,11 @@ T = {
         'h2': 'Estrutura de gestão',
         'lede': 'O INCA coordena e mantém a plataforma. As decisões sobre ciência, acesso aos dados e ética '
                 'são de colegiados em que os centros participantes têm assento e voto.',
-        'grupos': {'decide': 'decidem', 'aconselha': 'aconselham', 'executa': 'executa'},
+        'consorcio': 'Consórcio ATPBR · INCA e instituições participantes',
+        'niveis': {'decide': ('Deliberativas', 'Tomam decisões'),
+                   'aconselha': ('Consultivas', 'Apoio transversal, sem voto'),
+                   'executa': ('Execução', 'Suporte, sem voto')},
+        'dica': 'Abra cada instância para ler o que ela faz.',
         'ver': 'ver membros',
         'wiki': 'Como funciona a governança',
         'wiki_href': './wiki/governanca-de-dados.html#quem-e-quem',
@@ -159,7 +164,11 @@ T = {
         'h2': 'Management structure',
         'lede': 'INCA coordinates and maintains the platform. Decisions on science, data access and ethics '
                 'are made by boards in which the participating centers have a seat and a vote.',
-        'grupos': {'decide': 'decide', 'aconselha': 'advise', 'executa': 'executes'},
+        'consorcio': 'ATPBR Consortium · INCA and participating institutions',
+        'niveis': {'decide': ('Decision-making', 'Take decisions'),
+                   'aconselha': ('Advisory', 'Cross-cutting support, no vote'),
+                   'executa': ('Execution', 'Support, no vote')},
+        'dica': 'Open each body to read what it does.',
         'ver': 'see members',
         'wiki': 'How governance works',
         'wiki_href': './wiki/en/data-governance.html#who-s-who',
@@ -178,25 +187,36 @@ def membros(col, lang):
     return f'<details class="gov-membros"><summary>{t["ver"]}</summary><ul>{lis}</ul></details>'
 
 
-def cartao(col, lang):
-    nome = col[lang]
-    return (f'<article class="gov-card" aria-labelledby="gov-{col["id"]}-{lang}">'
-            f'<p class="gov-sigla" aria-hidden="true">{e(col["sigla"].split("/")[0] if col["id"] == "nucleo" else col["sigla"])}</p>'
-            f'<h3 id="gov-{col["id"]}-{lang}">{e(nome)}'
-            f'{"" if col["id"] != "nucleo" else " <span>(" + e(col["sigla"]) + ")</span>"}</h3>'
-            f'<p class="gov-faz">{e(col["faz_" + lang])}</p>'
-            f'{membros(col, lang)}</article>')
+def cartao(col, lang, extra=''):
+    """Cartão recolhível (<details>): fechado mostra só a sigla e o nome; aberto, a frase
+    sobre o que a instância faz (e os membros, quando houver)."""
+    nucleo = col['id'] == 'nucleo'
+    sigla = '' if nucleo else f'<span class="gov-sigla" aria-hidden="true">{e(col["sigla"])}</span>'
+    nome = e(col[lang]) + (f' <span class="gov-sufixo">· {e(col["sigla"])}</span>' if nucleo else '')
+    return (f'<details class="gov-card gov-card-{col["id"]}{extra}">'
+            f'<summary>{sigla}<h3 id="gov-{col["id"]}-{lang}">{nome}</h3>'
+            f'<span class="gov-seta" aria-hidden="true"></span></summary>'
+            f'<div class="gov-corpo"><p class="gov-faz">{e(col["faz_" + lang])}</p>'
+            f'{membros(col, lang)}</div></details>')
+
+
+def nivel(papel, conteudo, lang):
+    titulo, sub = T[lang]['niveis'][papel]
+    return (f'<div class="gov-nivel gov-{papel}">'
+            f'<p class="gov-rotulo"><strong>{titulo}</strong> <span>{sub}</span></p>'
+            f'<div class="gov-blocos">{conteudo}</div></div>')
 
 
 def secao(lang):
     t = T[lang]
-    grupos = []
-    for papel in ('decide', 'aconselha', 'executa'):
-        cols = [EXECUTIVO] if papel == 'executa' else [c for c in COLEGIADOS if c['papel'] == papel]
-        cards = ''.join(cartao(c, lang) for c in cols)
-        grupos.append(f'<div class="gov-grupo gov-{papel}" style="--n:{len(cols)}">'
-                      f'<p class="gov-verbo">{t["grupos"][papel]}</p>'
-                      f'<div class="gov-cards">{cards}</div></div>')
+    por_id = {c['id']: c for c in COLEGIADOS}
+    # Deliberativas: o CGN no topo, ligado ao CCP e ao CAD logo abaixo
+    decide = (cartao(por_id['cgn'], lang, ' gov-topo')
+              + '<div class="gov-conector" aria-hidden="true"></div>'
+              + '<div class="gov-par">' + cartao(por_id['ccp'], lang) + cartao(por_id['cad'], lang) + '</div>')
+    aconselha = '<div class="gov-par">' + ''.join(
+        cartao(c, lang) for c in COLEGIADOS if c['papel'] == 'aconselha') + '</div>'
+    executa = cartao(EXECUTIVO, lang)
     return f'''<section class="gov-section dobra" id="governanca" aria-labelledby="gov-h2">
         <div class="gov-inner">
             <div class="gov-header">
@@ -209,8 +229,12 @@ def secao(lang):
                     <a class="gov-link" href="{t['wiki_href']}">{t['wiki']} →</a>
                 </div>
             </div>
-            <div class="gov-grupos">
-                {''.join(grupos)}
+            <div class="gov-org">
+                <p class="gov-consorcio">{t['consorcio']}</p>
+                {nivel('decide', decide, lang)}
+                {nivel('aconselha', aconselha, lang)}
+                {nivel('executa', executa, lang)}
+                <p class="gov-dica">{t['dica']}</p>
             </div>
         </div>
     </section>'''
