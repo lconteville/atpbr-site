@@ -2652,12 +2652,15 @@ a.header-lang { text-decoration: none; }
     .footer-logos img.logo-cnpq    { height: 26px; }
 }
 @media (max-width: 680px) {
-    /* quebra fixa no rodapé (até 680px os seis não cabem numa linha): INCA · INCT · Genomas em cima,
-       SUS · Ministério · CNPq embaixo, mantendo as duplas juntas. O ::after ocupa uma linha inteira
-       de altura zero (por isso o espaço entre linhas é metade: ele conta duas vezes) */
+    /* quebra fixa no rodapé (até 680px os seis não cabem numa linha): INCA · INCT em cima,
+       SUS · Ministério no meio e o bloco "Apoio e fomento" (Genomas · CNPq) embaixo. O ::after e o
+       ::before ocupam uma linha inteira de altura zero (por isso o espaço entre linhas é metade:
+       cada quebra conta duas vezes) */
     .footer-logos { row-gap: 9px; }
     .footer-logos::after { content: ""; flex-basis: 100%; height: 0; order: 1; }
-    .footer-logos .lk-sus, .footer-logos .lk-ms, .footer-logos .lk-cnpq { order: 2; }
+    .footer-logos::before { content: ""; flex-basis: 100%; height: 0; order: 3; }
+    .footer-logos .lk-sus, .footer-logos .lk-ms { order: 2; }
+    .footer-logos .footer-apoio { order: 4; }
 }
 
 /* ── Celular: logos maiores e cards do "Participe" alinhados ──
@@ -2700,10 +2703,12 @@ a.header-lang { text-decoration: none; }
     .footer-logos img.logo-inct { height: min(56px, 13vw); }
 }
 
-/* ── Estrutura de gestão (governança), versão resumida ──
-   Gerada por scripts/governanca/gerar_governanca.py. As seis instâncias ficam
-   numa linha, agrupadas pelo que fazem: decidem (azul), aconselham (verde) e
-   executa (verde claro). Cada cartão: sigla grande, nome e uma frase. */
+/* ── Estrutura de gestão (governança): organograma recolhível ──
+   Gerado por scripts/governanca/gerar_governanca.py. Três níveis, cada um com o
+   rótulo à esquerda: deliberativas (CGN no topo, ligado ao CCP e ao CAD),
+   consultivas (CESP, SAB) e execução (Núcleo Executivo). Cada instância é um
+   <details>: fechado mostra a sigla e o nome numa linha só, para o organograma
+   inteiro caber baixo; aberto mostra a frase sobre o que faz. */
 .gov-section { width: 100%; }
 .gov-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .gov-header {
@@ -2714,58 +2719,103 @@ a.header-lang { text-decoration: none; }
 .gov-intro p { line-height: 1.55; font-family: "Nunito", sans-serif; }
 .gov-link { display: inline-block; margin-top: .8rem; font-family: "Nunito", sans-serif; color: var(--cor-primaria); font-weight: 700; text-underline-offset: 3px; }
 
-.gov-grupos { display: flex; gap: 18px; align-items: stretch; }
-.gov-grupo { flex: var(--n) 1 0; min-width: 0; display: flex; flex-direction: column; }
-.gov-verbo {
-    display: flex; align-items: center; gap: .8rem; margin: 0 0 .9rem;
-    font-family: "Margin", sans-serif; font-size: 1.6rem; line-height: 1; color: var(--cor-primaria);
+.gov-org {
+    --gov-escuro: #1f3355; --gov-azul: #415d8e; --gov-verde: #22704f;
+    --gov-verde-claro: #d5dfdb; --gov-linha: #7088b0;
+    font-family: "Nunito", sans-serif; display: flex; flex-direction: column; gap: 26px;
 }
-.gov-verbo::after { content: ""; flex: 1; height: 2px; border-radius: 2px; background: currentColor; opacity: .35; }
-.gov-aconselha .gov-verbo, .gov-executa .gov-verbo { color: #3f9c7b; }
-.gov-cards { flex: 1; display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 14px; }
+.gov-consorcio {
+    margin: 0 0 4px; padding: .85rem 1.2rem; text-align: center;
+    border: 1.5px dashed #c5cede; border-radius: 999px;
+    font-size: .8rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--gov-azul);
+}
+.gov-nivel { display: grid; grid-template-columns: 170px 1fr; gap: 0 22px; align-items: start; }
+.gov-rotulo { margin: .9rem 0 0; display: flex; flex-direction: column; gap: .3rem; line-height: 1.35; }
+.gov-rotulo strong { font-size: .78rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; color: #4a5263; }
+.gov-rotulo span { font-size: .85rem; color: #6b7280; }
+.gov-blocos { min-width: 0; }
+.gov-par { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
 
-.gov-card {
-    position: relative; overflow: hidden; display: flex; flex-direction: column; gap: .5rem;
-    background: var(--branco); border-radius: 1.4rem; padding: 1.3rem 1.3rem 1.2rem;
-    box-shadow: var(--sombra); transition: transform .2s;
+/* liga o CGN ao CCP e ao CAD */
+.gov-conector { position: relative; height: 26px; }
+.gov-conector::before { content: ""; position: absolute; left: 50%; top: 0; height: 50%; border-left: 2px solid var(--gov-linha); }
+.gov-conector::after {
+    content: ""; position: absolute; left: calc(25% - 5px); right: calc(25% - 5px); top: 50%; bottom: 0;
+    border: 2px solid var(--gov-linha); border-bottom: 0; border-radius: 6px 6px 0 0;
 }
-.gov-card:hover { transform: translateY(-3px); }
-.gov-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--cor-primaria); }
-.gov-aconselha .gov-card::before { background: var(--cor-secundaria); }
-.gov-executa .gov-card { background: rgba(114, 201, 169, .16); box-shadow: none; border: 2px solid rgba(114, 201, 169, .55); }
-.gov-executa .gov-card::before { display: none; }
-.gov-sigla {
-    font-family: "Margin", sans-serif; font-size: 2.4rem; line-height: 1; margin: .2rem 0 0;
-    color: var(--cor-primaria);
+
+.gov-card { border-radius: 1rem; background: var(--gov-azul); color: #fff; }
+.gov-card.gov-topo { background: var(--gov-escuro); }
+.gov-aconselha .gov-card { background: #fff; color: var(--gov-escuro); border: 1.5px solid #bfe6d6; }
+.gov-executa .gov-card { background: var(--gov-verde-claro); color: var(--gov-escuro); }
+
+.gov-card > summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; gap: .4rem .9rem;
+    padding: 1.05rem 1.4rem; border-radius: 1rem;
 }
-.gov-aconselha .gov-sigla, .gov-executa .gov-sigla { color: #3f9c7b; }
-.gov-card h3 { font-family: "Nunito", sans-serif; font-weight: 800; font-size: .92rem; line-height: 1.3; margin: 0; color: var(--dark); }
-.gov-card h3 span { font-weight: 600; color: var(--dark-60); }
-.gov-faz { font-family: "Nunito", sans-serif; font-size: .88rem; line-height: 1.45; color: var(--dark-60); flex: 1; }
-.gov-membros { margin-top: .4rem; font-family: "Nunito", sans-serif; font-size: .85rem; }
-.gov-membros summary { cursor: pointer; font-weight: 700; color: var(--cor-primaria); }
+/* lado a lado, os cartões fechados ficam da mesma altura mesmo quando um nome quebra linha */
+.gov-par .gov-card > summary { min-height: 4.4rem; }
+.gov-card > summary::-webkit-details-marker { display: none; }
+.gov-card > summary:focus-visible { outline: 3px solid var(--cor-secundaria); outline-offset: 3px; }
+.gov-sigla { flex: none; font-size: 1.55rem; font-weight: 900; line-height: 1; color: #84bba8; }
+.gov-aconselha .gov-sigla { color: var(--gov-verde); }
+.gov-card h3 { flex: 1; margin: 0; font-family: "Nunito", sans-serif; font-size: 1rem; font-weight: 800; line-height: 1.3; color: inherit; }
+.gov-sufixo { white-space: nowrap; }
+/* seta que gira ao abrir */
+.gov-seta {
+    flex: none; align-self: center; width: .55rem; height: .55rem; margin-left: .3rem;
+    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: translateY(-25%) rotate(45deg); opacity: .7; transition: transform .2s;
+}
+.gov-card[open] > summary .gov-seta { transform: translateY(25%) rotate(-135deg); }
+.gov-card > summary:hover .gov-seta { opacity: 1; }
+
+.gov-corpo { padding: 0 1.4rem 1.15rem; }
+.gov-faz { margin: 0; font-size: .95rem; line-height: 1.5; opacity: .82; }
+.gov-card { interpolate-size: allow-keywords; }
+.gov-card::details-content { block-size: 0; overflow: hidden; transition: block-size .25s ease, content-visibility .25s allow-discrete; }
+.gov-card[open]::details-content { block-size: auto; }
+@media (prefers-reduced-motion: reduce) { .gov-card::details-content { transition: none; } .gov-seta { transition: none; } }
+
+.gov-membros { margin-top: .6rem; font-size: .88rem; }
+.gov-membros summary { cursor: pointer; font-weight: 700; }
 .gov-membros ul { list-style: none; margin: .5rem 0 0; padding: 0; display: flex; flex-direction: column; gap: .35rem; }
 .gov-membros li strong { display: block; }
 
-@media (max-width: 1100px) {
-    .gov-grupos { flex-wrap: wrap; }
-    .gov-decide { flex-basis: 100%; }
-}
+.gov-dica { margin: -8px 0 0 192px; font-size: .85rem; color: #6b7280; }
+
 @media (max-width: 900px) {
     .gov-header { grid-template-columns: 1fr; }
 }
-@media (max-width: 600px) {
+@media (max-width: 760px) {
     .gov-header h2 { font-size: 2.8rem; }
     .gov-header { margin-bottom: 1.8rem; }
-    .gov-grupos { flex-direction: column; gap: 22px; }
-    .gov-verbo { font-size: 1.35rem; margin-bottom: .7rem; }
-    .gov-cards { grid-template-columns: 1fr; gap: 10px; }
-    /* cartão baixo: sigla à esquerda, nome e frase à direita */
-    .gov-card { display: grid; grid-template-columns: 4.4rem 1fr; column-gap: .9rem; row-gap: .25rem;
-                padding: 1rem 1rem .9rem 1.1rem; align-items: start; }
-    .gov-card::before { inset: 0 auto 0 0; width: 5px; height: auto; }
-    .gov-sigla { grid-row: 1 / span 3; font-size: 1.55rem; margin: .1rem 0 0; }
-    .gov-card h3, .gov-faz, .gov-membros { grid-column: 2; }
+    .gov-org { gap: 22px; }
+    .gov-consorcio { border-radius: 1rem; letter-spacing: .14em; font-size: .72rem; }
+    /* rótulo do nível em cima dos cartões, numa linha só */
+    .gov-nivel { grid-template-columns: 1fr; }
+    .gov-rotulo { margin: 0 0 .6rem; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; }
+    .gov-par { grid-template-columns: 1fr; gap: 10px; }
+    /* árvore no celular: um tronco desce do CGN pela esquerda e solta um galho
+       para o CCP e outro para o CAD, que ficam recuados. Os galhos miram a linha
+       do título (summary), então continuam no lugar com o cartão aberto. */
+    .gov-conector { height: 10px; }
+    .gov-conector::after { display: none; }
+    .gov-conector::before { left: 18px; height: 100%; }
+    .gov-decide .gov-par { padding-left: 34px; }
+    .gov-decide .gov-par > .gov-card { position: relative; }
+    .gov-decide .gov-par > .gov-card::before {
+        content: ""; position: absolute; left: -16px; top: -10px; width: 14px; height: calc(10px + 2rem);
+        border-left: 2px solid var(--gov-linha); border-bottom: 2px solid var(--gov-linha); border-bottom-left-radius: 8px;
+    }
+    .gov-decide .gov-par > .gov-card:not(:last-child)::after {
+        content: ""; position: absolute; left: -16px; top: 1rem; bottom: -10px; border-left: 2px solid var(--gov-linha);
+    }
+    .gov-card > summary, .gov-par .gov-card > summary { padding: .9rem 1.1rem; min-height: 0; }
+    .gov-corpo { padding: 0 1.1rem 1rem; }
+    .gov-sigla { font-size: 1.3rem; min-width: 3.6rem; }
+    .gov-card h3 { font-size: .95rem; }
+    .gov-dica { margin: -6px 0 0; }
 }
 
 /* ── Faixa de financiadores e parceiros: texto em cima, esteira de logos embaixo ──
@@ -2824,3 +2874,44 @@ a.header-lang { text-decoration: none; }
 .footer-logos > a:focus-visible, .esteira-item a:focus-visible { outline: 3px solid var(--cor-secundaria); outline-offset: 4px; }
 .esteira-item a { display: flex; align-items: center; }
 .patrocinadores-esteira:focus-within .esteira-trilho { animation-play-state: paused; }
+
+/* ── Rodapé e esteira: bloco "Apoio e fomento" ──
+   Ordem das logos: INCA · INCT · SUS · Ministério | Apoio e fomento: Genomas Brasil · CNPq.
+   O rótulo fica à esquerda do bloco, separado das instituições por um fio vertical. */
+.footer-apoio { display: flex; align-items: center; gap: 22px 28px; padding-left: 44px; border-left: 1px solid #d5dbe3; }
+.footer-apoio > a { display: flex; align-items: center; border-radius: .5rem; transition: transform .2s, opacity .2s; }
+.footer-apoio > a:hover { transform: translateY(-2px); opacity: .85; }
+.footer-apoio > a:focus-visible { outline: 3px solid var(--cor-secundaria); outline-offset: 4px; }
+.apoio-rotulo, .esteira-apoio {
+    font-family: "Nunito", sans-serif; font-size: .72rem; font-weight: 600; line-height: 1.5;
+    letter-spacing: .2em; text-transform: uppercase; color: #6b7280; white-space: nowrap;
+}
+.esteira-item-apoio .esteira-apoio { padding-right: 4px; }
+@media (max-width: 680px) {
+    /* no celular o rótulo vai para cima das duas logos, numa linha só, sem o fio */
+    .footer-apoio { flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding-left: 0; border-left: 0; }
+    .apoio-rotulo { flex-basis: 100%; text-align: center; font-size: .66rem; }
+    .apoio-rotulo br { display: none; }
+}
+
+/* ── Participe no celular: menos margem dos lados, cartões mais largos ──
+   (antes: 30px da seção + 20px da grade + 25px do cartão, e cantos de 80px) */
+@media (max-width: 600px) {
+    .cta-section.dobra { padding-left: 12px; padding-right: 12px; }
+    .participe-header { padding: 0 8px; }
+    .cta-section .cta-grid { padding: 0; gap: 14px; }
+    .cta-card { padding: 2.2rem 1.3rem 2rem; border-radius: 2rem; }
+    /* mesma folga para o organograma da governança, para os nomes não quebrarem em 3-4 linhas */
+    .gov-section.dobra { padding-left: 12px; padding-right: 12px; }
+    .gov-inner { padding: 0 8px; }
+    .gov-sigla { min-width: 3.3rem; }
+    .gov-card > summary, .gov-par .gov-card > summary { padding: .85rem 1rem; gap: .4rem .7rem; }
+}
+
+/* ── Sanfona (Cânceres incluídos, Genética da população...) no celular ──
+   antes: 30px da seção + 24px do painel azul + 20px do cartão, cantos de 50px */
+@media (max-width: 600px) {
+    .section-sanfona.dobra { padding-left: 12px; padding-right: 12px; }
+    .section-sanfona .col-left { padding: 40px 10px; border-radius: 2.4rem; }
+    .section-sanfona .accordion-item { padding: 8px 8px 8px 16px; border-radius: 2rem; }
+}
