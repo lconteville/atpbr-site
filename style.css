@@ -2915,3 +2915,14 @@ a.header-lang { text-decoration: none; }
     .section-sanfona .col-left { padding: 40px 10px; border-radius: 2.4rem; }
     .section-sanfona .accordion-item { padding: 8px 8px 8px 16px; border-radius: 2rem; }
 }
+
+/* ── Documentação: versão de cada peça ──
+   Selo "versão 0.1" ao lado do tipo (Brochura · PDF, Wiki...). Ao lançar uma
+   versão nova, trocar o número nos quatro cartões (index.html e en.html), na wiki (VERSAO em
+   tools/build_wiki.py), no infográfico e no livreto (VERSAO em build.py). */
+.docs-grid .pub-card-meta { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .4rem .8rem; }
+.pub-versao {
+    font-family: "Nunito", sans-serif; font-size: .75rem; font-weight: 700; line-height: 1;
+    padding: .3rem .6rem; border-radius: 999px; white-space: nowrap;
+    color: var(--cor-primaria); background: rgba(76, 104, 154, .1); border: 1px solid rgba(76, 104, 154, .25);
+}
