@@ -50,7 +50,7 @@
             <a href="#publicacoes" class="header-cta header-link">Publications</a>
             <a href="#documentacao" class="header-cta header-link">Documentation</a>
             <a href="#participe" class="header-cta header-cta-destaque">Get involved</a>
-            <!-- LINK DA PLATAFORMA: o endereço fica num lugar só, em plataforma.js (PLATAFORMA_URL). Enquanto estiver vazio, os botões com data-plataforma abrem o aviso "Em breve". -->
+            <!-- LINK DA PLATAFORMA: os botões com data-plataforma abrem a escolha entre Dashboard e Gestão de Dados; os endereços ficam em plataforma.js (PLATAFORMA_LINKS). -->
             <a href="#" class="header-cta header-cta-plataforma" data-plataforma>Access the platform</a>
 
             <!-- Instagram -->
@@ -106,17 +106,16 @@
     </div>
 
 
-    <!-- Aviso "Em breve" do botão de acesso à plataforma (aberto por plataforma.js) -->
+    <!-- Platform access choice (opened by plataforma.js; the addresses live in PLATAFORMA_LINKS) -->
     <dialog class="aviso-plataforma" id="avisoPlataforma" aria-labelledby="avisoPlataformaTitulo">
-        <button type="button" class="aviso-fechar" data-fechar aria-label="Close notice">
+        <button type="button" class="aviso-fechar" data-fechar aria-label="Close">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
-        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>Coming soon</span>
-        <h2 id="avisoPlataformaTitulo">The ATPBR platform is launching soon</h2>
-        <p>Soon you will be able to access the clinical and multi-omics data of the Brazilian Population Tumor Atlas from here. The official launch is on <strong>26 November, 2 pm (Brasília time)</strong>, live on TV INCA.</p>
-        <div class="aviso-acoes">
-            <a class="aviso-btn aviso-btn-principal" href="https://www.gov.br/inca/pt-br/assuntos/eventos/dia-nacional-de-combate-ao-cancer-2026-2014-lancamento-do-atlas-tumoral-da-populacao-brasileira-atpbr" target="_blank" rel="noopener">See launch details</a>
-            <button type="button" class="aviso-btn" data-fechar>Close</button>
+        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>ATPBR platform</span>
+        <h2 id="avisoPlataformaTitulo">Access the platform</h2>
+        <div class="aviso-acoes aviso-acoes-plataforma">
+            <a class="aviso-btn aviso-btn-principal" href="#" data-destino="dashboard" target="_blank" rel="noopener">Dashboard</a>
+            <a class="aviso-btn aviso-btn-principal" href="#" data-destino="gestao" target="_blank" rel="noopener">Data Management</a>
         </div>
     </dialog>
 

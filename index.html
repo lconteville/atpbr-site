@@ -51,7 +51,7 @@
             <a href="#publicacoes" class="header-cta header-link">Publicações</a>
             <a href="#documentacao" class="header-cta header-link">Documentação</a>
             <a href="#participe" class="header-cta header-cta-destaque">Participe</a>
-            <!-- LINK DA PLATAFORMA: o endereço fica num lugar só, em plataforma.js (PLATAFORMA_URL). Enquanto estiver vazio, os botões com data-plataforma abrem o aviso "Em breve". -->
+            <!-- LINK DA PLATAFORMA: os botões com data-plataforma abrem a escolha entre Dashboard e Gestão de Dados; os endereços ficam em plataforma.js (PLATAFORMA_LINKS). -->
             <a href="#" class="header-cta header-cta-plataforma" data-plataforma>Acessar a plataforma</a>
 
             <!-- Instagram -->
@@ -107,17 +107,16 @@
     </div>
 
 
-    <!-- Aviso "Em breve" do botão de acesso à plataforma (aberto por plataforma.js) -->
+    <!-- Escolha do acesso à plataforma (aberto por plataforma.js; os endereços ficam em PLATAFORMA_LINKS) -->
     <dialog class="aviso-plataforma" id="avisoPlataforma" aria-labelledby="avisoPlataformaTitulo">
-        <button type="button" class="aviso-fechar" data-fechar aria-label="Fechar aviso">
+        <button type="button" class="aviso-fechar" data-fechar aria-label="Fechar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
-        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>Em breve</span>
-        <h2 id="avisoPlataformaTitulo">A plataforma do ATPBR será lançada em breve</h2>
-        <p>Em breve você poderá acessar por aqui os dados clínicos e multiômicos do Atlas Tumoral da População Brasileira. O lançamento oficial será em <strong>26 de novembro, às 14h</strong>, com transmissão ao vivo pela TV INCA.</p>
-        <div class="aviso-acoes">
-            <a class="aviso-btn aviso-btn-principal" href="https://www.gov.br/inca/pt-br/assuntos/eventos/dia-nacional-de-combate-ao-cancer-2026-2014-lancamento-do-atlas-tumoral-da-populacao-brasileira-atpbr" target="_blank" rel="noopener">Ver detalhes do lançamento</a>
-            <button type="button" class="aviso-btn" data-fechar>Fechar</button>
+        <span class="aviso-kicker"><span class="hero-badge-dot" aria-hidden="true"></span>Plataforma ATPBR</span>
+        <h2 id="avisoPlataformaTitulo">Acessar a plataforma</h2>
+        <div class="aviso-acoes aviso-acoes-plataforma">
+            <a class="aviso-btn aviso-btn-principal" href="#" data-destino="dashboard" target="_blank" rel="noopener">Dashboard</a>
+            <a class="aviso-btn aviso-btn-principal" href="#" data-destino="gestao" target="_blank" rel="noopener">Gestão de Dados</a>
         </div>
     </dialog>
 
