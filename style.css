@@ -2559,6 +2559,9 @@ a.header-lang { text-decoration: none; }
 }
 .aviso-fechar:hover { background: var(--azul-claro); }
 .aviso-fechar svg { width: 20px; height: 20px; }
+/* escolha entre Dashboard e Gestão de Dados: dois botões do mesmo tamanho */
+.aviso-acoes-plataforma { margin-top: .4rem; }
+.aviso-acoes-plataforma .aviso-btn { flex: 1 1 0; text-align: center; padding: 1rem 1.3rem; font-size: 1.08rem; }
 @media (max-width: 480px) {
     .aviso-plataforma { padding: 2rem 1.4rem 1.5rem; }
     .aviso-plataforma h2 { font-size: 1.7rem; }
